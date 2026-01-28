@@ -1,0 +1,780 @@
+{
+  "GinazSwordmasters": {
+    "texts": {
+      "name": {
+        "value": "Ginaz Swordmaster"
+      },
+      "desc": {
+        "value": "A renowned swordmaster from Ginaz is visiting your palace. You could try to convince them to join your service."
+      }
+    }
+  },
+  "MinorHouseRefugies": {
+    "texts": {
+      "name": {
+        "value": "House Minor Refugees"
+      },
+      "desc": {
+        "value": "A house minor has recently suffered a natural disaster on their home planet, that left many people destitute. We could shelter some of them here, on Arrakis."
+      }
+    }
+  },
+  "BeneGesseritDelegation": {
+    "texts": {
+      "name": {
+        "value": "The Reverend Mother"
+      },
+      "desc": {
+        "value": "A reverend mother of the Bene Gesserit is visiting your palace. The Sisterhood requires you to contribute to their mysterious scheme. It would be unwise to disobey."
+      }
+    }
+  },
+  "TheArchitect": {
+    "texts": {
+      "name": {
+        "value": "The Investors"
+      },
+      "desc": {
+        "value": "A group of CHOAM entrepreneurs are looking for an opportunity to invest in a major business. Give them something to believe in and they'll reward you handsomely."
+      }
+    }
+  },
+  "GuildProposal_SpaceportBreach": {
+    "texts": {
+      "name": {
+        "value": "Spaceport Breach"
+      },
+      "desc": {
+        "value": "There was an accident at the Spaceport. Helping the [SpacingGuild] with the repairs would get us in their good grace."
+      }
+    }
+  },
+  "IxScientists": {
+    "texts": {
+      "name": {
+        "value": "Ix Scientist"
+      },
+      "desc": {
+        "value": "Representatives from Ix are visiting Arrakis to study the planet. A collaboration of higher minds is in order."
+      }
+    }
+  },
+  "GS_ShowYourWorth": {
+    "texts": {
+      "name": {
+        "value": "Demonstrate your might"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "TUnitType_SpawnMB"
+          },
+          "desc": {
+            "value": "Recruit ::value:: [$my(Elite)] at no cost"
+          }
+        }
+      ]
+    }
+  },
+  "GS_TrainSoldiers": {
+    "texts": {
+      "name": {
+        "value": "Give them a taste of Arrakis"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "TUnitType_SpawnMB"
+          },
+          "desc": {
+            "value": "Recruit ::value:: [$my(Elite)] at no cost"
+          }
+        }
+      ]
+    }
+  },
+  "MR_BuildHouses": {
+    "texts": {
+      "name": {
+        "value": "House the refugees precariously"
+      }
+    }
+  },
+  "MR_RecruitEngineers": {
+    "texts": {
+      "name": {
+        "value": "Utilize the cheap labor"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait"
+          },
+          "desc": {
+            "value": "::target_effects::"
+          }
+        }
+      ]
+    }
+  },
+  "BG_ServeTheGreaterGood": {
+    "texts": {
+      "name": {
+        "value": "Obey blindly"
+      }
+    }
+  },
+  "BG_RetrieveRelic": {
+    "texts": {
+      "name": {
+        "value": "Uncover the scheme"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait"
+          },
+          "desc": {
+            "value": "::target_effects::"
+          }
+        }
+      ]
+    }
+  },
+  "TA_Inspire": {
+    "texts": {
+      "name": {
+        "value": "A crucial project"
+      }
+    },
+    "conditions": {
+      "conditions": [
+        {
+          "_attrs": {
+            "ref": "Me_Track_NewWonderBuildings"
+          },
+          "desc": {
+            "value": "Build ::floored-crt::/::value:: [Building_Wonder]"
+          }
+        }
+      ]
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait"
+          },
+          "desc": {
+            "value": "Permanently gain ::target_effects::"
+          }
+        }
+      ]
+    }
+  },
+  "TA_Impress": {
+    "texts": {
+      "name": {
+        "value": "An urban wonder"
+      }
+    },
+    "conditions": {
+      "conditions": [
+        {
+          "_attrs": {
+            "ref": "Me_Track_NewMainbaseBuildings"
+          },
+          "desc": {
+            "value": "Build ::floored-crt::/::value:: [!Building_MB] in [$my(MainBase)]"
+          }
+        }
+      ]
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait"
+          },
+          "desc": {
+            "value": "Permanently gain ::target_effects::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait_Timer"
+          },
+          "desc": {
+            "value": "::target_effects:: for ::value:: days"
+          }
+        }
+      ]
+    }
+  },
+  "GP_Materials": {
+    "texts": {
+      "name": {
+        "value": "Give materials"
+      }
+    }
+  },
+  "GP_Workers": {
+    "texts": {
+      "name": {
+        "value": "Send your own workers"
+      }
+    }
+  },
+  "IS_HelpResearch": {
+    "texts": {
+      "name": {
+        "value": "Gather topographic data"
+      }
+    },
+    "conditions": {
+      "conditions": [
+        {
+          "_attrs": {
+            "ref": "Me_Track_TUnitType_VisitSpecialRegions"
+          },
+          "desc": {
+            "value": "Visit ::floored-crt::/::floored:: [SpecialRegion]s with the [::target::]"
+          }
+        }
+      ]
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait"
+          },
+          "desc": {
+            "value": "Gain ::target_effects:: permanently"
+          }
+        }
+      ]
+    }
+  },
+  "IS_SearchTheirPlans": {
+    "texts": {
+      "name": {
+        "value": "Study the [!Sandworm]"
+      }
+    },
+    "conditions": {
+      "conditions": [
+        {
+          "_attrs": {
+            "ref": "Me_Track_TUnitType_WitnessWormEating"
+          },
+          "desc": {
+            "value": "Witness a [Sandworm] with the [::target::]"
+          }
+        }
+      ]
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "TUnitType_SpawnMB"
+          },
+          "desc": {
+            "value": "Receive ::value:: [::target-unitType::]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait"
+          },
+          "desc": {
+            "value": "Gain ::target_effects:: permanently"
+          }
+        }
+      ]
+    }
+  },
+  "PromisingPolitician": {
+    "texts": {
+      "name": {
+        "value": "Promising Politician"
+      },
+      "desc": {
+        "value": "A bright young politician is rising in the [Landsraad-shortname]. No matter the subject, they always manage to steer the debate toward a favorable consensus. [$my(faction)-longname] could use such skills."
+      }
+    }
+  },
+  "MinorHousesDelegations": {
+    "texts": {
+      "name": {
+        "value": "House Minor Delegation"
+      },
+      "desc": {
+        "value": "A delegation from a house minor has come to you for help. They need to reach one of your enemies, but don't have the means to do so safely."
+      }
+    }
+  },
+  "RumoredAttack": {
+    "texts": {
+      "name": {
+        "value": "Rumored Attack"
+      },
+      "desc": {
+        "value": "A rumor is circulating about your involvement in an attack on civilian transport. Denying the fabricated slander would only strengthen the rumor."
+      }
+    }
+  },
+  "HeraldChangeVenue": {
+    "texts": {
+      "name": {
+        "value": "Herald of the Change"
+      },
+      "desc": {
+        "value": "A Herald of the Change is visiting. His duty is to report to the [Landsraad-shortname] about the current event on Arrakis and ensure that you respect your ordained duty."
+      }
+    }
+  },
+  "PP_HelpSenateCareer": {
+    "texts": {
+      "name": {
+        "value": "Ignite their interest"
+      }
+    }
+  },
+  "PP_PoliticalResources": {
+    "texts": {
+      "name": {
+        "value": "Convince them to join you"
+      }
+    }
+  },
+  "MH_SendMen": {
+    "texts": {
+      "name": {
+        "value": "Provide them with an escort"
+      }
+    }
+  },
+  "MH_HelpPlaceAgents": {
+    "texts": {
+      "name": {
+        "value": "Shield them with a distraction"
+      }
+    }
+  },
+  "RA_CoverRumors": {
+    "texts": {
+      "name": {
+        "value": "Spread a more favorable take"
+      }
+    }
+  },
+  "RA_MakeCluesDisappear": {
+    "texts": {
+      "name": {
+        "value": "Make the evidence disappear"
+      }
+    }
+  },
+  "HV_ProtectHerald": {
+    "texts": {
+      "name": {
+        "value": "Protect the Herald"
+      }
+    }
+  },
+  "HV_PressureLandsraad": {
+    "texts": {
+      "name": {
+        "value": "Negotiate a lower contribution"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait"
+          },
+          "desc": {
+            "value": "::target_effects::"
+          }
+        }
+      ]
+    }
+  },
+  "RenowedMerchant": {
+    "texts": {
+      "name": {
+        "value": "Renowned Merchant"
+      },
+      "desc": {
+        "value": "A renowned traveling salesman is looking for new markets on Arrakis. There may be some mutual gain to be found."
+      }
+    }
+  },
+  "CHOAMLoan": {
+    "texts": {
+      "name": {
+        "value": "CHOAM Loans"
+      },
+      "desc": {
+        "value": "The Combine Honnete Ober Advancer Mercantiles has heard of your misfortune. They are ready to help, but want something in return."
+      }
+    }
+  },
+  "RM_SetUpMerchant": {
+    "texts": {
+      "name": {
+        "value": "Help them to set up a water market"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Gain_TTrait"
+          },
+          "desc": {
+            "value": "Permanently gain ::target_effects::"
+          }
+        }
+      ]
+    }
+  },
+  "RM_FindValuables": {
+    "texts": {
+      "name": {
+        "value": "Introduce them to the black markets"
+      }
+    }
+  },
+  "CL_GiveUpPower": {
+    "texts": {
+      "name": {
+        "value": "Trade political services"
+      }
+    }
+  },
+  "CL_RequisitionGoods": {
+    "texts": {
+      "name": {
+        "value": "Seize pyons' valuables"
+      }
+    }
+  },
+  "UnderworldContacts": {
+    "texts": {
+      "name": {
+        "value": "The Ghost"
+      },
+      "desc": {
+        "value": "An undercover [Agent] of great talent that you thought lost long ago has contacted you with critical information about your opponents. The intel seems factual."
+      }
+    }
+  },
+  "FremenEnvoys": {
+    "texts": {
+      "name": {
+        "value": "The Fremen Leader"
+      },
+      "desc": {
+        "value": "A \"Naib\" from a nearby sietch has come to your palace. Despite his rough manners, the fremen is friendly enough. The hate of your common enemies might be ground for an alliance of sort."
+      }
+    }
+  },
+  "UC_ExtractElement": {
+    "texts": {
+      "name": {
+        "value": "Extract the agent"
+      }
+    },
+    "conditions": {
+      "conditions": [
+        {
+          "_attrs": {
+            "ref": "Me_Track_TPillages"
+          },
+          "desc": {
+            "value": "Pillage ::target_quest_structure_name::"
+          }
+        }
+      ]
+    }
+  },
+  "UC_WorkWithCell": {
+    "texts": {
+      "name": {
+        "value": "Use the information"
+      }
+    },
+    "conditions": {
+      "conditions": [
+        {
+          "_attrs": {
+            "ref": "Me_Track_KillsInZoneWithOwnOperation"
+          },
+          "desc": {
+            "value": "Kill enemy units while a [$my(faction)-shortname] operation is ongoing (currently ::floored-crt::, max ::max::)"
+          }
+        }
+      ]
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "TRes_Gain"
+          },
+          "desc": {
+            "value": "Gain ::value:: [::target::] per unit killed (::value-dyn:: [::target::])"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_Gain"
+          },
+          "desc": {
+            "value": "Gain ::value:: [::target::] per unit killed (::value-dyn:: [::target::])"
+          }
+        }
+      ]
+    }
+  },
+  "FR_ExtractCaptive": {
+    "texts": {
+      "name": {
+        "value": "Liberate captives"
+      }
+    },
+    "conditions": {
+      "conditions": [
+        {
+          "_attrs": {
+            "ref": "Me_Track_LiberatesTTarget"
+          },
+          "desc": {
+            "value": "Liberate ::target_quest_structure_name::"
+          }
+        }
+      ]
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Sietch_SetRelation"
+          },
+          "desc": {
+            "value": "Reveal 1 [Sietch]"
+          }
+        }
+      ]
+    }
+  },
+  "FR_MakeFriends": {
+    "texts": {
+      "name": {
+        "value": "Gain their trust"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Agent_Gain_WithTTrait"
+          },
+          "desc": {
+            "value": "Receive ::value:: [FremenSibling] [Agent]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TUnit_SpawnMB_XpLevel"
+          },
+          "desc": {
+            "value": "Receive ::value:: [F_Trooper] at max level"
+          }
+        }
+      ]
+    }
+  },
+  "ContrabandSupply_HardPower": {
+    "texts": {
+      "name": {
+        "value": "Contraband Supply"
+      },
+      "desc": {
+        "value": "New smuggling opportunities have been brought up"
+      }
+    }
+  },
+  "ContrabandSupply_SoftPower": {
+    "texts": {
+      "name": {
+        "value": "Contraband Supply"
+      },
+      "desc": {
+        "value": "New smuggling opportunities have been brought up"
+      }
+    }
+  },
+  "ContrabandSupply_Lord": {
+    "texts": {
+      "name": {
+        "value": "Contraband Supply"
+      },
+      "desc": {
+        "value": "New smuggling opportunities have been brought up"
+      }
+    }
+  },
+  "CSW_Manpower": {
+    "texts": {
+      "name": {
+        "value": "Recruit workers"
+      }
+    }
+  },
+  "CSW_Favor": {
+    "texts": {
+      "name": {
+        "value": "Exchange the [Spice] for Favors"
+      }
+    }
+  },
+  "CSW_Influence": {
+    "texts": {
+      "name": {
+        "value": "Bribe politicians"
+      }
+    }
+  },
+  "CSW_Intel": {
+    "texts": {
+      "name": {
+        "value": "Exchange the [Spice] for informations"
+      }
+    }
+  },
+  "CSW_PayBribe": {
+    "texts": {
+      "name": {
+        "value": "Make powerful new friends"
+      }
+    }
+  },
+  "CSW_Authority": {
+    "texts": {
+      "name": {
+        "value": "Make a deal with a crime baron"
+      }
+    }
+  },
+  "SecurityProtocols": {
+    "texts": {
+      "name": {
+        "value": "Security Protocols"
+      },
+      "desc": {
+        "value": "A plot is in progress to end your life. Your security team suggest to change all your protocols to slow down the assassins."
+      }
+    }
+  },
+  "SP_UpdateProtocols": {
+    "texts": {
+      "name": {
+        "value": "Increase Redundancy"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Assassination_ReduceFlatProgression"
+          },
+          "desc": {
+            "value": "Slightly postpone assassination attempts"
+          }
+        }
+      ]
+    }
+  },
+  "SP_GatherOutside": {
+    "texts": {
+      "name": {
+        "value": "Add a layer of security"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "Assassination_AddDefend"
+          },
+          "desc": {
+            "value": "Increase upkeeps of assassination attempts"
+          }
+        }
+      ]
+    }
+  },
+  "OO_SendSpecialist": {
+    "texts": {
+      "name": {
+        "value": "Send a Specialist"
+      }
+    }
+  },
+  "OO_FindWeakness": {
+    "texts": {
+      "name": {
+        "value": "Find a Weakness"
+      }
+    }
+  },
+  "HarkonnenEnvoys": {
+    "texts": {
+      "name": {
+        "value": "Harkonnen Scheme"
+      },
+      "desc": {
+        "value": "[Harkonnen-longname] wants to integrate you in one of their devious plots, but they want to test your commitement first... Or, maybe the test is part of the scheme?"
+      }
+    }
+  },
+  "HE_PushArmies": {
+    "texts": {
+      "name": {
+        "value": "Push your forces to their limits"
+      }
+    }
+  },
+  "HE_NoMercy": {
+    "texts": {
+      "name": {
+        "value": "Show no mercy to the locals"
+      }
+    },
+    "effects": {
+      "effects": [
+        {
+          "_attrs": {
+            "ref": "TUnit_SpawnMB_WithTTrait2"
+          },
+          "desc": {
+            "value": "Obtain ::value:: [H_Soldier]s"
+          }
+        }
+      ]
+    }
+  }
+}

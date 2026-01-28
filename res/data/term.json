@@ -1,0 +1,158 @@
+{
+  "Discovery": {
+    "texts": {
+      "name": {
+        "value": "Discovery"
+      },
+      "plural": {
+        "name": {
+          "value": "Discoveries"
+        }
+      }
+    }
+  },
+  "DeepDesert": {
+    "texts": {
+      "name": {
+        "value": "Deep desert"
+      },
+      "plural": {
+        "name": {
+          "value": "Deep deserts"
+        }
+      }
+    }
+  },
+  "Treaty": {
+    "texts": {
+      "name": {
+        "value": "Treaty"
+      },
+      "plural": {
+        "name": {
+          "value": "Treaties"
+        }
+      }
+    }
+  },
+  "Sandworm": {
+    "texts": {
+      "name": {
+        "value": "Sandworm"
+      },
+      "plural": {
+        "name": {
+          "value": "Sandworms"
+        }
+      }
+    }
+  },
+  "Sandstorm": {
+    "texts": {
+      "name": {
+        "value": "Sandstorm"
+      },
+      "plural": {
+        "name": {
+          "value": "Sandstorms"
+        }
+      }
+    }
+  },
+  "Charter": {
+    "texts": {
+      "name": {
+        "value": "Charter"
+      },
+      "plural": {
+        "name": {
+          "value": "Charters"
+        }
+      }
+    }
+  },
+  "Building_Village": {
+    "texts": {
+      "name": {
+        "value": "Building"
+      },
+      "plural": {
+        "name": {
+          "value": "Buildings"
+        }
+      }
+    }
+  },
+  "Building_Wonder": {
+    "texts": {
+      "name": {
+        "value": "Major Building"
+      },
+      "plural": {
+        "name": {
+          "value": "Major Buildings"
+        }
+      }
+    }
+  },
+  "Building_MB": {
+    "texts": {
+      "name": {
+        "value": "Building"
+      },
+      "plural": {
+        "name": {
+          "value": "Buildings"
+        }
+      }
+    }
+  },
+  "Building_UWHQ": {
+    "texts": {
+      "name": {
+        "value": "Extension"
+      },
+      "plural": {
+        "name": {
+          "value": "Extensions"
+        }
+      }
+    }
+  },
+  "Building_UWHQ_MB": {
+    "texts": {
+      "name": {
+        "value": "Major Extension"
+      },
+      "plural": {
+        "name": {
+          "value": "Major Extensions"
+        }
+      }
+    }
+  },
+  "Building_Sietch": {
+    "texts": {
+      "name": {
+        "value": "Industry"
+      },
+      "plural": {
+        "name": {
+          "value": "Industries"
+        }
+      }
+    }
+  },
+  "SpecificityVillage": {
+    "texts": {
+      "name": {
+        "value": "Village quirks"
+      },
+      "plural": {
+        "name": {
+          "value": "Village quirks"
+        }
+      }
+    }
+  }
+}

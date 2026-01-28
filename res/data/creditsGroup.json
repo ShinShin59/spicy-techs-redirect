@@ -1,0 +1,507 @@
+{
+  "Shiro": {
+    "title": {
+      "value": "Shiro Games"
+    }
+  },
+  "Funcom": {
+    "title": {
+      "value": "Funcom"
+    }
+  },
+  "Localization": {
+    "title": {
+      "value": "Localization"
+    }
+  },
+  "BetaTesters": {
+    "title": {
+      "value": "Beta Testers"
+    }
+  },
+  "Direction": {
+    "title": {
+      "value": "Shiro Direction"
+    }
+  },
+  "Design": {
+    "title": {
+      "value": "Game Design"
+    }
+  },
+  "Programming": {
+    "title": {
+      "value": "Programming"
+    }
+  },
+  "Art": {
+    "title": {
+      "value": "Art"
+    }
+  },
+  "QA": {
+    "title": {
+      "value": "Quality Assurance"
+    }
+  },
+  "SFX": {
+    "title": {
+      "value": "Sound Design and Audio integration"
+    }
+  },
+  "Marketing": {
+    "title": {
+      "value": "Studio Marketing"
+    }
+  },
+  "Business": {
+    "title": {
+      "value": "Business Development"
+    }
+  },
+  "Geology": {
+    "title": {
+      "value": "Geology Consulting"
+    }
+  },
+  "ShiroBabies": {
+    "title": {
+      "value": "Shiro Babies"
+    }
+  },
+  "UI": {
+    "title": {
+      "value": "2D Art & UI"
+    }
+  },
+  "Animation": {
+    "title": {
+      "value": "Animation"
+    }
+  },
+  "NonLeadProg": {
+    "title": {
+      "value": "Programming"
+    }
+  },
+  "ToolsProg": {
+    "title": {
+      "value": "Tools & System Programming"
+    }
+  },
+  "LeadDesign": {
+    "title": {
+      "value": "Lead Designer"
+    }
+  },
+  "GameDesigner": {
+    "title": {
+      "value": "Game Designer"
+    }
+  },
+  "LeadProg": {
+    "title": {
+      "value": "Lead Programmer"
+    }
+  },
+  "ArtDir": {
+    "title": {
+      "value": "Art Direction"
+    }
+  },
+  "MktDir": {
+    "title": {
+      "value": "Marketing Direction"
+    }
+  },
+  "ProdMgt": {
+    "title": {
+      "value": "Product Management"
+    }
+  },
+  "Community": {
+    "title": {
+      "value": "Community Management"
+    }
+  },
+  "ThreeD": {
+    "title": {
+      "value": "3D Art"
+    }
+  },
+  "Trailers": {
+    "title": {
+      "value": "Trailers & Additional Art"
+    }
+  },
+  "VFX": {
+    "title": {
+      "value": "Visual Effects"
+    }
+  },
+  "Music": {
+    "title": {
+      "value": "Music"
+    }
+  },
+  "AdditionalMusic": {
+    "title": {
+      "value": "Additional Music"
+    }
+  },
+  "AudioDir": {
+    "title": {
+      "value": "Audio Director"
+    }
+  },
+  "SDesignSenior": {
+    "title": {
+      "value": "Senior Sound Designer"
+    }
+  },
+  "SDesigners": {
+    "title": {
+      "value": "Sound Designers"
+    }
+  },
+  "TechAudio": {
+    "title": {
+      "value": "Technical Audio"
+    }
+  },
+  "ArcadesCEO": {
+    "title": {
+      "value": "Arcades CEO"
+    }
+  },
+  "FuncomMarketing": {
+    "title": {
+      "value": "Marketing"
+    }
+  },
+  "FuncomVideo": {
+    "title": {
+      "value": "Video"
+    }
+  },
+  "FC16": {
+    "title": {
+      "value": "GRAPHIC DESIGNER"
+    }
+  },
+  "FC17": {
+    "title": {
+      "value": "COPYWRITER"
+    }
+  },
+  "FC1": {
+    "title": {
+      "value": "CHIEF MARKETING OFFICER"
+    }
+  },
+  "FC2": {
+    "title": {
+      "value": "MARKETING ART DIRECTOR"
+    }
+  },
+  "FC3": {
+    "title": {
+      "value": "SALES DIRECTOR"
+    }
+  },
+  "FC4": {
+    "title": {
+      "value": "MARKETING PRODUCER"
+    }
+  },
+  "FC5": {
+    "title": {
+      "value": "SENIOR PR MANAGER"
+    }
+  },
+  "FC6": {
+    "title": {
+      "value": "MARKETING MANAGER"
+    }
+  },
+  "FC7": {
+    "title": {
+      "value": "COMMUNICATIONS GENERALIST"
+    }
+  },
+  "FC8": {
+    "title": {
+      "value": "SOCIAL MEDIA SPECIALIST"
+    }
+  },
+  "FC9": {
+    "title": {
+      "value": "SALES MANAGER"
+    }
+  },
+  "FC10": {
+    "title": {
+      "value": "BUSINESS INTELLIGENCE SPECIALIST"
+    }
+  },
+  "FC11": {
+    "title": {
+      "value": "TRADE MARKETING SPECIALIST"
+    }
+  },
+  "FC12": {
+    "title": {
+      "value": "SENIOR CONTENT MANAGER"
+    }
+  },
+  "FC13": {
+    "title": {
+      "value": "ASSOCIATE LEAD VIDEO PRODUCER"
+    }
+  },
+  "FC14": {
+    "title": {
+      "value": "GAME CAPTURE ARTIST"
+    }
+  },
+  "FC15": {
+    "title": {
+      "value": "VIDEO EDITOR"
+    }
+  },
+  "LocFr": {
+    "title": {
+      "value": "French - Loc3"
+    }
+  },
+  "LocDe": {
+    "title": {
+      "value": "German"
+    }
+  },
+  "LocIt": {
+    "title": {
+      "value": "Italian"
+    }
+  },
+  "LocPl": {
+    "title": {
+      "value": "Polish - Albion Locasations"
+    }
+  },
+  "LocPt": {
+    "title": {
+      "value": "Portuguese - Locsmiths"
+    }
+  },
+  "LocRu": {
+    "title": {
+      "value": "Russian - Levsha"
+    }
+  },
+  "LocZh": {
+    "title": {
+      "value": "Simplified Chinese - Active Gaming Media"
+    }
+  },
+  "LocSp": {
+    "title": {
+      "value": "Spanish"
+    }
+  },
+  "VoiceActing": {
+    "title": {
+      "value": "Voice Acting"
+    }
+  },
+  "VoiceLeto": {
+    "title": {
+      "value": "Duke Leto Atreides"
+    }
+  },
+  "VoiceVladimir": {
+    "title": {
+      "value": "Baron Vladimir Harkonnen"
+    }
+  },
+  "VoiceEsmar": {
+    "title": {
+      "value": "Esmar Tuek"
+    }
+  },
+  "VoiceLiet": {
+    "title": {
+      "value": "Dr. Liet Kynes"
+    }
+  },
+  "VoiceShaddam": {
+    "title": {
+      "value": "Padishah Emperor Shaddam IV Corrino"
+    }
+  },
+  "VoiceArmanda": {
+    "title": {
+      "value": "Archduchess Armanda Ecaz"
+    }
+  },
+  "VoiceRhombur": {
+    "title": {
+      "value": "Earl Rhombur Vernius"
+    }
+  },
+  "VoiceThufir": {
+    "title": {
+      "value": "Thufir Hawat"
+    }
+  },
+  "VoicePiter": {
+    "title": {
+      "value": "Piter de Vries"
+    }
+  },
+  "VoiceHasimir": {
+    "title": {
+      "value": "Count Hasimir Fenring"
+    }
+  },
+  "VoiceSanya": {
+    "title": {
+      "value": "Sanya Ecaz"
+    }
+  },
+  "VoiceTessia": {
+    "title": {
+      "value": "Tessia Vernius"
+    }
+  },
+  "VoiceStaban": {
+    "title": {
+      "value": "Staban Tuek"
+    }
+  },
+  "VoiceStilgar": {
+    "title": {
+      "value": "Stilgar Ben Fifrawi"
+    }
+  },
+  "VoiceBeneGesserit": {
+    "title": {
+      "value": "Reverend Mother"
+    }
+  },
+  "VoiceGuildMan": {
+    "title": {
+      "value": "Guildman"
+    }
+  },
+  "VoiceDuncan": {
+    "title": {
+      "value": "Duncan Idaho"
+    }
+  },
+  "VoiceGurney": {
+    "title": {
+      "value": "Gurney Halleck"
+    }
+  },
+  "VoiceAtreidesUnits": {
+    "title": {
+      "value": "Atreides units"
+    }
+  },
+  "VoiceRabban": {
+    "title": {
+      "value": "Count Glossu Rabban"
+    }
+  },
+  "VoiceIakin": {
+    "title": {
+      "value": "Iakin Nefud"
+    }
+  },
+  "VoiceHarkonnenUnits": {
+    "title": {
+      "value": "Harkonnen units"
+    }
+  },
+  "VoiceBannerjee": {
+    "title": {
+      "value": "Bannerjee"
+    }
+  },
+  "VoiceDrisq": {
+    "title": {
+      "value": "Drisq"
+    }
+  },
+  "VoiceSmugglerUnits": {
+    "title": {
+      "value": "Smuggler units"
+    }
+  },
+  "VoiceChani": {
+    "title": {
+      "value": "Chani Kynes"
+    }
+  },
+  "VoiceOtheym": {
+    "title": {
+      "value": "Otheym"
+    }
+  },
+  "VoiceFremenUnits": {
+    "title": {
+      "value": "Fremen units"
+    }
+  },
+  "VoiceWensicia": {
+    "title": {
+      "value": "Princess Wensicia Corrino"
+    }
+  },
+  "VoiceAramsham": {
+    "title": {
+      "value": "Captain Aramsham"
+    }
+  },
+  "VoiceCorrinoUnits": {
+    "title": {
+      "value": "Corrino units"
+    }
+  },
+  "VoiceIlesa": {
+    "title": {
+      "value": "Ilesa Ecaz"
+    }
+  },
+  "VoiceWhitmore": {
+    "title": {
+      "value": "Whitmore Bludd"
+    }
+  },
+  "VoiceEcazUnits": {
+    "title": {
+      "value": "Ecazi units"
+    }
+  },
+  "VoiceCtair": {
+    "title": {
+      "value": "C'tair Pilru"
+    }
+  },
+  "VoiceNuwa": {
+    "title": {
+      "value": "Nuwa Cenva"
+    }
+  },
+  "VoiceVerniusUnits": {
+    "title": {
+      "value": "Vernius Units"
+    }
+  },
+  "VoiceOtherUnits": {
+    "title": {
+      "value": "Other units"
+    }
+  }
+}

@@ -1,0 +1,1125 @@
+{
+  "Spice": {
+    "texts": {
+      "name": {
+        "value": "Spice"
+      },
+      "desc": {
+        "value": "The most precious substance in the universe, [Spice] can be sold for [Solari]s to the CHOAM, or kept in stockpiles to pay the [$my(contract)]."
+      },
+      "plural": {
+        "name": {
+          "value": "Spice"
+        }
+      }
+    }
+  },
+  "Solari": {
+    "texts": {
+      "name": {
+        "value": "Solari"
+      },
+      "desc": {
+        "value": "The [Solari] is the official currency unit of the Imperium. Its purchasing power is set at quadricentennial negotiations between the Guild, the Landsraad, and the Emperor."
+      },
+      "plural": {
+        "name": {
+          "value": "Solaris"
+        }
+      }
+    }
+  },
+  "Plascrete": {
+    "texts": {
+      "name": {
+        "value": "Plascrete"
+      },
+      "desc": {
+        "value": "[Plascrete] is a versatile material, used at great cost in all aspects of construction. It is light but durable enough to withstand the harsh environment of Arrakis."
+      },
+      "plural": {
+        "name": {
+          "value": "Plascrete"
+        }
+      }
+    }
+  },
+  "Manpower": {
+    "texts": {
+      "name": {
+        "value": "Manpower"
+      },
+      "desc": {
+        "value": "Human resources remain a very important asset in the struggle for Arrakis. [Manpower] is used to train soldiers, recover damaged units' [Life], and man [$my(Harvester)]s."
+      },
+      "plural": {
+        "name": {
+          "value": "Manpower"
+        }
+      },
+      "descOverride": {
+        "descOverride": [
+          {
+            "_attrs": {
+              "faction": "Vernius"
+            },
+            "desc": {
+              "value": "Human resources remain a very important asset in the struggle for Arrakis. [Manpower] is used to train soldiers and recover damaged units' [Life]."
+            }
+          }
+        ]
+      }
+    }
+  },
+  "FuelCell": {
+    "texts": {
+      "name": {
+        "value": "Fuel Cell"
+      },
+      "desc": {
+        "value": "[FuelCell]s are used to operate vehicles and drones far away from encampement, as well as to power heavy industries."
+      },
+      "plural": {
+        "name": {
+          "value": "Fuel Cells"
+        }
+      }
+    }
+  },
+  "Water": {
+    "texts": {
+      "name": {
+        "value": "Water"
+      },
+      "desc": {
+        "value": "[Water] is essential for life, and a rare resource on Arrakis. It is consumed by active buildings and it increases the maximum [Supply] of all units, allowing them to go farther away from ally territory."
+      },
+      "plural": {
+        "name": {
+          "value": "Water"
+        }
+      }
+    }
+  },
+  "Authority": {
+    "texts": {
+      "name": {
+        "value": "Authority"
+      },
+      "desc": {
+        "value": "[Authority] represents a Faction's leadership and reach over the Regions of Arrakis. It is used to take control of villages."
+      },
+      "plural": {
+        "name": {
+          "value": "Authority"
+        }
+      }
+    }
+  },
+  "Hegemony": {
+    "texts": {
+      "name": {
+        "value": "Hegemony"
+      },
+      "desc": {
+        "value": "[Hegemony] is the reflection of a Faction's overall power over Dune. Some thresholds will unlock new abilities and ultimately allow you to win the game!"
+      },
+      "plural": {
+        "name": {
+          "value": "Hegemony"
+        }
+      }
+    }
+  },
+  "Standing": {
+    "texts": {
+      "name": {
+        "value": "Landsraad Standing"
+      },
+      "desc": {
+        "value": "This is your Faction's current political power and standing within the Landsraad. A high [Standing] unlocks new possibilities while a low [Standing] will make you an easy target."
+      },
+      "plural": {
+        "name": {
+          "value": "Landsraad Standing"
+        }
+      }
+    }
+  },
+  "Knowledge": {
+    "texts": {
+      "name": {
+        "value": "Knowledge"
+      },
+      "desc": {
+        "value": "[Knowledge] is used to develop new technologies and upgrades to improve your Faction's capabilities."
+      },
+      "plural": {
+        "name": {
+          "value": "Knowledge"
+        }
+      }
+    }
+  },
+  "Influence": {
+    "texts": {
+      "name": {
+        "value": "Influence"
+      },
+      "desc": {
+        "value": "[Influence] that can be spent to strengthen your votes for Landsraad Resolutions."
+      },
+      "plural": {
+        "name": {
+          "value": "Influence"
+        }
+      }
+    }
+  },
+  "Agent": {
+    "texts": {
+      "name": {
+        "value": "Agent"
+      },
+      "desc": {
+        "value": "Your spies, women and men in the shadows, allow you to monitor your assets and your enemies."
+      },
+      "plural": {
+        "name": {
+          "value": "Agents"
+        }
+      }
+    }
+  },
+  "CouncilVote": {
+    "texts": {
+      "name": {
+        "value": "Vote"
+      },
+      "desc": {
+        "value": "Along with [Influence], [CouncilVote]s represent your political might. They can be allocated to vote on Landsraad Resolutions ([Influence], unlike [CouncilVote]s, is lost when used)."
+      },
+      "plural": {
+        "name": {
+          "value": "Votes"
+        }
+      }
+    }
+  },
+  "CommandPoint": {
+    "texts": {
+      "name": {
+        "value": "Command Point"
+      },
+      "desc": {
+        "value": "Command points limit the size of your army. Military developments are the main way to increase this number."
+      },
+      "plural": {
+        "name": {
+          "value": "Command Points"
+        }
+      }
+    }
+  },
+  "TrainingSlot": {
+    "texts": {
+      "name": {
+        "value": "Training Slot"
+      },
+      "desc": {
+        "value": "Training Slots allow a Faction to recruit several military units at the same time."
+      },
+      "plural": {
+        "name": {
+          "value": "Training Slots"
+        }
+      }
+    }
+  },
+  "Thumper": {
+    "texts": {
+      "name": {
+        "value": "Thumper"
+      },
+      "desc": {
+        "br": {}
+      },
+      "plural": {
+        "name": {
+          "value": "Thumpers"
+        }
+      }
+    }
+  },
+  "ImperialHonor_Res": {
+    "texts": {
+      "name": {
+        "value": "Imperial Honor"
+      },
+      "plural": {
+        "name": {
+          "value": "Imperial Honor"
+        }
+      }
+    }
+  },
+  "GuildFavor": {
+    "texts": {
+      "name": {
+        "value": "Guild Favor"
+      },
+      "desc": {
+        "value": "[GuildFavor]s are service owned from [SpacingGuild-longname]. It is required for the deployment of spaceships. Acquiring [GuildFavor] is generally expensive."
+      },
+      "plural": {
+        "name": {
+          "value": "Guild Favors"
+        }
+      }
+    }
+  },
+  "Scraps": {
+    "texts": {
+      "name": {
+        "value": "Spaceship Part"
+      },
+      "desc": {
+        "value": "Fremen lack industrial capacities of the great houses. To compete with them in the air, they have to gather [Scraps]s and reassemble them into functionning aircraft."
+      },
+      "plural": {
+        "name": {
+          "value": "Spaceship Parts"
+        }
+      },
+      "tooltipInfo": {
+        "tooltipInfo": [
+          {
+            "text": {
+              "value": "Gain [Scraps] by killing enemy spaceships"
+            }
+          },
+          {
+            "text": {
+              "value": "Can be traded in the [RecyclingPlant]"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Power": {
+    "texts": {
+      "name": {
+        "value": "Power"
+      },
+      "desc": {
+        "value": "Damage inflicted with each attack."
+      },
+      "plural": {
+        "name": {
+          "value": "Power"
+        }
+      }
+    }
+  },
+  "Attack": {
+    "texts": {
+      "name": {
+        "value": "Attack"
+      },
+      "desc": {
+        "value": "[Attack] is the amount of damage inflicted to a target without [Armor] over 10 seconds."
+      },
+      "plural": {
+        "name": {
+          "value": "Attack"
+        }
+      }
+    }
+  },
+  "MeleeAttack": {
+    "texts": {
+      "name": {
+        "value": "Melee Attack"
+      },
+      "desc": {
+        "value": "Must be in melee range to attack."
+      },
+      "plural": {
+        "name": {
+          "value": "Melee Attack"
+        }
+      }
+    }
+  },
+  "RangeAttack": {
+    "texts": {
+      "name": {
+        "value": "Range Attack"
+      },
+      "desc": {
+        "value": "Can attack from a distance."
+      },
+      "plural": {
+        "name": {
+          "value": "Range Attack"
+        }
+      }
+    }
+  },
+  "Life": {
+    "texts": {
+      "name": {
+        "value": "Health"
+      },
+      "desc": {
+        "value": "The amount of Damage that can be sustained before being destroyed. Consumes [Manpower] or [Solari] to recover."
+      },
+      "plural": {
+        "name": {
+          "value": "Health"
+        }
+      }
+    }
+  },
+  "Armor": {
+    "texts": {
+      "name": {
+        "value": "Armor"
+      },
+      "desc": {
+        "value": "Amount deducted from incoming attack [Power] to determine damage."
+      },
+      "plural": {
+        "name": {
+          "value": "Armor"
+        }
+      }
+    }
+  },
+  "Speed": {
+    "texts": {
+      "name": {
+        "value": "Speed"
+      },
+      "desc": {
+        "value": "The unit's movement speed."
+      },
+      "plural": {
+        "name": {
+          "value": "Speed"
+        }
+      }
+    }
+  },
+  "CrewPoint": {
+    "texts": {
+      "name": {
+        "value": "Crew"
+      },
+      "desc": {
+        "value": "Crews that can be attributed to [$my(harvester)]s to improve their [Spice] production. Each [CrewPoint] is hired by spending [Manpower]."
+      },
+      "plural": {
+        "name": {
+          "value": "Crews"
+        }
+      }
+    }
+  },
+  "Overcharge": {
+    "texts": {
+      "name": {
+        "value": "Power Cell"
+      },
+      "desc": {
+        "value": "Power Cells used on [V_Harvester]s to improve their [Spice] production."
+      },
+      "plural": {
+        "name": {
+          "value": "Power Cells"
+        }
+      }
+    }
+  },
+  "Supply": {
+    "texts": {
+      "name": {
+        "value": "Supply"
+      },
+      "desc": {
+        "br": {}
+      },
+      "plural": {
+        "name": {
+          "value": "Supplies"
+        }
+      }
+    }
+  },
+  "CarryCapacity": {
+    "texts": {
+      "name": {
+        "value": "Carry Capacity"
+      },
+      "desc": {
+        "value": "[CarryCapacity] is the amout of units that this unit can transport at once."
+      },
+      "plural": {
+        "name": {
+          "value": "Carry Capacities"
+        }
+      }
+    }
+  },
+  "SubSting": {
+    "texts": {
+      "name": {
+        "value": "Sting"
+      },
+      "desc": {
+        "value": "The amount of [H_Sting]s currently under supervision of the [!H_Frigate]."
+      },
+      "plural": {
+        "name": {
+          "value": "Stings"
+        }
+      }
+    }
+  },
+  "SubLaza": {
+    "texts": {
+      "name": {
+        "value": "Laza Tiger"
+      },
+      "desc": {
+        "value": "The number of [C_LazaTiger]s currently escorting [!C_Hero_1]."
+      },
+      "plural": {
+        "name": {
+          "value": "Laza Tigers"
+        }
+      }
+    }
+  },
+  "SubHelpfulEntourage": {
+    "texts": {
+      "name": {
+        "value": "Helpful Entourage"
+      },
+      "desc": {
+        "value": "The number of [E_HelpfulEntourage]s currently escorting the champion."
+      }
+    }
+  },
+  "Time": {
+    "texts": {
+      "name": {
+        "value": "Time"
+      },
+      "desc": {
+        "value": "The time required for the annexation of the Village."
+      },
+      "plural": {
+        "name": {
+          "value": "Time"
+        }
+      }
+    }
+  },
+  "Militia": {
+    "texts": {
+      "name": {
+        "value": "Militia"
+      },
+      "desc": {
+        "value": "Number of units defending this Village"
+      },
+      "plural": {
+        "name": {
+          "value": "Militia"
+        }
+      }
+    }
+  },
+  "ExtensionSpace": {
+    "texts": {
+      "name": {
+        "value": "Building Slot"
+      },
+      "desc": {
+        "value": "The space available in a Village to build extensions on"
+      },
+      "plural": {
+        "name": {
+          "value": "Building Slots"
+        }
+      }
+    }
+  },
+  "Stability": {
+    "texts": {
+      "name": {
+        "value": "Unrest"
+      },
+      "plural": {
+        "name": {
+          "value": "Unrest"
+        }
+      }
+    }
+  },
+  "Upkeep": {
+    "texts": {
+      "name": {
+        "value": "Upkeep"
+      },
+      "plural": {
+        "name": {
+          "value": "Upkeep"
+        }
+      }
+    }
+  },
+  "Requirement": {
+    "texts": {
+      "name": {
+        "value": "Requirement"
+      },
+      "plural": {
+        "name": {
+          "value": "Requirements"
+        }
+      }
+    }
+  },
+  "EconomicLevel": {
+    "texts": {
+      "name": {
+        "value": "Economic Level"
+      },
+      "desc": {
+        "value": "Capacity of the Sietch to generate resources to trade"
+      },
+      "plural": {
+        "name": {
+          "value": "Economic Level"
+        }
+      }
+    }
+  },
+  "ThreatLevel": {
+    "texts": {
+      "name": {
+        "value": "Threat Level"
+      },
+      "desc": {
+        "value": "Propensity of the Sietch to launch raids on nearby enemy factions"
+      },
+      "plural": {
+        "name": {
+          "value": "Threat Level"
+        }
+      }
+    }
+  },
+  "SandwormActivity": {
+    "texts": {
+      "name": {
+        "value": "Sandworm activity"
+      },
+      "desc": {
+        "value": "Likeliness of [Sandworm] attacks in the region"
+      },
+      "plural": {
+        "name": {
+          "value": "Sandworm activity"
+        }
+      }
+    }
+  },
+  "Wind": {
+    "texts": {
+      "name": {
+        "value": "Wind Strength"
+      },
+      "desc": {
+        "value": "Strength of the wind in the region. Strong winds can be exploited for [Water] production."
+      },
+      "plural": {
+        "name": {
+          "value": "Wind Strength"
+        }
+      }
+    }
+  },
+  "Experience": {
+    "texts": {
+      "name": {
+        "value": "Experience"
+      },
+      "desc": {
+        "value": "Units gain more [Power] and [Life] as they defeat opponents."
+      },
+      "plural": {
+        "name": {
+          "value": "Experience"
+        }
+      }
+    }
+  },
+  "Relationship": {
+    "texts": {
+      "name": {
+        "value": "Relation Level"
+      },
+      "desc": {
+        "value": "Higher Relation Levels lead to fewer attacks and more trading potential."
+      },
+      "plural": {
+        "name": {
+          "value": "Relation Levels"
+        }
+      }
+    }
+  },
+  "CHOAMShare": {
+    "texts": {
+      "name": {
+        "value": "CHOAM Share"
+      },
+      "desc": {
+        "value": "Shares owned from the CHOAM, can be used to achieve an Economic Victory"
+      },
+      "plural": {
+        "name": {
+          "value": "CHOAM Shares"
+        }
+      }
+    }
+  },
+  "Threat": {
+    "texts": {
+      "name": {
+        "value": "Threat"
+      },
+      "plural": {
+        "name": {
+          "value": "Threat"
+        }
+      }
+    }
+  },
+  "Development": {
+    "texts": {
+      "name": {
+        "value": "Development"
+      },
+      "plural": {
+        "name": {
+          "value": "Developments"
+        }
+      }
+    }
+  },
+  "DevelopmentMilitary": {
+    "texts": {
+      "name": {
+        "value": "Military Development"
+      },
+      "plural": {
+        "name": {
+          "value": "Military Developments"
+        }
+      }
+    }
+  },
+  "DevelopmentStatecraft": {
+    "texts": {
+      "name": {
+        "value": "Statecraft Development"
+      },
+      "plural": {
+        "name": {
+          "value": "Statecraft Developments"
+        }
+      }
+    }
+  },
+  "DevelopmentEconomy": {
+    "texts": {
+      "name": {
+        "value": "Economic Development"
+      },
+      "plural": {
+        "name": {
+          "value": "Economic Developments"
+        }
+      }
+    }
+  },
+  "DevelopmentExpansion": {
+    "texts": {
+      "name": {
+        "value": "Expansion Development"
+      },
+      "plural": {
+        "name": {
+          "value": "Expansion Developments"
+        }
+      }
+    }
+  },
+  "AgendaPriority": {
+    "texts": {
+      "name": {
+        "value": "Charter Priority"
+      },
+      "desc": {
+        "value": "The available [!Charter] with highest priority will appear on the next Council's agenda."
+      },
+      "plural": {
+        "name": {
+          "value": "Charter Priority"
+        }
+      }
+    }
+  },
+  "Intel": {
+    "texts": {
+      "name": {
+        "value": "Intel"
+      },
+      "desc": {
+        "value": "General intelligence, which unlocks information and allows you to carry out various spying actions."
+      },
+      "plural": {
+        "name": {
+          "value": "Intel"
+        }
+      }
+    }
+  },
+  "Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Information"
+      },
+      "desc": {
+        "value": "Knowledge of a Faction's military, economic or political capabilities."
+      },
+      "plural": {
+        "name": {
+          "value": "Informations"
+        }
+      }
+    }
+  },
+  "CounterIntel": {
+    "texts": {
+      "name": {
+        "value": "Counterintelligence"
+      },
+      "desc": {
+        "value": "Increases resistance to enemy infiltration."
+      },
+      "plural": {
+        "name": {
+          "value": "Counterintelligence"
+        }
+      }
+    }
+  },
+  "Landsraad_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Landsraad Information"
+      },
+      "desc": {
+        "value": "Spying field relative to the [Landsraad-shortname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Landsraad Information"
+        }
+      }
+    }
+  },
+  "SpaceGuild_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Spacing Guild Information"
+      },
+      "desc": {
+        "value": "Spying field relative to the Spacing Guild."
+      },
+      "plural": {
+        "name": {
+          "value": "Spacing Guild Information"
+        }
+      }
+    }
+  },
+  "Choam_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "CHOAM Information"
+      },
+      "desc": {
+        "value": "Spying field relative to the CHOAM."
+      },
+      "plural": {
+        "name": {
+          "value": "CHOAM Information"
+        }
+      }
+    }
+  },
+  "Field_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Arrakis Information"
+      },
+      "desc": {
+        "value": "Spying field relative to Arrakis."
+      },
+      "plural": {
+        "name": {
+          "value": "Arrakis Information"
+        }
+      }
+    }
+  },
+  "Atreides_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Atreides Information"
+      },
+      "desc": {
+        "value": "Spying field relative to [Atreides-longname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Atreides Information"
+        }
+      }
+    }
+  },
+  "Harkonnen_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Harkonnen Information"
+      },
+      "desc": {
+        "value": "Spying field relative to [Harkonnen-longname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Harkonnen Information"
+        }
+      }
+    }
+  },
+  "Smugglers_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Smugglers Information"
+      },
+      "desc": {
+        "value": "Spying field relative to [Smugglers-longname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Smugglers Information"
+        }
+      }
+    }
+  },
+  "Fremen_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Fremen Information"
+      },
+      "desc": {
+        "value": "Spying field relative to [Fremen-longname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Fremen Information"
+        }
+      }
+    }
+  },
+  "Corrino_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Corrino Information"
+      },
+      "desc": {
+        "value": "Spying field relative to [Corrino-longname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Corrino Information"
+        }
+      }
+    }
+  },
+  "Ecaz_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Ecaz Information"
+      },
+      "desc": {
+        "value": "Spying field relative to [Ecaz-longname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Ecaz Information"
+        }
+      }
+    }
+  },
+  "Vernius_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Vernius Information"
+      },
+      "desc": {
+        "value": "Spying field relative to [Vernius-longname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Vernius Information"
+        }
+      }
+    }
+  },
+  "TEST_Infiltration": {
+    "texts": {
+      "name": {
+        "value": "Corrino Information"
+      },
+      "desc": {
+        "value": "Spying field relative to [Corrino-longname]."
+      },
+      "plural": {
+        "name": {
+          "value": "Corrino Information"
+        }
+      }
+    }
+  },
+  "CQ_ImprovementPoint": {
+    "texts": {
+      "name": {
+        "value": "Development Asset"
+      },
+      "desc": {
+        "value": "These assets allow you to improve your territories by choosing bonuses that will apply as long as you keep them."
+      },
+      "plural": {
+        "name": {
+          "value": "Development Assets"
+        }
+      }
+    }
+  },
+  "CQ_StratagemPoint": {
+    "texts": {
+      "name": {
+        "value": "War Asset"
+      },
+      "desc": {
+        "value": "These assets can be used to prepare stratagems before a difficult battle."
+      },
+      "plural": {
+        "name": {
+          "value": "War Assets"
+        }
+      }
+    }
+  },
+  "CQ_PlotProgress": {
+    "texts": {
+      "name": {
+        "value": "Plot progress"
+      },
+      "desc": {
+        "br": {}
+      },
+      "plural": {
+        "name": {
+          "value": "Plot progress"
+        }
+      }
+    }
+  },
+  "CQ_FremenRelations": {
+    "texts": {
+      "name": {
+        "value": "Fremen Relationship"
+      },
+      "desc": {
+        "value": "Current relationship of your faction with the Fremen on Arrakis."
+      },
+      "plural": {
+        "name": {
+          "value": "Fremen Relationship"
+        }
+      }
+    }
+  },
+  "CQ_FremenRelations_Fremen": {
+    "texts": {
+      "name": {
+        "value": "Fremen Unity"
+      },
+      "desc": {
+        "value": "Current followers of your cause among Fremen society."
+      },
+      "plural": {
+        "name": {
+          "value": "Fremen Unity"
+        }
+      }
+    }
+  },
+  "CQ_FaufrelucheRelations": {
+    "texts": {
+      "name": {
+        "value": "Faufreluche Corruption"
+      },
+      "desc": {
+        "value": "Current influence of your organisation on the Faufreluches' legitimate processes."
+      },
+      "plural": {
+        "name": {
+          "value": "Faufreluche Corruption"
+        }
+      }
+    }
+  },
+  "CQ_RenegadeRelations": {
+    "texts": {
+      "name": {
+        "value": "Renegades Relationship"
+      },
+      "desc": {
+        "value": "Current relationship of your faction with the Renegades."
+      },
+      "plural": {
+        "name": {
+          "value": "Renegades Relationship"
+        }
+      }
+    }
+  },
+  "DEBUG_AI_Score": {
+    "texts": {
+      "name": {
+        "value": "Score"
+      }
+    }
+  }
+}

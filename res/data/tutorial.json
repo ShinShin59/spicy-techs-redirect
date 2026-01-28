@@ -1,0 +1,4463 @@
+{
+  "M1_01_Start": {
+    "title": {
+      "value": "Basic Controls"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Hello, Noble Born. I am Shadout Mapes, the well-dipper, at your service."
+        }
+      },
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M212": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_01_MoveCamera_NoGamepad": {
+    "title": {
+      "value": "Move the Camera"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "There are 3 ways you can position the camera."
+        }
+      },
+      "M212": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_01_DoMoveCamera": {
+    "title": {
+      "value": "Move the Camera"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Move the camera in 2 directions to show me that you understand."
+        }
+      },
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_01_DoMoveCamera_Gamepad": {
+    "title": {
+      "value": "Move the Camera"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_01_ZoomOut": {
+    "title": {
+      "value": "Zoom out"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_01_ZoomTactical": {
+    "title": {
+      "value": "Zoom out"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_01_ZoomIn": {
+    "title": {
+      "value": "Zoom in"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Now zoom back in."
+        },
+        "padText": {
+          "value": "Now zoom back in by pressing [Camera_Tactical] again."
+        }
+      }
+    }
+  },
+  "M1_01_TacticalShortcut": {
+    "title": {
+      "value": "Tactical view"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "You can also press [Camera_Tactical] to enter tactical view directly."
+        }
+      }
+    }
+  },
+  "M1_01_End": {
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_02_Start": {
+    "title": {
+      "value": "Control the units"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Now you are going to learn how to select a unit, order it around and attack."
+        }
+      }
+    }
+  },
+  "M1_02_SelectUnit": {
+    "title": {
+      "value": "Select the unit"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_02_MoveUnit": {
+    "title": {
+      "value": "Move the unit"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_02_Select2Units": {
+    "title": {
+      "value": "Select the two units"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_02_AttackUnit": {
+    "title": {
+      "value": "Attack the Harkonnen"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_02_End": {
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "That's how you order units around, Noble Born. Remember it well, and let's move on to the next lesson."
+        }
+      }
+    }
+  },
+  "M1_03_Start": {
+    "title": {
+      "value": "Control the flow of time"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Now, you need to learn to control the flow of time."
+        }
+      }
+    }
+  },
+  "M1_03_PauseGame": {
+    "title": {
+      "value": "Pause the game"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "There are 2 ways to pause and unpause the game."
+        }
+      },
+      "M212": {
+        "text": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "M1_03_DoPauseGame": {
+    "title": {
+      "value": "Pause the game"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "Try to pause the game."
+        }
+      },
+      "M215": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_03_DoPauseGame_Gamepad": {
+    "title": {
+      "value": "Pause the game"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_03_UnpauseGame": {
+    "title": {
+      "value": "Unpause the game"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "Good. Now, unpause the game."
+        }
+      }
+    }
+  },
+  "M1_03_UnpauseGame_Gamepad": {
+    "title": {
+      "value": "Unpause the game"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "Good. Now, unpause the game."
+        }
+      }
+    }
+  },
+  "M1_03_CursorExplanation_Gamepad": {
+    "title": {
+      "value": "Explore the interface"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "There is one last thing you need to know before we go further."
+        }
+      },
+      "M215": {
+        "text": {
+          "value": "There are a lot of information and tools in your interface. We'll get through every one of them over time. But you might want to explore them on your own."
+        }
+      },
+      "M216": {
+        "text": {
+          "value": "You can always press [UseFloatingCursor] to summon a cursor on the screen, and move it on whatever you don't understand with [CameraZoom_Gamepad] to get an explanation."
+        }
+      }
+    }
+  },
+  "M1_03_ChangeSpeed": {
+    "title": {
+      "value": "Speed up"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "There are 2 ways to change the speed of the game."
+        }
+      },
+      "M212": {
+        "text": {
+          "value": "1. You can press [Time_Faster] to increase the speed and [Time_Slower] to decrease it."
+        }
+      },
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_03_DoChangeSpeed": {
+    "title": {
+      "value": "Speed up"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "Increase the speed of the game up to X2."
+        }
+      },
+      "M215": {
+        "text": {
+          "br": [
+            {},
+            {},
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M1_03_ChangeSpeedDown": {
+    "title": {
+      "value": "Speed down"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "And now go back to the regular speed."
+        }
+      }
+    }
+  },
+  "M1_03_End": {
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M212": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    },
+    "props": {
+      "closingText": {
+        "value": "End"
+      }
+    }
+  },
+  "M2_01": {
+    "title": {
+      "value": "Combat and Siege"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M212": {
+        "text": {
+          "value": "Today, we'll learn how to capture and defend [!Village]s. First, you will recruit an army."
+        }
+      }
+    }
+  },
+  "M2_01_TryRecruting": {
+    "title": {
+      "value": "Recruit an Army"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "value": "Recruiting an army is done from the Military interface on the right side of the screen. Recruit one [!A_Trooper] and one [!A_Soldier]."
+        }
+      }
+    }
+  },
+  "M2_01_TryRecruting_Gamepad": {
+    "title": {
+      "value": "Recruit an Army"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M2_01_WaitForNewRecruit": {
+    "title": {
+      "value": "Recruit an Army"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Training soldiers takes time. There is nothing we can do but wait for them to be ready."
+        }
+      }
+    }
+  },
+  "M2_01_End": {
+    "title": {
+      "value": "Recruit an Army"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "value": "Well done, Noble Born. Your soldiers are ready for a little incursion outside of [Arrakeen]."
+        }
+      }
+    }
+  },
+  "M2_02": {
+    "title": {
+      "value": "Capture the [!Village]"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "value": "Look at this weak [!Village]. Annexing it will provide great practice for you and your troops."
+        }
+      }
+    }
+  },
+  "M2_02_AttackVillage": {
+    "title": {
+      "value": "Capture the [!Village]"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "value": "Select your 2 units and [MouseRight] right-click on the neutral [!Village] to attack."
+        },
+        "padText": {
+          "value": "Select your 2 units and press [Game_RightClick] on the neutral [!Village] to attack."
+        }
+      }
+    }
+  },
+  "M2_02_SiegeActionAnnex": {
+    "title": {
+      "value": "Capture the [!Village]"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M2_02_SiegeActionAnnex_Gamepad": {
+    "title": {
+      "value": "Capture the [!Village]"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M2_02_StayInOccupationZone": {
+    "title": {
+      "value": "Capture the [!Village]"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "value": "Keep your units in the zone of occupation until the Annexation is over."
+        }
+      }
+    }
+  },
+  "M2_02_AnnexFailure": {
+    "title": {
+      "value": "Capture the [!Village]"
+    },
+    "popupPages": {
+      "M2AF": {
+        "text": {
+          "value": "The Annexation has failed because you have not left any unit in the occupation circle. Try again."
+        }
+      }
+    }
+  },
+  "M2_02_UnitsDead": {
+    "title": {
+      "value": "Recruit an Army"
+    },
+    "popupPages": {
+      "M2AF": {
+        "text": {
+          "value": "You have lost all your units. We'll have to start again from the beggining."
+        }
+      }
+    }
+  },
+  "M2_02_End": {
+    "title": {
+      "value": "Capture the [!Village]"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "value": "Noble Born, congratulations. You have annexed your first [!Village]."
+        }
+      }
+    }
+  },
+  "M2_03_RecruitMilitia": {
+    "title": {
+      "value": "Prepare your Defense"
+    },
+    "popupPages": {
+      "M203_1": {
+        "text": {
+          "value": "Your new [!Village] will attract jealousy. Word gets out that [!Harkonnen-adjective] swines are already planning an attack. You need to prepare your defenses."
+        }
+      },
+      "M203_2": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M2_03_HealUnits": {
+    "title": {
+      "value": "Prepare your Defense"
+    },
+    "popupPages": {
+      "M203_1": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M2_04_LookAtTheRaid": {
+    "title": {
+      "value": "Defend the [!Village]"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "value": "A [!Harkonnen-adjective] raid is on its way. Defend yourself."
+        }
+      }
+    }
+  },
+  "M2_04_EndBattle": {
+    "title": {
+      "value": "Combat and Siege"
+    },
+    "popupPages": {
+      "M221": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M222": {
+        "text": {
+          "value": "Tomorrow, I will teach you how to harvest the precious [Spice]."
+        }
+      }
+    },
+    "props": {
+      "closingText": {
+        "value": "End"
+      }
+    }
+  },
+  "M3_01_Start": {
+    "title": {
+      "value": "Exploration"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M3_01_BuildOrni": {
+    "title": {
+      "value": "Build an Ornithopter"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "You need an [Ornithopter] to explore the planet."
+        }
+      },
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M3_01_BuildOrni_Gamepad": {
+    "title": {
+      "value": "Build an Ornithopter"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {},
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M3_01_WaitForOrni": {
+    "title": {
+      "value": "Build an Ornithopter"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Building an [Ornithopter] takes some time. We have to be patient, and wait."
+        }
+      }
+    }
+  },
+  "M3_01_RemoveFOG": {
+    "title": {
+      "value": "Explore the region"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "M3_01_ReconRegion": {
+    "title": {
+      "value": "Recon the region"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M3_01_Village": {
+    "title": {
+      "value": "Village"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "This is a [!Village]. They are the spine of your economy. We will focus on capture and exploitation of [!Village]s later. For now, let's get back to exploration."
+        }
+      }
+    }
+  },
+  "M3_01_NaturalResources": {
+    "title": {
+      "value": "Natural Resources"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "This is a natural resource, that will provide bonuses to the region. You can select it to discover its effect."
+        }
+      }
+    }
+  },
+  "M3_01_End": {
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "The region is fully reconned! You know a lot more about your surroundings already."
+        }
+      }
+    }
+  },
+  "M3_02_ReconPOI2": {
+    "title": {
+      "value": "A new Point of Interest"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M3_02_Discoveries": {
+    "title": {
+      "value": "Discoveries"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M3_02_WorldInfo": {
+    "title": {
+      "value": "Economic Filter"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "You can press [Toggle_Zone_Info] on your keyboard to display additional information about the regions and [!Village]s of Arrakis."
+        },
+        "padText": {
+          "value": "You can see many information on regions and [!Village]s of Arrakis when you are in the strategic map. Use this knowledge wisely."
+        }
+      }
+    }
+  },
+  "M3_02_AutoRecon": {
+    "title": {
+      "value": "Use the auto-recon"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M3_02_ExploreSpecialRegion": {
+    "title": {
+      "value": "Explore the next Region"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Wait for your [Ornithopter] to explore the next region."
+        }
+      }
+    }
+  },
+  "M3_02_SpecialRegions": {
+    "title": {
+      "value": "Special Regions"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "We're lucky! This is a Special Region! They are recognizable by their [SpecialRegion] icon. They provide powerful bonuses."
+        }
+      }
+    }
+  },
+  "M3_02_End": {
+    "popupPages": {
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M213": {
+        "text": {
+          "value": "Tomorrow, you will learn how to recruit units, annex and defend [!Village]s."
+        }
+      }
+    },
+    "props": {
+      "closingText": {
+        "value": "End"
+      }
+    }
+  },
+  "M4_01_Start": {
+    "title": {
+      "value": "Spice Harvesting"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_01_HarvestSpice1": {
+    "title": {
+      "value": "Spice Contract"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_01_HarvestSpice2": {
+    "title": {
+      "value": "Refinery"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "[Spice] can only be harvested from a [SpiceArea] in a controlled region, like this one."
+        }
+      }
+    }
+  },
+  "M4_01_BuildRefinery": {
+    "title": {
+      "value": "Build a Refinery"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M215": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_01_WaitRefinery": {
+    "title": {
+      "value": "Build a Refinery"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "Constructing any [Building_Village] takes time, but we can wait."
+        }
+      }
+    }
+  },
+  "M4_01_DeployHarvester": {
+    "title": {
+      "value": "Deploy the Harvester"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M215": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_01_DeploymentInProgress": {
+    "title": {
+      "value": "Deploy the Harvester"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "A carryall carries your [A_Harvester] to and from the [SpiceArea]."
+        }
+      }
+    }
+  },
+  "M4_01_AddCrew": {
+    "title": {
+      "value": "Add a Crew"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M215": {
+        "text": {
+          "value": "Select the [A_Harvester] and [MouseLeft] click on the [AddCrew] button to add a [CrewPoint]."
+        }
+      }
+    }
+  },
+  "M4_01_AddCrew_Gamepad1": {
+    "title": {
+      "value": "Add a Crew"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_01_AddCrew_Gamepad2": {
+    "title": {
+      "value": "Add a Crew"
+    },
+    "popupPages": {
+      "M215": {
+        "text": {
+          "value": "To add [CrewPoint]s, select the [A_Harvester], open the selected unit wheel by pressing [OpenSelectionWheel] and choose the [AddCrew] option."
+        }
+      }
+    }
+  },
+  "M4_02_SpiceSlider": {
+    "title": {
+      "value": "Spice Slider"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Harvested [Spice] is either immediately sold for [Solari] or stockpiled to pay the [$my(contract)]."
+        }
+      },
+      "M215": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M216": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_02_SpiceSlider_Gamepad1": {
+    "title": {
+      "value": "Spice Slider"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Harvested [Spice] is either immediately sold for [Solari] or stockpiled to pay the [$my(contract)]."
+        }
+      },
+      "M215": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_02_SpiceSlider_Gamepad2": {
+    "title": {
+      "value": "Spice Slider"
+    },
+    "popupPages": {
+      "M216": {
+        "text": {
+          "value": "To change how much spice you stockpile, you need to use the Spice Report. To get to the Spice Report, open the menu navigation wheel by pressing [OpenMainWheel], then choose the [SpiceReportWindow] option."
+        }
+      }
+    }
+  },
+  "M4_02_SpiceSlider_Gamepad3": {
+    "title": {
+      "value": "Spice Slider"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Here is the [SpiceReport]. You can see the price for selling [Spice]. The base price is the same for everyone in the universe, but the real price also changes with your reputation and other factors."
+        }
+      },
+      "M216": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_02_StockpileSpice": {
+    "title": {
+      "value": "Stockpile 80 Spice"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_02_SliderCheck": {
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    },
+    "props": {
+      "closingText": {
+        "value": "Continue"
+      }
+    }
+  },
+  "M4_02_Bravo": {
+    "title": {
+      "value": "Stockpile 80 Spice"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_02_Failure": {
+    "title": {
+      "value": "Harvester Destroyed"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "You are too greedy Noble Born, your [A_Harvester] has been eaten by Shai Hulud."
+        }
+      }
+    }
+  },
+  "M4_02_WaitHarvester": {
+    "title": {
+      "value": "Wait for a new Harvester"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "When destroyed, [A_Harvester]s are automatically rebuilt at the [Refinery] but it takes some time."
+        }
+      }
+    }
+  },
+  "M4_02_HarvesterReady": {
+    "title": {
+      "value": "Deploy the new Harvester"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Your new [A_Harvester] is ready, deploy it when the [Sandworm] has left to resume the [Spice] harvesting."
+        }
+      }
+    }
+  },
+  "M4_02_Sandworms": {
+    "title": {
+      "value": "Sandworms"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Your [A_Harvester] is working in the desert, making a lot of noise. It will eventually attract a [Sandworm]."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "[A_Harvester]s return automatically to the [Refinery] when a [Sandworm] is near."
+        }
+      }
+    }
+  },
+  "M4_02_HarvesterModes": {
+    "title": {
+      "value": "Harvester Modes"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "There are two ways to operate [A_Harvester]s: [!Greedy_Harvester] and [!Safe_Harvester]."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "In [!Greedy_Harvester], [A_Harvester]s remain on the field until the last seconds before the [Sandworm] surfaces."
+        }
+      },
+      "M216": {
+        "text": {
+          "value": "They gather a lot of [Spice] that way, but incur high risk of losing [A_Harvester] and [CrewPoint]s."
+        }
+      },
+      "M215": {
+        "text": {
+          "value": "In [!Safe_Harvester], [A_Harvester]s are recalled as soon as a worm is detected, ensuring a safe return."
+        }
+      }
+    }
+  },
+  "M4_02_Ornithopters": {
+    "title": {
+      "value": "Assign an Ornithopter"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Assigning an [Ornithopter] to [A_Harvester]s allows for the use of [!Safe_Harvester] and reduce the chance of losing [A_Harvester]s in [!Greedy_Harvester]."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "Select an [Ornithopter] and [MouseRight] right-click on a [A_Harvester] to assign it to worm spotting."
+        },
+        "padText": {
+          "value": "Select an [Ornithopter] and press [Game_RightClick] on a [A_Harvester] to assign it to worm spotting."
+        }
+      }
+    }
+  },
+  "M4_02_UseSafeMode": {
+    "title": {
+      "value": "Use Safe Mode"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M213": {
+        "text": {
+          "value": "To put your [A_Harvester] in a specific mode, you have to select it and [MouseLeft] click on the corresponding button."
+        },
+        "padText": {
+          "value": "To put your [A_Harvester] in a specific mode, you have to select it. Then, press [Selection_SafeMode] to put it in [!Safe_Harvester] or [Selection_GreedMode] to put it in [!Greedy_Harvester]."
+        }
+      }
+    }
+  },
+  "M4_02_AvoidSandworm": {
+    "title": {
+      "value": "Avoid the Sandworm"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M4_02_End": {
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    },
+    "props": {
+      "closingText": {
+        "value": "End"
+      }
+    }
+  },
+  "M5_01_Start": {
+    "title": {
+      "value": "Water & Upkeep"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "In this tutorial, we will learn about [Solari] Upkeep and Neighboring Effects."
+        }
+      }
+    }
+  },
+  "M5_01_Authority": {
+    "title": {
+      "value": "Authority"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M5_01_AttackVillage": {
+    "title": {
+      "value": "Attack the Village"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Launch an attack on the neutral [Village]!"
+        }
+      }
+    }
+  },
+  "M5_01_AnnexVillage": {
+    "title": {
+      "value": "Annex the Village"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Good, now annex the neutral [Village]!"
+        }
+      }
+    }
+  },
+  "M5_01_NoWater": {
+    "title": {
+      "value": "Water"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M5_01_Windtrap": {
+    "title": {
+      "value": "Windtrap"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M212": {
+        "text": {
+          "value": "[WindTrap]s turn [Wind] into [Water]."
+        }
+      }
+    }
+  },
+  "M5_01_BuildWindtrapAction": {
+    "title": {
+      "value": "Build a Windtrap"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Build a [WindTrap] in your [Village] with the highest [Wind]."
+        }
+      },
+      "M212": {
+        "text": {
+          "value": "You can use the [Toggle_Zone_Info] key to display the [Wind]."
+        }
+      }
+    }
+  },
+  "M5_01_BuildWrongWindtrap": {
+    "title": {
+      "value": "Build a Windtrap"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "The [Village] you built your [WindTrap] in doesn't have enough [Wind] to produce the required [Water]."
+        }
+      },
+      "M212": {
+        "text": {
+          "value": "Build your [WindTrap] in the other [Village] to maximize the production."
+        }
+      }
+    }
+  },
+  "M5_01_AnnexVillageOLD": {
+    "title": {
+      "value": "Annex the Village"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M5_01_End": {
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Congratulations!"
+        }
+      }
+    }
+  },
+  "M5_04_Start": {
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Now we are gonna talk about [Water]!"
+        }
+      }
+    }
+  },
+  "M5_04_End": {
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Congratulations!"
+        }
+      }
+    }
+  },
+  "M5_02_Start": {
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Now we are gonna talk about [Solari] Upkeep and Neighboring Effects!"
+        }
+      }
+    }
+  },
+  "M5_02_PlascreteFactory": {
+    "title": {
+      "value": "Plascrete Factory"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M212": {
+        "text": {
+          "value": "The [PlascreteFactory] produces [Plascrete] allowing you to construct more [Building]s."
+        }
+      }
+    }
+  },
+  "M5_02_BuildPlascreteFactory": {
+    "title": {
+      "value": "Build a Plascrete Factory"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Build a [PlascreteFactory] ."
+        }
+      }
+    }
+  },
+  "M5_02_PlascreteIsHigher": {
+    "title": {
+      "value": "Plascrete Factory"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Your [Plascrete] production is higher now, it will allow you to construct more [Building]s."
+        }
+      }
+    }
+  },
+  "M5_02_Upkeep": {
+    "title": {
+      "value": "Upkeep"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M5_02_LookAtUpkeepBuilding": {
+    "title": {
+      "value": "Select the Plascrete Factory"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "value": "You can select a [Building] to look at its Upkeep."
+        }
+      },
+      "M213": {
+        "text": {
+          "value": "Select your [PlascreteFactory]."
+        }
+      }
+    }
+  },
+  "M5_02_WarningPlascreteUpkeep": {
+    "title": {
+      "value": "Plascrete Factory Upkeep"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "value": "[PlascreteFactory]s have one of the highest Upkeep, build them parsimoniously."
+        }
+      }
+    }
+  },
+  "M5_02_LookAtUpkeepRes": {
+    "title": {
+      "value": "Select the Plascrete Factory"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "You can hover your [Solari] stock to see the detail of all your Upkeep."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "Hover your [Solari] stock."
+        }
+      }
+    }
+  },
+  "M5_02_ReducingUpkeep": {
+    "title": {
+      "value": "Reducing your Upkeep"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Now we are gonna learn ways to reduce your [Solari] Upkeep."
+        }
+      }
+    }
+  },
+  "M5_02_MaintenanceCenter": {
+    "title": {
+      "value": "Maintenance Center"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "The [MaintenanceCenter] is a [Building] that reduces the Upkeep of the other [Building]s of [Village]s."
+        }
+      }
+    }
+  },
+  "M5_02_BuildMaintenanceCenter": {
+    "title": {
+      "value": "Build a Maintenance Center"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "value": "Select the [Village] in the middle Region and build the [MaintenanceCenter]."
+        }
+      }
+    }
+  },
+  "M5_02_BuildWrongMaintenanceCenter": {
+    "title": {
+      "value": "Build a Maintenance Center"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M5_02_NeighboringEffects": {
+    "title": {
+      "value": "Neighboring Effects"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "The Upkeep of your [Village]s are now lower."
+        }
+      },
+      "M212": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M5_02_NeighboringEffectsHighlight": {
+    "title": {
+      "value": "Neighboring Effects"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M5_02_OtherMethod": {
+    "title": {
+      "value": "Reducing your Upkeep"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "value": "Now we are gonna show you a more \"radical\" method to reduce your Upkeep."
+        }
+      }
+    }
+  },
+  "M5_02_DemolishBuildingsInfo": {
+    "title": {
+      "value": "Demolish Buildings"
+    },
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M5_02_DemolishBuildingsObjective": {
+    "title": {
+      "value": "Demolish Buildings"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "value": "Demolish [Building]s to have more than 40 [Solari] production."
+        }
+      },
+      "M213": {
+        "text": {
+          "value": "Select a [Building] and [MouseLeft] click on [Demolish] to demolish it."
+        }
+      }
+    }
+  },
+  "M5_02_LowerUpkeep": {
+    "title": {
+      "value": "Demolish Buildings"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "value": "When you are running short of [Solari], look at your Upkeep and try to lower it with what you just learnt."
+        }
+      }
+    }
+  },
+  "M5_02_End": {
+    "popupPages": {
+      "M211": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M6_01_Start": {
+    "title": {
+      "value": "The Landsraad Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M6_01_Intro": {
+    "title": {
+      "value": "The Landsraad Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M215": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M216": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M217": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M6_02_FirstCouncilOpening": {
+    "title": {
+      "value": "First Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Let's start our first mock council."
+        }
+      }
+    }
+  },
+  "M6_02_FirstCouncilPause": {
+    "title": {
+      "value": "First Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "This is the [LandsraadCouncil]. While the council is in progress, the game is paused."
+        }
+      }
+    }
+  },
+  "M6_02_FirstCouncilResource": {
+    "title": {
+      "value": "First Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M6_02_FirstCouncilResAndScope": {
+    "title": {
+      "value": "First Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "In the middle of the screen are the three resolutions under examination during this council: [InfrastructureValidations], [VehicleRegulation], and [SurveillanceCommittee]."
+        }
+      },
+      "M215": {
+        "text": {
+          "value": "Each resolution can be of two scopes: it either affects everybody equally, like [SurveillanceCommittee], or it only targets one faction, like the other two."
+        }
+      },
+      "M216": {
+        "text": {
+          "value": "All three resolutions are examinated at the same time. It means that you have to allocate your [CouncilVote]s intelligently."
+        }
+      },
+      "M217": {
+        "text": {
+          "value": "Some prefer to put all their [CouncilVote]s on a single resolution, while others distribute them between the three for a more diffuse impact."
+        }
+      }
+    }
+  },
+  "M6_02_FirstCouncilVoteNow": {
+    "title": {
+      "value": "First Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Now, let's vote. For each resolution, choose the outcome you prefer and increase the vote count, until you've used all your [CouncilVote]s."
+        },
+        "padText": {
+          "value": "Now, let's vote. For each resolution, choose the outcome you prefer with [Menu_LeftClick] and increase the vote count with [CycleSelect_Increase], until you've used all your [CouncilVote]s."
+        }
+      }
+    }
+  },
+  "M6_02_FirstCouncilVoteMore": {
+    "title": {
+      "value": "First Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "If you keep increasing the vote count, it will use [Influence] instead, and the count will be blue. Click on the Confirm button whenever you are happy with your votes."
+        },
+        "padText": {
+          "value": "If you keep increasing the vote count, it will use [Influence] instead, and the count will be blue. Go to the Confirm button and press [Menu_LeftClick] whenever you are happy with your votes."
+        }
+      }
+    }
+  },
+  "M6_02_FirstCouncilResults": {
+    "title": {
+      "value": "First Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Voting is over, sir! You can see how many votes each proposition has received. Hover on results to get the details of where the votes come from."
+        },
+        "padText": {
+          "value": "Voting is over! You can see how many votes each proposition has received. Go over the results to get the details of where the votes come from."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "Each resolution that was approved will apply its effects immediately, and until the next council in 20 days."
+        }
+      }
+    }
+  },
+  "M6_02_FirstCouncilEnding": {
+    "title": {
+      "value": "First Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "The council is now over. You can unpause and close the window."
+        },
+        "padText": {
+          "value": "The council is now over. You can close the window with [Menu_Back] and unpause."
+        }
+      }
+    }
+  },
+  "M6_03_StandingExplanation": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "The third important political resource is [Standing]. It represents how much the whole Landsraad community appreciates you."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "A [Standing_High] will give you many bonuses, while a [Standing_Low] will hurt your success in the politics."
+        }
+      },
+      "M216": {
+        "text": {
+          "value": "[Standing] can raise slowly over time, mostly through alliances. But it can decrease abruptly if you betray an ally."
+        }
+      },
+      "M217": {
+        "text": {
+          "value": "[Standing] can bring many advantages. And having a high [Standing] makes you eligible to [Charter]s."
+        }
+      }
+    }
+  },
+  "M6_03_CharterOpenWindow": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "value": "Click on the [Landsraad] button, and let's go look at the [Charter]s."
+        }
+      }
+    }
+  },
+  "M6_03_CharterOpenWindow_Gamepad": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "value": "Let's go look at the [Charter]s. To open the [Landsraad] outside of a council, open the menu navigation wheel by pressing [OpenMainWheel], then choose the [LandsraadWindow] option."
+        }
+      }
+    }
+  },
+  "M6_03_CharterShow": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M218": {
+        "text": {
+          "value": "Set your cursor on a [Charter] to see both its effect and the prerequisites to become a candidate."
+        }
+      },
+      "M219": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M6_03_CharterCheat": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "value": "I'll give you enough [Standing] and make you eligible to [CouncilSpeaker], so we can proceed."
+        }
+      }
+    }
+  },
+  "M6_03_CharterPriorityExplanation": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "value": "Now, you can be elected to the [CouncilSpeaker] [Charter], but the subject still needs to be on the council agenda if you want to have a chance to get elected."
+        }
+      },
+      "M218": {
+        "text": {
+          "value": "For a [Charter] to appear on the ballot, it needs to have at least ::value(Landsraad_MinimumCharterInvestment):: [AgendaPriority] and to have the most [AgendaPriority]."
+        }
+      }
+    }
+  },
+  "M6_03_CharterPriorityRaise": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M6_03_CharterPriorityConclusion": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "value": "Now that you have raised its [AgendaPriority] above ::value(Landsraad_MinimumCharterInvestment)::, [CouncilSpeaker] will be examined in the agenda of the next [LandsraadCouncil]"
+        }
+      }
+    }
+  },
+  "M6_03_CharterPriorityConclusionAlt": {
+    "title": {
+      "value": "Standing and Charters"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "value": "You were supposed to raise [CouncilSpeaker] priority, but if you think it's better this way, so be it."
+        }
+      }
+    }
+  },
+  "M6_04_SecondCouncilOpening": {
+    "title": {
+      "value": "Second Council"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "value": "It's now time for our second mock council."
+        }
+      }
+    }
+  },
+  "M6_04_SecondCouncilCharterExplaining": {
+    "title": {
+      "value": "Second Council"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "M6_04_SecondCouncilResAction": {
+    "title": {
+      "value": "Second Council"
+    },
+    "popupPages": {
+      "M217": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M218": {
+        "text": {
+          "value": "Some resolution modifiers appear randomly, like [LandsraadFavorite], and some can be added by player factions."
+        }
+      }
+    }
+  },
+  "M6_04_SecondCouncilVoteNow": {
+    "title": {
+      "value": "Second Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "It's time to vote again, exactly like in the previous council."
+        }
+      }
+    }
+  },
+  "M6_04_SecondCouncilResults": {
+    "title": {
+      "value": "Second Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Unlike other resolutions, [Charter]s last until a new vote is called for the same [Charter]."
+        }
+      }
+    }
+  },
+  "M6_04_Ending": {
+    "title": {
+      "value": "Second Council"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_Start": {
+    "title": {
+      "value": "Supply & Water"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_Discovery": {
+    "title": {
+      "value": "Crashed Shuttle"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "We spotted a [CrashedShuttle] discovery, far away from your territory."
+        }
+      }
+    }
+  },
+  "MWater_01_InvestigateDiscovery": {
+    "title": {
+      "value": "Investigate the Discovery"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_Supply1": {
+    "title": {
+      "value": "Supply"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "M215": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_Supply2": {
+    "title": {
+      "value": "Not enough Supply"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_BackToVillage": {
+    "title": {
+      "value": "Go back to your Village"
+    },
+    "popupPages": {
+      "M214": {
+        "text": {
+          "value": "Send your [A_Trooper] back to your [!Village]."
+        }
+      }
+    }
+  },
+  "MWater_01_ReSupply": {
+    "title": {
+      "value": "Regenerate Supply"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Near an ally [!Village] or your Main Base, units will regenerate [Supply]."
+        }
+      }
+    }
+  },
+  "MWater_01_WaitReSupply": {
+    "title": {
+      "value": "Regenerate Supply"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Let's wait for your [A_Trooper] to be fully supplied."
+        }
+      }
+    }
+  },
+  "MWater_01_Water1": {
+    "title": {
+      "value": "Water"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_Water2": {
+    "title": {
+      "value": "Dew Collector"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "We need more [Water] to reach the [CrashedShuttle]."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "The easiest way to produce [Water] is to build [DewCollector]s in [!Village]s."
+        }
+      }
+    }
+  },
+  "MWater_01_BuildDewCollector": {
+    "title": {
+      "value": "Produce more Water"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Build a [DewCollector] in every of your three [!Village]s."
+        }
+      }
+    }
+  },
+  "MWater_01_MoreWater": {
+    "title": {
+      "value": "Produce more Water"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "There are many other sources of [Water] but you will have to find them on your own."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "The [CrashedShuttle] is still a bit too far away. We should also look at our [Water] consumption."
+        }
+      }
+    }
+  },
+  "MWater_01_Buildings": {
+    "title": {
+      "value": "Water Consumption"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_DemolishBuildings": {
+    "title": {
+      "value": "Demolish your Buildings"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "br": {}
+        }
+      },
+      "M213": {
+        "text": {
+          "value": "Remember: [DewCollector]s are producing and not consuming [Water]. You should not demolish them."
+        }
+      },
+      "M214": {
+        "text": {
+          "value": "Demolish enough [!Building_Village]s to have 25 [Water]."
+        }
+      }
+    }
+  },
+  "MWater_01_DemolishBuildings_Gamepad": {
+    "title": {
+      "value": "Demolish your Buildings"
+    },
+    "popupPages": {
+      "M212": {
+        "text": {
+          "br": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_EnoughWater": {
+    "title": {
+      "value": "Water"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Now you have enough [Water] to reach the [CrashedShuttle]."
+        }
+      }
+    }
+  },
+  "MWater_01_JourneyToDiscovery": {
+    "title": {
+      "value": "Discoveries"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_CompleteDiscovery": {
+    "title": {
+      "value": "Complete the Investigation"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Complete the investigation of the [CrashedShuttle]."
+        }
+      }
+    }
+  },
+  "MWater_01_ResolveDiscovery": {
+    "title": {
+      "value": "Resolve the Discovery"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "value": "Good, now resolve the discovery."
+        },
+        "padText": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "MWater_01_End": {
+    "title": {
+      "value": "Congratulations"
+    },
+    "popupPages": {
+      "M213": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "CB_TheRenegades": {
+    "title": {
+      "value": "The Renegades"
+    },
+    "popupPages": {
+      "CBAS1": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "CBAS2": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "CB_RichGetRicher": {
+    "title": {
+      "value": "Bailout"
+    },
+    "popupPages": {
+      "CBAS1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Thufir"
+              },
+              "text": {
+                "value": "The CHOAM calls for help. This is an opportunity to take control of [::territory::] without a drop of blood. We only need to outbuy the other Houses."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "br": [
+                  {},
+                  {}
+                ]
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "CHOAM instability is bad for the whole Imperium. We should remind everyone why [Corrino-longname] is at the helm."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Sanya"
+              },
+              "text": {
+                "br": [
+                  {},
+                  {}
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_AncientSietch_DecideFate": {
+    "title": {
+      "value": "The Ancient Sietch's fate"
+    },
+    "popupPages": {
+      "CBAS1": {
+        "text": {
+          "value": "This place is sacred for the Fremen. You might have good intentions, but others won't. Help us protect it, and we will part as friends."
+        }
+      }
+    },
+    "props": {
+      "actions": {
+        "actions": [
+          {
+            "title": {
+              "value": "Raze the Sietch"
+            }
+          },
+          {
+            "title": {
+              "value": "Ally and protect the Sietch"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "CB_AncientSietch_DecideFate_NoHostileLeft": {
+    "title": {
+      "value": "The Ancient Sietch's fate"
+    },
+    "popupPages": {
+      "CBAS1": {
+        "text": {
+          "value": "You found our sacred sietch. Now what, offworlder? Some of us hope you might be better than the others. What do you have to say?"
+        }
+      }
+    },
+    "props": {
+      "actions": {
+        "actions": [
+          {
+            "title": {
+              "value": "Raze the Sietch"
+            }
+          },
+          {
+            "title": {
+              "value": "Leave the Sietch alone"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "CB_CuttingTheHead_1": {
+    "title": {
+      "value": "Cutting the head off"
+    },
+    "popupPages": {
+      "CBAS1": {
+        "text": {
+          "value": "A snake has invited itself on Arrakis. The [::territory_owner::-adjective] supervisor of [::territory::] is a threat to both our plans and yours. We can help you remove him."
+        }
+      }
+    }
+  },
+  "CB_CuttingTheHead_2": {
+    "title": {
+      "value": "Cutting the head off"
+    },
+    "popupPages": {
+      "CBAS1": {
+        "text": {
+          "value": "Now that we know of their secrets, the path forward is clear. Only start the assassination when you are ready. We cannot afford to waste time with failure."
+        }
+      }
+    }
+  },
+  "CB_AncientSietch_1": {
+    "title": {
+      "value": "The Ancient Sietch"
+    },
+    "popupPages": {
+      "CBAS1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Duncan"
+              },
+              "text": {
+                "value": "My fremen contacts have told me that a [Sietch] in the region has special value to the local population. We should try to find out more about this [SietchAncient] before it falls into the wrong hands."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "br": [
+                  {},
+                  {}
+                ]
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Irulan"
+              },
+              "text": {
+                "value": "The story says an [SietchAncient] precious to the Fremen is located in this region. We must find it before a disloyal house gets hold of it."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Mesa"
+              },
+              "text": {
+                "value": "I've heard the fremen are protecting an [SietchAncient] full of secrets and wonders in this region. If we are perceptive enough, we may find it soon enough."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Incursion_Hero": {
+    "title": {
+      "value": "Incursion"
+    },
+    "popupPages": {
+      "CBAH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Duncan"
+              },
+              "text": {
+                "value": "I'm going to free this place from [::territory_owner::-adjective] influence. Their vigilance is down, they won't have time to react."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "We got close without [::territory_owner::-shortname] noticing. If we're fast enough, we might avoid a bloodshed. A battle of speed and wit, in the heart of the desert."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "[::territory_owner::] are too negligent. I'm going to take this place fast and clean."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Wensicia"
+              },
+              "text": {
+                "value": "[::territory_owner::] have not taken good care of this place. If we attack swiftly, they might not be able to react."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Glossu"
+              },
+              "text": {
+                "value": "They've no idea we're here. I'm gonna break them like little twigs, before they even react."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "These fools have slipped, leaving [::territory::] at my mercy. I'll strike with force, fast and bloody."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "The [::territory_owner::-shortname] should have kept their eyes on [::territory::]. If we move fast, they will not be able to react."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "The [::territory_owner::-shortname] are not good keeper of this land. They have not even noticed we're here. Let's strike them where it hurts."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Assault_1": {
+    "title": {
+      "value": "Assault"
+    },
+    "popupPages": {
+      "CBAH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "We've planned this assault for months. They know we are coming. We have to win. For Atreides!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "This battle is decisive. We will succeed."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "The blood of [::territory_owner::-adjective] men will flow today. We take their [ConquestBase] and the land is ours."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "We can expect heavy resistance, but we've come in force. It'll be a great battle where boys become men, and glory is gained by all!"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_ExtendYourGrasp_1": {
+    "title": {
+      "value": "Extend your grasp"
+    },
+    "popupPages": {
+      "CBAH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Thufir"
+              },
+              "text": {
+                "value": "We need to increase our ground footprint on Arrakis to be legitimate in our claim. The [::territory::] is currently unclaimed land. It is our best candidate for a relatively peaceful annexation."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "The [::territory::] is unclaimed. If we grab the land before anyone else has the time to do it, it might form a good base for our economy on Arrakis."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "value": "We cannot rule without imposing our will on the population. With enough people under our thumb, we gain control of their dream and fear! You know how powerful that is!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "The [::territory::] is a nice piece of land, but war is coming. Will it be spared under our protection?"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_StrategicExpansion_1": {
+    "title": {
+      "value": "Strategic Expansion"
+    },
+    "popupPages": {
+      "CBAH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Thufir"
+              },
+              "text": {
+                "value": "The [::territory::] is a critical land for economical growth and local support. We need to secure it to ensure our future on Arrakis. I expect heavy resistance."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "The [::territory::] is a strategic point for our plan on Arrakis. I'm surprised that it is still unclaimed. We should demonstrate our superiority here, once and for all."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "value": "The [::territory::] has been empty for so long. What a mistake! It's the key to domination on Arrakis! And it should be ours!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "I don't like to bring our wars on these lands, but the [::territory::] is critical. We cannot let the other Houses get to it first."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Summit_1": {
+    "title": {
+      "value": "Famous Summit"
+    },
+    "popupPages": {
+      "CBAH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Thufir"
+              },
+              "text": {
+                "value": "The prestigious [::signature_region::] could be very useful to our development. Nobody has taken claim on it yet, but it won't be the case for very long."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "We should take [::signature_region::] and hold onto it to demonstrate to all the supremacy of [Corrino]."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "value": "[::signature_region::] is right here for the taking. Everyone knows it. It's going to be a race! Or maybe a brawl... Anyway, we should prevail."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Sanya"
+              },
+              "text": {
+                "value": "[::signature_region::] is such a beautiful sight. But it'll be even better with our flag on it. Don't let the other Houses take it."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Agony_Hero1": {
+    "title": {
+      "value": "Incoming Assault"
+    },
+    "popupPages": {
+      "CBAH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Duncan"
+              },
+              "text": {
+                "value": "We've detected an imminent assault on your position. Hold them off until I arrive. We're going to get you through this, you hear me?"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "An assault on your position has been detected. I'm coming to you with a full legion of reinforcements. Today is not the day you die, soldier. It's the day you rise up and hold."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "The enemy is nearly there. I'm coming to end their foolish incursion. Hold on until then."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Wensicia"
+              },
+              "text": {
+                "value": "They are coming for you. How dare they defy Father's authority? It cannot stand! Hold your position at all cost, soldier, we are coming."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Glossu"
+              },
+              "text": {
+                "value": "The weaklings are trying to take our land from us. I'm coming to whip them. Just hold on until I get there, eh!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "Enemy forces are converging on your position. This pitiful land is ours! You have to hold position until I come with reinforcement. Everyone is expendable in this fight!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "An assault is coming on your position. We're coming with reinforcement, but you'll have to hold off on your own until then."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "We did not anticipated this assault, and you are going to pay the price. I'm bringing reinforcement as fast as possible. Good luck!"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Agony_Hero2": {
+    "title": {
+      "value": "Incoming Assault"
+    },
+    "popupPages": {
+      "CBAH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Duncan"
+              },
+              "text": {
+                "value": "They are already here. Chin up, soldier! We're on our way."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "The enemy is at your door. Ring the bell and hold the wall! We're coming."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "They are here. Hold!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Wensicia"
+              },
+              "text": {
+                "value": "I think they have started the attack. Hold tight, soldier."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Glossu"
+              },
+              "text": {
+                "value": "They're already there, eh! I'll hurry. Leave some for me!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "They are already on you. Don't let them take one inch!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "They are already here. Keep your cool, soldier. We're coming to rescue you."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "The assault has begun. Hold tight!"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Agony_Hero_Reinforcements": {
+    "title": {
+      "value": "Reinforcements"
+    },
+    "popupPages": {
+      "CBAH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Duncan"
+              },
+              "text": {
+                "value": "The cavalry has arrived! Let's show them what Atreides are capable of."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "I see you haven't lost hope. Now, friends are here. It's time to push despair to their side of the field."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "I'm here. Take me to them and I'll end this."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Wensicia"
+              },
+              "text": {
+                "value": "We've arrived! Well done, soldier. Now, the hunter becomes the prey!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Glossu"
+              },
+              "text": {
+                "value": "Eh eh! I'm here. I'll make them suffer!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "I'm here. We'll punish them for their arrogance, together!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "We're here. Let's show them bravery. This one is for the history books."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "The reinforcements have arrived. You did good. Let's finish this cleanly!"
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_FremUp_1": {
+    "title": {
+      "value": "Fremen Uprising"
+    },
+    "popupPages": {
+      "CBFU1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Duncan"
+              },
+              "text": {
+                "value": "There is noise from our fremen contacts that they want [::territory_owner::-longname] gone. I think we should give them a hand. If we can prove ourselves, they'll be more favorable to us."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Glossu"
+              },
+              "text": {
+                "value": "Eh eh! The [::territory_owner::-shortname]s have trouble with the fremen. Gives me an idea. Maybe we could use the fremen for once, and get rid of the [::territory_owner::-shortname]s."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "A kerfuffle is happening in [::territory::]. We should take this opportunity to get an advantage over [::territory_owner::-longname]. If we play our cards right, the locals will take our side."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Mesa"
+              },
+              "text": {
+                "value": "The fremen of [::territory::] are restless. They want the [::territory_owner::-shortname] gone. Let's help them with that."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_FremUp_2": {
+    "title": {
+      "value": "Fremen Uprising"
+    },
+    "popupPages": {
+      "CBFU1": {
+        "text": {
+          "value": "The [::territory_owner::-shortname] have ruled here long enough. You've been helpful, stranger. If you are ready to finish the job, we're making an assault on their base now."
+        }
+      }
+    }
+  },
+  "CB_HiredHelp_1": {
+    "title": {
+      "value": "Hiring Help"
+    },
+    "popupPages": {
+      "CBHH1": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Duncan"
+              },
+              "text": {
+                "value": "This region is mostly undefended. We're going to take it just under their nose, but we cannot bring any more forces to the fight without attracting attention."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "The [::territory_owner::-shortname]s have left this place unsupervised. They might enjoy a more gentle master. I'll take it with a small force to avoid drawing attention."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "My commando is on position to take [::territory::] from the [::territory_owner::-shortname]s. No reinforcements are available. I don't need them, anyway."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Wensicia"
+              },
+              "text": {
+                "value": "I've taken the initiative to lead a small force to take [::territory::]. Don't worry about it. I will hire [Mercenaries]s if needed be."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Glossu"
+              },
+              "text": {
+                "value": "I'm gonna beat the [::territory_owner::-shortname]s to a pulp. Gotta keep a low profile, though, take them by surprise."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "My special commando is more than enough to take this pitiful land from the [::territory_owner::-shortname]s."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "A small force and a pouch of gold is all I need to take such a badly defended region. You can trust me."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "This is a good opportunity to show [::territory_owner::-longname] how it's done. I and a few units are enough to shake things up."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_HiredHelp_2": {
+    "title": {
+      "value": "Hiring Help"
+    },
+    "popupPages": {
+      "CBHH2": {
+        "text": {
+          "value": "Hired Help 2"
+        },
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Duncan"
+              },
+              "text": {
+                "value": "You deceitful bastard! I'm going to send you back where you came from."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "The snake has no choice but to deceive. The hawk has no choice but to end its life."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "You're out of luck. I'm here."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Wensicia"
+              },
+              "text": {
+                "value": "You thought you could get away with an assault behind Father's back. It is my duty to stop you."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Glossu"
+              },
+              "text": {
+                "value": "Eh eh eh! Finally a bit of excitement on this wretched planet. I gonna whip you, little worm!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "What do we got here? A little worm who thinks he can take on the griffin. You'll regret this."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "Only the weak use such treacherous ways. And I cannot allow weakness to prevail."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "I'm used to these kind of treacheries, and I've always come up victorious. You don't impress me."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_SietchControl_1": {
+    "title": {
+      "value": "Sietch Control"
+    },
+    "popupPages": {
+      "CBSC1": {
+        "text": {
+          "value": "Sietch leaders throughout this region are too prideful to follow any imperial laws. Someone ought to get them in line."
+        }
+      }
+    }
+  },
+  "CB_SietchControl_2": {
+    "title": {
+      "value": "Sietch Control"
+    },
+    "popupPages": {
+      "CBSC1": {
+        "text": {
+          "value": "Now that everyone's here, I hope they're ready for some shaking."
+        }
+      }
+    }
+  },
+  "CB_CaptureSignature_1": {
+    "title": {
+      "value": "Signature Capture"
+    },
+    "popupPages": {
+      "CBSC3": {
+        "text": {
+          "value": "We must take control of this territory"
+        }
+      }
+    }
+  },
+  "CB_CaptureSignature_2": {
+    "title": {
+      "value": "Signature Capture"
+    },
+    "popupPages": {
+      "CBSC4": {
+        "text": {
+          "value": "Very well, and now to expand out grasp..."
+        }
+      }
+    }
+  },
+  "CB_Kill_Atreides_1": {
+    "title": {
+      "value": "The Siege of Arrakeen"
+    },
+    "popupPages": {
+      "CBKA": {
+        "text": {
+          "value": "[Arrakeen] holds a strong, active shield, we must deactivate it from the inside. It so happens that I had a short talk with Dr. Yueh..."
+        },
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "[!Leto] is hiding behind the shield of [Arrakeen]. Any attack would be pointless until we find a way to deactivate it from the inside."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "value": "The weak [Atreides-shortname] are cowering in their burrow. Let's take out their defenses and hit them with all we got."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "Sadly, we must end [Atreides-longname]'s illegitimate occupation of Arrakis. We must first disable their shield, then [Arrakeen] will fall easily."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Kill_Atreides_3": {
+    "title": {
+      "value": "The Siege of Arrakeen"
+    },
+    "popupPages": {
+      "CBKA": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "The shield is down. If we act fast, we will benefit from the element of surprise."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "value": "Attack! Put an end to the [Atreides-adjective] line!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Ilesa"
+              },
+              "text": {
+                "value": "It's a shame to see [Atreides-shortname] fall so low, but they're lucky we're the one to end their misery."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Kill_Harkonnen_1": {
+    "title": {
+      "value": "The Fortress"
+    },
+    "popupPages": {
+      "CBKH": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "The [Harkonnen-shortname]s are holed up in their den. [Carthag] is a formidable fortress, but we've seen worse."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "The ugly fortress in its crack is hard to break. We must take our time and be careful."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "The [Harkonnen-adjective] fortress present a serious challenge, but we'll rise to the occasion."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Kill_Harkonnen_2": {
+    "title": {
+      "value": "The Fortress"
+    },
+    "popupPages": {
+      "CBKH": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "The fortress is vulnerable. It's time to give the assault."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "br": [
+                  {},
+                  {}
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Kill_Corrino_1": {
+    "title": {
+      "value": "Downfall"
+    },
+    "popupPages": {
+      "CBKC": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "The so-called emperor of the whole universe is stuck in the sand. We just have to destroy his last few ships and we'll have free reign on Arrakis."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "The fallen emperor is weakened. We'll show him and the whole galaxy what strength looks like. For Atreides!"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "Sardaukars won't be enough to save the emperor this time! This battle will be in every history books. We only have to take care of a few frail ships."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Kill_Corrino_2": {
+    "title": {
+      "value": "Downfall"
+    },
+    "popupPages": {
+      "CBKH": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "Ah! That was easy! ... Is the old fool going to try defending himself?"
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "One bird down. Two still singing. The emperor is probably not gonna let us win so easily. ... I have a bad feeling."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "That was glorious. But beware of the old emperor, he still have a few tricks up his sleeves. Something is coming."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Kill_Corrino_3": {
+    "title": {
+      "value": "Downfall"
+    },
+    "popupPages": {
+      "CBKH": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Iakin"
+              },
+              "text": {
+                "value": "Only one ship left. The emperor is cornered. All his pitiful might won't be enouh this time."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "It's too soon for celebration. The dying lion still has claws."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Whitmore"
+              },
+              "text": {
+                "value": "Beautiful! We should expect a last-ditch effort to win from the poor emperor, but greatness is around the corner."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Kill_Ecaz_1": {
+    "title": {
+      "value": "The Red Exhibition"
+    },
+    "popupPages": {
+      "CBKH": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Gurney"
+              },
+              "text": {
+                "value": "The [Ecaz-adjective] artists have overstayed their welcome. I like their style but they shouldn't oppose [Atreides-longname]. Let's take their glorified crib and end this non-sense."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Glossu"
+              },
+              "text": {
+                "value": "That is [Foliage]? It's supposed to be beautiful. I ain't getting it, it's ugly! I see why we should burn it down, now."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Aramsham"
+              },
+              "text": {
+                "value": "I don't care about art. Life is not that complicated: they oppose the Emperor, they die."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "SpiceHarvesting_Fremen": {
+    "title": {
+      "value": "Spice Harvesting"
+    },
+    "popupPages": {
+      "SH1": {
+        "text": {
+          "value": "To produce [Spice], you need to build a [F_Harvester_Mobile] and deploy it on a [SpiceArea] in a neutral or owned region."
+        }
+      }
+    }
+  },
+  "Victory": {
+    "title": {
+      "value": "Victory"
+    },
+    "popupPages": {
+      "VI1": {
+        "text": {
+          "br": [
+            {},
+            {},
+            {},
+            {}
+          ]
+        }
+      },
+      "VI2": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      }
+    }
+  },
+  "Raiders": {
+    "title": {
+      "value": "Raiders"
+    },
+    "popupPages": {
+      "RA1": {
+        "text": {
+          "value": "Raiders can come out of hidden Sietches to free Villages from your control."
+        }
+      },
+      "RA2": {
+        "text": {
+          "value": "Each raid suffered gives a chance to reveal the hidden [Sietch] it came from."
+        }
+      }
+    }
+  },
+  "MainBase": {
+    "title": {
+      "value": "Improving your Base"
+    },
+    "popupPages": {
+      "MB1": {
+        "text": {
+          "value": "[!Building_MB] slots in your Main Base are split into Districts of different sizes."
+        }
+      },
+      "MB2": {
+        "text": {
+          "value": "If you fill all the slots of a district with only one type of [!Building_MB], it will grant you a bonus depending on the District's size."
+        }
+      }
+    }
+  },
+  "SpyingEnemies": {
+    "title": {
+      "value": "Spying Enemies"
+    },
+    "popupPages": {
+      "SE1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "SE2": {
+        "text": {
+          "br": {}
+        }
+      },
+      "SE3": {
+        "text": {
+          "value": "Assigned [Agent]s also improve the relevant [!Infiltration] level, unlocking more advanced missions."
+        }
+      }
+    }
+  },
+  "Sandstorms": {
+    "title": {
+      "value": "Sandstorms"
+    },
+    "popupPages": {
+      "SS1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "SS2": {
+        "text": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "Sietches": {
+    "title": {
+      "value": "Sietches"
+    },
+    "popupPages": {
+      "SI1": {
+        "text": {
+          "value": "You can trade with a [Sietch] to improve your Relations towards it."
+        }
+      },
+      "SI2": {
+        "text": {
+          "value": "If you reach max Relation with a [Sietch] in your territory, you can forge an alliance (using an [Agent]) to unlock its passive ability."
+        }
+      }
+    }
+  },
+  "Sietches_Fremen": {
+    "title": {
+      "value": "Sietches"
+    },
+    "popupPages": {
+      "SI1": {
+        "text": {
+          "value": "You can trade with a [Sietch] to improve your Relations towards it."
+        }
+      },
+      "SIF2": {
+        "text": {
+          "value": "If you reach max Relation with a [Sietch], you can forge an alliance to unlock its passive ability. Allied [Sietch]s have an authority [!Upkeep]."
+        }
+      }
+    }
+  },
+  "Diplomacy": {
+    "title": {
+      "value": "Diplomacy and trade"
+    },
+    "popupPages": {
+      "DI1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "DI2": {
+        "text": {
+          "br": {}
+        }
+      },
+      "DI3": {
+        "text": {
+          "br": {}
+        }
+      },
+      "DI4": {
+        "text": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "CMarket": {
+    "title": {
+      "value": "CHOAM Market"
+    },
+    "popupPages": {
+      "CM1": {
+        "text": {
+          "value": "The CHOAM Market allows you to buy and sell shares of the Combine Honnete Ober Advancer Mercantiles, that own all legal trade in the Imperium."
+        }
+      },
+      "CM2": {
+        "text": {
+          "br": {}
+        }
+      },
+      "CM3": {
+        "text": {
+          "value": "If a player ever has more than half the shares, they become majority holders and immediately win the game."
+        }
+      }
+    }
+  },
+  "StandingRelation": {
+    "title": {
+      "value": "Standing and Relations"
+    },
+    "popupPages": {
+      "SR1": {
+        "text": {
+          "value": "TODO"
+        }
+      },
+      "SR2": {
+        "text": {
+          "value": "TODO"
+        }
+      }
+    }
+  },
+  "LandsraadCouncil": {
+    "title": {
+      "value": "Landsraad Council"
+    },
+    "popupPages": {
+      "LC1": {
+        "text": {
+          "value": "Three resolutions are put up to vote at every Council."
+        }
+      },
+      "LC2": {
+        "text": {
+          "value": "Each Faction can use [CouncilVote]s or [Influence] to pass or counter Resolutions."
+        }
+      },
+      "LC3": {
+        "text": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "MilitaryUnits": {
+    "title": {
+      "value": "Military units"
+    },
+    "popupPages": {
+      "MU1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "MU2": {
+        "text": {
+          "br": {}
+        }
+      },
+      "MU3": {
+        "text": {
+          "br": [
+            {},
+            {}
+          ]
+        }
+      },
+      "MU4": {
+        "text": {
+          "value": "[Supply] is refilled while staying close to a controlled [Village] or Main Base."
+        }
+      }
+    }
+  },
+  "HostileSpying": {
+    "title": {
+      "value": "Hostile Spying"
+    },
+    "popupPages": {
+      "HS1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "HS2": {
+        "text": {
+          "br": {}
+        }
+      },
+      "HS3": {
+        "text": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "Outpost": {
+    "title": {
+      "value": "Village Buildings"
+    },
+    "popupPages": {
+      "OP1": {
+        "text": {
+          "value": "Villages are an important part of our growth. You have to choose what to build and where."
+        }
+      },
+      "OP2": {
+        "text": {
+          "br": {}
+        }
+      },
+      "OP3": {
+        "text": {
+          "br": {}
+        }
+      },
+      "OP4": {
+        "text": {
+          "value": "You should hire Militia to defend your Villages from Raiders or nearby enemies."
+        }
+      }
+    }
+  },
+  "Exploration": {
+    "title": {
+      "value": "Exploration"
+    },
+    "popupPages": {
+      "EX1": {
+        "text": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "SpiceHarvesting": {
+    "title": {
+      "value": "Spice Harvesting"
+    },
+    "popupPages": {
+      "SH1": {
+        "text": {
+          "value": "To produce [Spice] you must capture a Village in a region with a [SpiceArea]."
+        }
+      },
+      "SH2": {
+        "text": {
+          "value": "Then you'll need to build a [$my(refinery)] and deploy its [$my(harvester)] to start harvesting."
+        }
+      }
+    }
+  },
+  "NeutralVillages": {
+    "title": {
+      "value": "Villages and Regions"
+    },
+    "popupPages": {
+      "NV1": {
+        "text": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "RecruitmentUnit": {
+    "title": {
+      "value": "Military units recruitment"
+    },
+    "popupPages": {
+      "RU1": {
+        "text": {
+          "br": {}
+        }
+      }
+    }
+  },
+  "Water": {
+    "title": {
+      "value": "Water"
+    },
+    "popupPages": {
+      "WA1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "WA2": {
+        "text": {
+          "value": "Wind Traps gather [Water] in a Region depending on its wind strength."
+        }
+      }
+    }
+  },
+  "HarvesterFactory": {
+    "title": {
+      "value": "Harvester Factory"
+    },
+    "popupPages": {
+      "HF1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "HF2": {
+        "text": {
+          "value": "You can increase [Spice] production by adding more [CrewPoint] to your [$my(Harvester)]s."
+        }
+      }
+    }
+  },
+  "HarvesterFactory_Fremen": {
+    "title": {
+      "value": "Harvesting Team"
+    },
+    "popupPages": {
+      "HF2": {
+        "text": {
+          "value": "You can increase [Spice] production by adding more [CrewPoint] to your [$my(Harvester)]s."
+        }
+      }
+    }
+  },
+  "SpiceTrading": {
+    "title": {
+      "value": "Spice and the Imperial Tax"
+    },
+    "popupPages": {
+      "ST1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "ST2": {
+        "text": {
+          "br": {}
+        }
+      },
+      "ST3": {
+        "text": {
+          "value": "The Spice to Solaris exchange rate changes frequently, think to check it."
+        }
+      }
+    }
+  },
+  "SpiceTrading_Corrino": {
+    "title": {
+      "value": "Spice and the Guild Fee"
+    },
+    "popupPages": {
+      "ST1": {
+        "text": {
+          "br": {}
+        }
+      },
+      "ST2": {
+        "text": {
+          "br": {}
+        }
+      },
+      "STC3": {
+        "text": {
+          "br": {}
+        }
+      },
+      "ST3": {
+        "text": {
+          "value": "The Spice to Solaris exchange rate changes frequently, think to check it."
+        }
+      }
+    }
+  },
+  "CB_Kill_Atreides_2": {
+    "title": {
+      "value": "The Siege of Arrakeen"
+    },
+    "popupPages": {
+      "CBKA": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "When we deactivate the shield, it will not stay down for long. We have to attack immediately."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "value": "Timing is of the essence. Only put the shield down right before the attack."
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "CB_Kill_Atreides_4": {
+    "title": {
+      "value": "The Siege of Arrakeen"
+    },
+    "popupPages": {
+      "CBKA": {
+        "overrides": {
+          "overrides": [
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Fenring"
+              },
+              "text": {
+                "value": "The shield is back up. Retreat, regroup and start again."
+              }
+            },
+            {
+              "_attrs": {
+                "notes_overrides": "",
+                "character": "Piter"
+              },
+              "text": {
+                "value": "We didn't get them this time. Let's start again from the start!"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

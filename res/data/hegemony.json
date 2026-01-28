@@ -1,0 +1,206 @@
+{
+  "SignatureRegions": {
+    "name": {
+      "value": "[::signature_region::]"
+    }
+  },
+  "ControlledRegions": {
+    "name": {
+      "value": "Controlled regions"
+    }
+  },
+  "VotesWon": {
+    "desc": {
+      "value": "Winning a vote generates [Hegemony]"
+    },
+    "name": {
+      "value": "Supported resolutions passed"
+    }
+  },
+  "SpecialRegions": {
+    "name": {
+      "value": "Special regions bonus"
+    }
+  },
+  "SolariProduction": {
+    "name": {
+      "value": "Solari production bonus"
+    }
+  },
+  "Charters": {
+    "name": {
+      "value": "Charters"
+    }
+  },
+  "DefeatEnemyArmy": {
+    "name": {
+      "value": "Defeated enemy units"
+    }
+  },
+  "ImperialTaxPaid": {
+    "name": {
+      "value": "Spice Contract Fulfilled"
+    }
+  },
+  "EcazChampion": {
+    "name": {
+      "value": "Champion's Kills"
+    }
+  },
+  "CraftWorkshop": {
+    "name": {
+      "value": "Craft Workshops"
+    }
+  },
+  "UWHeadquarters": {
+    "name": {
+      "value": "Underworld Headquarters"
+    }
+  },
+  "Masterpieces": {
+    "name": {
+      "value": "Masterpieces"
+    }
+  },
+  "WaterProduction": {
+    "name": {
+      "value": "Water production"
+    }
+  },
+  "QuestsCompleted": {
+    "name": {
+      "value": "Completed Events"
+    }
+  },
+  "SpecialQuests": {
+    "name": {
+      "value": "Event Rewards"
+    }
+  },
+  "VillagePillaged": {
+    "name": {
+      "value": "Pillaged Villages"
+    }
+  },
+  "ContrabandOffers": {
+    "name": {
+      "value": "Contraband Offers"
+    }
+  },
+  "DiscoveriesResolved": {
+    "name": {
+      "value": "Discoveries"
+    }
+  },
+  "FullDistricts": {
+    "name": {
+      "value": "Completed Districts"
+    }
+  },
+  "WaterOutpost": {
+    "name": {
+      "value": "Recycling Vat"
+    }
+  },
+  "CorrinoWonder": {
+    "name": {
+      "value": "Emperor Monument"
+    }
+  },
+  "ArtistAgent": {
+    "name": {
+      "value": "Artist Agent"
+    }
+  },
+  "CHOAMDilution": {
+    "name": {
+      "value": "CHOAM Dilution"
+    }
+  },
+  "TerritoryContest": {
+    "name": {
+      "value": "Landsraad Resolution"
+    }
+  },
+  "Kanly": {
+    "name": {
+      "value": "Kanly"
+    }
+  },
+  "Other": {
+    "name": {
+      "value": "Other"
+    }
+  },
+  "TotalProduction": {
+    "name": {
+      "value": "Total"
+    }
+  },
+  "Agents": {
+    "name": {
+      "value": "Assigned Agents"
+    }
+  },
+  "Developments": {
+    "name": {
+      "value": "Researched Developments"
+    }
+  },
+  "SolariStocks": {
+    "name": {
+      "value": "Solari stocks"
+    }
+  },
+  "VillageLiberated": {
+    "name": {
+      "value": "Villages Liberated"
+    }
+  },
+  "VotesOnResolutions": {
+    "name": {
+      "value": "Votes spent"
+    }
+  },
+  "TerraformingResearch": {
+    "name": {
+      "value": "Terraforming Research"
+    }
+  },
+  "ChoamShares": {
+    "name": {
+      "value": "CHOAM Shares"
+    }
+  },
+  "ActiveBuildings": {
+    "desc": {
+      "value": "Building Infrastructure generates [Hegemony]"
+    },
+    "name": {
+      "value": "Active Buildings"
+    }
+  },
+  "OperationStarted": {
+    "desc": {
+      "value": "Using spying operation generates [Hegemony]"
+    },
+    "name": {
+      "value": "Intel spent on operations"
+    }
+  },
+  "SietchesControlled": {
+    "name": {
+      "value": "Ally Sietches"
+    }
+  },
+  "SietchesControlled_Fremen": {
+    "name": {
+      "value": "Ally Sietches"
+    }
+  },
+  "StandingStocks": {
+    "name": {
+      "value": "Landsraad Standing"
+    }
+  }
+}

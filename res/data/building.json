@@ -1,0 +1,701 @@
+{
+  "Main_AdministrativeHall": {
+    "name": "Administrative Hall",
+    "attributes": [
+      "::s_value:: [Solari] production in [!Village]s",
+      "::s_percent_value:: [Authority] production"
+    ]
+  },
+  "Main_RecyclingVats": {
+    "name": "Recycling Vats",
+    "attributes": [
+      "::s_value:: [Water]",
+      "::s_value:: ::target_prod2:: per [::target::]"
+    ]
+  },
+  "Main_RecyclingVats_Fremen": {
+    "name": "Recycling Vats",
+    "attributes": [
+      "::s_value:: [Water]",
+      "::s_value:: ::target_prod2:: per [::target::]"
+    ]
+  },
+  "Main_ChoamBranch": {
+    "name": "CHOAM branch",
+    "attributes": [
+      "::target_effects:: when the base exchange rate is at least ::value::",
+      "::s_value:: max [Spice]"
+    ]
+  },
+  "Main_HarvesterWorks": {
+    "name": "Harvester Works",
+    "attributes": [
+      "::s_percent_value:: [!$my(harvester)]s gathering rate per [Economy] [!Building_Village] in their [!Village]",
+      "::percent:: [!$my(harvester)] [CrewPoint] cost"
+    ]
+  },
+  "Main_SpiceLaboratory": {
+    "name": "Spice Laboratory",
+    "attributes": [
+      "::s_value:: [Knowledge] per exploited [SpiceArea]",
+      "::s_value:: [FuelCell] requirements for [V_Harvester]"
+    ]
+  },
+  "Main_MasonGuild": {
+    "name": "Mason Guild",
+    "attributes": [
+      "::s_percent_value:: [Plascrete] production",
+      "::s_value:: [Solari] production in fully built [!Village]s"
+    ]
+  },
+  "Main_RecruitCenter": {
+    "name": "Recruitment Center",
+    "attributes": [
+      "::s_percent_value:: [Manpower] production",
+      "::s_value:: max [Manpower]"
+    ]
+  },
+  "Main_Barracks": {
+    "name": "Barracks",
+    "attributes": [
+      "::s_percent_value:: [Life] to Military Units",
+      "::s_percent_value:: [Experience] gains for Military Units"
+    ]
+  },
+  "Main_FusionPlant": {
+    "name": "Fusion Plant",
+    "attributes": [
+      "::s_value:: [FuelCell]"
+    ]
+  },
+  "Main_MilitaryAcademy": {
+    "name": "Military Academy",
+    "attributes": [
+      "::s_value:: [TrainingSlot]",
+      "Units regenerate [Life] ::s_percent:: faster"
+    ]
+  },
+  "Main_Command": {
+    "name": "Command Post",
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "::percent:: Military Unit [Solari] [!Upkeep]"
+    ]
+  },
+  "Main_ResearchCenter": {
+    "name": "Research Center",
+    "attributes": [
+      "::s_percent_value:: [Knowledge]",
+      "::s_percent_value:: [Hegemony] gain from fulfilling a Spice Contract",
+      "::s_percent_value:: daily [Hegemony] gain"
+    ]
+  },
+  "Main_Embassy": {
+    "name": "Embassy",
+    "attributes": [
+      "::s_value:: [::target::] on Council opening"
+    ]
+  },
+  "Main_Embassy_Fremen": {
+    "name": "Embassy",
+    "attributes": [
+      "::s_percent_value:: [Influence] production"
+    ]
+  },
+  "Main_Bazaar": {
+    "name": "Bazaar",
+    "attributes": [
+      "::s_value:: [Solari] per active trade with a [Sietch]",
+      "::s_value:: [Water] per active trade with a [Sietch]",
+      "Can only be built in [$my(mainbase)]"
+    ]
+  },
+  "Main_Temple": {
+    "name": "Al-Gaib Temple",
+    "attributes": []
+  },
+  "Main_LandsraadQuarters": {
+    "name": "Landsraad Quarters",
+    "attributes": [
+      "::s_value:: max [Influence]"
+    ]
+  },
+  "Main_IntelAgency": {
+    "name": "Intelligence Agency",
+    "attributes": []
+  },
+  "Main_CouncilChamber": {
+    "name": "Council Chamber",
+    "attributes": [
+      "::us_percent:: of [CouncilVote]s and [Influence] spent on a resolution choice that failed are reimbursed as [Influence]",
+      "::s_percent:: [Standing] losses"
+    ]
+  },
+  "Main_InterrogationCenter": {
+    "name": "Interrogation Center",
+    "attributes": [
+      "Gain ::value:: [Intel] when killing enemy units",
+      "::percent_value:: chance to brainwash captured [Agent]s"
+    ]
+  },
+  "Main_BlackMarketBranch": {
+    "name": "Black Market Branch",
+    "attributes": [
+      "::s_percent_value:: [Spice], [Plascrete], [Manpower] and [Intel] production per [UWHeadquarters]"
+    ]
+  },
+  "Main_Monument": {
+    "name": "Emperor Monument",
+    "attributes": [
+      "Generate ::value:: [Hegemony] per day"
+    ]
+  },
+  "Main_MuseumOfUnboundArts": {
+    "name": "Museum of Unbound Arts",
+    "attributes": [
+      "Removes limit on number of [!Masterpiece]s per [!Village]",
+      "Every [!Masterpiece] on the planet gives [Ecaz-longname]: ::target_effects_list::"
+    ]
+  },
+  "Main_NeuralCore": {
+    "name": "Neural Core",
+    "attributes": [
+      "Connected [NeuralNode]s produce ::value:: [FuelCell]",
+      "::s_percent_value:: [Knowledge] per connected [NeuralNode]"
+    ]
+  },
+  "Refinery": {
+    "name": "Refinery",
+    "attributes": [
+      "Allows the deployment of a [!$my(Harvester)] to the nearest [SpiceArea]"
+    ]
+  },
+  "SpiceSilos": {
+    "name": "Spice Silos",
+    "attributes": [
+      "Ally [!Village]s in the Region and its neighbors gain ::target_effects:: (x::target_stacking_limit:: max)",
+      "Ally [!Village]s in the Region and its neighbors gain ::target_effects:: (x::target_stacking_limit:: max)",
+      "Ally [!Village]s in the Region and its neighbors gain ::target_effects:: (x::target_stacking_limit:: max)",
+      "Ally [!Village]s in the Region and its neighbors gain ::target_effects:: (x::target_stacking_limit:: max)",
+      "Ally [!Village]s in the Region and its neighbors gain ::target_effects:: (x::target_stacking_limit:: max)",
+      "::target_effects:: to ally [V_Harvester]s in the Region and its neighbors (x::target_stacking_limit:: max)"
+    ]
+  },
+  "SmugglingCenter": {
+    "name": "Trafficking Station",
+    "attributes": [
+      "::target_effects:: to neighboring Regions of any owner",
+      "Gain ::percent_value:: of neighboring Region's [Spice] production as [Solari]"
+    ]
+  },
+  "PlascreteFactory": {
+    "name": "Plascrete Factory",
+    "attributes": [
+      "::s_value:: [Plascrete] production"
+    ]
+  },
+  "MaintenanceCenter": {
+    "name": "Maintenance Center",
+    "attributes": [
+      "::target_effects:: in ally [!Village]s in the Region and its neighbors (x::target_stacking_limit:: max)"
+    ]
+  },
+  "Marketplace": {
+    "name": "Wholesale Market",
+    "attributes": [
+      "::s_value:: [Solari] production"
+    ]
+  },
+  "ProcessingPlant": {
+    "name": "Processing Plant",
+    "attributes": [
+      "::s_value:: [Solari] production"
+    ]
+  },
+  "DewCollector": {
+    "name": "Dew Collector",
+    "attributes": [
+      "::s_value:: [Water] per level of wind strength in the Region"
+    ]
+  },
+  "WindTrap": {
+    "name": "Windtrap",
+    "attributes": [
+      "::s_value:: [Water] per level of wind strength in the Region"
+    ]
+  },
+  "WaterExtractor": {
+    "name": "Water Extractor",
+    "attributes": [
+      "::s_value:: [Water]"
+    ]
+  },
+  "ExperimentalAlloyFurnace": {
+    "name": "Experimental Furnace",
+    "attributes": [
+      "::target_effects:: in ally [!Village]s in the Region and its neighbors (x::target_stacking_limit:: max)"
+    ]
+  },
+  "ExperimentalAlloyFurnace_Fremen": {
+    "name": "Experimental Furnace",
+    "attributes": [
+      "::target_effects:: in ally [!Village]s in the Region and its neighbors (x::target_stacking_limit:: max)"
+    ]
+  },
+  "RecruitmentOffice": {
+    "name": "Recruitment Office",
+    "attributes": [
+      "::s_value:: [Manpower] production"
+    ]
+  },
+  "FuelCellFactory": {
+    "name": "Fuel cell Factory",
+    "attributes": [
+      "::s_value:: [FuelCell]"
+    ]
+  },
+  "MissileBattery": {
+    "name": "Missile Battery",
+    "attributes": [
+      "Automatically attacks enemy units within your territory"
+    ]
+  },
+  "MilitaryBase": {
+    "name": "Military Base",
+    "attributes": [
+      "::target_effects::"
+    ]
+  },
+  "Airfield": {
+    "name": "Airfield",
+    "attributes": [
+      "Ground Military Units can embark or disembark from [Shuttle]s within the [!Airfield]'s range",
+      "Allows placing the Rally Point within the [!Airfield]'s range"
+    ]
+  },
+  "SandCaches": {
+    "name": "Ceremonial Caves",
+    "attributes": []
+  },
+  "OppressionHeadquarter": {
+    "name": "Office of Order",
+    "attributes": [
+      "Constantly uses [::target::] for free"
+    ]
+  },
+  "MilitaryFactory": {
+    "name": "Military Factory",
+    "attributes": [
+      "Increases damage inflicted by military units by ::us_percent_value::",
+      "::s_percent:: Military Unit [Solari] [!Upkeep]"
+    ]
+  },
+  "MilitaryFactory_Fremen": {
+    "name": "Military Factory",
+    "attributes": [
+      "Increases damage inflicted by military units by ::us_percent_value::",
+      "::s_percent:: Military Unit [Solari] [!Upkeep]"
+    ]
+  },
+  "ShaiHuludTemple": {
+    "name": "Shai-hulud Temple",
+    "attributes": [
+      "::s_percent_value:: [Thumper] production",
+      "::s_value:: max [Thumper]"
+    ]
+  },
+  "NuclearSilo": {
+    "name": "Nuclear Silo",
+    "attributes": [
+      "Allows for the preparation and launch of [NuclearHead]s"
+    ]
+  },
+  "ResearchHub": {
+    "name": "Research Hub",
+    "attributes": [
+      "::s_value:: [Knowledge]"
+    ]
+  },
+  "DataCenter": {
+    "name": "Data Center",
+    "attributes": [
+      "::s_value:: [Intel] production, when neighboring an enemy Region"
+    ]
+  },
+  "ListeningPost": {
+    "name": "Listening Post",
+    "attributes": [
+      "::s_value:: [Influence] production, when neighboring an enemy Region"
+    ]
+  },
+  "InvestmentOffice": {
+    "name": "Investment Office",
+    "attributes": [
+      "Effects of [!SpecificityVillage] are applied ::value:: more time"
+    ]
+  },
+  "CraftsWorkshop": {
+    "name": "Crafts Workshop",
+    "attributes": [
+      "Generate ::value:: [Hegemony] per day"
+    ]
+  },
+  "MonitoringStation": {
+    "name": "Monitoring Station",
+    "attributes": [
+      "Can detect stealth units at [VeryLong_Range]",
+      "Ally [!Village]s in the Region and its neighbors gain [MonitoringStation_Trait] (x::target_stacking_limit:: max): ::target_effects_list::"
+    ]
+  },
+  "AtreidesFremenEmbassy": {
+    "name": "Concord Chamber",
+    "attributes": [
+      "[Sietch]s in this region and its neighbors get ::target_effects:: (x::target_stacking_limit:: max)",
+      "Allied [Sietch]s in this region and its neighbors get ::target_effects:: (x1 max)"
+    ]
+  },
+  "PropagandaOffice": {
+    "name": "Propaganda Office",
+    "attributes": [
+      "::s_percent_value:: [CraftsWorkshop] resource production",
+      "::value:: [Authority] [!Upkeep]"
+    ]
+  },
+  "ResearchStation": {
+    "name": "Research Station",
+    "attributes": [
+      "::s_percent_value:: [ResearchHub] resource production",
+      "::s_percent:: [ResearchHub] [!Upkeep]"
+    ]
+  },
+  "ResearchStation_Fremen": {
+    "name": "Research Station",
+    "attributes": [
+      "::s_percent_value:: [ResearchHub] resource production",
+      "::s_percent:: [ResearchHub] [!Upkeep]"
+    ]
+  },
+  "SpacingGuildBranch": {
+    "name": "Spacing Guild Branch",
+    "attributes": [
+      "Allows trading resources with [GuildFavor]s",
+      "Allows the deployment of [A_Ship] and [A_Frigate]",
+      "Allows the deployment of [H_Ship] and [H_Frigate]",
+      "Allows the deployment of [S_Ship] and [S_Frigate]",
+      "Allows the deployment of [C_Ship] and [C_Frigate]",
+      "Allows the deployment of [E_Ship] and [E_Frigate]",
+      "Allows the deployment of [V_Ship] and [V_Frigate]"
+    ]
+  },
+  "RecyclingPlant": {
+    "name": "Recycling Plant",
+    "attributes": [
+      "Allows trading resources with [Scraps]s",
+      "Allows the construction of [F_Ship] and [F_Frigate]"
+    ]
+  },
+  "Masterpiece_Eco": {
+    "name": "Masterpiece",
+    "attributes": [
+      "Counts as 2 buildings for [!SpecificityVillage]",
+      "Is not destroyed on liberation",
+      "Destroying [!Masterpiece]s inflicts the loss of ::value:: [Authority] and ::value:: [Standing]"
+    ]
+  },
+  "Masterpiece_Military": {
+    "name": "Masterpiece",
+    "attributes": [
+      "Counts as 2 buildings for [!SpecificityVillage]",
+      "Is not destroyed on liberation",
+      "Destroying [!Masterpiece]s inflicts the loss of ::value:: [Authority] and ::value:: [Standing]"
+    ]
+  },
+  "Masterpiece_StateCraft": {
+    "name": "Masterpiece",
+    "attributes": [
+      "Counts as 2 buildings for [!SpecificityVillage]",
+      "Is not destroyed on liberation",
+      "Destroying [!Masterpiece]s inflicts the loss of ::value:: [Authority] and ::value:: [Standing]"
+    ]
+  },
+  "NeuralNode": {
+    "name": "Neural Node",
+    "attributes": [
+      "Connect the region to the [Vernius_ConnectedVillage]",
+      "Can only be built in [!Village]s where exactly ::value:: neighbor is connected directly to the [Vernius_ConnectedVillage]"
+    ]
+  },
+  "BootlegMarket": {
+    "name": "Bootleg Market",
+    "attributes": [
+      "Produce ::percent_value:: of the [!Village]'s [Solari] production",
+      "Produce ::percent_value:: of the [!Village]'s [Plascrete] production as [Solari]"
+    ]
+  },
+  "WaterSmugglers": {
+    "name": "Water Thieves",
+    "attributes": [
+      "Produce ::percent_value:: of the [!Village]'s [Water]"
+    ]
+  },
+  "CorruptedAdministrators": {
+    "name": "Corrupted Administrators",
+    "attributes": [
+      "Gain ::percent_value:: of the Village's [Solari] upkeep"
+    ]
+  },
+  "WorkersGuild": {
+    "name": "Worker's Guild",
+    "attributes": [
+      "Host [!Village] gains ::target_effects::"
+    ]
+  },
+  "TraffickingStation": {
+    "name": "Harvesters' Union",
+    "attributes": []
+  },
+  "WaterNetwork": {
+    "name": "Water Network",
+    "attributes": [
+      "::s_value:: [::target::]",
+      "Host [!Village] receives ::target_effects::"
+    ]
+  },
+  "WaterSeller": {
+    "name": "Water Seller",
+    "attributes": [
+      "::s_value:: [::target::]",
+      "Host [!Village] receives ::target_effects::"
+    ]
+  },
+  "ContrabandCache": {
+    "name": "Contraband Caches",
+    "attributes": [
+      "Stores ::percent_value:: of the [!Village]'s [Spice] production, up to ::value(UWHQ_StolenProd_MaxStock)::"
+    ]
+  },
+  "EnergyDiversions": {
+    "name": "Energy Diversions",
+    "attributes": [
+      "Produce ::percent_value:: of the [!Village]'s [FuelCell]"
+    ]
+  },
+  "ScavengerCaches": {
+    "name": "Scavenger Caches",
+    "attributes": [
+      "::target_effects::"
+    ]
+  },
+  "HiddenExplosives": {
+    "name": "Hidden Explosives",
+    "attributes": [
+      "[!HiddenExplosives] are removed when [Smugglers] units attack the [!Village]"
+    ]
+  },
+  "CovertRecruiters": {
+    "name": "Covert Recruiters",
+    "attributes": []
+  },
+  "LocalGang": {
+    "name": "Local Gang",
+    "attributes": [
+      "Spawns ::value:: [S_Trooper] when [Smugglers] units attack the [!Village]",
+      "[!LocalGang] is removed when [Smugglers] units attack the [!Village]"
+    ]
+  },
+  "BackAlleyDoctor": {
+    "name": "Back-Alley Doctor",
+    "attributes": []
+  },
+  "Spywares": {
+    "name": "Spyware",
+    "attributes": [
+      "Produce ::percent_value:: of the [!Village]'s [Knowledge]"
+    ]
+  },
+  "WhisperersLair": {
+    "name": "Whisperers Lair",
+    "attributes": [
+      "Produce ::percent_value:: of the [!Village]'s [Intel] production",
+      "Produce ::percent_value:: of the [!Village]'s [Influence] production as [Intel]"
+    ]
+  },
+  "ActivistQuarters": {
+    "name": "Activist Quarters",
+    "attributes": [
+      "::target_effects::"
+    ]
+  },
+  "PropagandaCell": {
+    "name": "Propaganda Cell",
+    "attributes": [
+      "::s_value:: [Standing] on Council opening"
+    ]
+  },
+  "EnrollmentStation": {
+    "name": "Dead Drops",
+    "attributes": []
+  },
+  "MBSpiceTraffickers": {
+    "name": "Spice Traffickers",
+    "attributes": [
+      "Produce ::value:: [Spice] per active [::UWHQ_host_faction::-adjective] Spice Harvester"
+    ]
+  },
+  "MBContrabandHub": {
+    "name": "Contraband Hub",
+    "attributes": []
+  },
+  "MBLaunderingNetwork": {
+    "name": "Laundering Network",
+    "attributes": [
+      "::target_effects:: per level of this main base's biggest completed [Economy] district"
+    ]
+  },
+  "MBHiddenExplosives": {
+    "name": "Hidden Explosives",
+    "attributes": [
+      "The Main Base cannot attack for a day upon ally [ArmySiege]",
+      "[!MBHiddenExplosives] are removed upon ally [ArmySiege]"
+    ]
+  },
+  "MBBeaconNetwork": {
+    "name": "Beacon Network",
+    "attributes": [
+      "Ally Military Units in [::UWHQ_host_faction::-adjective] territory gain ::target_effects::"
+    ]
+  },
+  "MBWeaponDealers": {
+    "name": "Weapon Dealers",
+    "attributes": [
+      "::target_effects:: per level of this main base's biggest completed [Military] district"
+    ]
+  },
+  "MBWhisperersHub": {
+    "name": "Whisperers Hub",
+    "attributes": [
+      "::s_value:: max [InfiltrationCells] in [::UWHQ_host_faction::-adjective] territory"
+    ]
+  },
+  "MBSchemeLodge": {
+    "name": "Scheme Lodge",
+    "attributes": [
+      "[::UWHQ_host_faction::-longname] gain access to Smuggler Contraband Offers",
+      "Gain ::value:: [Intel] when [::UWHQ_host_faction::-longname] finishes a Contraband Offer"
+    ]
+  },
+  "MBActivistHeadquarters": {
+    "name": "Activist Headquarters",
+    "attributes": [
+      "::target_effects:: per level of this main base's biggest completed [Statecraft] district"
+    ]
+  },
+  "SIFremenNegotiator": {
+    "name": "Fremen Trade Hub",
+    "attributes": []
+  },
+  "SIFremenGoldsmithery": {
+    "name": "Fremen Goldsmithery",
+    "attributes": []
+  },
+  "SISpiceSeekers": {
+    "name": "Melange Mixing Mill",
+    "attributes": []
+  },
+  "SIHiddenPlascreteFactory": {
+    "name": "Hidden Plascrete Factory",
+    "attributes": [
+      "::s_value:: [Plascrete] production"
+    ]
+  },
+  "SIThumpersFactory": {
+    "name": "Thumper Factory",
+    "attributes": [
+      "::s_percent_value:: [Thumper] production",
+      "::s_value:: max [Thumper]"
+    ]
+  },
+  "SIFremenWatchers": {
+    "name": "Raid Gathering Site",
+    "attributes": [
+      "The [Sietch] will raid more frequently"
+    ]
+  },
+  "SIDesertTrainingCenters": {
+    "name": "Desert Training Centers",
+    "attributes": [
+      "Every [Sietch] and every allied or neutral [!Village] gains ::target_effects_list::"
+    ]
+  },
+  "SISandForge": {
+    "name": "Master Knife Makers",
+    "attributes": []
+  },
+  "SIFremenShadow": {
+    "name": "Gossip Barterers",
+    "attributes": [
+      "::s_value:: [Intel] production per neutral Villages in the region and its neighbors"
+    ]
+  },
+  "SIFremenAnalyst": {
+    "name": "Desert Analysts",
+    "attributes": [
+      "::s_value:: [Knowledge] per neutral Villages in the region and its neighbors"
+    ]
+  },
+  "SIUndergroundLakes": {
+    "name": "Underground Lakes",
+    "attributes": [
+      "::s_value:: [Water]"
+    ]
+  },
+  "SITerraformingResearchHub": {
+    "name": "Terraforming Research Hub",
+    "attributes": [
+      "::s_value:: [Knowledge] per positive [Water]"
+    ]
+  },
+  "CorrinoBasePreview": {
+    "name": "Imperial Base Preview",
+    "attributes": []
+  },
+  "Masterpiece": {
+    "name": "Masterpiece",
+    "attributes": [
+      "Counts as 2 buildings for [!SpecificityVillage]",
+      "Is not destroyed on liberation",
+      "Destroying [!Masterpiece]s inflicts the loss of ::value:: [Authority] and ::value:: [Standing]"
+    ]
+  },
+  "SpiceCollectors": {
+    "name": "Spice Collectors",
+    "attributes": []
+  },
+  "FremenProcessingPlant": {
+    "name": "Processing Plant",
+    "attributes": []
+  },
+  "ClandestineScouts": {
+    "name": "Clandestine Scouts",
+    "attributes": []
+  },
+  "Main_WeaponsFactory": {
+    "name": "Underground Tunnels",
+    "attributes": []
+  },
+  "SupportStation": {
+    "name": "Support Station",
+    "attributes": []
+  },
+  "SpotterCell": {
+    "name": "Spotter Cell",
+    "attributes": [
+      "::percent:: [Pillage] action duration",
+      "::s_percent_value:: resources from pillaging this [!Village]"
+    ]
+  },
+  "Main_Fortifications": {
+    "name": "Enhanced Fortifications",
+    "attributes": []
+  }
+}

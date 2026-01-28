@@ -1,0 +1,684 @@
+{
+  "DeepDesert": {
+    "name": {
+      "value": "Deep Desert"
+    },
+    "desc": {
+      "value": "No one can survive the deep desert of Arrakis. It is a place of extremes with many hidden dangers. Even the Fremen only step there when they wish to die."
+    }
+  },
+  "Plain": {
+    "name": {
+      "value": "Plain"
+    }
+  },
+  "Mountains": {
+    "name": {
+      "value": "Mountains"
+    }
+  },
+  "Arrakeen": {
+    "name": {
+      "value": "Arrakeen"
+    }
+  },
+  "Carthag": {
+    "name": {
+      "value": "Carthag"
+    }
+  },
+  "STuek": {
+    "name": {
+      "value": "Sietch Tuek"
+    }
+  },
+  "STabr": {
+    "name": {
+      "value": "Sietch Tabr"
+    }
+  },
+  "ImperialBase": {
+    "name": {
+      "value": "Imperial Base"
+    }
+  },
+  "Foliage": {
+    "name": {
+      "value": "Foliage"
+    }
+  },
+  "IxianCore": {
+    "name": {
+      "value": "S-Vault"
+    }
+  },
+  "TESTBase": {
+    "name": {
+      "value": "TestBase"
+    }
+  },
+  "ConquestBase_Atreides": {
+    "name": {
+      "value": "Atreides Outpost"
+    }
+  },
+  "ConquestBase_Harkonnen": {
+    "name": {
+      "value": "Harkonnen Outpost"
+    }
+  },
+  "ConquestBase_Smugglers": {
+    "name": {
+      "value": "Smugglers Outpost"
+    }
+  },
+  "ConquestBase_Fremen": {
+    "name": {
+      "value": "Fremen Outpost"
+    }
+  },
+  "ConquestBase_Corrino": {
+    "name": {
+      "value": "Corrino Outpost"
+    }
+  },
+  "ConquestBase_Ecaz": {
+    "name": {
+      "value": "Ecaz Outpost"
+    }
+  },
+  "ConquestBase_Vernius": {
+    "name": {
+      "value": "Vernius Outpost"
+    }
+  },
+  "ConquestBase_Vernius1": {
+    "name": {
+      "value": "Smugglers Outpost"
+    }
+  },
+  "TheDesolation": {
+    "name": {
+      "value": "The Desolation"
+    },
+    "desc": {
+      "value": "This harsh desert area is even more dangerous and unwelcoming than the rest of the planet. Life here simply cannot be sustained."
+    }
+  },
+  "Pole": {
+    "name": {
+      "value": "Polar Sink"
+    },
+    "desc": {
+      "value": "The north pole of Arrakis is the only place where water can be found in significant quantities, although in frozen form."
+    }
+  },
+  "ShieldWall": {
+    "name": {
+      "value": "Shield Wall"
+    },
+    "desc": {
+      "value": "The Shield Wall is a natural barrier that protects the surrounding land from [Sandstorm], making it one of the safest places on Arrakis"
+    }
+  },
+  "ShieldWall_Volcano": {
+    "name": {
+      "value": "Shield Wall"
+    },
+    "desc": {
+      "value": "The Shield Wall is a natural barrier that protects the surrounding land from [Sandstorm], making it one of the safest places on Arrakis"
+    }
+  },
+  "ImperialBasin": {
+    "name": {
+      "value": "Imperial Basin"
+    },
+    "desc": {
+      "value": "The Imperial Basin is a Region protected from [Sandworm] thanks to its natural features. It is also one of the most populated in the planet."
+    }
+  },
+  "MountIdaho": {
+    "name": {
+      "value": "Mount Idaho"
+    },
+    "desc": {
+      "value": "One of the highest points on the planet, Mount Idaho is rich in hard minerals."
+    }
+  },
+  "RichPit": {
+    "name": {
+      "value": "Well of Riches"
+    },
+    "desc": {
+      "value": "This pit contain many rare elements that could make a House very wealthy."
+    }
+  },
+  "RichPit_Volcanic": {
+    "name": {
+      "value": "Well of Riches"
+    },
+    "desc": {
+      "value": "This pit contain many rare elements that could make a House very wealthy."
+    }
+  },
+  "RichPit_Red": {
+    "name": {
+      "value": "Well of Riches"
+    },
+    "desc": {
+      "value": "This pit contain many rare elements that could make a House very wealthy."
+    }
+  },
+  "MoonDewVale": {
+    "name": {
+      "value": "Moon Dew Vale"
+    },
+    "desc": {
+      "value": "This hidden valley is relatively protected from high temperatures and wind, making it as much of a safe harbor as your can find on Arrakis for local wildlife."
+    }
+  },
+  "MoonDewVale_Volcanic": {
+    "name": {
+      "value": "Moon Dew Vale"
+    },
+    "desc": {
+      "value": "This hidden valley is relatively protected from high temperatures and wind, making it as much of a safe harbor as your can find on Arrakis for local wildlife."
+    }
+  },
+  "ObservatoryM": {
+    "name": {
+      "value": "Observatory Mountain"
+    },
+    "desc": {
+      "value": "Standing at 8110 meters, Observatory Mountain provides a commanding view on the surrounding area."
+    }
+  },
+  "Volcano": {
+    "name": {
+      "value": "Great Volcano"
+    },
+    "desc": {
+      "value": "Abundant sulfides and hydrogen greatly facilitate the production of Fuel Cells in this area."
+    }
+  },
+  "Pit": {
+    "name": {
+      "value": "White Rift"
+    },
+    "desc": {
+      "value": "The Rift contains precious materials found only on Arrakis. They have a great value when sold offworld."
+    }
+  },
+  "Pit_Volcanic": {
+    "name": {
+      "value": "Black Rift"
+    },
+    "desc": {
+      "value": "The Rift contains precious materials found only on Arrakis. They have a great value when sold offworld."
+    }
+  },
+  "Pit_Polar": {
+    "name": {
+      "value": "White Rift"
+    },
+    "desc": {
+      "value": "The Rift contains precious materials found only on Arrakis. They have a great value when sold offworld."
+    }
+  },
+  "AcidLake": {
+    "name": {
+      "value": "Acid Lakes"
+    },
+    "desc": {
+      "value": "A very dangerous and inhospitable area, but also a great boon for research."
+    }
+  },
+  "AcidLake_Red": {
+    "name": {
+      "value": "Acid Lakes"
+    },
+    "desc": {
+      "value": "A very dangerous and inhospitable area, but also a great boon for research."
+    }
+  },
+  "AcidLake_Volcanic": {
+    "name": {
+      "value": "Acid Lakes"
+    },
+    "desc": {
+      "value": "A very dangerous and inhospitable area, but also a great boon for research."
+    }
+  },
+  "CrescentRidge": {
+    "name": {
+      "value": "Crescent Ridge"
+    },
+    "desc": {
+      "value": "The geology of this region accelerates and gives a particular force to the winds."
+    }
+  },
+  "CrescentRidge_Red": {
+    "name": {
+      "value": "Crescent Ridge"
+    },
+    "desc": {
+      "value": "The geology of this region accelerates and gives a particular force to the winds."
+    }
+  },
+  "CrescentRidge_Idaho": {
+    "name": {
+      "value": "Crescent Ridge"
+    },
+    "desc": {
+      "value": "The geology of this region accelerates and gives a particular force to the winds."
+    }
+  },
+  "CrescentRidge_Polar": {
+    "name": {
+      "value": "Crescent Ridge"
+    },
+    "desc": {
+      "value": "The geology of this region accelerates and gives a particular force to the winds."
+    }
+  },
+  "WormNest": {
+    "name": {
+      "value": "Worm Nest"
+    },
+    "desc": {
+      "value": "The high activity of [Sandworm] in this region makes it very difficult to practice, but its spice field is especially prolific."
+    }
+  },
+  "SpaceCruiserWreck": {
+    "name": {
+      "value": "Space Cruiser Wreck"
+    },
+    "desc": {
+      "value": "A frigate from old times, probably fallen centuries ago, has started emerging from the sand in this region."
+    }
+  },
+  "SpaceCruiserWreck_Red": {
+    "name": {
+      "value": "Space Cruiser Wreck"
+    },
+    "desc": {
+      "value": "A frigate from old times, probably fallen centuries ago, has started emerging from the sand in this region."
+    }
+  },
+  "SpaceCruiserWreck_Polar": {
+    "name": {
+      "value": "Space Cruiser Wreck"
+    },
+    "desc": {
+      "value": "A frigate from old times, probably fallen centuries ago, has started emerging from the sand in this region."
+    }
+  },
+  "SpaceCruiserWreck_Volcanic": {
+    "name": {
+      "value": "Space Cruiser Wreck"
+    },
+    "desc": {
+      "value": "A frigate from old times, probably fallen centuries ago, has started emerging from the sand in this region."
+    }
+  },
+  "SandFall": {
+    "name": {
+      "value": "Sand Fall"
+    },
+    "desc": {
+      "value": "Several tons of sand falling from high altitude make maintaining infrastructure in this region difficult, but ultimately very instructive"
+    }
+  },
+  "RedChasm": {
+    "name": {
+      "value": "Red Chasm"
+    }
+  },
+  "LowerErg": {
+    "name": {
+      "value": "Lower Erg"
+    }
+  },
+  "GreatFlat": {
+    "name": {
+      "value": "Great Flat"
+    }
+  },
+  "KamrietN": {
+    "name": {
+      "value": "Kamriet North"
+    }
+  },
+  "KamrietS": {
+    "name": {
+      "value": "Kamriet South"
+    }
+  },
+  "Adara": {
+    "name": {
+      "value": "Ada'ra"
+    }
+  },
+  "AkhunRidge": {
+    "name": {
+      "value": "Akhun Ridge"
+    }
+  },
+  "AsaranPlains": {
+    "name": {
+      "value": "Asaran Plains"
+    }
+  },
+  "AshamRidge": {
+    "name": {
+      "value": "Asham Ridge"
+    }
+  },
+  "BardanPass": {
+    "name": {
+      "value": "Bardan Pass"
+    }
+  },
+  "BightofaCliff": {
+    "name": {
+      "value": "Bight of a Cliff"
+    }
+  },
+  "ChaiHills": {
+    "name": {
+      "value": "Chai Hills"
+    }
+  },
+  "ChasihaRidge": {
+    "name": {
+      "value": "Chasiha Ridge"
+    }
+  },
+  "Cielago": {
+    "name": {
+      "value": "Cielago Depression"
+    }
+  },
+  "FalseWallSouth": {
+    "name": {
+      "value": "False Wall South"
+    }
+  },
+  "FalseWallWest": {
+    "name": {
+      "value": "False Wall West"
+    }
+  },
+  "GaraKulon": {
+    "name": {
+      "value": "Gara Kulon"
+    }
+  },
+  "HabbanyaErg": {
+    "name": {
+      "value": "Habbanya Erg"
+    }
+  },
+  "HaggaBasin": {
+    "name": {
+      "value": "Hagga Basin"
+    }
+  },
+  "HargPass": {
+    "name": {
+      "value": "Harg Pass"
+    }
+  },
+  "HebaPlateau": {
+    "name": {
+      "value": "Heba Plateau"
+    }
+  },
+  "HiegaPlateau": {
+    "name": {
+      "value": "Hiega Plateau"
+    }
+  },
+  "IralBasin": {
+    "name": {
+      "value": "Iral Basin"
+    }
+  },
+  "KaniaSwirls": {
+    "name": {
+      "value": "Kania Swirls"
+    }
+  },
+  "KarmrietE": {
+    "name": {
+      "value": "Kamriet East"
+    }
+  },
+  "MasraGara": {
+    "name": {
+      "value": "Masra Gara"
+    }
+  },
+  "MavenTal": {
+    "name": {
+      "value": "Maven T'al"
+    }
+  },
+  "MiethN": {
+    "name": {
+      "value": "Mieth Erg North"
+    }
+  },
+  "MiethS": {
+    "name": {
+      "value": "Mieth Erg South"
+    }
+  },
+  "NarmisPass": {
+    "name": {
+      "value": "Narmis Pass"
+    }
+  },
+  "NuqtatFlat": {
+    "name": {
+      "value": "Nuqtat Flat"
+    }
+  },
+  "OldGap": {
+    "name": {
+      "value": "Old Gap"
+    }
+  },
+  "PastyMesa": {
+    "name": {
+      "value": "Pasty Mesa"
+    }
+  },
+  "QarnSouth": {
+    "name": {
+      "value": "Qarn South"
+    }
+  },
+  "QarnWest": {
+    "name": {
+      "value": "Qarn West"
+    }
+  },
+  "RedCliff": {
+    "name": {
+      "value": "Red Cliff"
+    }
+  },
+  "RimWallWest": {
+    "name": {
+      "value": "Rim Wall West"
+    }
+  },
+  "RockOutcroppings": {
+    "name": {
+      "value": "Rock Outcroppings"
+    }
+  },
+  "ShiyahaRidge": {
+    "name": {
+      "value": "Sihaya Ridge"
+    }
+  },
+  "SplinteredRock": {
+    "name": {
+      "value": "Splintered Rock"
+    }
+  },
+  "StufalBasin": {
+    "name": {
+      "value": "Stufal Basin"
+    }
+  },
+  "TheFuneralPlain": {
+    "name": {
+      "value": "The Funeral Plain"
+    }
+  },
+  "TheMinorErg": {
+    "name": {
+      "value": "The Minor Erg"
+    }
+  },
+  "TuonoBasin": {
+    "name": {
+      "value": "Tuono Basin"
+    }
+  },
+  "WindPass": {
+    "name": {
+      "value": "Wind Pass"
+    }
+  },
+  "IlinPlains": {
+    "name": {
+      "value": "Ilin Plains"
+    }
+  },
+  "LostPlains": {
+    "name": {
+      "value": "Lost Plains"
+    }
+  },
+  "ShadowRidge": {
+    "name": {
+      "value": "Shadow Ridge"
+    }
+  },
+  "lowlands": {
+    "name": {
+      "value": "Low Lands"
+    }
+  },
+  "IlinWest": {
+    "name": {
+      "value": "Ilin West"
+    }
+  },
+  "Alda": {
+    "name": {
+      "value": "Alda"
+    }
+  },
+  "MirrorBasin": {
+    "name": {
+      "value": "Mirror Basin"
+    }
+  },
+  "ErinRidge": {
+    "name": {
+      "value": "Erin Ridge"
+    }
+  },
+  "AanaPlains": {
+    "name": {
+      "value": "Aana Plains"
+    }
+  },
+  "EssetErg": {
+    "name": {
+      "value": "Esset Erg"
+    }
+  },
+  "Ekiret": {
+    "name": {
+      "value": "Ekiret"
+    }
+  },
+  "Safat": {
+    "name": {
+      "value": "Safat"
+    }
+  },
+  "TallHills": {
+    "name": {
+      "value": "Tall Hills"
+    }
+  },
+  "QajdarPlains": {
+    "name": {
+      "value": "Qajdar Plains"
+    }
+  },
+  "TheFault": {
+    "name": {
+      "value": "The Fault"
+    }
+  },
+  "AmsChasm": {
+    "name": {
+      "value": "Ams Chasm"
+    }
+  },
+  "WhitePlains": {
+    "name": {
+      "value": "White Plains"
+    }
+  },
+  "Crater": {
+    "name": {
+      "value": "Crater"
+    }
+  },
+  "CaveofRiches": {
+    "name": {
+      "value": "Cave of Riches"
+    }
+  },
+  "Shuloch": {
+    "name": {
+      "value": "Shuloch"
+    },
+    "desc": {
+      "value": "No one can survive the deep desert of Arrakis. It is a place of extremes with many hidden dangers. Even the Fremen only step there when they wish to die."
+    }
+  },
+  "Orbit": {
+    "name": {
+      "value": "In Shuttle"
+    },
+    "desc": {
+      "value": "The troops are in a shuttle."
+    }
+  },
+  "Carryall": {
+    "name": {
+      "value": "In Transit"
+    },
+    "desc": {
+      "value": "The harvester is in transit."
+    }
+  },
+  "TransportWorm_Zone": {
+    "name": {
+      "value": "Riding a Sandworm"
+    },
+    "desc": {
+      "value": "The troops are riding a Sandworm"
+    }
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "Unit": {
+    "name": {
+      "value": "Unit"
+    }
+  },
+  "Militia": {
+    "name": {
+      "value": "Militia"
+    }
+  },
+  "MilitaryUnit": {
+    "name": {
+      "value": "Military Unit"
+    }
+  },
+  "HeroUnit": {
+    "name": {
+      "value": "Hero"
+    }
+  },
+  "HeadquartersBuilding": {
+    "name": {
+      "value": "[!Building_UWHQ]"
+    }
+  },
+  "Outpost": {
+    "name": {
+      "value": "[!Village]"
+    }
+  },
+  "MainBase": {
+    "name": {
+      "value": "Main Base"
+    }
+  },
+  "NeutralOutpost": {
+    "name": {
+      "value": "Neutral Outpost"
+    }
+  },
+  "NaturalResource": {
+    "name": {
+      "value": "Natural Resource"
+    }
+  },
+  "Discovery": {
+    "name": {
+      "value": "Discovery"
+    }
+  },
+  "MainbaseBuilding": {
+    "name": {
+      "value": "Main Base [!Building_MB]"
+    }
+  },
+  "MainbaseHeadquarters": {
+    "name": {
+      "value": "[!Building_UWHQ_MB]"
+    }
+  },
+  "LocalSietchBuilding": {
+    "name": {
+      "value": "[!Building_Sietch]"
+    }
+  },
+  "Buildings": {
+    "name": {
+      "value": "[!Village] [!Building_Village]"
+    }
+  },
+  "MajorBuilding": {
+    "name": {
+      "value": "[!Building_Wonder]s"
+    }
+  },
+  "Operation": {
+    "name": {
+      "value": "Spying Operation"
+    }
+  },
+  "Mission": {
+    "name": {
+      "value": "Spying Mission"
+    }
+  },
+  "UnitAbility": {
+    "name": {
+      "value": "Unit Ability"
+    }
+  },
+  "VillageAbility": {
+    "name": {
+      "value": "[!Village] Ability"
+    }
+  },
+  "DevelopmentAbility": {
+    "name": {
+      "value": "Development Ability"
+    }
+  },
+  "Ability": {
+    "name": {
+      "value": "Ability"
+    }
+  },
+  "DiplomaticTreaty": {
+    "name": {
+      "value": "Treaty"
+    }
+  },
+  "DiplomaticGift": {
+    "name": {
+      "value": "Diplomatic Gift"
+    }
+  },
+  "Resolution": {
+    "name": {
+      "value": "Resolution"
+    }
+  },
+  "Charter": {
+    "name": {
+      "value": "[!Charter]"
+    }
+  },
+  "Resource": {
+    "name": {
+      "value": "Resource"
+    }
+  },
+  "UnitStat": {
+    "name": {
+      "value": "Unit Stats"
+    }
+  },
+  "InfiltrationField": {
+    "name": {
+      "value": "Spying field"
+    }
+  },
+  "ConquestResource": {
+    "name": {
+      "value": "Conquest Resource"
+    }
+  },
+  "ConquestState": {
+    "name": {
+      "value": "Conquest State"
+    }
+  },
+  "SpiceContract": {
+    "name": {
+      "value": "Spice Contract"
+    }
+  },
+  "DiplomaticStatus": {
+    "name": {
+      "value": "Diplomatic Status"
+    }
+  },
+  "UnitSkill": {
+    "name": {
+      "value": "Unit Skill"
+    }
+  },
+  "Region": {
+    "name": {
+      "value": "Region"
+    }
+  },
+  "BarrenRegion": {
+    "name": {
+      "value": "Barren Region"
+    }
+  },
+  "SpecialRegion": {
+    "name": {
+      "value": "Special Region"
+    }
+  },
+  "MainBaseRegion": {
+    "name": {
+      "value": "Main Base Region"
+    }
+  },
+  "ResAction": {
+    "name": {
+      "value": "Resolution Modifier"
+    }
+  },
+  "SiegeAction": {
+    "name": {
+      "value": "Siege"
+    }
+  },
+  "TraitMalus": {
+    "name": {
+      "value": "TraitMalus"
+    }
+  },
+  "TraitBonus": {
+    "name": {
+      "value": "TraitBonus"
+    }
+  },
+  "ResourceDeficit": {
+    "name": {
+      "value": "Resource Deficit"
+    }
+  },
+  "StandingLevel": {
+    "name": {
+      "value": "Standing Level"
+    }
+  },
+  "CHOAMLevel": {
+    "name": {
+      "value": "CHOAM Level"
+    }
+  },
+  "FactionBonus": {
+    "name": {
+      "value": "Faction Bonus"
+    }
+  },
+  "UnitInspiration": {
+    "name": {
+      "value": "Unit Inspiration"
+    }
+  },
+  "VillageInspiration": {
+    "name": {
+      "value": "[!Village] Inspiration"
+    }
+  },
+  "UnitStatus": {
+    "name": {
+      "value": "Unit Status"
+    }
+  },
+  "VillageStatus": {
+    "name": {
+      "value": "[!Village] Status"
+    }
+  },
+  "UnitAffliction": {
+    "name": {
+      "value": "Unit Affliction"
+    }
+  },
+  "VillageAffliction": {
+    "name": {
+      "value": "[!Village] Affliction"
+    }
+  },
+  "ContractPaid": {
+    "name": {
+      "value": "Contract Reward"
+    }
+  },
+  "ContractUnpaid": {
+    "name": {
+      "value": "Contract Penalty"
+    }
+  },
+  "NeighboringInspiration": {
+    "name": {
+      "value": "Neighboring Effect"
+    }
+  },
+  "HarvestingMode": {
+    "name": {
+      "value": "Harvesting Mode"
+    }
+  },
+  "UnitTrait": {
+    "name": {
+      "value": "Unit Trait"
+    }
+  },
+  "Gear": {
+    "name": {
+      "value": "Gear"
+    }
+  },
+  "AltarEnhancement": {
+    "name": {
+      "value": "Altar Enhancement"
+    }
+  },
+  "VillageSpecialty": {
+    "name": {
+      "value": "[!Village] Quirk"
+    }
+  },
+  "SietchStatus": {
+    "name": {
+      "value": "Sietch Status"
+    }
+  },
+  "SietchSpecialty": {
+    "name": {
+      "value": "Sietch Specialty"
+    }
+  },
+  "AgentTrait": {
+    "name": {
+      "value": "Agent Trait"
+    }
+  },
+  "DistrictBonus": {
+    "name": {
+      "value": "District Bonus"
+    }
+  },
+  "AIModifier": {
+    "name": {
+      "value": "AI Modifier"
+    }
+  },
+  "RegionalEffect": {
+    "name": {
+      "value": "Regional Effect"
+    }
+  },
+  "Councillor": {
+    "name": {
+      "value": "Councillor"
+    }
+  },
+  "LandsraadPenalty": {
+    "name": {
+      "value": "Landsraad Penalty"
+    }
+  },
+  "ConquestBonus": {
+    "name": {
+      "value": "Conquest Bonus"
+    }
+  },
+  "ConquestMajorBonus": {
+    "name": {
+      "value": "Conquest Major Bonus"
+    }
+  },
+  "ConquestImprovements": {
+    "name": {
+      "value": "Territory Improvement"
+    }
+  },
+  "ConquestTerritoryBonus": {
+    "name": {
+      "value": "Territory Bonus"
+    }
+  },
+  "ConquestFremenBonus": {
+    "name": {
+      "value": "Fremen Relationship Level"
+    }
+  },
+  "ConquestUnityBonus": {
+    "name": {
+      "value": "Fremen Unity Level"
+    }
+  },
+  "ConquestFaufreluchesBonus": {
+    "name": {
+      "value": "Faufreluche Corruption Level"
+    }
+  },
+  "ConquestBattleModifier": {
+    "name": {
+      "value": "Mission Modifier"
+    }
+  },
+  "ConquestTerritoryModifier": {
+    "name": {
+      "value": "Territory Modifier"
+    }
+  },
+  "DevelopmentBonus": {
+    "name": {
+      "value": "Development Bonus"
+    }
+  }
+}

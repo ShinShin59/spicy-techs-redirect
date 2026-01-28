@@ -1,0 +1,22 @@
+{
+  "Economy": {
+    "name": {
+      "value": "Economy"
+    }
+  },
+  "Military": {
+    "name": {
+      "value": "Military"
+    }
+  },
+  "Statecraft": {
+    "name": {
+      "value": "Statecraft"
+    }
+  },
+  "Expansion": {
+    "name": {
+      "value": "Expansion"
+    }
+  }
+}

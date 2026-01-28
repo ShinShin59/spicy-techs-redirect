@@ -1,0 +1,1243 @@
+{
+  "Bazookas": {
+    "name": {
+      "value": "Bazooka"
+    },
+    "desc": {
+      "value": "Throwing grenades by hand only gets you so far. If you have any ambition in life, you need a bazooka."
+    }
+  },
+  "DualGuns": {
+    "name": {
+      "value": "Dual Guns"
+    },
+    "desc": {
+      "value": "When professionals need to keep a little bit of distance between them and their target, they use reliable tools, rather than flashy ones."
+    }
+  },
+  "SardaukarCleaver": {
+    "name": {
+      "value": "Sardaukar's Cleaver"
+    },
+    "desc": {
+      "value": "Swords can be optimized for cutting through bones and flesh."
+    }
+  },
+  "SniperRifles": {
+    "name": {
+      "value": "Long Rifle"
+    },
+    "desc": {
+      "value": "Long rifles are perfect to keep a safe distance from the target."
+    }
+  },
+  "AssassinGear": {
+    "name": {
+      "value": "Assassin Gear"
+    },
+    "desc": {
+      "value": "With the right tools, one can really benefit from sneak attacks and weaknesses in their opponent's armour."
+    }
+  },
+  "RedFluid": {
+    "name": {
+      "value": "Red Fluid"
+    },
+    "desc": {
+      "value": "This red fluid is not blood. Not exactly. But it does go into one's veins."
+    }
+  },
+  "OffensiveMindset": {
+    "name": {
+      "value": "Offensive Mindset"
+    },
+    "desc": {
+      "value": "Developing a healthy competitive spirit towards the opponents can lead to some excess, but it helps when hacking each other to bits is in order."
+    }
+  },
+  "CrossfireTactics": {
+    "name": {
+      "value": "Crossfire Tactics"
+    },
+    "desc": {
+      "value": "Attacking the same enemy carefully from two sides makes it difficult for them to react, without causing friendly fire."
+    }
+  },
+  "AutomaticWeapons": {
+    "name": {
+      "value": "Automatic Weapons"
+    },
+    "desc": {
+      "value": "Semi-automatic weapons use the excess energy of a discharge to load the next bullet in the chamber, allowing the user to fire again immediately."
+    }
+  },
+  "HeavyLoads": {
+    "name": {
+      "value": "Heavy Loads"
+    },
+    "desc": {
+      "value": "While it's usually not recommended by the manufacturer, loading a weapon with oversized ammunition can have spectacular results."
+    }
+  },
+  "BirdSlayer": {
+    "name": {
+      "value": "Bird Slayer"
+    },
+    "desc": {
+      "value": "Shooting large birds out of the sky is so satisfying. This weapon is optimized to find a flailing target in a clear sky."
+    }
+  },
+  "WhistlingAmmo": {
+    "name": {
+      "value": "Whistling Ammo"
+    },
+    "desc": {
+      "value": "This ammo vibrates strongly in subsonic frequencies, creating waves of turbulence breaking the delicate equipment of most flying vessels."
+    }
+  },
+  "ExoticCompounds": {
+    "name": {
+      "value": "Exotic Compounds"
+    },
+    "desc": {
+      "value": "A specific mix of chemical compounds increases the damaging potential of the [!C_Special] even further."
+    }
+  },
+  "PhosphorusMix": {
+    "name": {
+      "value": "Phosphorus Mix"
+    },
+    "desc": {
+      "value": "White phosphorus incorporated into the burning mix of the [!C_Special] is responsible for many particularly agonizing deaths, even after the battle is over."
+    }
+  },
+  "BattlefieldFrenzy": {
+    "name": {
+      "value": "Battlefield Frenzy"
+    },
+    "desc": {
+      "value": "Sardaukars' sense of duty shines brighter on major battlefronts, when they are surrounded by many supporting levies."
+    }
+  },
+  "ChasingStance": {
+    "name": {
+      "value": "Chasing Stance"
+    },
+    "desc": {
+      "value": "When pursuing an enemy, tiring them down is easier than being fast."
+    }
+  },
+  "DismantlingTools": {
+    "name": {
+      "value": "Dismantling Tools"
+    },
+    "desc": {
+      "value": "With the right tools, the most sturdy tin can can be opened."
+    }
+  },
+  "ConcentratedToxins": {
+    "name": {
+      "value": "Concentrated Toxins"
+    },
+    "desc": {
+      "value": "A concentrated toxic gas will dissipate in the open, but for the person right next to it, it won't matter much."
+    }
+  },
+  "TraumaticRepeater": {
+    "name": {
+      "value": "Traumatic Repeater"
+    },
+    "desc": {
+      "value": "Some psychoactive drugs makes people re-live their most painful traumas. It's especially unpleasant when those memories are actually happening at the same time."
+    }
+  },
+  "StingingGaz": {
+    "name": {
+      "value": "Stinging Gas"
+    },
+    "desc": {
+      "value": "Sometimes, it's better to cause pain than actual harm. As always, the [!S_Demo] has the right chemical for the job."
+    }
+  },
+  "RecursiveLense": {
+    "name": {
+      "value": "Recursive Lens"
+    },
+    "desc": {
+      "value": "An incredibly precise recursive lens is only really useful if the enemy doesn't move too much."
+    }
+  },
+  "PropellingAmmo": {
+    "name": {
+      "value": "Propelling Ammo"
+    },
+    "desc": {
+      "value": "This ammo keeps accelerating during its flight. Ideal to hit very far targets."
+    }
+  },
+  "IncendiaryAmmo": {
+    "name": {
+      "value": "Incendiary Ammo"
+    },
+    "desc": {
+      "value": "This ammo releases a burning compound into the air upon contact."
+    }
+  },
+  "SismicAmmo": {
+    "name": {
+      "value": "Seismic Ammo"
+    },
+    "desc": {
+      "value": "This ammo breaks the ground and propagates a powerful seismic wave, damaging anything in a large area."
+    }
+  },
+  "BarrelCleaner": {
+    "name": {
+      "value": "Barrel Cleaner"
+    },
+    "desc": {
+      "value": "A clean weapon is the mark of a true gentleman. It's also a sensible way to make it function better."
+    }
+  },
+  "VowOfBravery": {
+    "name": {
+      "value": "Vow of Bravery"
+    },
+    "desc": {
+      "value": "I will never let fear stop my arm!"
+    }
+  },
+  "VowOfFervor": {
+    "name": {
+      "value": "Vow of Fervor"
+    },
+    "desc": {
+      "value": "I will always dedicate my entire being to my goals!"
+    }
+  },
+  "VowOfHeroism": {
+    "name": {
+      "value": "Vow of Heroism"
+    },
+    "desc": {
+      "value": "I will surpass myself, to reach my full potential!"
+    }
+  },
+  "VowOfHonor": {
+    "name": {
+      "value": "Vow of Honor"
+    },
+    "desc": {
+      "value": "I will never belittle the people I serve!"
+    }
+  },
+  "ScatterGrenades": {
+    "name": {
+      "value": "Scatter Grenades"
+    },
+    "desc": {
+      "value": "A cluster of small grenades that detach at the height of the throw will cover more area, while remaining as destructive."
+    }
+  },
+  "AntiPersonalShrapnels": {
+    "name": {
+      "value": "Anti-personnel Shrapnels"
+    },
+    "desc": {
+      "value": "Adding small bits of metal all around the grenades will naturally produce shrapnel that stays inside the body and causes constant pain and bleeding."
+    }
+  },
+  "PreLoadedWeapons": {
+    "name": {
+      "value": "Pre-Loaded Weapons"
+    },
+    "desc": {
+      "value": "Having a spare canon already loaded will make the first few rounds of combat a lot more impactful."
+    }
+  },
+  "SelfSufficiency": {
+    "name": {
+      "value": "Self-sufficiency"
+    },
+    "desc": {
+      "value": "[!F_Elite]s are trained to operate on their own, without any outside assistance when needed."
+    }
+  },
+  "DevastatingStrikes": {
+    "name": {
+      "value": "Devastating Strikes"
+    },
+    "desc": {
+      "value": "Hitting with resolve and strength will make most close formations panic and make mistakes."
+    }
+  },
+  "TinkeringGear": {
+    "name": {
+      "value": "Tinkering Gear"
+    },
+    "desc": {
+      "value": "[!V_Soldier]s are constantly improving the machines surrounding them, if they are provided with some basic tools."
+    }
+  },
+  "HeavyArmor": {
+    "name": {
+      "value": "Heavy Armor"
+    },
+    "desc": {
+      "value": "A closed full-body armor increases the odds of survival in combat significantly, at the cost of reduced swiftness."
+    }
+  },
+  "MakersEffigy": {
+    "name": {
+      "value": "Maker's Effigy"
+    },
+    "desc": {
+      "value": "Faith in the Maker keeps the [Fremen] strong in adversity."
+    }
+  },
+  "FrontLineTactics": {
+    "name": {
+      "value": "Front Line Tactics"
+    },
+    "desc": {
+      "value": "Supporting your brother-in-arms on the front line is key to surviving many fights."
+    }
+  },
+  "ParryingArmguards": {
+    "name": {
+      "value": "Parrying Armguards"
+    },
+    "desc": {
+      "value": "When you cannot rely on shields anymore, older parrying apparatus come back in fashion."
+    }
+  },
+  "DistractingFlashes": {
+    "name": {
+      "value": "Distracting Flashes"
+    },
+    "desc": {
+      "value": "An array of strong lights flashing randomly makes it very unpleasant to fire on a target, or anything close from it."
+    }
+  },
+  "DistorsionUmbrella": {
+    "name": {
+      "value": "Distortion Umbrella"
+    },
+    "desc": {
+      "value": "Holographic technology cannot offer true protection, but it can direct image distortions to make targeting more difficult."
+    }
+  },
+  "CoverTactics": {
+    "name": {
+      "value": "Cover Tactics"
+    },
+    "desc": {
+      "value": "Protecting each other during retreat and maneuvering saves lives and helps to get reinforcements sooner."
+    }
+  },
+  "HibernationBreastplate": {
+    "name": {
+      "value": "Hibernation Breastplate"
+    },
+    "desc": {
+      "value": "If you don't care about severely limiting the wearer's movements, it's easy to build a solid armor."
+    }
+  },
+  "MeatArmor": {
+    "name": {
+      "value": "Meat Armor"
+    },
+    "desc": {
+      "value": "Using fresh corpses as protection is a skill that requires specialized equipment."
+    }
+  },
+  "SupportingTactics": {
+    "name": {
+      "value": "Supporting Tactics"
+    },
+    "desc": {
+      "value": "While they constitute most of the imperial army, conscripts are often thought as supporting levy to the powerful Sardaukar."
+    }
+  },
+  "LastStandProtocols": {
+    "name": {
+      "value": "Last Stand Protocols"
+    },
+    "desc": {
+      "value": "When the battle seems lost, you can still slow the enemies as much as possible by refusing to die."
+    }
+  },
+  "MorbidClimax": {
+    "name": {
+      "value": "Morbid Climax"
+    },
+    "desc": {
+      "value": "The right drug cocktail can be used to completely prevent death... for a very short amount of time."
+    }
+  },
+  "GnarlyRecyclers": {
+    "name": {
+      "value": "Gnarly Recyclers"
+    },
+    "desc": {
+      "value": "Taking from the dead might not be pretty, but it is a good survival strategy."
+    }
+  },
+  "TerrifyingMask": {
+    "name": {
+      "value": "Terrifying Mask"
+    },
+    "desc": {
+      "value": "The terrible helmet of the [C_Special] is adorned with reminders of the suffering they inflict."
+    }
+  },
+  "LiveReformation": {
+    "name": {
+      "value": "Live Reformation"
+    },
+    "desc": {
+      "value": "Being able to reshuffle conscript formations at the front to optimize pressure on the enemy is one of the most impressive features of the imperial army."
+    }
+  },
+  "KnightlyProtector": {
+    "name": {
+      "value": "Knightly Protector"
+    },
+    "desc": {
+      "value": "The squire's first duty is to protect any noble [!E_Elite] in the vicinity."
+    }
+  },
+  "PricklySpear": {
+    "name": {
+      "value": "Prickly Spear"
+    },
+    "desc": {
+      "value": "Sometimes, the only way to fulfill the protector's duty is to make him a target."
+    }
+  },
+  "PersonalMantlet": {
+    "name": {
+      "value": "Personal Mantlet"
+    },
+    "desc": {
+      "value": "Technology has evolved, but the basic need of protecting oneself while advancing towards combat has remained the same."
+    }
+  },
+  "SoberingMedication": {
+    "name": {
+      "value": "Sobering Medication"
+    },
+    "desc": {
+      "value": "A proper [!E_Trooper] should never allow himself to get too excited. He must always keep his head cool in the face of duty."
+    }
+  },
+  "SandCover": {
+    "name": {
+      "value": "Sand Cover"
+    },
+    "desc": {
+      "value": "Fremen [!F_Trooper]s use the sand to make themselves harder to target at range."
+    }
+  },
+  "ConfusingTactics": {
+    "name": {
+      "value": "Confusing Tactics"
+    },
+    "desc": {
+      "value": "In a war, soldiers generally prefer to keep their friends on one side and their enemies on the other, which is not always easy with slippery opponents."
+    }
+  },
+  "ShelterMaps": {
+    "name": {
+      "value": "Shelter Maps"
+    },
+    "desc": {
+      "value": "Knowing all the good cover spots helps with the guerilla style of the Fremen army."
+    }
+  },
+  "WorkShelter": {
+    "name": {
+      "value": "Work Shelter"
+    },
+    "desc": {
+      "value": "A quiet and safe environement is often mandatory to fulfill engineering work peacefully."
+    }
+  },
+  "CamouflageFabric": {
+    "name": {
+      "value": "Camouflage Fabric"
+    },
+    "desc": {
+      "value": "[Fremen] are experts at staying unseen in the desert. Even a kulon can be hidden at the right place."
+    }
+  },
+  "AssassinArmors": {
+    "name": {
+      "value": "Stealth Gear"
+    },
+    "desc": {
+      "value": "It is easy to hide without moving, but remaining hidden in movement on a planet like Arrakis... That's a proper challenge."
+    }
+  },
+  "WarMemoir": {
+    "name": {
+      "value": "War Memoirs"
+    },
+    "desc": {
+      "value": "Field experience is essential, but a good theoretical framework for warfare also improves performance."
+    }
+  },
+  "PranaBindu": {
+    "name": {
+      "value": "Prana Bindu Initiation"
+    },
+    "desc": {
+      "value": "Even a short initiation to prana bindu training improves healing and pain resistance over time."
+    }
+  },
+  "ScarringArmor": {
+    "name": {
+      "value": "Scarring Armor"
+    },
+    "desc": {
+      "value": "A clothing technology inspired by the way scarring tissue are created can be used to make self-repairing armor."
+    }
+  },
+  "EndocrineArouser": {
+    "name": {
+      "value": "Endocrine Arouser"
+    },
+    "desc": {
+      "value": "The body naturally produces all kind of hormones when it is hurt. Giving it a little boost is enough to reach almost superhuman capability."
+    }
+  },
+  "SmallFormation": {
+    "name": {
+      "value": "Small Formation"
+    },
+    "desc": {
+      "value": "Smaller formations allow faster reactions to unexpected changes of plan and a tailored micro-management of the frontline."
+    }
+  },
+  "WideNozzle": {
+    "name": {
+      "value": "Wide Nozzle"
+    },
+    "desc": {
+      "value": "Flamethrowers come in many different shapes and sizes. This nozzle has an unusual wide flow."
+    }
+  },
+  "ElaccaInjector": {
+    "name": {
+      "value": "Elacca Injector"
+    },
+    "desc": {
+      "value": "With controlled amount of elacca drug carefully injected into their veins, the [!H_Soldier] loses all sense of self-preservation without suffering any numbing."
+    }
+  },
+  "FixupKit": {
+    "name": {
+      "value": "Fix-up Kit"
+    },
+    "desc": {
+      "value": "Equipping every soldier with basic disinfectants, painkillers and wound dressing tools let them keep fighting for longer."
+    }
+  },
+  "BloodThinner": {
+    "name": {
+      "value": "Blood Thinner"
+    },
+    "desc": {
+      "value": "A less viscous blood increases oxygenation, leading to a nice sense of euphoria, but you better not cut yourself."
+    }
+  },
+  "RunningSandshoes": {
+    "name": {
+      "value": "Running Sandshoes"
+    },
+    "desc": {
+      "value": "Sand is notoriously unstable. These shoes are designed to let the wearer run on sand even faster than they would on dirt."
+    }
+  },
+  "FrighteningReputation": {
+    "name": {
+      "value": "Frightening Reputation"
+    },
+    "desc": {
+      "value": "The Sardaukar's reputation as remorseless and efficient killers is the main political asset of the Emperor."
+    }
+  },
+  "JumpingBoot": {
+    "name": {
+      "value": "Jumping Boot"
+    },
+    "desc": {
+      "value": "A boot reinforcing the calf muscles of its wearer would permit jumps of incredible length."
+    }
+  },
+  "DryTraining": {
+    "name": {
+      "value": "Dry Training"
+    },
+    "desc": {
+      "value": "The Fremen can train themselves to resist even better in the dry desert."
+    }
+  },
+  "LoudBang": {
+    "name": {
+      "value": "Loud Bang"
+    },
+    "desc": {
+      "value": "A sonic grenade might seem like a joke, but it will destabilize the most hardened veteran."
+    }
+  },
+  "FocusedMind": {
+    "name": {
+      "value": "Focused Mind"
+    },
+    "desc": {
+      "value": "When you remain focused on the task at hand, nothing can slow you down."
+    }
+  },
+  "FoldingFrame": {
+    "name": {
+      "value": "Folding Frame"
+    },
+    "desc": {
+      "value": "A light frame that can be folded in seconds will improve drastically the installation time of most appliance."
+    }
+  },
+  "ShadowScan": {
+    "name": {
+      "value": "Shadow Scan"
+    },
+    "desc": {
+      "value": "A precise scanner looking for differences in heat, air pressure, and visual movement will detect most attempt at concealement."
+    }
+  },
+  "AmbushCamouflage": {
+    "name": {
+      "value": "Ambush Camouflage"
+    },
+    "desc": {
+      "value": "The [!F_Special_2] is equipped to stay hidden in the same place and disable any passerby aircraft."
+    }
+  },
+  "ElectronicScrambler": {
+    "name": {
+      "value": "Electronic Scrambler"
+    },
+    "desc": {
+      "value": "A small piece of electronic is enough to scramble most of radio communication to a drone making it a lot harder to pilot."
+    }
+  },
+  "MemoryImplant": {
+    "name": {
+      "value": "Memory Implant"
+    },
+    "desc": {
+      "value": "Memory is an aspect of humanity that could easily be improved with machines."
+    }
+  },
+  "DIYKit": {
+    "name": {
+      "value": "DIY Kit"
+    },
+    "desc": {
+      "value": "[!V_Soldier]s are used to taking care of their own needs, but they have to start with some basic resources."
+    }
+  },
+  "MultiParts": {
+    "name": {
+      "value": "Multi-purpose Parts"
+    },
+    "desc": {
+      "value": "[!V_Elite]s often take care of the regular maintenance of drones on the battlefield, but they need the right parts to do it properly."
+    }
+  },
+  "LongCannons": {
+    "name": {
+      "value": "Long Cannons"
+    },
+    "desc": {
+      "value": "These long cannons increase the range of the drone, but also the size of their blind spot."
+    }
+  },
+  "MountedExplosives": {
+    "name": {
+      "value": "Mounted Explosives"
+    },
+    "desc": {
+      "value": "Lining the inside of a drone with incendiary bombs that trigger on death is an easy way to bring fear to the enemy."
+    }
+  },
+  "TortureTools": {
+    "name": {
+      "value": "Torture Tools"
+    },
+    "desc": {
+      "value": "With the proper equipment, the [H_Drone] can really strike a nerve in its opponent."
+    }
+  },
+  "KrakenProtocols": {
+    "name": {
+      "value": "Kraken Protocols"
+    },
+    "desc": {
+      "value": "Applying some of the [!A_Frigate] adaptive technology to the [!A_Drone] makes it more versatile on the field."
+    }
+  },
+  "SupportingField": {
+    "name": {
+      "value": "Supporting Field"
+    },
+    "desc": {
+      "value": "The [!A_Drone] makes its presence known with blasting sounds, emboldening [Atreides-adjective] soldiers in the vicinity."
+    }
+  },
+  "EvasionBooster": {
+    "name": {
+      "value": "Evasion Booster"
+    },
+    "desc": {
+      "value": "An expensive but powerful engine can be the difference between life and death in an emergency."
+    }
+  },
+  "OptmizedBedArrangement": {
+    "name": {
+      "value": "Optimized Bed Arrangement"
+    },
+    "desc": {
+      "value": "By carefully utilizing all space inside the [!A_Drone], it's possible to increase its capacity, but the energy cost is significant."
+    }
+  },
+  "OpticCamouflage": {
+    "name": {
+      "value": "Optic Camouflage"
+    },
+    "desc": {
+      "value": "With a good amount of optical fibers and a big battery, anything can disappear."
+    }
+  },
+  "VirtualBlackBox": {
+    "name": {
+      "value": "Virtual Black Box"
+    },
+    "desc": {
+      "value": "Learning from what remains of a wreck is a difficult skill, that can be made easier by designing a drone for it."
+    }
+  },
+  "ShockDampener": {
+    "name": {
+      "value": "Shock Dampener"
+    },
+    "desc": {
+      "value": "Looted artifacts of less sturdy composition could give us a lot of insight on the enemy if they survived the trip."
+    }
+  },
+  "MotivationalCashbox": {
+    "name": {
+      "value": "Motivational Cashbox"
+    },
+    "desc": {
+      "value": "When you're doing well, everyone should know and wealth should be shared, so that they're motivated to do even better."
+    }
+  },
+  "ShieldingStraightener": {
+    "name": {
+      "value": "Shielding Straightener"
+    },
+    "desc": {
+      "value": "Most of the armor and gear you find on a battlefield is too damaged to use, but it's possible to fix it up just enough for one last time."
+    }
+  },
+  "DistractingLights": {
+    "name": {
+      "value": "Distracting Lights"
+    },
+    "desc": {
+      "value": "A mesmerizing light show can easily make anyone forget the rest of the world."
+    }
+  },
+  "MarchingColors": {
+    "name": {
+      "value": "Marching Colors"
+    },
+    "desc": {
+      "value": "In a conditioned mind, the simple view of certain colors and shapes can incentivize a specific behavior."
+    }
+  },
+  "PropagandaMachine": {
+    "name": {
+      "value": "Propaganda Machine"
+    },
+    "desc": {
+      "value": "There is no down time for the diligent salesman. It's always the right time to sell your product."
+    }
+  },
+  "BigBanner": {
+    "name": {
+      "value": "Big Banner"
+    },
+    "desc": {
+      "value": "Sometimes, you just want to send a big message."
+    }
+  },
+  "MaterialPreProcessor": {
+    "name": {
+      "value": "Material Pre-processor"
+    },
+    "desc": {
+      "value": "Identifying the target's weakness lets the [!V_Trooper] select the right weapons for the task."
+    }
+  },
+  "HeavyShielding": {
+    "name": {
+      "value": "Heavy Shielding"
+    },
+    "desc": {
+      "value": "A heavier frame and shielding resists shocks better."
+    }
+  },
+  "AnatomicalScanner": {
+    "name": {
+      "value": "Anatomical Scanner"
+    },
+    "desc": {
+      "value": "Organic entities generally have hidden weaknesses based on their evolved internal organization."
+    }
+  },
+  "SmartArmor": {
+    "name": {
+      "value": "Deep Signals"
+    },
+    "desc": {
+      "value": "Encrypting strategic combat data in the electrostatic cloud around the [!V_Drone] enhances the fighting prowess of any drone at range."
+    }
+  },
+  "SmartLens": {
+    "name": {
+      "value": "Learning Transistors"
+    },
+    "desc": {
+      "value": "Adaptative lens and custom data processors improve the extraction of useful knowledge from combat analysis."
+    }
+  },
+  "WarmMagnets": {
+    "name": {
+      "value": "Strong Magnets"
+    },
+    "desc": {
+      "value": "High-energy magnets improve the speed of railgun's projectiles even further."
+    }
+  },
+  "RepeaterNode": {
+    "name": {
+      "value": "Repeater Node"
+    },
+    "desc": {
+      "value": "A miniaturized version of the neural node can be integrated into bigger drones to increase the range of the network."
+    }
+  },
+  "DisruptiveField": {
+    "name": {
+      "value": "Fractal Frequencies"
+    },
+    "desc": {
+      "value": "By applying various fractal frequencies to the Holtzman Coil, its electrostatic field becomes even more lethal."
+    }
+  },
+  "FeedbackGate": {
+    "name": {
+      "value": "Feedback Gate"
+    },
+    "desc": {
+      "value": "Loose energy from the electrostatic field can be harnessed and fed back into the Holtzman Coil to improve its resistance."
+    }
+  },
+  "AdditionalCannons_Altar": {
+    "name": {
+      "value": "Sky Facade"
+    },
+    "desc": {
+      "value": "Painting the bottom of an aircraft in blue is a simple way to make it disappear."
+    }
+  },
+  "ListeningDevices_Altar": {
+    "name": {
+      "value": "Wreck Harness"
+    },
+    "desc": {
+      "value": "Catching the pieces and bits as they fall is a matter of great skill."
+    }
+  },
+  "HeavyArmor_Altar": {
+    "name": {
+      "value": "Makeshift Workshop"
+    },
+    "desc": {
+      "value": "Keeping a well-stocked reserve of scrap metal and tools on board allows for a speedy recovery on the go."
+    }
+  },
+  "WindTraps_Altar": {
+    "name": {
+      "value": "Symbol of Freedom"
+    },
+    "desc": {
+      "value": "A flying representation of the [Fremen-shortname]'s hopes for a freed Arrakis."
+    }
+  },
+  "AdditionalSails_Altar": {
+    "name": {
+      "value": "Storm Sails"
+    },
+    "desc": {
+      "value": "Going with the flow instead of fighting it is the key to surviving the storms of Arrakis."
+    }
+  },
+  "ReconStations_Altar": {
+    "name": {
+      "value": "Recon Stations"
+    },
+    "desc": {
+      "value": "With a rotating crew of lookouts, equipped with powerful spyglasses, it's easy to survey a large territory from the sky."
+    }
+  },
+  "SandCloud_Altar": {
+    "name": {
+      "value": "Sand Cloud"
+    },
+    "desc": {
+      "value": "In the desert, any strong wind immediatly raises a large murky cloud of sand."
+    }
+  },
+  "FreedomSymbol_Altar": {
+    "name": {
+      "value": "Supply Hold"
+    },
+    "desc": {
+      "value": "A large hold lets the [!F_Frigate] bring supplies directly to the front."
+    }
+  },
+  "LongRifles": {
+    "name": {
+      "value": "Long Rifle"
+    },
+    "desc": {
+      "value": "Longer cannons are enough to increase precision at long range, but it comes at the prize of a lower projectile velocity."
+    }
+  },
+  "ImprovedMedicine": {
+    "name": {
+      "value": "Improved Medicines"
+    },
+    "desc": {
+      "value": "Better tools, and a larger selection of drugs and medicines tremendously increases the efficiency of [!A_Drone]s."
+    }
+  },
+  "Medkit": {
+    "name": {
+      "value": "Medkits"
+    },
+    "desc": {
+      "value": "Trained medics in every squadron improves recovery, even behind enemy lines."
+    }
+  },
+  "ChemicalWeapons": {
+    "name": {
+      "value": "Chemical Weapons"
+    },
+    "desc": {
+      "value": "Impregnating weapons with caustic and poisonous compounds will contaminate enemy supplies."
+    }
+  },
+  "ExperimentalWeapons": {
+    "name": {
+      "value": "Experimental Weapons"
+    }
+  },
+  "LightAlloys": {
+    "name": {
+      "value": "Light Alloy"
+    }
+  },
+  "WeaponizedConfiguration": {
+    "name": {
+      "value": "Weaponized Configuration"
+    },
+    "desc": {
+      "value": "The [!A_Drone] can be reconfigured to assume a more active role in combat."
+    }
+  },
+  "DualSwords": {
+    "name": {
+      "value": "Dual Swords"
+    },
+    "desc": {
+      "value": "Wielding two sword leads to a more aggressive posture. It's also quite impressive."
+    }
+  },
+  "GatlingGuns": {
+    "name": {
+      "value": "Gatling Gun"
+    },
+    "desc": {
+      "value": "Gatling guns shoot small-caliber bullets at a demented speed, shredding less armored units to pieces."
+    }
+  },
+  "Handgun": {
+    "name": {
+      "value": "Handgun"
+    },
+    "desc": {
+      "value": "Handguns can be used to attack unreachable targets without interfering with melee combat."
+    }
+  },
+  "SardaukarCleaver_Old": {
+    "name": {
+      "value": "Sardaukar's Cleaver"
+    },
+    "desc": {
+      "value": "Swords can be optimized for cutting through bones and flesh, but they are less balanced and will be less practical against a fresh foe."
+    }
+  },
+  "Shotguns": {
+    "name": {
+      "value": "Shotgun"
+    },
+    "desc": {
+      "value": "These short-range rifles have a powerful kick."
+    }
+  },
+  "BetterAmmunition": {
+    "name": {
+      "value": "Better Ammunitions"
+    },
+    "desc": {
+      "value": "High-end piercing ammunitions are costly but deadly."
+    }
+  },
+  "BetterCombustibles": {
+    "name": {
+      "value": "Better Combustible"
+    },
+    "desc": {
+      "value": "These volatile compounds burn stronger but cannot be safely contained."
+    }
+  },
+  "BetterFuelPumps": {
+    "name": {
+      "value": "Better Fuel Pump"
+    },
+    "desc": {
+      "value": "With minutiae improvements to their combustible pumps, flamethrowers fire even further away."
+    }
+  },
+  "ConcentratedExplosives": {
+    "name": {
+      "value": "Concentrated Explosives"
+    },
+    "desc": {
+      "value": "High-quality bombs produce a shockwave that shatters armor."
+    }
+  },
+  "EMPAmmunitions": {
+    "name": {
+      "value": "EMP Ammunitions"
+    },
+    "desc": {
+      "value": "These miniature generators of electromagnetic pulse built into a bullet casing fry electrical components at the cost of reduced penetration."
+    }
+  },
+  "ExperimentalCombustibles": {
+    "name": {
+      "value": "Experimental Combustible"
+    },
+    "desc": {
+      "value": "Adding a mix of phosphorus and other chemical compounds makes the combustible abrasive to skin and electronics alike."
+    }
+  },
+  "FremenAssaultGear": {
+    "name": {
+      "value": "Fremen Assault Gear"
+    },
+    "desc": {
+      "value": "[Fremen] use various specialized gear to ambush their opponents and get an edge in combat."
+    }
+  },
+  "AnalysisVisors": {
+    "name": {
+      "value": "Analysis Visor"
+    },
+    "desc": {
+      "value": "Combat visors projecting strategic data in real time improve the units' awareness of their surroundings."
+    }
+  },
+  "SharpenBlades": {
+    "name": {
+      "value": "Sharpened Blade"
+    },
+    "desc": {
+      "value": "Nanoblades are so sharp that they cannot be held in a sheath. They also have a reduced parry surface."
+    }
+  },
+  "SharpenTools": {
+    "name": {
+      "value": "Sharpened Tools"
+    },
+    "desc": {
+      "value": "A weapon specially made to cut through armor will not be as good for cutting flesh."
+    }
+  },
+  "ShrapnelAmmunitions": {
+    "name": {
+      "value": "Shrapnel Ammunitions"
+    },
+    "desc": {
+      "value": "Shells that project small metal splinters in all directions are very effective against infantry."
+    }
+  },
+  "CrysKnives": {
+    "name": {
+      "value": "Skirmish Gear"
+    },
+    "desc": {
+      "value": "The effect of surprise is often decisive in an evenly matched fight."
+    }
+  },
+  "StickyNapalm": {
+    "name": {
+      "value": "Sticky Napalm"
+    },
+    "desc": {
+      "value": "These new viscous combustibles stick to their victims while burning, resulting in gruesome wounds."
+    }
+  },
+  "TemperedSword": {
+    "name": {
+      "value": "Tempered Sword"
+    },
+    "desc": {
+      "value": "A good blacksmith with good materials can forge hardened swords with an incredible edge."
+    }
+  },
+  "SuppressiveCoordination": {
+    "name": {
+      "value": "Suppressive Coordination"
+    }
+  },
+  "DisruptiveAmmunition": {
+    "name": {
+      "value": "Disruptive Ammunition"
+    }
+  },
+  "BetterProtections": {
+    "name": {
+      "value": "Better Protections"
+    },
+    "desc": {
+      "value": "A well-adjusted uniform with a few more layers of armour in the right places can do a lot for survival in combat."
+    }
+  },
+  "FoodAdditives": {
+    "name": {
+      "value": "Food Additives"
+    },
+    "desc": {
+      "value": "The right food supplements can increase pain tolerance to superhuman levels."
+    }
+  },
+  "SecretBeacon": {
+    "name": {
+      "value": "Secret Beacon"
+    },
+    "desc": {
+      "value": "If the worst happens, a magnetic beacon hidden in the stillsuit, lets the clan recover Water and valuables."
+    }
+  },
+  "CaffeinePills": {
+    "name": {
+      "value": "Caffeine Pills"
+    },
+    "desc": {
+      "value": "With a proper stimulant, one can drastically reduce the time lost to sleeping. Surely, the side effects are not that big of a deal."
+    }
+  },
+  "AdaptativeShield": {
+    "name": {
+      "value": "Adaptative Shield"
+    },
+    "desc": {
+      "value": "A device monitoring the health of the soldier is connected to an armor that can seal itself and deliver first care, preserving the life of its wearer."
+    }
+  },
+  "LightArmor": {
+    "name": {
+      "value": "Light Armor"
+    },
+    "desc": {
+      "value": "Even light armor will impede sneaking abilities."
+    }
+  },
+  "PaddedShielding": {
+    "name": {
+      "value": "Padded Shielding"
+    },
+    "desc": {
+      "value": "Padded armor and hulls help dissipate kinetic and thermal energy from explosive and incendiary weapons."
+    }
+  },
+  "SalvagedShields": {
+    "name": {
+      "value": "Salvaged Shield"
+    },
+    "desc": {
+      "value": "Salvaging is an art form that few people really master. While not as durable as a proper breastplate, a salvaged piece of armour can still save life in a hurry."
+    }
+  },
+  "HuntersEyes": {
+    "name": {
+      "value": "Hunter's Eyes"
+    }
+  },
+  "AdditionalBags": {
+    "name": {
+      "value": "Additional Bags"
+    },
+    "desc": {
+      "value": "Greed is a sin, they say. Maybe the real sin is to let perfectly good weapons and gear to rot in the desert."
+    }
+  },
+  "AnalysisTools": {
+    "name": {
+      "value": "Analysis Tools"
+    },
+    "desc": {
+      "value": "A drone replacing some of its weaponry with scopes and lenses will provide valuable [Intel] to its pilot."
+    }
+  },
+  "EnhancedWeapons": {
+    "name": {
+      "value": "Enhanced Weapons"
+    },
+    "desc": {
+      "value": "Drone and turret weaponry is a question of balance between raw power and practicality. You can always equip them with a bigger gun, but you'll have to lose weight somewhere else."
+    }
+  },
+  "ImprovedAlloy": {
+    "name": {
+      "value": "Improved Alloy"
+    },
+    "desc": {
+      "value": "Costly alloys that absorb impacts instead of breaking can be a worthy investement for mechanical warfare."
+    }
+  },
+  "UpperArmor": {
+    "name": {
+      "value": "Upper Armor"
+    },
+    "desc": {
+      "value": "Focusing armour on critical points improves durability."
+    }
+  }
+}

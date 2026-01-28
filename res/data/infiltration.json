@@ -1,0 +1,32 @@
+{
+  "IField": {
+    "name": {
+      "value": "Arrakis"
+    }
+  },
+  "ISpaceGuild": {
+    "name": {
+      "value": "Spacing Guild"
+    }
+  },
+  "IChoam": {
+    "name": {
+      "value": "CHOAM"
+    }
+  },
+  "ILandsraad": {
+    "name": {
+      "value": "Landsraad"
+    }
+  },
+  "ICounterIntel": {
+    "name": {
+      "value": "Counterintelligence"
+    }
+  },
+  "IFaction": {
+    "name": {
+      "value": "Opponent Faction"
+    }
+  }
+}

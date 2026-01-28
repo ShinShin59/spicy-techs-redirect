@@ -1,0 +1,122 @@
+{
+  "Defeat_Atreides": {
+    "texts": {
+      "title": {
+        "value": "Defeat [Atreides-longname]"
+      },
+      "desc": {
+        "value": "Complete missions in [Atreides-adjective] territories until you can take [PlainsOfArrakeen]."
+      }
+    }
+  },
+  "Defeat_Harkonnen": {
+    "texts": {
+      "title": {
+        "value": "Defeat [Harkonnen-longname]"
+      },
+      "desc": {
+        "value": "Complete missions in [Harkonnen-adjective] territories until you can take [CarthagsRift]."
+      }
+    }
+  },
+  "Defeat_Corrino": {
+    "texts": {
+      "title": {
+        "value": "Defeat [Corrino-longname]"
+      },
+      "desc": {
+        "value": "Complete missions in [Corrino-adjective] territories until you can take [EmperorsLanding]."
+      }
+    }
+  },
+  "Defeat_Ecaz": {
+    "texts": {
+      "title": {
+        "value": "Defeat [Ecaz-longname]"
+      },
+      "desc": {
+        "value": "Complete missions in [Ecaz-adjective] territories until you can take [ForestHeart]."
+      }
+    }
+  },
+  "Defeat_Vernius": {
+    "texts": {
+      "title": {
+        "value": "Defeat [Vernius-longname]"
+      },
+      "desc": {
+        "value": "Complete missions in [Vernius-adjective] territories until you can take [IxianConvergence]."
+      }
+    }
+  },
+  "Defeat_Any": {
+    "texts": {
+      "title": {
+        "value": "Defeat a Great House"
+      },
+      "desc": {
+        "value": "Complete missions in a Great House territory until you can take their capital."
+      }
+    }
+  },
+  "Own_Territories": {
+    "texts": {
+      "desc": {
+        "value": "Complete missions that give you Sovereignty over territories to expand."
+      },
+      "tipTitle": {
+        "value": "Expand your territory"
+      }
+    }
+  },
+  "Improvement_Territories": {
+    "texts": {
+      "desc": {
+        "value": "Use [CQ_ImprovementPoint]s to build Improvements on your territories."
+      },
+      "tipTitle": {
+        "value": "Improve your territory"
+      }
+    }
+  },
+  "Free_Territories": {
+    "texts": {
+      "desc": {
+        "value": "Complete missions that defend or free a territory with a [Bonus_SpiceField] to disrupt the [Spice] trade."
+      },
+      "tipTitle": {
+        "value": "Free all Spice Fields"
+      }
+    }
+  },
+  "Ally_Fremen": {
+    "texts": {
+      "title": {
+        "value": "Ally [Fremen-longname]"
+      },
+      "desc": {
+        "value": "Ally [Sietch]s and complete secondary objectives to increase your relationship with the [!Fremen]."
+      }
+    }
+  },
+  "Ally_Fremen_Fremen": {
+    "texts": {
+      "title": {
+        "value": "Unite [Fremen-longname]"
+      },
+      "desc": {
+        "value": "Purge hostile [Sietch]s and complete secondary objectives to unite the [!Fremen] behind your cause."
+      }
+    }
+  },
+  "Ally_Faufreluches": {
+    "texts": {
+      "title": {
+        "value": "Corrupt the Faufreluches"
+      },
+      "desc": {
+        "value": "Launch [CB_MFraufrelucheBribe] on Great Houses and complete secondary objectives to infiltrate the Faufreluches system."
+      }
+    }
+  }
+}

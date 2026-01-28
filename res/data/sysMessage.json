@@ -1,0 +1,167 @@
+{
+  "Lobby_UserJoin": {
+    "text": {
+      "value": "::user:: entered the lobby"
+    }
+  },
+  "Lobby_UserLeft": {
+    "text": {
+      "value": "::user:: left the lobby"
+    }
+  },
+  "Lobby_UserLocked": {
+    "text": {
+      "value": "::user:: is ready"
+    }
+  },
+  "Lobby_UserUnlocked": {
+    "text": {
+      "value": "::user:: is not ready"
+    }
+  },
+  "Lobby_ParamsChanged": {
+    "text": {
+      "value": "Parameters have changed"
+    }
+  },
+  "Lobby_Countdown_Start": {
+    "text": {
+      "value": "Game starts in ::value:: seconds"
+    }
+  },
+  "Lobby_Countdown_Abort": {
+    "text": {
+      "value": "Game start aborted"
+    }
+  },
+  "Lobby_ServerError": {
+    "text": {
+      "value": "Server not available, game start aborted"
+    }
+  },
+  "Game_UserDisconnected": {
+    "text": {
+      "value": "::user:: ([::faction::-longname]) has disconnected, they will be replaced by an AI in ::value:: minutes"
+    }
+  },
+  "Game_LastAliveUser": {
+    "text": {
+      "value": "You are the last remaining player, you will win if nobody reconnects in time"
+    }
+  },
+  "Game_UserReconnected": {
+    "text": {
+      "value": "::user:: ([::faction::-longname]) has reconnected"
+    }
+  },
+  "Game_SpectatorConnected": {
+    "text": {
+      "value": "::user:: has joined as spectator"
+    }
+  },
+  "Game_UserDestroyedBy": {
+    "text": {
+      "value": "[::faction::-longname] has been defeated by [::faction2::-longname]"
+    }
+  },
+  "Game_UserDestroyedByNeutral": {
+    "text": {
+      "value": "[::faction::-longname] has been defeated by [::faction2::-longname]"
+    }
+  },
+  "Game_UserAssassinatedBy": {
+    "text": {
+      "value": "[::faction::-longname] has been assassinated"
+    }
+  },
+  "Game_UserConceded": {
+    "text": {
+      "value": "::user:: ([::faction::-longname]) has conceded, and thus has been replaced by an AI"
+    }
+  },
+  "Game_UserBecameHost": {
+    "text": {
+      "value": "::user:: is now host"
+    }
+  },
+  "Game_UserBecameAI": {
+    "text": {
+      "value": "::user:: ([::faction::-longname]) has been replaced by an AI"
+    }
+  },
+  "Game_UserBecameSpectator": {
+    "text": {
+      "value": "::user:: ([::faction::-longname]) has become a spectator"
+    }
+  },
+  "Game_PausedByPlayer": {
+    "text": {
+      "value": "Game was paused by ::user:: ([::faction::-longname])"
+    }
+  },
+  "Game_PausedByUser": {
+    "text": {
+      "value": "Game was paused by ::user::"
+    }
+  },
+  "Game_Unpaused": {
+    "text": {
+      "value": "Game was unpaused"
+    }
+  },
+  "Game_PlayerWon": {
+    "text": {
+      "value": "[::faction::-longname] is victorious"
+    }
+  },
+  "Game_TradeRequestedFromPlayer": {
+    "text": {
+      "value": "[::faction::-longname] wants to trade with you"
+    }
+  },
+  "Game_TradeRefusedByPlayer": {
+    "text": {
+      "value": "[::faction::-longname] declined your trade offer"
+    }
+  },
+  "Game_TradeAcceptedByPlayer": {
+    "text": {
+      "value": "[::faction::-longname] accepted your trade offer"
+    }
+  },
+  "Game_PlayerElectedForDuneGovernorship": {
+    "text": {
+      "value": "[::faction::-longname] just won the Dune Governorship election"
+    }
+  },
+  "Spectator_PlayerMessage": {
+    "text": {
+      "value": "[::faction::-longname] spoke with [::faction2::-longname]"
+    }
+  },
+  "Spectator_PlayerTeamMessage": {
+    "text": {
+      "value": "[::faction::-longname] spoke with their team"
+    }
+  },
+  "Spectator_PlayerRequestedTrade": {
+    "text": {
+      "value": "[::faction::-longname] wants to trade with [::faction2::-longname]"
+    }
+  },
+  "Spectator_PlayerRefusedTrade": {
+    "text": {
+      "value": "[::faction::-longname] declined the trade from [::faction2::-longname]"
+    }
+  },
+  "Spectator_PlayerConfirmedTrade": {
+    "text": {
+      "value": "[::faction::-longname] accepted the trade from [::faction2::-longname]"
+    }
+  },
+  "Spectator_LastAliveUser": {
+    "text": {
+      "value": "[::faction2::-longname] is the last remaining player, they will win if nobody reconnects in time"
+    }
+  }
+}

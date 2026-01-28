@@ -1,0 +1,84 @@
+{
+  "Spice": {
+    "name": {
+      "value": "Spice"
+    },
+    "desc": {
+      "value": "Compare players' [Spice] production, [!Harvester]s, and contract progress."
+    }
+  },
+  "Resources": {
+    "name": {
+      "value": "Resources"
+    },
+    "desc": {
+      "value": "Compare players' resource stocks and productions."
+    }
+  },
+  "Buildings": {
+    "name": {
+      "value": "Buildings"
+    },
+    "desc": {
+      "value": "Compare players' current Building constructions."
+    }
+  },
+  "Armies": {
+    "name": {
+      "value": "Armies"
+    },
+    "desc": {
+      "value": "Compare players' current armies and units."
+    }
+  },
+  "Operations": {
+    "name": {
+      "value": "Operations"
+    },
+    "desc": {
+      "value": "Compare players' spying operations that are ready to be launched, [!NuclearSilo]s, and [!Fremen-adjective] [!Thumper]s."
+    }
+  },
+  "Diplomacy": {
+    "name": {
+      "value": "Diplomacy"
+    },
+    "desc": {
+      "value": "See all diplomatic relationship and [!Treaty]s between players."
+    }
+  },
+  "Traits": {
+    "name": {
+      "value": "Faction Status"
+    },
+    "desc": {
+      "value": "See current faction-wide modifiers and quests."
+    }
+  },
+  "Landsraad": {
+    "name": {
+      "value": "Landsraad"
+    }
+  },
+  "Choam": {
+    "name": {
+      "value": "CHOAM Market"
+    }
+  },
+  "FactionSummary": {
+    "name": {
+      "value": "Factions Summary"
+    },
+    "desc": {
+      "value": "See progress toward victory and base bonuses of all factions."
+    }
+  },
+  "GameStats": {
+    "name": {
+      "value": "Game Summary"
+    },
+    "desc": {
+      "value": "See a timeline of the game until now, with various statistics."
+    }
+  }
+}

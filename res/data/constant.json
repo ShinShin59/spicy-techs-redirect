@@ -1,0 +1,18 @@
+{
+  "MainBase_Buildings_Conditions": {
+    "props": {
+      "conditions": {
+        "conditions": [
+          {
+            "_attrs": {
+              "ref": "Me_MaxHegemonyValue"
+            },
+            "desc": {
+              "value": "Unlocked at ::value:: [Hegemony]"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

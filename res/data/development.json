@@ -1,0 +1,3368 @@
+{
+  "CompositeMaterials": {
+    "name": {
+      "value": "Composite Materials"
+    },
+    "desc": {
+      "value": "Dune's harsh environment makes composite materials a key part of building a vast and durable infrastructure."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Plascrete] production"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "AdvancedEngineering": {
+    "name": {
+      "value": "Advanced Engineering"
+    },
+    "desc": {
+      "value": "These improved construction techniques specific to Arrakis' environment are dedicated to infrastructure efficiency."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        }
+      ]
+    }
+  },
+  "ModularParts": {
+    "name": {
+      "value": "Modular Parts"
+    },
+    "desc": {
+      "value": "Modular parts unlock customization options for your vehicles, such as extra crew cabins in your Harvesters."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [!Village] [!Building_Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_HarvesterWorks] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "EnergyMarkets": {
+    "name": {
+      "value": "Geothermal Condensers"
+    },
+    "desc": {
+      "value": "Geothermal energy sources can be used for a lot more than charging batteries."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TBuilding_TRes2Prod_Flat"
+          },
+          "desc": {
+            "value": "[::target::]s produce ::s_value:: [::target2::]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TBuilding_TRes2Prod_Flat"
+          },
+          "desc": {
+            "value": "[::target::]s produce ::s_value:: [::target2::]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TBuilding_StructResProd_ARatio"
+          },
+          "desc": {
+            "value": "::s_percent_value:: resource production in villages with [FuelCellFactory]"
+          }
+        }
+      ]
+    }
+  },
+  "AraakisRiches": {
+    "name": {
+      "value": "Riches of Arrakis"
+    },
+    "desc": {
+      "value": "Arrakis teaches the attitude of the knife - chopping off what's incomplete and saying: \"Now, it's complete because it's ended here.\""
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_ProdPerSpecialRegionOwned_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Solari] production per controlled [SpecialRegion]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_ProdPerSpecialRegionOwned_ARatio"
+          },
+          "desc": {
+            "value": "::s_percent_value:: total [Solari] production per controlled [SpecialRegion]"
+          }
+        }
+      ]
+    }
+  },
+  "EconomicLobbying": {
+    "name": {
+      "value": "Insulated Valley"
+    },
+    "desc": {
+      "value": "Some places are naturally protected from the scorching winds of Arrakis. With a bit of effort, they can even be made almost livable."
+    }
+  },
+  "GridexPlane": {
+    "name": {
+      "value": "CHOAM Integration"
+    },
+    "desc": {
+      "value": "Integrating yourself in the regular operation of the CHOAM gives you precious knowledge about the [Spice] trade."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TInformation"
+          },
+          "desc": {
+            "value": "See next period's [Spice] exchange rate in the Spice Report"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_ChoamBranch] [!Building_MB] in [$my(mainbase)]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [IChoam]"
+          }
+        }
+      ]
+    }
+  },
+  "StructuredWarehouses": {
+    "name": {
+      "value": "CHOAM Support"
+    },
+    "desc": {
+      "value": "You might be harvesting Spice, but CHOAM distributes it, controls its flow, and gets very rich doing it. That is a powerful friend to have."
+    }
+  },
+  "VeteranCrews": {
+    "name": {
+      "value": "Crew Training Program"
+    },
+    "desc": {
+      "value": "Some Houses consider harvester crews as expendable. Others know in their happiness lies the recipe for the very best Spice yields."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_MRatio"
+          },
+          "desc": {
+            "value": "::s_percent:: [Spice] production"
+          }
+        }
+      ]
+    }
+  },
+  "LocalDialectStudies": {
+    "name": {
+      "value": "Local Dialect Studies"
+    },
+    "desc": {
+      "value": "Efforts toward social and cultural integration always help assuage the pyons' fears."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Outpost_TResProd_PerVillageOwned_Flat"
+          },
+          "desc": {
+            "value": "Controlled [!Village]s produce ::s_value:: [Water]"
+          }
+        }
+      ]
+    }
+  },
+  "LayoftheLand": {
+    "name": {
+      "value": "Lay of the Land"
+    },
+    "desc": {
+      "value": "To the layman, Dune is only a pile of dust. Only those who know the land see the deadly traps and abundant opportunities."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_ProdPerVillageOwned_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Knowledge] per controlled [!Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        }
+      ]
+    }
+  },
+  "LocalHubs": {
+    "name": {
+      "value": "Local Hubs"
+    },
+    "desc": {
+      "value": "Further fostering local ties helps when it comes to surviving on a planet like Arrakis."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "::percent:: [!Village] [!Building_Village]s construction costs"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "Paracompass": {
+    "name": {
+      "value": "Native Customs"
+    },
+    "desc": {
+      "value": "Learning the behavior of the locals and knowing when and how to react is an essential first step in gaining their acceptance."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Agt_TInfiltration_TRes2SlotProd_ARatio"
+          },
+          "desc": {
+            "value": "::s_percent_value:: [Authority] from [Agent]s on a [Field_Infiltration] slot"
+          }
+        }
+      ]
+    }
+  },
+  "WaterSellersContacts": {
+    "name": {
+      "value": "Valuable Trinkets"
+    },
+    "desc": {
+      "value": "People of all creeds and origins overestimate the value of shiny, decorative objects."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [CraftsWorkshop] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "OutpostLogistics": {
+    "name": {
+      "value": "Outpost Logistics"
+    },
+    "desc": {
+      "value": "Setting up a solid network of outposts generally requires defensive installations, the right people, and convincing gifts."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [IField]"
+          }
+        }
+      ]
+    }
+  },
+  "SpectralImaging": {
+    "name": {
+      "value": "Civilian Defense Force"
+    },
+    "desc": {
+      "value": "Training civilians to take care of their own defenses is a key component of keeping a huge territory during war time."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TBuilding_StockUpkeep_MRatio"
+          },
+          "desc": {
+            "value": "::s_percent:: [Airfield] [!Upkeep]"
+          }
+        }
+      ]
+    }
+  },
+  "BorderDefense": {
+    "name": {
+      "value": "Border Defense"
+    },
+    "desc": {
+      "value": "These small stations are usually built within villages, allowing for better communication with remote places."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TBuilding_OutpostLimit_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [MissileBattery] limit"
+          }
+        }
+      ]
+    }
+  },
+  "WaterTrade": {
+    "name": {
+      "value": "Wonders of the Desert"
+    },
+    "desc": {
+      "value": "While the desert is often harsh and painful, it can also be beautiful in the right circumstances."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Outpost_ProdInSpecialRegion_ARatio"
+          },
+          "desc": {
+            "value": "::s_percent_value:: resource production in [SpecialRegion]s"
+          }
+        }
+      ]
+    }
+  },
+  "SurvivalTraining": {
+    "name": {
+      "value": "Survival Training"
+    },
+    "desc": {
+      "value": "Arrakis is the deadliest and most efficient instructor."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_EquipmentSlot"
+          },
+          "desc": {
+            "value": "Unlocks the Armory to customize units' equipment"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [MilitaryBase] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "DefenseSystems": {
+    "name": {
+      "value": "Mechanization"
+    },
+    "desc": {
+      "value": "Remote-controlled drones and small exoskeletons can help the armed force in many ways."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit",
+            "faction": "Atreides"
+          },
+          "desc": {
+            "value": "Unlocks the [A_Drone] unit"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit",
+            "faction": "Harkonnen"
+          },
+          "desc": {
+            "value": "Unlocks the [H_Drone] unit"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit",
+            "faction": "Fremen"
+          },
+          "desc": {
+            "value": "Unlocks the [F_Special] unit"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit",
+            "faction": "Corrino"
+          },
+          "desc": {
+            "value": "Unlocks the [C_Drone] unit"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit",
+            "faction": "Ecaz"
+          },
+          "desc": {
+            "value": "Unlocks the [E_Drone] unit"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit",
+            "faction": "Vernius"
+          },
+          "desc": {
+            "value": "Unlocks the [V_Drone] unit"
+          }
+        }
+      ]
+    }
+  },
+  "ArmyLogistics": {
+    "name": {
+      "value": "Army Logistics"
+    },
+    "desc": {
+      "value": "An army needs a lot of resources to operate, including those found in the field."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Water]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_EquipmentSlot"
+          },
+          "desc": {
+            "value": "Unlock the second gear slot in the Armory"
+          }
+        }
+      ]
+    }
+  },
+  "CalltoArms": {
+    "name": {
+      "value": "Recruitment Initiative"
+    },
+    "desc": {
+      "value": "Restructuring the army and investing in recruitment is the only way to increase significantly its size."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_ARatio"
+          },
+          "desc": {
+            "value": "::s_percent_value:: [Manpower] production"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "MilitaryThreat": {
+    "name": {
+      "value": "Energy Efficiency"
+    },
+    "desc": {
+      "value": "New generations of energy cells are more efficient and durable."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_MRatio"
+          },
+          "desc": {
+            "value": "::s_percent:: [FuelCell]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Mechanical_TResUpkeep_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: mechanical units [::target::] [!Requirement]"
+          }
+        }
+      ]
+    }
+  },
+  "GroundCommand": {
+    "name": {
+      "value": "Parallel Training"
+    },
+    "desc": {
+      "value": "Improved training techniques focusing on autonomy and tutorship from senior trainees allow for faster recruitment."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat",
+            "comments": "null"
+          },
+          "desc": {
+            "value": "::s_value:: [TrainingSlot]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_MilitaryAcademy] [!Building_MB] in [$my(mainbase)]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [ISpaceGuild]"
+          }
+        }
+      ]
+    }
+  },
+  "SupportStructures": {
+    "name": {
+      "value": "Siege Incentives"
+    },
+    "desc": {
+      "value": "Annhiliation of a complete city is a harrowing idea. Most people wouldn't do it. But with the right incentives, you can convince anyone."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unit_DamageVsMainBases_ARatio"
+          },
+          "desc": {
+            "value": "Military units deal ::s_percent_value:: damage against Main Bases"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "MainBase_GiveTRes_PerHPLost_Flat"
+          },
+          "desc": {
+            "value": "Military Units gives ::value:: [Solari] per damage inflicted on a Main Base"
+          }
+        }
+      ]
+    }
+  },
+  "AirCommand": {
+    "name": {
+      "value": "Parts Production"
+    },
+    "desc": {
+      "value": "The mass production of serialized parts allows for fast and cheap repairs of mechanized units."
+    }
+  },
+  "HighCommand": {
+    "name": {
+      "value": "Military Propaganda"
+    },
+    "desc": {
+      "value": "There are times when appearing to be the strongest is more important than actually being so."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Faction_MostTRes2Conso_GainTTrait"
+          },
+          "desc": {
+            "value": "::target_effects:: if no other factions use more [CommandPoint]"
+          }
+        }
+      ]
+    }
+  },
+  "IntelligenceNetwork": {
+    "name": {
+      "value": "Intelligence Network"
+    },
+    "desc": {
+      "value": "All agents on the field should be able to input and access information, creating an ever-expanding web of knowledge."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Resolution_WinOne_Gain_TRes"
+          },
+          "desc": {
+            "value": "Getting the chosen result on at least one resolution grants ::value:: [Standing] every Council"
+          }
+        }
+      ]
+    }
+  },
+  "DiplomaticManoeuvers": {
+    "name": {
+      "value": "Diplomatic Maneuvers"
+    },
+    "desc": {
+      "value": "Diplomacy is a complex game, one that can be played only by those who accept and even enjoy such intricacies."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TWorldEvent_OnCouncilVoteEnd_MainBaseSpawn"
+          },
+          "desc": {
+            "value": "[MinorHouses] deliver a [MinorHousesDonation] near [$my(MainBase)] after every Council"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "SpyingLogistic": {
+    "name": {
+      "value": "Spying Logistic"
+    },
+    "desc": {
+      "value": "Not everybody is born a natural spy. Most have to train hard to become one."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit_Authorize"
+          },
+          "desc": {
+            "value": "Allows the training of [Assassin]s"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_IntelAgency] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "CounterMeasures": {
+    "name": {
+      "value": "Counter Measures"
+    },
+    "desc": {
+      "value": "Sometimes, the best offense is defense. This is particularly true in espionage and politics."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TUnit_OnCouncilVoteEnd_MainBaseSpawn_PerValSpentInfluence"
+          },
+          "desc": {
+            "value": "After every Council, receive <good>1</good> [LandsraadSoldiers_Dev] per ::value:: [Influence] spent, up to ::value(Dev_CounterMeasures_MaxUnitSpawn)::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [!CounterIntel]"
+          }
+        }
+      ]
+    }
+  },
+  "PoliticalStrength": {
+    "name": {
+      "value": "Landsraad Support"
+    },
+    "desc": {
+      "value": "The deep spiral of politics can be overwhelming to newcomers."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Faction_SetTTraitStacks_PerAgentOnTInfiltration2"
+          },
+          "desc": {
+            "value": "::target_effects:: per [Agent] assigned to a [Landsraad_Infiltration] slot"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [ILandsraad]"
+          }
+        }
+      ]
+    }
+  },
+  "NegotiationTactics": {
+    "name": {
+      "value": "Nefarious Contacts"
+    },
+    "desc": {
+      "value": "Some endeavors require to hire specialists, even if you might not want to meet them eye to eye."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TUnit_ImportCost_MRatio"
+          },
+          "desc": {
+            "value": "::percent:: [Assassin] recruitment costs"
+          }
+        }
+      ]
+    }
+  },
+  "StealthGear": {
+    "name": {
+      "value": "Stealth Gear"
+    },
+    "desc": {
+      "value": "The best way not to get caught is to not be seen at all."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Operation_OnUsedOnFactionAtWar_GiveTRes_TRes2OperationCostPercent"
+          },
+          "desc": {
+            "value": "::percent_value:: of an operation's [::target2::] cost is refund when launched in the territory of a faction in [War]"
+          }
+        }
+      ]
+    }
+  },
+  "SandDiplomacy": {
+    "name": {
+      "value": "Insider Trading"
+    },
+    "desc": {
+      "value": "Politicians are as much subject to bribery as anyone else, but the bribe often takes a more subtle form."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CMarket_ShareSell_TResPerShare_Flat"
+          },
+          "desc": {
+            "value": "Selling [CHOAMShare]s grants ::value:: [Influence] per share"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Landsraad_Opened_GainTTrait"
+          },
+          "desc": {
+            "value": "Ignore CHOAM selling cooldown and max [Influence] during the [LandsraadCouncil]"
+          }
+        }
+      ]
+    }
+  },
+  "SpyingMastery": {
+    "name": {
+      "value": "Spying Mastery"
+    },
+    "desc": {
+      "value": "Secrets are best kept by fewer guardians, and a strong encryption."
+    }
+  },
+  "AtreidesMerchants": {
+    "name": {
+      "value": "Local Community"
+    },
+    "desc": {
+      "value": "Investing in local communities is the foundation of trust between the people and their leader."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Plascrete] production"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [!Village] [!Building_Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "UrbanPlanning": {
+    "name": {
+      "value": "Urban Planning"
+    },
+    "desc": {
+      "value": "With careful planning and heavy investment, it's possible to build a full city in no time."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Allow_BuildingSimultaneousConstruction"
+          },
+          "desc": {
+            "value": "Allow constructing multiple [!Village] [!Building_Village]s simultaneously"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        }
+      ]
+    }
+  },
+  "AtreidesForemen": {
+    "name": {
+      "value": "Atreides Foremen"
+    },
+    "desc": {
+      "value": "Loyal workers at key posts will make sure that your assets are maintained in working order."
+    }
+  },
+  "UnderstandTheBeauty": {
+    "name": {
+      "value": "Air Network"
+    },
+    "desc": {
+      "value": "On a planet like Arrakis, distant outposts are islands in an ocean of sand. Reaching them on time is often easier by air."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TBuilding_Cost_MRatio"
+          },
+          "desc": {
+            "value": "::percent:: [Airfield] construction costs"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TBuilding_StockUpkeep_MRatio"
+          },
+          "desc": {
+            "value": "::s_percent:: [Airfield] [!Upkeep]"
+          }
+        }
+      ]
+    }
+  },
+  "EmbraceCulture": {
+    "name": {
+      "value": "Cultural Assimilation"
+    },
+    "desc": {
+      "value": "Most people would rather have a tyrant who act like them than a strange but benevolent leader."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CustomProperty",
+            "comments": ""
+          },
+          "desc": {
+            "value": "::s_percent:: [Authority] and [Influence] cost to use [PeacefullyAnnex]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [AtreidesFremenEmbassy] [!Village] [!Building_Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [IField]"
+          }
+        }
+      ]
+    }
+  },
+  "VeteranMilitia": {
+    "name": {
+      "value": "Veteran Militia"
+    },
+    "desc": {
+      "value": "A soldier too old to remain on active duty can be sent as an officer in a far-away outpost. His knowledge will help the local militia with strategic planning and training."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unit_Territory_GainTTrait"
+          },
+          "desc": {
+            "value": "::target_effects:: by Military Units inside [$my(faction)-adjective] borders"
+          }
+        }
+      ]
+    }
+  },
+  "NewHomeland": {
+    "name": {
+      "value": "Post-Trauma Reintegration"
+    },
+    "desc": {
+      "value": "With the proper medical techniques and  thorough psychological care, soldiers who have lived through traumatic experiences can still serve."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "AtreidesOfficers": {
+    "name": {
+      "value": "Proud Liberator"
+    },
+    "desc": {
+      "value": "You are on the right side of this fight. Everyone says so. Just enjoy and stop thinking about it!"
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "Non-mechanical units get <good>+1%</good> max [Life] per ::value:: [Standing]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Infantry_TSiegeActionComplete_FactionLessStanding_HealMaxLife_ARatio"
+          },
+          "desc": {
+            "value": "Units Liberating or Annexing a [!Village] from a faction with less [Standing] heal ::percent_value:: of [Life] for free"
+          }
+        }
+      ]
+    }
+  },
+  "AtreidesSympathizers": {
+    "name": {
+      "value": "Atreides Sympathizers"
+    },
+    "desc": {
+      "value": "A pervasive spy network can also be used for benevolent means."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_OnCouncilOpening_PerTInfiltration2Level_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Standing] per [ILandsraad] level, on Council opening"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Influence] production"
+          }
+        }
+      ]
+    }
+  },
+  "AtreidesDelegations": {
+    "name": {
+      "value": "Political Entente"
+    },
+    "desc": {
+      "value": "With tension rising, gathering friendly houses into an informal alliance is the only way to get some help when chaos inevitably ensues."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "OnBetray_TUnit_SpawnMainBase"
+          },
+          "desc": {
+            "value": "When another faction betrays a [Peace] with [Atreides-longname], receive ::value:: free [::target::]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_CouncilChamber] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "ActiveSurveillance": {
+    "name": {
+      "value": "Active Surveillance"
+    },
+    "desc": {
+      "value": "To catch a spy in our midst, it is not enough to look within. We must also turn our gaze towards friends and enemies alike."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "::s_value:: [Influence] and [Intel] production per [Agent] assigned to [!CounterIntel]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [!CounterIntel]"
+          }
+        }
+      ]
+    }
+  },
+  "SustainableSpying": {
+    "name": {
+      "value": "Sustainable Spying"
+    },
+    "desc": {
+      "value": "Agents that focus on bringing positive results to their House instead of participating in nefarious plots often end up forming deep and durable alliances."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "[Agent]s assigned on [IChoam], [ILandsraad], or [ISpaceGuild] slots produce ::s_percent_value:: of their associated resources"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "AssignedAgt_NoSharingTrait_Stack_Flat"
+          },
+          "desc": {
+            "value": "[Agent] traits present only once on an [!Infiltration] field apply their effects twice"
+          }
+        }
+      ]
+    }
+  },
+  "HarkonnenNegociation": {
+    "name": {
+      "value": "Work Ethics"
+    },
+    "desc": {
+      "value": "For too long, the lazy have fed off the diligent. No more! House Harkonnen needs men and women willing to give their 200%."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Plascrete] production"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Manpower] production"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "MartialEconomy": {
+    "name": {
+      "value": "Martial Economy"
+    },
+    "desc": {
+      "value": "The invisible hand needs a good whip to teach these lazy locals how to be useful to the market."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [OppressionHeadquarter] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "InstillFear": {
+    "name": {
+      "value": "Instill Fear"
+    },
+    "desc": {
+      "value": "It is by will alone I set my mind in motion."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TTrait_OccupationResult_Block"
+          },
+          "desc": {
+            "value": "Pillaging a village does not increase its annexation cost"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Pillage_ApplyTTrait"
+          },
+          "desc": {
+            "value": "::target_effects:: pillaged [!Village]s"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Outpost_PreviouslyOwned_AnnexCost_MRatio"
+          },
+          "desc": {
+            "value": "::percent:: [Authority] cost to [Annex] again a [!Village] owned by [Harkonnen-shortname] in the past"
+          }
+        }
+      ]
+    }
+  },
+  "MonitoringNetworks": {
+    "name": {
+      "value": "Savage Cleansing"
+    },
+    "desc": {
+      "value": "The savages hide in their dirty burrows. To get rid of that pest would only strengthen our claim on Arrakis."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Sietch_Pillage_RevealSietch_GainTRes"
+          },
+          "desc": {
+            "value": "Pillaging a [Sietch] for the first time gives ::value:: [Authority] and immediately reveals another [Sietch]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Pillage_SupplyGain_ARatio"
+          },
+          "desc": {
+            "value": "A successful[Pillage] resupply ::s_percent_value:: of max [Supply] of units in the occupation circle"
+          }
+        }
+      ]
+    }
+  },
+  "SymbolsOfAuthority": {
+    "name": {
+      "value": "Symbols of Authority"
+    },
+    "desc": {
+      "value": "Desecration of their symbols is the fastest way to tame the savages' spirit."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Faction_SetTTraitStacks_InSpecialRegion_PerVillageWithTTrait2"
+          },
+          "desc": {
+            "value": "Oppressed [SpecialRegion]s grant ::target_effects::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [CraftsWorkshop] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "BloodCommand": {
+    "name": {
+      "value": "Adrenaline Addiction"
+    },
+    "desc": {
+      "value": "If they do not dread our very name, we have failed!"
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "DeathAtTRange2_InCombat_GainTTrait"
+          },
+          "desc": {
+            "value": "Every time a unit dies, ally Military Units that are fighting nearby receive  ::target_effects:: (x::target_stacking_limit:: max)"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_EquipmentSlot"
+          },
+          "desc": {
+            "value": "Unlock the second gear slot in the Armory"
+          }
+        }
+      ]
+    }
+  },
+  "AssemblyLines": {
+    "name": {
+      "value": "Assembly Lines"
+    },
+    "desc": {
+      "value": "Reduce the manufacturing process to its essential gestures, and even the dullest worker can do it."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TUnit_ImportCost_MRatio"
+          },
+          "desc": {
+            "value": "::percent:: [H_Drone] and [H_Ship] recruitment costs"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TUnit_ImportTime_MRatio"
+          },
+          "desc": {
+            "value": "::percent:: [H_Drone] and [H_Ship] training time"
+          }
+        }
+      ]
+    }
+  },
+  "AraakisButchers": {
+    "name": {
+      "value": "Arrakis Butchers"
+    },
+    "desc": {
+      "value": "The butcher cuts off the diseased flesh before it can infect all the meat."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Water]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unit_DamageVsMilitia_ARatio"
+          },
+          "desc": {
+            "value": "::s_percent_value:: damage against [Militia] and [Rebels]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Entity_KillMilitiasLoot_TRes_Flat"
+          },
+          "desc": {
+            "value": "Gains ::value:: [Manpower] upon killing [Militia] and [Rebels]"
+          }
+        }
+      ]
+    }
+  },
+  "CruelReputation": {
+    "name": {
+      "value": "Cruel Reputation"
+    },
+    "desc": {
+      "value": "It is a good thing they are not too fond of us. It keeps them on their toes and us on our feet."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Operation_OnUsedOnFactionAtWar_GiveTRes_TRes2OperationCostPercent"
+          },
+          "desc": {
+            "value": "Using an operation on a faction in [War] grants ::percent_value:: of its [Solari] cost as [Influence]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        }
+      ]
+    }
+  },
+  "LandsraadWhispers": {
+    "name": {
+      "value": "Landsraad Whispers"
+    },
+    "desc": {
+      "value": "Always keeping both ears open and always being ready to jump at an opportunity is the key to a successful Landsraad Council."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Agt_TInfiltration_TRes2SlotProd_Flat"
+          },
+          "desc": {
+            "value": "[Agent]s assigned on a [Landsraad_Infiltration] slot produce ::s_value:: [Intel]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [ILandsraad]"
+          }
+        }
+      ]
+    }
+  },
+  "HarkonnenLegacy": {
+    "name": {
+      "value": "Enhanced Questionning"
+    },
+    "desc": {
+      "value": "With the right tools, an enemy can be more helpful than a friend."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Faction_SetTTraitStacks_PerVillageWithTTrait2"
+          },
+          "desc": {
+            "value": "Oppressed [!Village]s grant ::target_effects::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_InterrogationCenter] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "TinkererTeams": {
+    "name": {
+      "value": "Tinkerer Teams"
+    },
+    "desc": {
+      "value": "It may only hold together with bits of string and tape, but it's better than breaking apart in the middle of the desert."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [SmugglingCenter] [!Village] [!Building_Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_HarvesterWorks] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "UnderworldContacts": {
+    "name": {
+      "value": "Underworld Contacts"
+    },
+    "desc": {
+      "value": "They say there is no money among friends. Maybe they should find more profitable friends."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "UH_TResProd_VillageProd_ARatio"
+          },
+          "desc": {
+            "value": "[UWHeadquarters]s produce ::percent_value:: of their [!Village]'s [Spice] production"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_ContrabandQuests"
+          },
+          "desc": {
+            "value": "Unlocks Contraband Supply special events"
+          }
+        }
+      ]
+    }
+  },
+  "CriminalPast": {
+    "name": {
+      "value": "Criminal Barons"
+    },
+    "desc": {
+      "value": "Being able to delegate, to share the leadership roles, makes an underworld empire more nimble."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TAbility_Cost_MRatio"
+          },
+          "desc": {
+            "value": "::percent:: [UWHeadquarters] installation cost"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "UH_TRes_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Water] per [UWHeadquarters]"
+          }
+        }
+      ]
+    }
+  },
+  "UndergroundNetwork": {
+    "name": {
+      "value": "Underground Network"
+    },
+    "desc": {
+      "value": "The Smugglers are everywhere and take advantage of every opportunity."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Village_TResProd_PerAdjacentUH_Flat"
+          },
+          "desc": {
+            "value": "[Smugglers-adjective] [!Village]s produce ::s_value:: [Solari] per [UWHeadquarters] in adjacent regions"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_BlackMarketBranch] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "AegisoftheUnderworld": {
+    "name": {
+      "value": "Illicit Methods"
+    },
+    "desc": {
+      "value": "A tactful shakedown can serve as a reminder of everyone's place on the ladder. No hard feelings."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "AnnexationCost_PillagePenalty_MRatio"
+          },
+          "desc": {
+            "value": "Ignore the cost penalty to [Annex] pillaged [!Village]s"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [IField]"
+          }
+        }
+      ]
+    }
+  },
+  "OrganizedLooting": {
+    "name": {
+      "value": "Organized Looting"
+    },
+    "desc": {
+      "value": "Looting seems random and messy to the untrained eye, but getting the most from a chaotic situation requires a coordinated team of rabble-rousers."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit"
+          },
+          "desc": {
+            "value": "Unlocks the [S_Drone] unit"
+          }
+        }
+      ]
+    }
+  },
+  "GuerrillaTactics": {
+    "name": {
+      "value": "Guerrilla Tactics"
+    },
+    "desc": {
+      "value": "Mixing offense and defense is a sound tactic when you don't have the backing of a Great House."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Water]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Army_AtNight_GainTTrait"
+          },
+          "desc": {
+            "value": "At night, Military Units gain: ::target_effects_list::"
+          }
+        }
+      ]
+    }
+  },
+  "IndustrialScavenging": {
+    "name": {
+      "value": "Industrial Scavenging"
+    },
+    "desc": {
+      "value": "When a good team is supported by a proper industry of crime, profits are bound to rise."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Infantry_HasTUnit2InZone_GainTTrait"
+          },
+          "desc": {
+            "value": "Non-mechanical units in the same region as at least ::value:: [S_Drone] consume ::target_effects::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_EquipmentSlot"
+          },
+          "desc": {
+            "value": "Unlock the second gear slot in the Armory"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "MilitaryAdministration": {
+    "name": {
+      "value": "Synchronized Heist"
+    },
+    "desc": {
+      "value": "If you have enough trusted men, hitting multiple locations at once ensures that at least one will go through."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "OnCompleteSiegeAction_Occupiers_GainTTrait"
+          },
+          "desc": {
+            "value": "On completing a siege, units in the occupation circle gain ::target_effects:: for 1 day"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Faction_SimultaneousSiegesOnEnemyFaction_GiveEnemyFactionTTrait"
+          },
+          "desc": {
+            "value": "When at least ::value:: sieges are under way against the same faction, ::target_effects::"
+          }
+        }
+      ]
+    }
+  },
+  "UnderworldBosses": {
+    "name": {
+      "value": "Foot In the Door"
+    },
+    "desc": {
+      "value": "Get them to agree to one thing, and they'll agree to anything."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "UH_TRes_Cost_InFactionAtPeace_MRatio"
+          },
+          "desc": {
+            "value": "::s_percent:: [UWHeadquarters] installation costs within territories of factions in [Peace]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_PerFactionWithUH_Flat"
+          },
+          "desc": {
+            "value": "::value:: [Influence] and [Intel] production per faction hosting at least one [UWHeadquarters]"
+          }
+        }
+      ]
+    }
+  },
+  "SecurityDetails": {
+    "name": {
+      "value": "Security Details"
+    },
+    "desc": {
+      "value": "Important men have important friends, and these friends would be happy to provide protection."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TUnit_OnCouncilVoteWithTResAction2Win_MainBaseSpawn"
+          },
+          "desc": {
+            "value": "Receive ::value:: free [Mercenaries] after any resolution choice marked by a [Bounty] passes"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [!CounterIntel]"
+          }
+        }
+      ]
+    }
+  },
+  "UnderworldBribes": {
+    "name": {
+      "value": "Underworld Bribes"
+    },
+    "desc": {
+      "value": "Listening can get you further than talking."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Faction_TRes_OnContractSuccessfullyPaid_Gain_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [::target::] upon successfully paying the [GuildFees]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TResAction_MinorHousesVotes_PerValueTRes2"
+          },
+          "desc": {
+            "value": "Resolutions marked by a [Bounty] receives 1 more vote from the [MinorHouses] per ::value:: [Standing]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [ILandsraad]"
+          }
+        }
+      ]
+    }
+  },
+  "SpreadingTheFaith": {
+    "name": {
+      "value": "Freedom Fighters"
+    },
+    "desc": {
+      "value": "Those who fight for freedom and self-determination will always find support from those they free."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_ProdPerNeutralVillage_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Solari] production per existing neutral or [Fremen] [!Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "VillageLiberation_TRes_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Solari] when liberating a [!Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        }
+      ]
+    }
+  },
+  "ArrakisSecrets": {
+    "name": {
+      "value": "Arrakis Secrets"
+    },
+    "desc": {
+      "value": "The offworlders are not the only ones who need vast amounts of Spice."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TStruct_MakeReconned"
+          },
+          "desc": {
+            "value": "Reveals the position of all [SpiceArea]s"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unit_HasTTrait_GainTTrait2"
+          },
+          "desc": {
+            "value": "Deployed [F_Harvester]s regain [Life] and [Supply]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "When they pack up, [F_Harvester]s leave combat immediately and have [Sneak_Trait] for ::value:: day"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "SpiceMarket": {
+    "name": {
+      "value": "Sand Brotherhood"
+    },
+    "desc": {
+      "value": "The strongest bonds are forged in adversity. Once the desert becomes your home, every visitor is your brother."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_SietchProd_ARatio"
+          },
+          "desc": {
+            "value": "::s_percent_value:: [Solari] production per ally [Sietch]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_Bazaar] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "FremenCommand": {
+    "name": {
+      "value": "Shared Transcendence"
+    },
+    "desc": {
+      "value": "The [Spice] orgy is an intoxicating experience. The Fremen merge minds in a sensorial whirlwind, if only for an instant."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TBuilding_TRes2Prod_Flat"
+          },
+          "desc": {
+            "value": "[::target::]s produce ::s_value:: [::target2::]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TBuilding_TRes2Prod_Flat"
+          },
+          "desc": {
+            "value": "[::target::]s produce ::s_value:: [::target2::]"
+          }
+        }
+      ]
+    }
+  },
+  "DuneWanderers": {
+    "name": {
+      "value": "Heir of Arrakis"
+    },
+    "desc": {
+      "value": "For as much as the Pan and Graben people see Arrakis as their home, its rightful owners are the Fremen."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "Controlled [DeepDesert]s grant neighboring [!Village]s: ::target_effects_list::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "SpiceHegemony": {
+    "name": {
+      "value": "Desert Wisdom"
+    },
+    "desc": {
+      "value": "Fremen's number are often underestimated. When joining force, they can accomplish anything."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Village_HasTBuilding_GainTTrait2"
+          },
+          "desc": {
+            "value": "[::target::]s produce ::target_effects2::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "AdvancedThumpers": {
+    "name": {
+      "value": "Desert Watchers"
+    },
+    "desc": {
+      "value": "The Fremen see all of Arrakis as their duty to protect from the invaders."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unit_Territory_GainTTrait"
+          },
+          "desc": {
+            "value": "Ally units in [Fremen] territory and near allied [Sietch]s have [Sneak_Trait]"
+          }
+        }
+      ]
+    }
+  },
+  "SkyGazing": {
+    "name": {
+      "value": "Sky Gazing"
+    },
+    "desc": {
+      "value": "The open desert is an invitation to look at the night sky and wonder."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit"
+          },
+          "desc": {
+            "value": "Unlocks the [F_Special] unit"
+          }
+        }
+      ]
+    }
+  },
+  "DesertTrekkers": {
+    "name": {
+      "value": "Desert Trekkers"
+    },
+    "desc": {
+      "value": "When you are needed somewhere, the question is not whether you will get there on time, but how."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Water]"
+          }
+        }
+      ]
+    }
+  },
+  "StalwartAlliance": {
+    "name": {
+      "value": "Stalwart Alliance"
+    },
+    "desc": {
+      "value": "Fremen society is often fragmented, but everyone agrees on the necessity to remove the offworlder oppressors."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "OnStartTSiegeActionOnEnemy_AlliedSietches_AdjacentRegion_SpawnTRaid2"
+          },
+          "desc": {
+            "value": "During Liberation of an enemy [!Village], neighboring allied [Sietch]s send a supporting raid"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Faction_GiveTTrait_AlliedSietches"
+          },
+          "desc": {
+            "value": "Allied [!Sietch]s get ::target_effects::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_EquipmentSlot"
+          },
+          "desc": {
+            "value": "Unlock the second gear slot in the Armory"
+          }
+        }
+      ]
+    }
+  },
+  "TruePeople": {
+    "name": {
+      "value": "Iday Alakrab"
+    },
+    "desc": {
+      "value": "The scorpion keeps its strength hidden and only strikes once victory is certain."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "WormRiding_MoveSpeed_ARatio"
+          },
+          "desc": {
+            "value": "Wormriding is ::s_percent_value:: faster"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TUnit_GainTTrait2"
+          },
+          "desc": {
+            "value": "Wormriding cannot be seen"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "On exiting wormriding, units inflict ::s_value:: damage on first attack and gain [Sneak_Trait] for a day"
+          }
+        }
+      ]
+    }
+  },
+  "DesertShadows": {
+    "name": {
+      "value": "Fremen Solidarity"
+    },
+    "desc": {
+      "value": "Fremen do not agree on everything, in fact they rarely do. But on the subject of offworlders, they make an exception."
+    },
+    "props": {
+      "ownEffects": {
+        "ownEffects": [
+          {
+            "_attrs": {
+              "ref": "Sietches_GainRelation"
+            },
+            "desc": {
+              "value": "Immediately gain ::value:: relation with all [Sietch]s"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "SandDiplomats": {
+    "name": {
+      "value": "Sand Diplomats"
+    },
+    "desc": {
+      "value": "When a whole planet gets its mind on something, it generally have results."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_Temple] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "SietchNetwork": {
+    "name": {
+      "value": "Sietch Network"
+    },
+    "desc": {
+      "value": "Each rallied [Sietch] brings the Fremen closer to victory!"
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [!CounterIntel]"
+          }
+        }
+      ]
+    }
+  },
+  "SolidMaterials": {
+    "name": {
+      "value": "Solid Materials"
+    },
+    "desc": {
+      "value": "The Emperor's stay on Arrakis might be short, but the infrastructure He brings may endure for centuries."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Plascrete] production"
+          }
+        }
+      ]
+    }
+  },
+  "ImperialTaxes": {
+    "name": {
+      "value": "Integrated Costs"
+    },
+    "desc": {
+      "value": "Infrastructure on the planet can deteriorate quickly without proper care. Integrating most of the maintenance into the [ImpBase] protocols would save costs."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "MainBase_GainTTrait"
+          },
+          "desc": {
+            "value": "Ally [!Village]s neighboring [ImpBase] get: ::target_effects::"
+          }
+        }
+      ]
+    }
+  },
+  "CHOAMManipulation": {
+    "name": {
+      "value": "CHOAM Manipulation"
+    },
+    "desc": {
+      "value": "A good grip on the CHOAM has been used for centuries to keep control of the Great Houses."
+    }
+  },
+  "Megalopolis": {
+    "name": {
+      "value": "Megalopolis"
+    },
+    "desc": {
+      "value": "Centralization of power and population brings a lot of benefits through economies of scale."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Building_Mainbase_Cost_MRatio"
+          },
+          "desc": {
+            "value": "::percent:: construction costs in [ImpBase]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "MainBase_GainTTrait"
+          },
+          "desc": {
+            "value": "::target_effects::"
+          }
+        }
+      ]
+    }
+  },
+  "ImperialResearchers": {
+    "name": {
+      "value": "Imperial Researchers"
+    },
+    "desc": {
+      "value": "Any government needs the support of the intellectual class. It's even more true for a galactic governement."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "District_TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Knowledge] per completed district"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        }
+      ]
+    }
+  },
+  "ImperialAdministration": {
+    "name": {
+      "value": "Imperial Administration"
+    },
+    "desc": {
+      "value": "Economies of scale are very powerful things that a galactic Emperor uses with abundance."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "MainBase_GainTTrait"
+          },
+          "desc": {
+            "value": "::target_effects::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "AdministrativeConsolidation": {
+    "name": {
+      "value": "Administrative Consolidation"
+    },
+    "desc": {
+      "value": "Continuous investment can make the local economy thrive beyond imagination."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_Monument] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "ImperialCommand": {
+    "name": {
+      "value": "Imperial Command"
+    },
+    "desc": {
+      "value": "It's the prerogative of the Emperor to commandeer any airport He may need for official business."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_EquipmentSlot"
+          },
+          "desc": {
+            "value": "Unlock the second gear slot in the Armory"
+          }
+        }
+      ]
+    }
+  },
+  "ImperialThreat": {
+    "name": {
+      "value": "Imperial Protocols"
+    },
+    "desc": {
+      "value": "The presence of the Emperor alone is often enough to intimidate the bravest nobles of the Imperium."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Army_OwnerMajorityArmiesInZone_GainTTrait"
+          },
+          "desc": {
+            "value": "::target_effects:: for Military Units in regions where [Corrino-shortname] has a numerical superiority"
+          }
+        }
+      ]
+    }
+  },
+  "AbsolutePower": {
+    "name": {
+      "value": "Absolute Power"
+    },
+    "desc": {
+      "value": "One cannot lead without the consent of its subjects. The trick is to get their consent without their noticing."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TTreaty_Cost_IfNoTTreaty2_MRatio"
+          },
+          "desc": {
+            "value": "Proposing a [::target::] has no cost if no [Peace] is active"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_OnCouncilOpening_HasTTreaty2_Flat"
+          },
+          "desc": {
+            "value": "Gain ::value:: [::target::] on Council opening if at least one [Peace] is active"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "DiplomaticSpying": {
+    "name": {
+      "value": "Diplomatic Spying"
+    },
+    "desc": {
+      "value": "Keep your friends close, but your enemies even closer."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Agt_TruceFactionInfiltration_TResSlotProd_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Influence] production per [Agent]s assigned on a faction in [Peace]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_WarFactionInfiltration_TResSlotProd_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Intel] production per [Agent]s assigned on a faction in [War]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        }
+      ]
+    }
+  },
+  "EmperorEyes": {
+    "name": {
+      "value": "Emperor Eyes"
+    },
+    "desc": {
+      "value": "No machination can stay hidden for long from the sight of an Emperor."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "MilitaryUnits_ImportCost_FactionHasTTrait_MRatio"
+          },
+          "desc": {
+            "value": "::s_percent:: Military Units cost while victim of a treason"
+          }
+        }
+      ]
+    },
+    "props": {
+      "anyUnlockEffects": {
+        "anyUnlockEffects": [
+          {
+            "_attrs": {
+              "ref": "Agent_Gain_SetTInfiltration_WithTTrait2"
+            },
+            "desc": {
+              "value": "Fills [!CounterIntel] slots with ::value:: unmovable [!EmperorEye] [Agent]s"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "ArtisticAspirations": {
+    "name": {
+      "value": "Artistic Aspirations"
+    },
+    "desc": {
+      "value": "Even the lowest of men want to create, to shape the world to their image. If only we could channel this primal energy into practical matters!"
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_OnMasterpieceBuilt_Flat"
+          },
+          "desc": {
+            "value": "Gain ::value:: [Solari] upon building a [!Masterpiece]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TAbility_Cost_MRatio"
+          },
+          "desc": {
+            "value": "::s_percent:: cost to add a [!Building_Village] slot"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "CulturalTourism": {
+    "name": {
+      "value": "Cultural Tourism"
+    },
+    "desc": {
+      "value": "Some people are attracted by the quaint and simple lifestyle of Arrakis' pyon. Why not indulge them, for a price?"
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Faction_SetTTraitStacks_PerAnyVillageWithTTrait2"
+          },
+          "desc": {
+            "value": "Each [!Ecaz_Sanctuary] provides ::target_effects_list::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [Treaty]"
+          }
+        }
+      ]
+    }
+  },
+  "ManicheanPropaganda": {
+    "name": {
+      "value": "Manichean Propaganda"
+    },
+    "desc": {
+      "value": "Who does not like an epic tale with a grand conflict between good and evil? It's hard not to be moved by such a story."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Militia_OnDeath_KillerFaction_TResLoss_Flat"
+          },
+          "desc": {
+            "value": "Other factions lose ::value:: [::target::] when killing an [Ecaz-adjective] [Militia]"
+          }
+        }
+      ]
+    }
+  },
+  "NativeArtists": {
+    "name": {
+      "value": "Native Artists"
+    },
+    "desc": {
+      "value": "Even the savage inhabitants of a backwater planet like Arrakis are elevated by the act of creation."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_MuseumOfUnboundArts] [!Building_Village]"
+          }
+        }
+      ]
+    }
+  },
+  "PridefulCrown": {
+    "name": {
+      "value": "Prideful Crown"
+    },
+    "desc": {
+      "value": "When you have an amazing jewel, you don't just leave it hanging around. No, you need an equally great casket to display it properly."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Village_HasTTrait_GiveTTrait2_ToVillagesAtValueDistance"
+          },
+          "desc": {
+            "value": "[!Village]s at a distance of ::value:: regions from the [::target::] gain: ::target_effects_list2::"
+          }
+        }
+      ]
+    }
+  },
+  "NationalMythos": {
+    "name": {
+      "value": "National Mythos"
+    },
+    "desc": {
+      "value": "What is the difference between a people and a crowd? A story. Good stories you can believe in are the foundation of any patriotism."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit",
+            "faction": "Ecaz"
+          },
+          "desc": {
+            "value": "Unlocks the [E_Drone] unit"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Entity_WithTTrait_GiveTTrait2_FarAllies",
+            "comments": "target 2 is TNationalMythos, making the whole text: \"-10% damage received by Ecazi units in a large area around the Champion\""
+          },
+          "desc": {
+            "value": "::target_effects2:: by [Ecaz-adjective] units in a large area around the [TEcazChampion]"
+          }
+        }
+      ]
+    }
+  },
+  "MartialPerfectionism": {
+    "name": {
+      "value": "Martial Perfectionism"
+    },
+    "desc": {
+      "value": "When you really want to shine, good enough is not good enough. Everything has to be perfect."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "Can choose to pay ::s_percent_value(PerfectedRecruitment_CostFactor):: of the price to recruit units in ::s_percent(PerfectedRecruitment_TimeFactor):: of the time, giving them permanently: ::target_effects_list::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_MilitaryAcademy] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "InspiringStandart": {
+    "name": {
+      "value": "Inspiring Standard"
+    },
+    "desc": {
+      "value": "A well-designed flag should show strength and determination, evoking exaltation from any potential onlooker."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_ProdPerTUnit2_Flat"
+          },
+          "desc": {
+            "value": "[E_Drone]s produce ::value:: [Manpower]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Infantry_HasTUnit2InZone_GainTTrait"
+          },
+          "desc": {
+            "value": "Non-mechanical units in the same region as at least ::value:: [E_Drone] ::target_effects::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "LogisticalFlourish": {
+    "name": {
+      "value": "Logistical Flourish"
+    },
+    "desc": {
+      "value": "War is won by the soldiers. But without the support of a precise logistic, they won't be able to show off their skills."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "When a [TEcazChampion] dies, get ::target_effects:: for ::value:: days"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_InfiltrationSlot_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Agent] slot in [ISpaceGuild]"
+          }
+        }
+      ]
+    }
+  },
+  "CosmopoliteElegance": {
+    "name": {
+      "value": "Cosmopolite Elegance"
+    },
+    "desc": {
+      "value": "Elegance and style are the best disguises. The classy type can belong anywhere."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Infiltration_IncreaseSpeed_MRatio"
+          },
+          "desc": {
+            "value": "[Infiltration] levels rise and fall ::percent:: faster"
+          }
+        }
+      ]
+    }
+  },
+  "PoliticalArt": {
+    "name": {
+      "value": "Political Art"
+    },
+    "desc": {
+      "value": "Art is inherently political. Some artworks assume and shape this component toward a focused objective."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_OnMasterpieceBuilt_Flat"
+          },
+          "desc": {
+            "value": "Gain ::value:: [Influence] upon building a [!Masterpiece]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Charter_HasOwner_NoProposal"
+          },
+          "desc": {
+            "value": "Any Charter currently claimed by [Ecaz-longname] cannot be proposed to vote"
+          }
+        }
+      ]
+    }
+  },
+  "InfluentialPlots": {
+    "name": {
+      "value": "Influential Plots"
+    },
+    "desc": {
+      "value": "Some people are so likable than they can get away with anything, even publicly."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Mission_Cost_MissingTRes_UseTRes2"
+          },
+          "desc": {
+            "value": "When out of [::target::], [::target2::] is used in its stead for mission preparation, assassination upkeep and [Assassin] recruitment"
+          }
+        }
+      ]
+    }
+  },
+  "EntropicEngineering": {
+    "name": {
+      "value": "Entropic Engineering"
+    },
+    "desc": {
+      "value": "[Spice] affects the mind's abilities in unexpected ways. Studying those effects, and the chemical composition of the melange, will require a much better yield from the gatherer."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CrewPoints_Max_Flat"
+          },
+          "desc": {
+            "value": "Can spend up to 2 [FuelCell] in [$my(harvester)]s to increase their production"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [::target::] [!Village] [!Building_Village]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_SpiceLaboratory] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "SpiceEnlightenment": {
+    "name": {
+      "value": "Spice Enlightenment"
+    },
+    "desc": {
+      "value": "As we begin to understand [Spice] as an organic component of the ecosystem, we discover new ways to attract it into our gatherer at a molecular level."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CrewPoints_Max_Flat"
+          },
+          "desc": {
+            "value": "Can spend up to 4 [FuelCell]s in [$my(harvester)]s to increase their production"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_PerNetTRes2Prod_ARatio"
+          },
+          "desc": {
+            "value": "::s_percent_value:: [Spice] production per [Knowledge]"
+          }
+        }
+      ]
+    }
+  },
+  "SequentialThinking": {
+    "name": {
+      "value": "Sequential Thinking"
+    },
+    "desc": {
+      "value": "Most processes happen in order. One step. And the next one. And the next one. Our architectures must reflect and support this pattern."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "DeepDesert_NeuralNodeProxy"
+          },
+          "desc": {
+            "value": "The Nodal Network can optionaly connect to [NeuralNode]s across a [DeepDesert]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "Each node on the longest path of the Nodal Network gives <good>+0.5</good> [Knowledge] and <good>+2%</good> [Authority] production"
+          }
+        }
+      ]
+    }
+  },
+  "NeuralTropism": {
+    "name": {
+      "value": "Neural Tropism"
+    },
+    "desc": {
+      "value": "The same species is capable of growing into many different shapes to accommodate the environmental conditions."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Outpost_AdjacentNeuralNodes_AnnexCost_ARatio"
+          },
+          "desc": {
+            "value": "Enemy factions pay ::s_percent_value:: [Authority] to [Annex] a [!Village] neighboring at least <good>2</good> regions connected to the Nodal Network"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_NeuralCore] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "AutomatedDefenses": {
+    "name": {
+      "value": "Automated Defenses"
+    },
+    "desc": {
+      "value": "A chain is only as strong as its weakest link. It is natural to prioritize protecting our more sensitive spots. The Nodal Network is no exception."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TBuilding_GainTTrait2"
+          },
+          "desc": {
+            "value": "Connected [NeuralNode]s automatically attack enemy units within your territory"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Outpost_InNeuralNetwork_GainTTrait"
+          },
+          "desc": {
+            "value": "[!Village]s connected to the Nodal Network gain: ::target_effects_list::"
+          }
+        }
+      ]
+    }
+  },
+  "WaterBatteries": {
+    "name": {
+      "value": "Water Batteries"
+    },
+    "desc": {
+      "value": "Machines, mechanical or organic, require energy to function. But how come can we not power ourselves with sharp electricity? And why could our drones not feed on fresh vegetables?"
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_NegativeProd_UseTRes2Prod_ARatio"
+          },
+          "desc": {
+            "value": "When out of [FuelCell]s, [Water] is used in its stead"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_EquipmentSlot"
+          },
+          "desc": {
+            "value": "Unlock the second gear slot in the Armory"
+          }
+        }
+      ]
+    }
+  },
+  "GuildCollaboration": {
+    "name": {
+      "value": "Guild Collaboration"
+    },
+    "desc": {
+      "value": "A navigator is nothing without a ship to pilot. Their elevated world of probability would not exist without our grounded science of machine. It's worth a bit of support."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Agt_TInfiltration_TRes2SlotProd_Flat"
+          },
+          "desc": {
+            "value": "[Agent]s assigned on a [SpaceGuild_Infiltration] slot produce ::value:: [FuelCell]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "AutomatedManufacture": {
+    "name": {
+      "value": "Automated Manufacture"
+    },
+    "desc": {
+      "value": "For as much as the Human mind is exquisite, its body is quite frail and demanding. Automating most of the workforce would free our minds and increase the pace of production."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [CommandPoint]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "::s_percent_value:: recruitment and regeneration speed of all units per [Knowledge]"
+          }
+        }
+      ]
+    }
+  },
+  "TechnologicalExchange": {
+    "name": {
+      "value": "Technological Exchange"
+    },
+    "desc": {
+      "value": "The exchange of ideas, the exchange of truth, is the foundation of civilization. In many ways, the communicative scientist is at the heart of society, much more than any emperor."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_OnCouncilOpening_PerTTreaty2_Flat"
+          },
+          "desc": {
+            "value": "Gain ::value:: [Standing] on Council opening per active [Peace]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TRes_TruceFaction_Prod_Flat"
+          },
+          "desc": {
+            "value": "::s_value:: [Knowledge] per active [Peace]"
+          }
+        }
+      ]
+    }
+  },
+  "HereticalComputing": {
+    "name": {
+      "value": "Heretical Computing"
+    },
+    "desc": {
+      "value": "A machine would need many different elements to be \"thinking\". What if one of those elements could be isolated, and used for our purpose?"
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "Unlock [DataAnalysisUnit] [Agent]s and get ::value:: for free"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TTreaty"
+          },
+          "desc": {
+            "value": "Unlocks the [HarmlessGadget] [Treaty]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TBuilding"
+          },
+          "desc": {
+            "value": "Unlocks the [Main_IntelAgency] [!Building_MB] in [$my(mainbase)]"
+          }
+        }
+      ]
+    }
+  },
+  "HolisticThinking": {
+    "name": {
+      "value": "Holistic Thinking"
+    },
+    "desc": {
+      "value": "Treating information as isolated bits of knowledge is not enough. To see the whole picture you have to consider things in relation with everything else."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "Agt_TResProd_AnyTTraitAgentOnInfiltration"
+          },
+          "desc": {
+            "value": "::s_value:: [Knowledge] per [!Infiltration] field with at least ::value:: [DataAnalysisUnit]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "TTreaty_FactionInfiltration_LevelCap_Flat"
+          },
+          "desc": {
+            "value": "[!Infiltration] increases by ::value:: level in factions that have accepted a [HarmlessGadget]"
+          }
+        }
+      ]
+    }
+  },
+  "PhysicalWiring": {
+    "name": {
+      "value": "Physical Wiring"
+    },
+    "desc": {
+      "value": "While electromagnetic transmission of data through the air has many advantages, a truly secured connection can only be achieved with good old wires and active surveillance of such wires."
+    },
+    "attributes": {
+      "attributes": [
+        {
+          "_attrs": {
+            "ref": "TRes_Prod_PerInfiltrationCell_AdjacentNeuralNode_Flat"
+          },
+          "desc": {
+            "value": "[InfiltrationCells] neighboring a connected [NeuralNode] produce ::s_value:: [Knowledge]"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "CustomProperty"
+          },
+          "desc": {
+            "value": "Each [Statecraft] [!Building_Village] in the [!Village] of such a cell also gives: ::target_effects_list::"
+          }
+        },
+        {
+          "_attrs": {
+            "ref": "Unlock_TUnit_Authorize"
+          },
+          "desc": {
+            "value": "Allows the training of [Assassin]s"
+          }
+        }
+      ]
+    }
+  }
+}

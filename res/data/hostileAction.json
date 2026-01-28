@@ -1,0 +1,217 @@
+{
+  "MainBase_Attack": {
+    "name": {
+      "value": "Main Base attack"
+    },
+    "desc": {
+      "value": "Sending an attack on a Main Base"
+    }
+  },
+  "MainBase_Destroy": {
+    "name": {
+      "value": "Destroy Main Base"
+    },
+    "desc": {
+      "value": "Destroying a Main Base"
+    }
+  },
+  "Outpost_Attack": {
+    "name": {
+      "value": "Village attack"
+    },
+    "desc": {
+      "value": "Attacking a Village"
+    }
+  },
+  "Outpost_Conquer": {
+    "name": {
+      "value": "Village Annexation"
+    },
+    "desc": {
+      "value": "Taking Control of a Village"
+    }
+  },
+  "Outpost_Liberate": {
+    "name": {
+      "value": "Village Liberation"
+    },
+    "desc": {
+      "value": "Liberating a Village"
+    }
+  },
+  "Outpost_Pillage": {
+    "name": {
+      "value": "Village Pillaging"
+    },
+    "desc": {
+      "value": "Pillaging a Village"
+    }
+  },
+  "Sietch_Pillage": {
+    "name": {
+      "value": "Sietch Pillaging"
+    },
+    "desc": {
+      "value": "Pillaging a Sietch"
+    }
+  },
+  "Unit_Attack": {
+    "name": {
+      "value": "Military Unit attack"
+    },
+    "desc": {
+      "value": "Attacking an enemy Military Unit"
+    }
+  },
+  "Sietch_Unit_Attack": {
+    "name": {
+      "value": "Military Unit attack"
+    },
+    "desc": {
+      "value": "Attacking an enemy Military Unit"
+    }
+  },
+  "Unit_Kill": {
+    "name": {
+      "value": "Kill Military Unit"
+    },
+    "desc": {
+      "value": "Killing an enemy Military Unit"
+    }
+  },
+  "Mission_NonHostile_Detected": {
+    "name": {
+      "value": "Non-Hostile Operation"
+    },
+    "desc": {
+      "value": "A non-hostile Operation in their territory is detected"
+    }
+  },
+  "Mission_Hostile_Detected": {
+    "name": {
+      "value": "Hostile Operation"
+    },
+    "desc": {
+      "value": "A hostile Operation in their territory is detected"
+    }
+  },
+  "Mission_FirstAssassination_Detected": {
+    "name": {
+      "value": "[ProtocolsSurvey]"
+    },
+    "desc": {
+      "value": "[ProtocolsSurvey] against them is detected"
+    }
+  },
+  "Mission_SecondAssassination_Detected": {
+    "name": {
+      "value": "[InfiltrationCells]"
+    },
+    "desc": {
+      "value": "[InfiltrationCells] against them is detected"
+    }
+  },
+  "Mission_ThirdAssassination_Detected": {
+    "name": {
+      "value": "[ProximityInfiltration]"
+    },
+    "desc": {
+      "value": "[ProximityInfiltration] against them is detected"
+    }
+  },
+  "Mission_Atomics_Detected": {
+    "name": {
+      "value": "[NukeTargeting]"
+    },
+    "desc": {
+      "value": "[NukeTargeting] in their territory is detected"
+    }
+  },
+  "Ability_Atomics_Launched": {
+    "name": {
+      "value": "[LaunchNuclearHead]"
+    },
+    "desc": {
+      "value": "[LaunchNuclearHead] Test"
+    }
+  },
+  "ImproveRelations": {
+    "name": {
+      "value": "Propose [ImproveRelations]"
+    },
+    "desc": {
+      "value": "Signing an [ImproveRelations] with them"
+    }
+  },
+  "DeclareWar": {
+    "name": {
+      "value": "Declare War"
+    },
+    "desc": {
+      "value": "Declaring a War against them"
+    }
+  },
+  "MissileBattery_Attacks": {
+    "name": {
+      "value": "Their [MissileBattery] attack on sight"
+    },
+    "desc": {
+      "value": "Missile Batteries attack each other's units on sight"
+    }
+  },
+  "Contested_Sieges": {
+    "name": {
+      "value": "Contest each other's Sieges"
+    },
+    "desc": {
+      "value": "Contesting a Siege by walking in it"
+    }
+  },
+  "Combat_Allowed": {
+    "name": {
+      "value": "Combat is <good>allowed</good>"
+    }
+  },
+  "Combat_Disallowed": {
+    "name": {
+      "value": "Combat <bad>breaks relationship</bad>"
+    }
+  },
+  "Resource_Trade": {
+    "name": {
+      "value": "Trading is <good>allowed</good>"
+    },
+    "desc": {
+      "value": "Trading economic resources with one another"
+    }
+  },
+  "Treaties": {
+    "name": {
+      "value": "Treaties are <good>allowed</good>"
+    },
+    "desc": {
+      "value": "Signing treaties with one another"
+    }
+  },
+  "Treaties_Disallowed": {
+    "name": {
+      "value": "Treaties are <bad>impossible</bad>"
+    }
+  },
+  "MilitaryPressure": {
+    "name": {
+      "value": "[MilitaryPressure] are <good>allowed</good>"
+    },
+    "desc": {
+      "value": "Applying a [MilitaryPressure] against them"
+    }
+  },
+  "NoSupplyLoss_Territory": {
+    "name": {
+      "value": "No [Supply] loss in their territory"
+    },
+    "desc": {
+      "value": "Your units do not lose supply in their territory"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "Closed": {
+    "texts": {
+      "title": {
+        "value": "Closed"
+      },
+      "description": {
+        "value": "The Landsraad Council is closed"
+      },
+      "nextPhase": {
+        "value": "The Council will open in ::remainingTime:: days"
+      }
+    }
+  },
+  "Opening": {
+    "texts": {
+      "title": {
+        "value": "Opening"
+      }
+    }
+  },
+  "SpeakerReview": {
+    "texts": {
+      "title": {
+        "value": "Speaker Review"
+      },
+      "description": {
+        "value": "The [CouncilSpeaker] is choosing the Agenda"
+      },
+      "nextPhase": {
+        "value": "Remaining time ::remainingTime::"
+      }
+    }
+  },
+  "PreCouncilReview": {
+    "texts": {
+      "title": {
+        "value": "Agenda Review"
+      },
+      "description": {
+        "value": "The agenda is being reviewed"
+      },
+      "nextPhase": {
+        "value": "Remaining time ::remainingTime::"
+      },
+      "costTipTitle": {
+        "value": "End Review"
+      },
+      "costTipDesc": {
+        "value": "Finish your review of the agenda. The following resource changes will be definitive:"
+      }
+    }
+  },
+  "Decide": {
+    "texts": {
+      "title": {
+        "value": "Debates"
+      },
+      "description": {
+        "value": "Debates are in progress"
+      },
+      "nextPhase": {
+        "value": "Remaining time ::remainingTime::"
+      },
+      "costTipTitle": {
+        "value": "End Debates"
+      },
+      "costTipDesc": {
+        "value": "Finish debating the agenda. The following resource changes will be definitive:"
+      }
+    }
+  },
+  "Votes": {
+    "texts": {
+      "title": {
+        "value": "Votes"
+      },
+      "description": {
+        "value": "The votes are in progress"
+      },
+      "nextPhase": {
+        "value": "Remaining time ::remainingTime::"
+      }
+    }
+  },
+  "Results": {
+    "texts": {
+      "title": {
+        "value": "Vote-counting"
+      },
+      "description": {
+        "value": "The Landsraad council is over"
+      },
+      "nextPhase": {
+        "value": "Game will be unpaused in ::remainingTime::"
+      }
+    }
+  },
+  "Recap": {
+    "texts": {
+      "title": {
+        "value": "Closed"
+      },
+      "description": {
+        "value": "The Landsraad council is over"
+      },
+      "nextPhase": {
+        "value": "The Council will open in ::remainingTime:: days"
+      }
+    }
+  }
+}

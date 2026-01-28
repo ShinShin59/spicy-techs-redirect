@@ -1,0 +1,3847 @@
+{
+  "PlayerLessVillages": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I have to warn you: do not leave all the land to us. For I assure you that we will take it."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "There is no shame in admitting one's own limitations. For you, undoubtedly, managing a handful of barren and derelict hamlets should be hard enough."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "In commerce, territory is crucial. I'm eager to trade with you more but how could I, if your presence is so rare and your villages so scarce?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Vital resources are scarce on Arrakis. How can your people find what they need when the narrowness of your territory forces them to stay in one place?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I don't care much for these villages. But you should."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerMoreVillages": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "There is no point in snatching land if you won't exploit it properly. Why expand so much?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How I envy these carefree tribal chiefs who impulsively seek to expand their colonies... never asking themselves how they could ever defend such a large and unattended territory."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "What do I care if your official territory is broader than mine? No matter who controls the village, I'll settle in anyway. I'm at home everywhere!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "All living systems need balance. How could a territory as broad and disunited as yours flourish? Further growth would cause it to shrivel."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your expansion is a good thing. As long as your only goal is to pay your dues to the Imperium."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AdjacentPlayerTerritory": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "As neighbors, we will have to deal with each other. Let us work to keep it cordial."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "My dearest neighbor, don't you enjoy seeing our territories steadily get closer? Should these borders vanish completely, it would make me a very contented leader."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I appreciate how close our territories are, my neighbor! The shorter the distance, the more vivacious the exchange!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "We are close. Our territories are contiguous and we are bound to influence each other. Whether this interaction proves fruitful or noxious is up to us."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It seems we are neighbors. It will make it easy for you to show your allegiance."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AdjacentBonifiedPlayerTerritory": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I noticed you were neglecting this valuable territory. Such a waste! I took the liberty to exploit it."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You seem curious about my precious deposits... I understand how alien they might seem to underprivileged eyes, but staring at them will not make you any richer."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Were you interested in these deposits? I'm sorry! They seemed unattended, so I took care of them. But should you need the resource, I'd gladly provide it for a price!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Do not envy us. Just because we can take advantage of this prolific sector does not mean you could extract the same benefits from it."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You are my vassal. As such you should take good care of the territories your are bestowed."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerAdjacentBonifiedTerritory": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Do you expect us to sit here and watch while you appropriate every relevant resource in the region?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How very obliging of you to charitably attend this valuable land, knowing how soon it could slip out of your control... That shows genuine altruism."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I admire the richness of your resource deposits, partner! How can I help you take advantage of them?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How wasteful! Indeed, you glean meager profits from these deposits. But will it ever compensate the losses you occasion by misusing them?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I thank you for exploiting these lands in my name."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AdjacentPlayerPoleRegion": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "We all depend on the pole. Hence, we all want strategic access to it."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "The pole... if there is anything workable on this wretched planet, it tenuously depends on that dull chunk of ice... I need it."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Sure, being close to the pole is always convenient, but through the smugglers' network, its water reaches most of Arrakis. We are bringing the pole to everyone!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "The pole is crucial. You will never know peace while you control it, but you have no chance of survival unless you can employ its water."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "The water from the polar sink is mine. As is this planet. As are your lives."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PoleVillage": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "So it seems you preceded us here. I respect that. But you should know water is too crucial to be hoarded."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I reckon you have appointed yourself as the pole's administrator... You did well! Very well, indeed. I would not want this responsibility to fall on the shoulders of someone powerful."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It's good that you're in control of the pole, companion. I have interests here too. We should definitely work together!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "So be it. You might as well use the pole, since your subsistence depends on it. Not everyone needs such abundant water."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Well, it seems you have settled in the polar region. Don't forget this is all in my name, and that all resources here are truly mine."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "RebellionPlayerVillage": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You are ruining these villages. If thirst is killing people under your rule, you have to take responsibility. Make things right or leave."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How creative... While we all go through the trouble of collecting water, you found your own inexhaustible spring: the tears of your miserable people. Hilarious! \"Let them drink salt!\""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Being a ruler and being a merchant is the same: you have to know what people want, and provide it! Right now, it seems your people are craving for water."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "This is appalling! Your presence on Arrakis was already questionable enough when you were not causing water shortages."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How can you not manage the pyons and their villages? A Kulon would do a better job than you!"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AdjacentPlayerRefineries": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your cargos are so close. I smell the spice they carry. I cannot guarantee this won't make me envious."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I could never get bored of observing this refinery of yours. The mismanagement, the clownish workflow... your vulnerable men begging the worms to devour them... Thank you kindly for the entertainment."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I couldn't help noticing this refinery of yours, just outside my territory. Running decently... but it could get better! Surely, you wouldn't mind if I gave you a hand?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Interesting. As I witness the continuous motion of your cargos about our land, I am reminded of how unnatural your presence is on Arrakis. This spice should be ours."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Good to see your harvesting is going strong. Although I have settled nearby and might think of cutting the middleman."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AdjacentPlayerMilitaryBases": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Hold no illusion. I can see you. And I can see this military base."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "This is yet another interesting choice. To erect your precious military base at this exact, singular spot, precisely within range of my avenging arm... I have to admire your boldness."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "A military base? Here? Why protect your border against me, if you know I'm already on both sides? Your people is my people, partner."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I see. Does this military base indicate an ambition to control us? You would not be the first to try, and not unlike your predecessors, you seem to underestimate the Fremen."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I don't think you need a military base. I am no threat to you. And you certainly are no threat to me."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AdjacentAirfields": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your shuttles seem to roam without concern in my empire's vicinity. Be sure not to get too comfortable."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "What a curious parade of shuttles and vessels flying right before my eyes... Could it be a subtle invitation to skeet shooting?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I'm all for facilitating transport. Civilian or military, every vessel can be used for smuggling. But even my optimism has limits. I'll be watching this airfield of yours very closely!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You are being reckless. You can expect each and every shuttle flying across our territory to vanish without a trace. Blame the sandstorms. Or blame yourself."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I am pleased you are investing in the infrastructure of the planet. But I warn you. Do not think of using these Airfields against me."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerOrniInTerritory": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I tolerate scouts, but I also value respect. I recommend that you closely watch your step."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I shall remind you that on this land of mine, it is only by pure goodness of heart that I tolerate the tiresome presence of your scouts."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Explore as you like, I welcome you! I've already examined every bit of your territory, so you might as well visit mine."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Act mindfully. We are used to witnessing the comings and goings of strangers on our land, but make one false move and you might never learn what happened to your scouts."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I noticed your Ornithopters below my station. But I will swat them like flies if they pester me."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PoIResolution": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "My land is not public and these spoils were not yours to take! Consider yourself our debtor."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "As much as I enjoy watching you pick up the litter on my ground... steal from me again and I will crush you. Surely, you have more than enough garbage at home?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You should know that we are well informed and control all riches within our territory. Plunder all you want, but by stealth or by force, I'll reclaim my part."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Stranger! You may have gotten used to appropriating land, but this one is ours. We are entitled to what is uprooted here, and we will not tolerate theft."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You dare take what's mine? I am your lord and emperor! This planet is mine! YOU are mine!"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "SietchTrade": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You seem familiar with the local traders. Surely, you can gain their trust and show that you mean no harm. But don't you, really?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It seems only natural for you to trade fraternally with these troglodytes. Yet, I cannot help worrying when I seem to be surrounded by lowbrow savages."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "My contacts informed me that you established a trading connection with the Sietch. As a prominent partner of theirs, I welcome you. The more the merrier!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Kuhar! This is good. The more you come into contact with the Fremen, the closer you might get to actually understanding the land you try to take root in."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Are you trading with these... savages? I wonder what wares they could have of any value."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "SietchAttack": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How stupidly brutal! Keep an eye out if you start attacking sietches at random: barbarian clans never last long."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I gather that you are taking care of removing those Fremen parasites from their caves... Be assured that I very much appreciate watching rivals handle the drudgery."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Are you stupid? The Sietch is an economical midpoint. By plundering it, you'll impoverish everyone, you included. And I won't allow that!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Enough! Menacing the salt of this land, when you are but a frail parasite sprawling on its surface... You are making yourself vulnerable by attacking the Fremen!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "These cave dwellers are inconsequential. Do what you must."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AIMoreSpiceProduction": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "As much as I enjoy superiority, I advise you to step up your spice output. Else, your presence here will seem unneeded."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Isn't it admirable that we can work together so efficiently? Me, in charge of the spice and its benefits... and you, inventively using your deficiency to highlight my strength... Brilliant."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I understand it's frustrating to be outplayed in the run for spice. But the good news is: I would gladly sell our surplus to you for a reasonable price."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "We are different, stranger. Where you see a rival outperforming your spice production, I only see the harmonious balance of the living system I participate in."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You are supposed to exploit Spice in my name. And yet I harvest more than you do. How disappointing."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AILessSpiceProduction": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Seeing spice flow is enjoyable. But I would enjoy it much more if it was mine."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How injudicious of you to exhibit such obscene prosperity! To parade, flaunting abundant spice... while it takes us so much effort to look humble."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Indeed, you extract more spice than I do. But there's more to the spice business than harvesting. Who conditions, transports, smuggles and sells it is the most important question."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Spice... nothing but spice. You are hoarding it, and still you completely ignore the natural structure it belongs to. How can you be so comfortable with your own unawareness?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It brings me joy to see you so diligent in your Spice harvesting operations. You are a valued vassal of mine!"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "InsufficientSpiceImperilTax": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "As it seems, you're not prepared to pay the tax. Just remember that a position on Arrakis is never free. Neither is it permanent."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your reserves are so low... Don't you intend to pay the tax? Or did no one inform me that struggling and underprivileged factions were granted a rebate now?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Pardon the indiscretion, but you seem short on payment for the next tax. How can I help? You know you can always turn to me in hard times, right?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Never overlook these taxes. You may discover that the environmental climate of Arrakis is not nearly as perilous as its economical one."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I am a compassionate man. Forgiving. Merciful even. But the Spice that you owe me is a topic that gives rise to very different feelings in my heart."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "ImperialTaxNotPaid": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I was able to pay the tax in spite of faulty equipment and constant sabotage. What could your excuse be?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I truly am obliged, my dear cousin. With every payment you miss, I appear increasingly reliable in the eyes of Emperor Padishah... while you steadily become less of a concern."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "This is unfair! A powerful House, unable to break even and afford its imperial tax... Surely, a tighter network of smugglers on your territory would benefit you."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Must I remind you of your obligations towards the Imperium? Your only claim to legitimacy on Arrakis depends on Emperor Padishah's interest in you."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "This... is not acceptable. You know that every Spice shipment is vital to the Empire. Every speck counts. Your failure will not be forgotten or forgiven."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "FremenBribeNotPaid": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Do you really wish to upset the guild? I would advise against that. And you should know better."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I can only imagine how hard it must be... being expected to pay this bribe when you obviously lack the civilized technology and manpower to exploit the spice. How pitiful!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You may think the Guild is practicing extortion, and you may be right, but what other choice do you have? Not paying could prove even more expensive than the tax."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I thought your agreement with the Spacing Guild was important to you and yet you fail to pay them. Though I cannot say I am displeased by this turn of event..."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "SmugglerBribeNotPaid": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Smugglers, short on resources? This is unheard of. What kind of trick are you playing on us?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "My poor friend, could you be so bankrupt you cannot even pay what you owe? Was there anything wrong with the riches you stole from us lately?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Utterly worrying. Smugglers rely on money more than they rely on water to live. What kind of imbalance could have made you unable to pay the bribe?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I am merely tolerating you. Miss another payment and you will feel the wrath of my Sardaukar!"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "WaterDeficit": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Growth is always limited by the rarest necessary resource. Water is key here. Never overlook it."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I understand the logic... Why bother with this drudging, mundane water when you can focus on what's important and let your workforce die? In truth, it seems only natural."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I know how tempting it is to neglect water when there's so much spice to harvest here! But to mine spice, you need workers, and workers need to drink."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Predictable. Where did you expect your propensity to waste water would lead you? And what do you think happens to organisms incapable of adaptation?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It's never easy to understand a new planet. But you might have guessed that water would be important. Here of all places."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "SolariDeficit": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "There is no such thing as a poor empire. You need money. Else, you are finished."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "There is nothing more conveniently profitable in this world than an indigent neighbor. May you never change, my dear comrade!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Low finances aren't necessarily a bad sign on Arrakis. If you have some water, some spice and a good connection to smugglers, you can consider yourself rich."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Arrakis. A miraculous land where the most valuable substance in nature impregnates air and soil alike. You breathe this air and you tread this soil. How can you be poor?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How you can manage without the most basic understanding of economics truly baffles me."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "ManpowerDeficit": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your workforce is looking weaker everyday. I understand that life is costly here, but there is nothing you can build without hands."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "With no one left to work for you, will you soon be carrying equipment around by yourself? I shall enjoy this sight, but still, isn't it concerning?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "As it seems, you're struggling to gather a workforce? Let me share my secret with you: deference comes with abundance. If you provide, they'll follow."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Stranger... You seem to wonder why the workforce is so scarce here. It is not. You may assume Arrakis is depopulated, but you are only contemplating your mismanaged territory."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Even the pyons of Arrakis are my people. You should take better care of them."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AIAdjacentPlayerArmies": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your troops were seen wandering around my border. Can I be of any help? Or is there something to understand here?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "What are these farcical troops of yours doing at my border? Is this a laughable attempt at intimidation?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Preparing an assault, huh? Let me be blunt: I'm like bedrock here. Should I decide to let you down, you'd crumble instantly."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Withdraw these troops! I understand that you cannot envision life without expansion, but I guarantee that a conflict with the Fremen would not benefit you."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I wonder what your armies... sorry, MY armies are doing here."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerArmyInVillageZone": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "There is no room for interpretation at this point. Your soldiers are trespassing. Withdraw immediately or be prepared for war."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your debilitated soldiers have strayed into my territory. I will benevolently put an end to their misery... and come for the rest of your sorry regiments next."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Oh! You're attacking? Maybe once you've discovered how dependent you are on me, you'll come to reason. But my forgiveness will cost you."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Be reassured. We will slay your soldiers, but their water will be preserved. Following a perfect cycle, it will give strength to my troops as they invade you in retaliation."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Get your troops away from my holdings. You do not want to feel my wrath."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AIArmyAdjacentPlayerTerritory": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You look troubled. As the neighbor of a great House, you should expect to witness some military power."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Do not mind my troops, routinely marching in great numbers… Of course, they are moving towards your border, but you should not let this amusing coincidence bother you."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "These troops? They're simply protecting our border! My prudence is benefiting both of us, actually... a less generous neighbor might even charge you for this!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Let it be known: when Fremen want to move undetected, they do. If you can see us, it is already too late to worry."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Don't trouble yourself with my armies. After all this planet is mine to use as I see fit."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerLessArmies": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Where there is weakness, there is no peace. Right now, you are begging for an invasion."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Pardon me, but is there any reason why you are not defending your territory at all? Of course, I can see how beneficial an invasion would be for your people..."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Of course! The more prosperous you get, the stronger you must be to protect what you have. It's only natural that you don't need as many troops as I do."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Do not resent my military prevalence. It only relies on one fundamental law of nature: a system expands when its energy is recycled, and shrinks when its energy is wasted."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "If you hope to operate on Arrakis I would strongly suggest you raise at least a hint of an army."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerMoreArmies": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Why dedicate so much resources to military expenses? Our purpose here is exploitation. Your excesses will drain your benefits."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I take notice that you have lined up quite an army there... We might soon discover if it is possible for the [Sandworm] to over-eat."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Impressive military, but what's it for, exactly? Surely, you wouldn't have any aggressive velleity against me when I am so useful to you?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Ludicrous. Can you even fathom the quantity of wasted water this profligate army of yours represents? You do not seem to realize what matters most, here on Arrakis."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I find your accumulation of forces on my planet ever so slightly unsettling. What are you hoping to gain? Certainly not my respect."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerSpiceCollectorEaten": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "The loss of workforce in the line of duty is revolting. I feel for you, but I shall also remind you that we are responsible for our workers' lives."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "What a sight! Your whole little campsite and its stupid inhabitants, gobbled by the worm... You really are an entertainer."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "The loss of your collecting party will be a major setback, but be reassured! I'll work twice as hard to provide your usual clients with spice while your production is hindered."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I thought your people knew this place..."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerHarvesterEaten": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "The loss of a manned harvester is revolting. I feel for you, but I shall also remind you that we are responsible for our workers' lives."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "What a sight! An entire harvester, gobbled by the worm... and the whole crew too, how grand! You really are an entertainer."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "The loss of your harvester will be a major setback, but be reassured! I'll work twice as hard to provide your usual clients with spice while your production is hindered."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I know, this land is unforgiving. But it is not unfair. You will understand this eventually, be it at the cost of such woes."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "This is my Spice. And you lost it. Such negligence is extremely disappointing."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AIUnitsEatenOnPlayerTerritory": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I cannot take revenge against the [Sandworm] for this undignified loss. You will pay instead."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You lucky imbecile! What kind of primitive boor lets the worms roam free in their land? Was it a desperate attempt at compensating your feeble defense?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I'll be damned! Why would the worm swallow my troops and leave yours untouched? On the bright side, now that I think of it, these mercenaries will never reclaim their wages."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Shai-Hulud punished me. I was wishing so hard for your demise that I forgot to prevent mine. Arrakis has a way of neutralizing excess, and surely, you will be next."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "This is why I despise this planet. The monstrosities that roam its sand are revolting and unpredictable."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerUnitsEatenOnAITerritory": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You cannot even walk this land and you expect to wage war against me? You are hilarious."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Sure, I will brutally punish you for sending your sorry troops at me... but your buffoonery is making it hard for me to keep a straight face while doing so."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Arrakis is on my side! My presence here is natural but your only contribution to this planet is the way you feed soldiers to the worms!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How foolish. Instead of handing your troops to the worms, at least hand them to me. It would prevent a prejudicial loss of water."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Well. That was a spell of bad luck if I ever saw one."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerOperationOnAI": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You know how I despise your cowardly schemes. What you ignore is how soon you will come to regret them too."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I cannot tell exactly what you are trying to achieve with these convoluted schemings but if you keep buzzing in my ears, I will have to swat you."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Stop these perfidious attacks! I know I work in the shadows myself, but how can you compare resistance to conspiracy?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Indeed, it is hard to fight us Fremen frontally so you must resort to dastardly aggressions. But this will not suffice to save you."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I am the emperor. Don't you dare use your tricks on me."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "AIAttackOnPlayer": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Be reassured, this war will soon be over. This could be the only good news for you, though."
+                }
+              },
+              {
+                "desc": {
+                  "value": "We do not need to keep spilling more blood. I am still allowing you to surrender."
+                }
+              },
+              {
+                "desc": {
+                  "value": "You do not seem to comprehend the gravity of this. Can't your hear the screams of your dying soldiers?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I will do you a service and pretend to actually wage war. It could make your impending demise look slightly more exciting."
+                }
+              },
+              {
+                "desc": {
+                  "value": "I would gladly try to capture your land without destroying it, but truthfully, you left me nothing worth saving. A tabula rasa seems long overdue here."
+                }
+              },
+              {
+                "desc": {
+                  "value": "I hate to sound brutal, but common courtesy forces me to make my intentions clear... there will be nothing left of you when I am done."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Don't take it personally. War is but a form of trade. Today, it's more interesting for me to deal with you, but our exchanges could be very different tomorrow."
+                }
+              },
+              {
+                "desc": {
+                  "value": "Don't worry, my friend. Sure, I attack, and presumably, I'll defeat you. But remember it's not in my interest to cripple you too much. I can still use you afterwards!"
+                }
+              },
+              {
+                "desc": {
+                  "value": "I don't enjoy war very much and I usually find it wasteful but there's pleasure in defeating you. Thanks for making it worth the effort!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Get used to being attacked, for it will happen again. Throughout our history, we have only known adversity and occupation. Resistance is a part of our lives."
+                }
+              },
+              {
+                "desc": {
+                  "value": "Just give up the fight. We know the land, we know the struggle, we know you more than we need to and our faith is indefectible. Your only advantage is innocence."
+                }
+              },
+              {
+                "desc": {
+                  "value": "This is just a start. With each soldier down, you are losing hope, water and might. Meanwhile, we are only getting stronger."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I don't think you are a trustworthy ally. There is nothing more. I only need a bit less of you."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerAttackOnAI": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Now you know we can take a punch. We will soon discover if the same can be said of you."
+                }
+              },
+              {
+                "desc": {
+                  "value": "No assault could ever reach the honor of the Atreides. We stand even stronger in adversity."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I may have a reputation for being cruel but when you attack me with such barbarity, I show exceptional restraint by not blowing up this entire, wretched planet!"
+                }
+              },
+              {
+                "desc": {
+                  "value": "I feel... immense wrath... I will crush your miserable skull with my bare hands if you send another dreadful assault at me!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "For each blow I take, I'll repay you twice. This is the only time you'll see me on the generous side of a transaction!"
+                }
+              },
+              {
+                "desc": {
+                  "value": "You'll never get rid of me. I'm everywhere! Cut one head and two more will grow."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You may think you are winning battles, but our strength remains the same. You cannot disrupt a system that incorporates hardship and death as parts of its cycle."
+                }
+              },
+              {
+                "desc": {
+                  "value": "Outside Arrakis, this would be a disastrous event. Here, it is merely the continuation of a daily strife. You may hit us, but your assaults are unremarkable."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You dare attack your Emperor? There will be consequences. Beyond what you can imagine."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "HighPlayerStanding": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You have my esteem, but take good care of it. Having a prosperous neighbor is uplifting. Watching them flaunt feels differently."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How I admire those who manage to die with a reputation for sanctity! This unattainable dream... so far from me but so close to you... You could almost touch it."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Look at yourself! How eminent you've become! Let's just hope you won't forget who your friends are... or who has their people monitoring your facilities..."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Heavens. I can only admire how you sometimes manage to reveal the peaceful side of Arrakis. Just stay aware that nothing is permanent here but adversity."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You seem like a trustworthy vassal. You have my thanks for your diligent work, in the name of the Empire."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "LowPlayerStanding": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "While we search the sands for spice, you seem to be digging in pursuit of rock bottom. Your presence here is an insult."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Despising people may be my strong point... but no matter how violent, my contempt for you could never match the extent of your misery."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Get yourself together, I implore you! I invested much in your activities and it's affecting my reputation now. Do you think I want to be seen dealing with a pariah?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Mu zein wallah! Arrakis could never remedy your mediocrity. It could have made you rich, prosperous, influential, but even those benefits you are failing to seize."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I... don't think I can invite you to attend the imperial ball. I am sure you understand we cannot mix true imperial nobility with people of your ill repute."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "GoodRelationship": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I am glad to count you as a partner. This too is a scarce and valuable resource on Arrakis."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I appreciate that our diplomatic ties seem to strengthen with time. I would have hated having to destroy you when you are so valuable."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "My fellow! My comrade! Aren't we headed for greatness? Building a partnership on the most profitable planet in existence... We'll be unbeatable!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Subakh ul kuhar! I am glad to salute you as a comrade. Our trust is not easily earned, but it is unwavering and sincere once given."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You seem well aware that staying in our good graces is essential to any faction's survival. We can contentedly say that yours might last for a few more millenia."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "BadRelationship": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "The [Sandworm] I can endure. The lack of water I can get used to. But you are too much. I cannot stand such an obnoxious sight."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "There are many inconveniences on Arrakis which cannot be remedied. I salute you for being one of the few I might easily suppress."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "My activities have little to do with affinity. I usually deal with everyone, no matter how despicable... but I can sacrifice business if it can keep you away from me."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I pity you. What will you become, now that you are despised by a relentless, ubiquitous and impervious people? You will not survive us."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You ought to have more respect for your emperor. Your transgressions reflect poorly on your character."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "VoteSameResolution": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Right! We both knew this was the only valid resolution. I'm happy we see eye to eye!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It is good that we agree on this resolution. I despise having to fight over things that should not even be discussed."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "My friend, what a thrill it is to see our mutual interests match! It is good we fought for this resolution together, as a team!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Bi-la Kaifa. What had to be said has been said. This resolution is right. Let us hope for the best."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I knew I could count on your support for this resolution. Maybe our goals are not that much apart in the end."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerVoteForAI": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "This is much appreciated! We will not forget this gracious vote, I give you my word."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How unexpected. It is fairly unusual for a House envied by all others to receive unsolicited gifts."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Thank you for this vote, my partner! I see you can tell where your interest is! And I'll soon prove to you how right you were!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Thank you for this vote. As the ecosystem nourishes the lifeforms it hinges on, we will make sure your generosity is rewarded. What is given is never lost."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Thank you for supporting me. I deserve it of course, but I appreciate the gesture nonetheless."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerVoteAgainstAI": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "What could have motivated this ill-advised vote? We will make sure you regret this offense and learn your place very soon."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your attempts at infuriating me are futile! Oppose me while you can... sanctions will come soon enough."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "How could you vote against me? This is betrayal! Come on, don't you know the influence I have on your territory?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You fool! Why use the Landsraad to persecute us? When we have so many ways of tormenting you and recurrently refrained from using them?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Well, I can't really say I am surprised. Your inconstance and lack of respect is nonetheless noted."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerCharter": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Those who thrive should not envy the smaller victories of those who strive. We congratulate you on this [Charter]."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It is good that lower factions receive some encouragement. Wearing your charter as a chintzy crown might finally impel you to act as a leader."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Congratulations, a charter is a huge opportunity! This is our luck. You'll definitely need my assistance to take full advantage of it, and I am glad to help!"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Surely a charter will advantage you. But will it remedy your inability to change and adapt? Otherwise, I cannot see a future for you on Arrakis."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I congratulate you on your political advancement. You deserve the title and status."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerMoreHegemony": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "We acknowledge your current vantage in the run for domination. It seems chance has favored you for now. But do not count us out."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Indeed, you are purportedly leading the race for sovereignty! It is so easy to run empty-handed... but wherever you seem to be heading, a harsh surprise is awaiting you there."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You have garnered a reputation of great predominance on Arrakis! Me, I work in the shadows. That's how we differ. The more hidden my power remains, the greater it is."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You are towering above us. But you are not the first hegemonic power to set foot on Arrakis. Why would you be the first to subsist?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Your progress on Arrakis is impressive. I would only advise you not to cast a shadow on your emperor. That would be ill-advised."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "PlayerLessHegemony": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "We are currently dominating Arrakis. The reasonable option for you right now would be to stay in our good books."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It will not come as a surprise: we dominate you. I am not sure what you hoped for on Arrakis, but I am certain of what you will end up with."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Be reassured. Just because my superiority strengthens doesn't mean I will disavow our shared interests and partnership. You may witness a slight increase in prices, though."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Arrakis. More than any environment, it demands observation, endurance and abnegation. We prevail because we cultivate these qualities while you still struggle to understand them. Hegemony is ours."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "It is good to see everyone is at its appointed place. With me on top of the pyramid."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "UWHQInPlayerVillage": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You might soon notice some changes in your territory's underground life. But it won't be long until you recognize how beneficial my presence is!"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "UWHQInAIVillage": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Atreides rule is hostile to smuggling. You know it already, and I will make sure you remember it."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "You know how I feel about smuggling, and I will make sure you remember it... but should you make me richer, I might not crush you entirely."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Smuggler, we differ greatly but we have worked together for a long time now, like opposed but codependent species in a fragile ecosystem. May this mutual tolerance last."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I have always tolerated your smuggling activities. But it is only that. Tolerance. It is a boon that can be taken away as fast as it was given."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "VillageOppression": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Violence against your subjects is contemptible. If your own people despise you, how do you expect the rest of us to feel?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Of course I can understand the upsides of an increase in production. But let's consider the long-term effects: how efficient will your workforce be if it's all worn out?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I understand asceticism and I am familiar with self-sacrifice. But I fail to see how one could confuse them with the oppression you inflict on your people. They are its antithesis."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I am not one to shy away from hard decisions. But I always worry your base instincts influence your actions in a disproportionate manner."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "MainBaseDestroyed": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "There are many ways of showing strength. Slaughtering a civilian city can only demonstrate your weakness."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Warfare is satisfying, but how much more elegant is it to see rival clans annihilating each other for my entertainment... I only hope that you still know your place."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I must admit I am in shock. And I can't see the benefit of this action. What will happen when you're all alone here and untrusted everywhere?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "Certainly, all things must come to an end. Every death provokes the advent of something new. But comeuppance awaits those who attempt to force the hand of fate."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "This is wanton destruction. Of my property, I might add. I cannot see any positive outcome to such actions."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "LeaderAssassinated": {
+    "descriptions": {
+      "descriptions": [
+        {
+          "_attrs": {
+            "faction": "Atreides"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I understand war and I understand wrath. But this, I cannot comprehend. How can you expect any of us to trust you after that?"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Harkonnen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "There are times when I get tired of politics. Then, lesser leaders start ludicrously assassinating one another... How refreshing! However, I will have to neutralize you now."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Smugglers"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "I didn't like them much either, but wouldn't we benefit from some stability? When heads start falling, it rarely stops after the first one. I hope you know where your interest is."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Fremen"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "An invader slaughtering an invader. You created an imbalance. You might just have precipitated the series of events that will lead to your demise."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "_attrs": {
+            "faction": "Corrino"
+          },
+          "descs": {
+            "descs": [
+              {
+                "desc": {
+                  "value": "My father knows I'm not intrinsically against assassination as a mean of advancement. But this seems ill-advised at best."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "GoodPromise": {
+    "name": {
+      "value": "Assuredely"
+    }
+  },
+  "Comforting": {
+    "name": {
+      "value": "Do not worry"
+    }
+  },
+  "Neutral": {
+    "name": {
+      "value": "Noted"
+    }
+  },
+  "Aggressive": {
+    "name": {
+      "value": "Dream on..."
+    }
+  },
+  "Threat": {
+    "name": {
+      "value": "Do not test us"
+    }
+  },
+  "PoliticalUnderstanding": {
+    "name": {
+      "value": "Glad we agree"
+    }
+  },
+  "PoliticalFeud": {
+    "name": {
+      "value": "You are mistaken"
+    }
+  }
+}

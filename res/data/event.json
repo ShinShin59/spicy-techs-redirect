@@ -1,0 +1,186 @@
+{
+  "ContractPaid": {
+    "name": {
+      "value": "[::contract::] paid"
+    }
+  },
+  "ContractDue": {
+    "name": {
+      "value": "[Spice] Contract"
+    },
+    "desc": {
+      "value": "All forces involved must meet their [!Spice] contract."
+    }
+  },
+  "AbilityUsed": {
+    "name": {
+      "value": "Atomics"
+    },
+    "desc": {
+      "value": "[::faction::-longname] uses forbidden Atomics."
+    }
+  },
+  "UnitRecruited": {
+    "name": {
+      "value": "Recruited [::target::]"
+    }
+  },
+  "HeroKilledByTFaction": {
+    "name": {
+      "value": "[::entityKind::] is killed by [::target::-longname]"
+    }
+  },
+  "HeroDiedNoKiller": {
+    "name": {
+      "value": "[::entityKind::] dies to the harshness of Arrakis"
+    }
+  },
+  "HeroEatenByWorm": {
+    "name": {
+      "value": "[::entityKind::] is eaten by a [Sandworm]"
+    }
+  },
+  "EcazChampionKilledByTFaction": {
+    "name": {
+      "value": "The [!TEcazChampion] is killed by [::target::-longname]"
+    }
+  },
+  "EcazChampionDiedNoKiller": {
+    "name": {
+      "value": "The [!TEcazChampion] dies to the harshness of Arrakis"
+    }
+  },
+  "EcazChampionEatenByWorm": {
+    "name": {
+      "value": "The [!TEcazChampion] is eaten by a [Sandworm]"
+    }
+  },
+  "VillagePillage": {
+    "name": {
+      "value": "[Village] pillaged"
+    },
+    "desc": {
+      "value": "[::faction::-longname] pillages the [!Village] of ::structName::."
+    }
+  },
+  "SietchPillage": {
+    "name": {
+      "value": "[Sietch] pillaged"
+    },
+    "desc": {
+      "value": "[::faction::-longname] pillages [!Sietch] ::structName::."
+    }
+  },
+  "SpecialRegionControlled": {
+    "name": {
+      "value": "::regionName::"
+    },
+    "desc": {
+      "value": "[::faction::-longname] annexes ::regionName::."
+    }
+  },
+  "SolariDeficit": {
+    "name": {
+      "value": "Solari Deficit"
+    },
+    "desc": {
+      "value": "[::faction::-longname] runs out of [Solari]."
+    }
+  },
+  "PlascreteDeficit": {
+    "name": {
+      "value": "Plascrete Deficit"
+    },
+    "desc": {
+      "value": "[::faction::-longname] runs out of [Plascrete]."
+    }
+  },
+  "TruceBroken_Traitor": {
+    "name": {
+      "value": "Betrayal"
+    },
+    "desc": {
+      "value": "[::faction::-longname] betrays a [Peace] with [::targetFaction::-longname]."
+    }
+  },
+  "PlayerWin": {
+    "name": {
+      "value": "Victory"
+    },
+    "desc": {
+      "value": "[::faction::-longname] wins through ::victoryName::."
+    }
+  },
+  "PlayerDefeat": {
+    "name": {
+      "value": "Defeat"
+    },
+    "desc": {
+      "value": "[::target::-longname] eliminates [::faction::-longname]."
+    }
+  },
+  "PlayerDefeat_Assassination": {
+    "name": {
+      "value": "Defeat"
+    },
+    "desc": {
+      "value": "[::target::-longname] assassinates [::faction::-longname]."
+    }
+  },
+  "PlayerForfeit": {
+    "name": {
+      "value": "Defeat"
+    },
+    "desc": {
+      "value": "[::faction::-longname] forfeits."
+    }
+  },
+  "CharterObtained": {
+    "name": {
+      "value": "[::target::]"
+    },
+    "desc": {
+      "value": "[::faction::-longname] is elected to [::target::]."
+    }
+  },
+  "HegemonyThreshold": {
+    "name": {
+      "value": "Hegemony Threshold"
+    },
+    "desc": {
+      "value": "[::faction::-longname] reaches <Constant>::value::</Constant> [Hegemony]."
+    }
+  },
+  "TreatyBroken": {
+    "name": {
+      "value": "Treaty broken"
+    },
+    "desc": {
+      "value": "The [::target::] between [::faction::-longname] and [::targetFaction::-longname] is broken."
+    }
+  },
+  "TreatySigned": {
+    "name": {
+      "value": "Treaty signed"
+    },
+    "desc": {
+      "value": "A [::target::] is signed between [::faction::-longname] and [::targetFaction::-longname]."
+    }
+  },
+  "MainBaseSpawned": {
+    "name": {
+      "value": "[::mainbase::] Deployment"
+    },
+    "desc": {
+      "value": "An [::mainbase::] is deployed."
+    }
+  },
+  "MainBaseLost_NotLast": {
+    "name": {
+      "value": "[::mainbase::] Loss"
+    },
+    "desc": {
+      "value": "An [::mainbase::] is lost."
+    }
+  }
+}

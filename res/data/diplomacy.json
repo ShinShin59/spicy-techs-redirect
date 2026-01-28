@@ -1,0 +1,38 @@
+{
+  "War": {
+    "name": {
+      "value": "Conflict"
+    },
+    "desc": {
+      "value": "An active conflict is going on between your two factions. Relationships are tense, and some hostile actions are now expected. It also restricts some positive actions."
+    }
+  },
+  "Peace": {
+    "name": {
+      "value": "Truce"
+    },
+    "desc": {
+      "value": "The world of Arrakis is harsh, and there are no real allies. Despite that, you seem to have a common goal with this faction for now, opening up interesting diplomatic options."
+    }
+  },
+  "TributeLiege": {
+    "name": {
+      "value": "Tribute Liege"
+    }
+  },
+  "TributeSubject": {
+    "name": {
+      "value": "Tributary"
+    }
+  },
+  "Team": {
+    "name": {
+      "value": "Alliance"
+    }
+  },
+  "Hostility": {
+    "name": {
+      "value": "Hostility"
+    }
+  }
+}

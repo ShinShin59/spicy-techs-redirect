@@ -28,12 +28,6 @@ const MainBase = () => {
                     className={`w-[64px] h-[64px] cursor-pointer ${isActive ? "bg-amber-500" : "bg-blue-500"}`}
                     id={`main-base-building-${cellIndex}`}
                     onClick={() => toggleMainBaseCell(rowIndex, groupIndex, cellIndex)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault()
-                        toggleMainBaseCell(rowIndex, groupIndex, cellIndex)
-                      }
-                    }}
                   />
                 )
               })}

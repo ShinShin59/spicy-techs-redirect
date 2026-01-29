@@ -3,8 +3,8 @@ import { persist } from "zustand/middleware"
 import type { MainBaseLayout, MainBaseState } from "./main-base"
 import { mainBasesLayout, mainBasesState } from "./main-base"
 
-export const FACTION_LABELS = ["harkonnen", "atreides", "ecaz", "smuggler", "vernius"];
-export type FactionLabel = "harkonnen" | "atreides" | "ecaz" | "smuggler" | "vernius";
+export const FACTION_LABELS = ["harkonnen", "atreides", "ecaz", "smuggler", "vernius", "fremen", "corrino"];
+export type FactionLabel = "harkonnen" | "atreides" | "ecaz" | "smuggler" | "vernius" | "fremen" | "corrino";
 
 interface MainStore {
   selectedFaction: FactionLabel

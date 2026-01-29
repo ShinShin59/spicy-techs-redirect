@@ -1,8 +1,25 @@
-### MainBase
+## Main Base
 
-Component used to load faction layout of main base buildings.
-The container is css grid of 384x320. One main base buildings is a square of 64x64.
-The layouts are multidimensionnal arrays representing the number of main buildings and their position.
-The first array is the first row, second array second row, etc.. max 3 row.
-The main buildings should be centered evenly. See examples in the fodler res/pruned/main_base_layouts 
-The components should only take one prop, the layout choosen, and should render the grid with correctly possitionned main buildings (use simple white square for now)
+On click on an building, show AvailableMainBuildings Component (you'll have to build it)
+This will be a new component acting as an overlay, a click outside of it close it.
+The overlay will be a black/50 centered div 80% the size of the parent Main-Base container
+The list of buildings should only show:
+- the availables buildings for the current selectedFaction (see store)
+- minus the ones already present in the main base
+- + A cross Icon to reset the current building to false (empty)
+We need first to build the data of the main buildings available.
+You can find uncleaned data in res/assets/buildings.xml
+Propose me a clean json format to convert those too right now, not in a script.
+Props i'm interested in:
+  - texts.name
+  - the desc of the attributes.
+
+How to know which buildings i'm intersted to ?
+- Their name Start with Main_
+- If a main building is unique to a Faction it will end with the Faction name, like Main_Embassy_Fremen, for example.
+You can find all the factions names in the store.
+
+We'll do this job in 2 steps, the pruning of the xml file, and the component.
+Create a new component called MainBaseBuildingsSelector. Then works in it, i want the tsx component and the json file we'll created. 
+
+Any questions?

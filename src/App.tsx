@@ -1,5 +1,5 @@
 import MainBase from "./components/MainBase"
-import FactionSelector from "./components/MainBase/FactionSelector"
+import FactionSelector from "./components/FactionSelector"
 
 function App() {
   return (

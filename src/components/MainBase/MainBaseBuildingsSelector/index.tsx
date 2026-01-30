@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react"
 import { useMainStore, type FactionLabel } from "@/store"
+import { getBuildingIconPath } from "@/utils/assetPaths"
 import BuildingAttributesTooltip from "../BuildingAttributesTooltip"
 import mainBuildingsData from "./main-buildings.json"
 
@@ -13,12 +14,6 @@ export interface MainBuilding {
 
 const mainBuildings = mainBuildingsData as MainBuilding[]
 
-/** Génère le chemin de l'icône d'un bâtiment */
-export function getBuildingIconPath(name: string): string {
-  return `/images/mainbase_icons/${name.toLowerCase().replace(/ /g, "_")}.png`
-}
-
-// Précharger toutes les images des bâtiments au chargement du module
 const preloadedImages: HTMLImageElement[] = []
 mainBuildings.forEach((building) => {
   const img = new Image()
@@ -34,7 +29,7 @@ interface AnchorPosition {
 interface MainBaseBuildingsSelectorProps {
   onClose: () => void
   onSelect: (buildingName: string | null) => void
-  /** Noms des bâtiments déjà présents dans la base */
+  /** Building names already present in the base */
   usedBuildingNames: string[]
   /** Position d'ancrage pour le popup */
   anchorPosition: AnchorPosition
@@ -67,7 +62,7 @@ const MainBaseBuildingsSelector = ({
     anchorRect: { left: number; top: number; width: number; height: number }
   } | null>(null)
 
-  // Mémoiser les bâtiments disponibles (ne change que si la faction change)
+  // Memoize available buildings (only changes when faction changes)
   const availableBuildings = useMemo(() => {
     return mainBuildings.filter((building) => {
       return (
@@ -77,7 +72,7 @@ const MainBaseBuildingsSelector = ({
     })
   }, [selectedFaction])
 
-  // Mémoiser le groupement par catégorie
+  // Memoize grouping by category
   const buildingsByCategory = useMemo(() => {
     return availableBuildings.reduce<Record<Category, MainBuilding[]>>(
       (acc, building) => {
@@ -88,7 +83,7 @@ const MainBaseBuildingsSelector = ({
     )
   }, [availableBuildings])
 
-  // Mémoiser le style du popup
+  // Memoize popup style
   const popupStyle = useMemo<React.CSSProperties>(() => ({
     position: 'fixed',
     left: anchorPosition.x,
@@ -97,7 +92,7 @@ const MainBaseBuildingsSelector = ({
 
   return (
     <>
-      {/* Backdrop transparent pour fermer au clic extérieur */}
+      {/* Transparent backdrop to close on outside click */}
       <div
         className="fixed inset-0 z-40"
         onClick={onClose}

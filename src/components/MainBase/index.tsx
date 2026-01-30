@@ -1,19 +1,18 @@
-import { useState, useRef, useEffect } from "react"
+import { useState } from "react"
 import { useCurrentMainBaseLayout, useCurrentMainBaseState, useMainStore, useUsedBuildingIds, useCurrentBuildingOrder, getBuildingOrderNumber } from "../../store"
-import { encodeBuildPayload, getShareUrl } from "../../utils/mainBaseShare"
-import MainBaseBuildingsSelector, { type MainBuilding, getBuildingIconPath } from "./MainBaseBuildingsSelector"
+import MainBaseBuildingsSelector, { type MainBuilding } from "./MainBaseBuildingsSelector"
+import { getBuildingIconPath } from "@/utils/assetPaths"
+import { useShareButton } from "@/hooks/useShareButton"
 import BuildingAttributesTooltip from "./BuildingAttributesTooltip"
 import mainBuildingsData from "./MainBaseBuildingsSelector/main-buildings.json"
 
 const mainBuildings = mainBuildingsData as MainBuilding[]
 
-/** Trouve un bâtiment par son nom */
 function getBuildingByName(name: string | null): MainBuilding | undefined {
   if (!name) return undefined
   return mainBuildings.find((b) => b.name === name)
 }
 
-/** Retourne la classe de couleur de fond selon la catégorie */
 function getCategoryBgClass(category: MainBuilding['category']): string {
   switch (category) {
     case 'Economy':
@@ -40,44 +39,9 @@ const MainBase = () => {
   const layout = useCurrentMainBaseLayout()
   const mainBaseState = useCurrentMainBaseState()
   const setMainBaseCell = useMainStore((state) => state.setMainBaseCell)
-  const selectedFaction = useMainStore((state) => state.selectedFaction)
   const usedBuildingIds = useUsedBuildingIds()
   const buildingOrder = useCurrentBuildingOrder()
-
-  const [shareHovered, setShareHovered] = useState(false)
-  const [shareCopied, setShareCopied] = useState(false)
-  const [shareFadingOut, setShareFadingOut] = useState(false)
-  const shareHoveredRef = useRef(false)
-  const shareCopyTimersRef = useRef<ReturnType<typeof setTimeout>[]>([])
-
-  shareHoveredRef.current = shareHovered
-
-  useEffect(() => {
-    return () => {
-      shareCopyTimersRef.current.forEach(clearTimeout)
-    }
-  }, [])
-
-  const handleShare = () => {
-    const payload = { f: selectedFaction, state: mainBaseState, order: buildingOrder }
-    const encoded = encodeBuildPayload(payload)
-    const url = getShareUrl(encoded)
-    window.history.replaceState(null, "", url)
-    void navigator.clipboard.writeText(url).catch(() => { })
-    shareCopyTimersRef.current.forEach(clearTimeout)
-    setShareCopied(true)
-    shareCopyTimersRef.current = [
-      setTimeout(() => {
-        setShareCopied(false)
-        if (!shareHoveredRef.current) {
-          setShareFadingOut(true)
-          shareCopyTimersRef.current.push(
-            setTimeout(() => setShareFadingOut(false), 250)
-          )
-        }
-      }, 800),
-    ]
-  }
+  const { copied: shareCopied, handleShare } = useShareButton()
 
   const [selectedCell, setSelectedCell] = useState<SelectedCell | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
@@ -119,7 +83,7 @@ const MainBase = () => {
       <div className="relative group">
         <div
           id="main-base-grid"
-          className="relative bg-zinc-900 border border-zinc-700 w-[384px] h-[320px] flex flex-col justify-center items-center gap-12"
+          className="relative bg-zinc-900 border border-zinc-700 w-[432px] h-[368px] flex flex-col justify-center items-center gap-12 pl-12 pr-12 box-border"
         >
           {layout.map((row, rowIndex) => (
             <div key={rowIndex} className="flex" id={`main-base-row-${rowIndex}`}>
@@ -200,24 +164,18 @@ const MainBase = () => {
           <button
             type="button"
             onClick={handleShare}
-            onMouseEnter={() => setShareHovered(true)}
-            onMouseLeave={() => setShareHovered(false)}
-            aria-label="Copier le lien de partage"
             className="p-1.5 rounded text-zinc-300 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer hover:[&_img]:brightness-0 hover:[&_img]:invert"
-            title="share"
+            title="Share"
           >
             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgNzIgNzIiIGZpbGw9IiM2YjcyODAiPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzZiNzI4MCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS13aWR0aD0iMiI+PGNpcmNsZSBjeD0iNTAiIGN5PSIyMiIgcj0iNSIvPjxjaXJjbGUgY3g9IjIyIiBjeT0iMzgiIHI9IjUiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1Ii8+PHBhdGggZD0ibTI3IDQwbDE4IDhtMC0yM0wyNyAzNSIvPjwvZz48L3N2Zz4=" alt="Share" className="w-6 h-6 transition-[filter]" />
           </button>
-          {(shareHovered || shareCopied || shareFadingOut) && (
+          {shareCopied && (
             <div
-              className={`absolute left-1/2 w-max top-full mt-1 -translate-x-1/2 z-10 bg-zinc-950 border border-zinc-700 rounded shadow-lg px-3 py-2 text-zinc-100 text-sm text-center pointer-events-none transition-opacity duration-200 ${shareFadingOut ? "opacity-0" : "opacity-100"}`}
+              className="absolute left-1/2 w-max top-full mt-1 -translate-x-1/2 z-10 bg-zinc-950 border border-zinc-700 rounded shadow-lg px-3 py-2 text-zinc-100 text-sm text-center pointer-events-none"
               role="tooltip"
             >
-              {shareCopied || shareFadingOut ? "Copied!" : "Copy to clipboard"}
-              <div
-                className="absolute left-1/2 bottom-full -translate-x-1/2 mb-px w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-zinc-950"
-                aria-hidden
-              />
+              Copied!
+              <div className="absolute left-1/2 bottom-full -translate-x-1/2 mb-px w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-zinc-950" />
             </div>
           )}
         </div>

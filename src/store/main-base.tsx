@@ -2,7 +2,7 @@ import type { FactionLabel } from "./index"
 
 export type MainBaseLayout = number[][]
 
-/** État par cellule : row → groupe (bâtiment) → cellule (null = vide, string = building ID) */
+/** State per cell: row → group (building) → cell (null = empty, string = building ID) */
 export type MainBaseState = (string | null)[][][]
 
 export const mainBasesLayout: Record<FactionLabel, MainBaseLayout> = {
@@ -16,9 +16,9 @@ export const mainBasesLayout: Record<FactionLabel, MainBaseLayout> = {
 }
 
 /**
- * Initialise l'état de la base à partir du layout.
- * Chaque nombre n (taille d'un groupe) devient un tableau de n `null`.
- * Ex. harkonnen [[3, 2], [1, 2], [3]] → [[[null,null,null],[null,null]], [[null],[null,null]], [[null,null,null]]]
+ * Initializes base state from layout.
+ * Each number n (group size) becomes an array of n `null`.
+ * E.g. harkonnen [[3, 2], [1, 2], [3]] → [[[null,null,null],[null,null]], [[null],[null,null]], [[null,null,null]]]
  */
 export function initializeMainBaseState(layout: MainBaseLayout): MainBaseState {
   return layout.map((row) =>

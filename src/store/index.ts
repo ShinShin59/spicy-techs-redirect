@@ -1,23 +1,29 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import type { SharedBuildPayload } from "../utils/mainBaseShare"
+export { useUIStore } from "./ui"
 import type { MainBaseLayout, MainBaseState } from "./main-base"
 import { mainBasesLayout, mainBasesState } from "./main-base"
 
 export const FACTION_LABELS = ["harkonnen", "atreides", "ecaz", "smuggler", "vernius", "fremen", "corrino"];
 export type FactionLabel = "harkonnen" | "atreides" | "ecaz" | "smuggler" | "vernius" | "fremen" | "corrino";
 
-/** Coordonnées d'une cellule de bâtiment */
+/** Deep clone for serializable state (mainBaseState, buildingOrder). */
+export function deepClone<T>(x: T): T {
+  return JSON.parse(JSON.stringify(x))
+}
+
+/** Building cell coordinates */
 export interface BuildingCoords {
   rowIndex: number
   groupIndex: number
   cellIndex: number
 }
 
-/** Ordre des bâtiments par faction */
+/** Building order per faction */
 export type BuildingOrderState = Record<FactionLabel, BuildingCoords[]>
 
-/** État initial de l'ordre des bâtiments (vide pour chaque faction) */
+/** Initial building order (empty per faction) */
 const initialBuildingOrder: BuildingOrderState = {
   harkonnen: [],
   atreides: [],
@@ -28,7 +34,7 @@ const initialBuildingOrder: BuildingOrderState = {
   corrino: [],
 }
 
-/** Build sauvegardé (liste locale, id non partagé en URL) */
+/** Saved build (local list, id not in URL) */
 export interface SavedBuild {
   id: string
   name: string
@@ -45,19 +51,17 @@ function generateBuildId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`
 }
 
-/** Snapshot pour comparer l'état courant à la dernière sauvegarde (null = jamais sauvegardé) */
+/** Snapshot to compare current state to last save (null = never saved) */
 export type BuildSnapshot = string | null
 
-/** Id du build sauvegardé en cours d'édition (null = build non sauvegardé / nouveau) */
+/** Id of the saved build being edited (null = new / unsaved build) */
 export type CurrentBuildId = string | null
 
 interface MainStore {
   selectedFaction: FactionLabel
-  setSelectedFaction: (faction: FactionLabel) => void
   mainBaseState: Record<FactionLabel, MainBaseState>
   buildingOrder: BuildingOrderState
   currentBuildName: string
-  /** Build sauvegardé qu'on édite ; null si build neuf ou chargé depuis URL */
   currentBuildId: CurrentBuildId
   savedBuilds: SavedBuild[]
   lastSavedSnapshot: BuildSnapshot
@@ -69,7 +73,7 @@ interface MainStore {
   deleteBuild: (id: string) => void
   renameBuild: (id: string, name: string) => void
   resetToDefault: () => void
-  /** Change de faction : sauvegarde le build courant s'il a du contenu, puis démarre un nouveau build pour la faction. */
+  /** Saves current build if not empty, then switches to new faction with a fresh build and default name. */
   switchFaction: (faction: FactionLabel) => void
 }
 
@@ -87,7 +91,7 @@ export function getBuildSnapshot(state: {
   })
 }
 
-/** Nom par défaut pour un nouveau build : "faction N" avec N = prochain numéro pour cette faction */
+/** Default build name: "faction N" with N = next number for that faction */
 export function getDefaultBuildName(
   faction: FactionLabel,
   savedBuilds: SavedBuild[]
@@ -101,7 +105,7 @@ export function getDefaultBuildName(
   return `${faction} ${nextNum}`
 }
 
-/** Retourne un nom unique : si le nom existe déjà (chez d'autres builds), ajoute " #1", " #2", etc. */
+/** Returns a unique name: if name exists (on other builds), appends " #1", " #2", etc. */
 export function getUniqueBuildName(
   baseName: string,
   savedBuilds: SavedBuild[],
@@ -123,8 +127,8 @@ export function getUniqueBuildName(
 
 const INITIAL_BUILD_NAME = "atreides 1"
 
-/** True si la base de la faction n'a aucun bâtiment. */
-function isFactionBaseEmpty(
+/** True if the faction base has no buildings. */
+export function isFactionBaseEmpty(
   mainBaseState: Record<FactionLabel, MainBaseState>,
   faction: FactionLabel
 ): boolean {
@@ -146,7 +150,6 @@ export const useMainStore = create<MainStore>()(
   persist(
     (set, get) => ({
       selectedFaction: "atreides",
-      setSelectedFaction: (faction) => set({ selectedFaction: faction }),
       switchFaction: (faction) => {
         const g = get()
         if (faction === g.selectedFaction) return
@@ -175,13 +178,10 @@ export const useMainStore = create<MainStore>()(
         const newRow = row.map((g, i) => (i === groupIndex ? newGroup : g))
         const newFactionState = factionState.map((r, i) => (i === rowIndex ? newRow : r))
 
-        // Gestion de l'ordre des bâtiments
         const factionOrder = buildingOrder[selectedFaction]
-        // Retirer l'ancienne entrée pour cette cellule (si elle existe)
         const filteredOrder = factionOrder.filter(
           (coord) => !(coord.rowIndex === rowIndex && coord.groupIndex === groupIndex && coord.cellIndex === cellIndex)
         )
-        // Si on ajoute un bâtiment, l'ajouter à la fin de l'ordre
         const newFactionOrder = buildingId !== null
           ? [...filteredOrder, { rowIndex, groupIndex, cellIndex }]
           : filteredOrder
@@ -196,13 +196,16 @@ export const useMainStore = create<MainStore>()(
             [selectedFaction]: newFactionOrder,
           },
         })
+        get().saveCurrentBuild()
       },
       loadSharedBuild: (payload) => {
         const { mainBaseState, buildingOrder } = get()
+        const orderArray = Array.isArray(payload.order) ? payload.order : []
+        const stateForFaction = Array.isArray(payload.state) ? payload.state : mainBasesState[payload.f]
         set({
           selectedFaction: payload.f,
-          mainBaseState: { ...mainBaseState, [payload.f]: payload.state },
-          buildingOrder: { ...buildingOrder, [payload.f]: payload.order },
+          mainBaseState: { ...mainBaseState, [payload.f]: stateForFaction },
+          buildingOrder: { ...buildingOrder, [payload.f]: orderArray },
           currentBuildId: null,
         })
       },
@@ -242,8 +245,8 @@ export const useMainStore = create<MainStore>()(
             ...existing,
             name: finalName,
             selectedFaction,
-            mainBaseState: JSON.parse(JSON.stringify(mainBaseState)),
-            buildingOrder: JSON.parse(JSON.stringify(buildingOrder)),
+            mainBaseState: deepClone(mainBaseState),
+            buildingOrder: deepClone(buildingOrder),
             createdAt: Date.now(),
           }
           const newSavedBuilds = [...savedBuilds]
@@ -259,8 +262,8 @@ export const useMainStore = create<MainStore>()(
             name: finalName,
             createdAt: Date.now(),
             selectedFaction,
-            mainBaseState: JSON.parse(JSON.stringify(mainBaseState)),
-            buildingOrder: JSON.parse(JSON.stringify(buildingOrder)),
+            mainBaseState: deepClone(mainBaseState),
+            buildingOrder: deepClone(buildingOrder),
           }
           set({
             savedBuilds: [saved, ...savedBuilds],
@@ -282,8 +285,8 @@ export const useMainStore = create<MainStore>()(
         })
         set({
           selectedFaction: build.selectedFaction,
-          mainBaseState: JSON.parse(JSON.stringify(build.mainBaseState)),
-          buildingOrder: JSON.parse(JSON.stringify(build.buildingOrder)),
+          mainBaseState: deepClone(build.mainBaseState),
+          buildingOrder: deepClone(build.buildingOrder),
           currentBuildName: build.name,
           currentBuildId: id,
           lastSavedSnapshot: snapshot,
@@ -322,89 +325,22 @@ export const useMainStore = create<MainStore>()(
       renameBuild: (id, name) => {
         const trimmed = name.trim()
         if (!trimmed) return
-        set({
-          savedBuilds: get().savedBuilds.map((b) => (b.id === id ? { ...b, name: trimmed } : b)),
-        })
+        const g = get()
+        const newSavedBuilds = g.savedBuilds.map((b) => (b.id === id ? { ...b, name: trimmed } : b))
+        const updates: Partial<MainStore> = { savedBuilds: newSavedBuilds }
+        if (g.currentBuildId === id) {
+          updates.currentBuildName = trimmed
+          updates.lastSavedSnapshot = getBuildSnapshot({
+            selectedFaction: g.selectedFaction,
+            mainBaseState: g.mainBaseState,
+            buildingOrder: g.buildingOrder,
+            currentBuildName: trimmed,
+          })
+        }
+        set(updates)
       },
     }),
-    {
-      name: "spicy-techs-main-store",
-      version: 6,
-      migrate: (persistedState, version) => {
-        const fallbackName = (s: MainStore | undefined) => {
-          if (!s) return INITIAL_BUILD_NAME
-          if (s.currentBuildName === "My build")
-            return getDefaultBuildName("atreides", s.savedBuilds ?? [])
-          return s.currentBuildName ?? INITIAL_BUILD_NAME
-        }
-        const withCurrentBuildId = (s: Partial<MainStore>) => ({
-          ...s,
-          currentBuildId: (s as MainStore).currentBuildId ?? null,
-        })
-        if (version === 0 || !persistedState) {
-          return withCurrentBuildId({
-            selectedFaction: "atreides",
-            mainBaseState: mainBasesState,
-            buildingOrder: initialBuildingOrder,
-            currentBuildName: INITIAL_BUILD_NAME,
-            currentBuildId: null,
-            savedBuilds: [],
-            lastSavedSnapshot: null,
-          })
-        }
-        const state = persistedState as MainStore
-        if (!state.mainBaseState || typeof state.mainBaseState !== "object") {
-          return withCurrentBuildId({
-            ...state,
-            mainBaseState: mainBasesState,
-            buildingOrder: initialBuildingOrder,
-            currentBuildName: fallbackName(state),
-            savedBuilds: state.savedBuilds ?? [],
-            lastSavedSnapshot: state.lastSavedSnapshot ?? null,
-          })
-        }
-        for (const faction of FACTION_LABELS) {
-          const factionState = state.mainBaseState[faction as FactionLabel]
-          if (!Array.isArray(factionState)) {
-            return withCurrentBuildId({
-              ...state,
-              mainBaseState: mainBasesState,
-              buildingOrder: initialBuildingOrder,
-              currentBuildName: fallbackName(state),
-              savedBuilds: state.savedBuilds ?? [],
-              lastSavedSnapshot: state.lastSavedSnapshot ?? null,
-            })
-          }
-        }
-        if (version === 1 || !state.buildingOrder) {
-          return withCurrentBuildId({
-            ...state,
-            buildingOrder: initialBuildingOrder,
-            currentBuildName: fallbackName(state),
-            savedBuilds: state.savedBuilds ?? [],
-            lastSavedSnapshot: state.lastSavedSnapshot ?? null,
-          })
-        }
-        if (version === 2) {
-          return withCurrentBuildId({
-            ...state,
-            currentBuildName: fallbackName(state),
-            savedBuilds: Array.isArray(state.savedBuilds) ? state.savedBuilds : [],
-            lastSavedSnapshot: state.lastSavedSnapshot ?? null,
-          })
-        }
-        if (version === 3) {
-          return withCurrentBuildId({ ...state, lastSavedSnapshot: state.lastSavedSnapshot ?? null })
-        }
-        if (version === 4) {
-          return withCurrentBuildId({ ...state, currentBuildName: fallbackName(state) })
-        }
-        if (version === 5) {
-          return withCurrentBuildId(state)
-        }
-        return state
-      },
-    }
+    { name: "spicy-techs-main-store" }
   )
 )
 
@@ -419,15 +355,11 @@ export function useCurrentMainBaseState(): MainBaseState {
   return mainBaseState[selectedFaction]
 }
 
-/** Retourne la liste des IDs de bâtiments utilisés dans la base actuelle */
+/** Returns the list of building IDs used in the current base. */
 export function useUsedBuildingIds(): string[] {
   const mainBaseState = useCurrentMainBaseState()
   const usedIds: string[] = []
-
-  // Vérification défensive : mainBaseState doit être un tableau
-  if (!Array.isArray(mainBaseState)) {
-    return usedIds
-  }
+  if (!Array.isArray(mainBaseState)) return usedIds
 
   for (const row of mainBaseState) {
     if (!Array.isArray(row)) continue
@@ -443,14 +375,14 @@ export function useUsedBuildingIds(): string[] {
   return usedIds
 }
 
-/** Retourne l'ordre des bâtiments pour la faction actuelle */
+/** Returns building order for the current faction. */
 export function useCurrentBuildingOrder(): BuildingCoords[] {
   const selectedFaction = useMainStore((state) => state.selectedFaction)
   const buildingOrder = useMainStore((state) => state.buildingOrder)
   return buildingOrder[selectedFaction] ?? []
 }
 
-/** Retourne le numéro d'ordre d'un bâtiment (1-based) ou null si non trouvé */
+/** Returns a building's order number (1-based) or null if not found. */
 export function getBuildingOrderNumber(
   order: BuildingCoords[],
   rowIndex: number,
@@ -463,7 +395,7 @@ export function getBuildingOrderNumber(
   return index >= 0 ? index + 1 : null
 }
 
-/** Le build courant est-il à jour par rapport à la dernière sauvegarde ? */
+/** Whether the current build is up to date with the last save. */
 export function useIsBuildUpToDate(): boolean {
   const lastSavedSnapshot = useMainStore((s) => s.lastSavedSnapshot)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
@@ -479,21 +411,10 @@ export function useIsBuildUpToDate(): boolean {
   return lastSavedSnapshot !== null && currentSnapshot === lastSavedSnapshot
 }
 
-/** Le build courant (faction active) a-t-il au moins un bâtiment ? */
+/** Whether the current build (active faction) has at least one building. */
 export function useIsBuildEmpty(): boolean {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const mainBaseState = useMainStore((s) => s.mainBaseState)
-  const state = mainBaseState[selectedFaction]
-  if (!state || !Array.isArray(state)) return true
-  for (const row of state) {
-    if (!Array.isArray(row)) continue
-    for (const group of row) {
-      if (!Array.isArray(group)) continue
-      for (const cell of group) {
-        if (cell !== null) return false
-      }
-    }
-  }
-  return true
+  return isFactionBaseEmpty(mainBaseState, selectedFaction)
 }
 

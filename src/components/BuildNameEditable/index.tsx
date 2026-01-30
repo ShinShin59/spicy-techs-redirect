@@ -11,13 +11,14 @@ const PencilIcon = () => (
 const BuildNameEditable = () => {
   const currentBuildName = useMainStore((s) => s.currentBuildName)
   const setCurrentBuildName = useMainStore((s) => s.setCurrentBuildName)
+  const saveCurrentBuild = useMainStore((s) => s.saveCurrentBuild)
   const [editing, setEditing] = useState(false)
   const [value, setValue] = useState(currentBuildName)
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    setValue(currentBuildName)
-  }, [currentBuildName])
+    if (!editing) setValue(currentBuildName)
+  }, [currentBuildName, editing])
 
   useEffect(() => {
     if (editing && inputRef.current) {
@@ -29,6 +30,7 @@ const BuildNameEditable = () => {
   const handleSubmit = () => {
     setCurrentBuildName(value)
     setEditing(false)
+    saveCurrentBuild(value.trim() || undefined)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -51,7 +53,7 @@ const BuildNameEditable = () => {
           onBlur={handleSubmit}
           onKeyDown={handleKeyDown}
           className="bg-zinc-800 text-white border border-zinc-600 rounded px-2 py-1 text-sm min-w-[120px] max-w-[200px] focus:outline-none focus:ring-2 focus:ring-amber-500"
-          aria-label="Nom du build"
+          aria-label="Build name"
         />
       </label>
     )
@@ -64,7 +66,7 @@ const BuildNameEditable = () => {
       onClick={() => setEditing(true)}
       onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setEditing(true)}
       className="flex items-center gap-1.5 group cursor-pointer min-w-0 rounded px-1 py-0.5 -m-0.5 hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset"
-      aria-label="Renommer le build"
+      aria-label="Rename build"
     >
       <span className="text-sm font-medium text-zinc-400 whitespace-nowrap">Build</span>
       <span className="text-sm text-white truncate max-w-[180px]">{currentBuildName}</span>

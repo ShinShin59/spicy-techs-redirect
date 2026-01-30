@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@theme {
+  --color-economy: #C87533;
+  --color-military: #8B3A3A;
+  --color-statecraft: #4A8B9C;
+}

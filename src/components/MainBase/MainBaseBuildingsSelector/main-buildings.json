@@ -2,40 +2,40 @@
   {
     "name": "Administrative Hall",
     "attributes": [
-      "::s_value:: [Solari] production in [!Village]s",
-      "::s_percent_value:: [Authority] production"
+      "+10 [Solari] production in [Village]s",
+      "+20% [Authority] production"
     ],
     "category": "Economy"
   },
   {
     "name": "Recycling Vats",
     "attributes": [
-      "::s_value:: [Water]",
-      "::s_value:: ::target_prod2:: per [::target::]"
+      "+10 [Water]",
+      "+10 5 per [target]"
     ],
     "category": "Economy"
   },
   {
     "name": "CHOAM branch",
     "attributes": [
-      "::target_effects:: when the base exchange rate is at least ::value::",
-      "::s_value:: max [Spice]"
+      "Special effects when the base exchange rate is at least 10",
+      "+10 max [Spice]"
     ],
     "category": "Economy"
   },
   {
     "name": "Harvester Works",
     "attributes": [
-      "::s_percent_value:: [!$my(harvester)]s gathering rate per [Economy] [!Building_Village] in their [!Village]",
-      "::percent:: [!$my(harvester)] [CrewPoint] cost"
+      "+20% [harvester]s gathering rate per [Economy] [Buildings] in their [Village]",
+      "10% [harvester] [crew] cost"
     ],
     "category": "Economy"
   },
   {
     "name": "Spice Laboratory",
     "attributes": [
-      "::s_value:: [Knowledge] per exploited [SpiceArea]",
-      "::s_value:: [FuelCell] requirements for [V_Harvester]"
+      "+10 [Knowledge] per exploited [SpiceArea]",
+      "-2 [FuelCell] requirements for [harvester]"
     ],
     "category": "Economy",
     "onlyForFaction": "vernius"
@@ -43,63 +43,63 @@
   {
     "name": "Mason Guild",
     "attributes": [
-      "::s_percent_value:: [Plascrete] production",
-      "::s_value:: [Solari] production in fully built [!Village]s"
+      "+20% [Plascrete] production",
+      "+10 [Solari] production in fully built [Village]s"
     ],
     "category": "Economy"
   },
   {
     "name": "Recruitment Center",
     "attributes": [
-      "::s_percent_value:: [Manpower] production",
-      "::s_value:: max [Manpower]"
+      "+20% [Manpower] production",
+      "+300 max [Manpower]"
     ],
     "category": "Military"
   },
   {
     "name": "Barracks",
     "attributes": [
-      "::s_percent_value:: [Life] to Military Units",
-      "::s_percent_value:: [Experience] gains for Military Units"
+      "+20% [Life] to Military Units",
+      "+20% [Experience] gains for Military Units"
     ],
     "category": "Military"
   },
   {
     "name": "Fusion Plant",
     "attributes": [
-      "::s_value:: [FuelCell]"
+      "+10 [FuelCell]"
     ],
     "category": "Military"
   },
   {
     "name": "Military Academy",
     "attributes": [
-      "::s_value:: [TrainingSlot]",
-      "Units regenerate [Life] ::s_percent:: faster"
+      "+2 [TrainingSlot]",
+      "Units regenerate [Life] +10% faster"
     ],
     "category": "Military"
   },
   {
     "name": "Command Post",
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "::percent:: Military Unit [Solari] [!Upkeep]"
+      "+10 [Command Points]",
+      "-10% Military Unit [Solari] [Upkeep]"
     ],
     "category": "Military"
   },
   {
     "name": "Research Center",
     "attributes": [
-      "::s_percent_value:: [Knowledge]",
-      "::s_percent_value:: [Hegemony] gain from fulfilling a Spice Contract",
-      "::s_percent_value:: daily [Hegemony] gain"
+      "+20% [Knowledge]",
+      "+20% [Hegemony] gain from fulfilling a Spice Contract",
+      "+20% daily [Hegemony] gain"
     ],
     "category": "Statecraft"
   },
   {
     "name": "Embassy",
     "attributes": [
-      "::s_value:: [::target::] on Council opening"
+      "+10 [influence] production"
     ],
     "excludeFromFaction": "fremen",
     "category": "Statecraft"
@@ -107,9 +107,9 @@
   {
     "name": "Bazaar",
     "attributes": [
-      "::s_value:: [Solari] per active trade with a [Sietch]",
-      "::s_value:: [Water] per active trade with a [Sietch]",
-      "Can only be built in [$my(mainbase)]"
+      "+10 [Solari] per active trade with a [Sietch]",
+      "+10 [Water] per active trade with a [Sietch]",
+      "Can only be built in [main base]"
     ],
     "onlyForFaction": "fremen",
     "category": "Statecraft"
@@ -123,7 +123,7 @@
   {
     "name": "Landsraad Quarters",
     "attributes": [
-      "::s_value:: max [Influence]"
+      "+200 max [Influence]"
     ],
     "excludeFromFaction": "fremen",
     "category": "Statecraft"
@@ -136,8 +136,8 @@
   {
     "name": "Council Chamber",
     "attributes": [
-      "::us_percent:: of [CouncilVote]s and [Influence] spent on a resolution choice that failed are reimbursed as [Influence]",
-      "::s_percent:: [Standing] losses"
+      "50% of [Votes] and [Influence] spent on a resolution choice that failed are reimbursed as [Influence]",
+      "-50% [Standing] losses"
     ],
     "onlyForFaction": "atreides",
     "category": "Statecraft"
@@ -145,8 +145,8 @@
   {
     "name": "Interrogation Center",
     "attributes": [
-      "Gain ::value:: [Intel] when killing enemy units",
-      "::percent_value:: chance to brainwash captured [Agent]s"
+      "Gain 10 [Intel] when killing enemy units",
+      "+15% chance to brainwash captured [Agent]"
     ],
     "onlyForFaction": "harkonnen",
     "category": "Statecraft"
@@ -154,7 +154,7 @@
   {
     "name": "Black Market Branch",
     "attributes": [
-      "::s_percent_value:: [Spice], [Plascrete], [Manpower] and [Intel] production per [UWHeadquarters]"
+      "+2% [Spice], [Plascrete], [Manpower] and [Intel] production per [UWHeadquarters]"
     ],
     "onlyForFaction": "smuggler",
     "category": "Statecraft"
@@ -162,7 +162,7 @@
   {
     "name": "Emperor Monument",
     "attributes": [
-      "Generate ::value:: [Hegemony] per day"
+      "Generate 10 [Hegemony] per day"
     ],
     "onlyForFaction": "corrino",
     "category": "Statecraft"
@@ -170,8 +170,8 @@
   {
     "name": "Museum of Unbound Arts",
     "attributes": [
-      "Removes limit on number of [!Masterpiece]s per [!Village]",
-      "Every [!Masterpiece] on the planet gives [Ecaz-longname]: ::target_effects_list::"
+      "Removes limit on number of [Masterpiece]s per [Village]",
+      "Every [Masterpiece] on the planet gives [Ecaz]: various effects"
     ],
     "onlyForFaction": "ecaz",
     "category": "Statecraft"
@@ -179,8 +179,8 @@
   {
     "name": "Neural Core",
     "attributes": [
-      "Connected [NeuralNode]s produce ::value:: [FuelCell]",
-      "::s_percent_value:: [Knowledge] per connected [NeuralNode]"
+      "Connected [Neural Nodes] produce 10 [FuelCell]",
+      "+20% [Knowledge] per connected [Neural Nodes]"
     ],
     "onlyForFaction": "vernius",
     "category": "Statecraft"

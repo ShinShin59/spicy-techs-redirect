@@ -1,0 +1,1662 @@
+[
+  {
+    "name": "DIY Kit",
+    "unit": [
+      "Suboid Soldier"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "No [Solari] [!Upkeep]"
+    ],
+    "image": "DIY_kit.png"
+  },
+  {
+    "name": "Sky Facade",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [],
+    "image": "additional_cannons.png"
+  },
+  {
+    "name": "Ambush Camouflage",
+    "unit": [
+      "Mobile Turret"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      {
+        "desc": "While deployed, gain: ::target_effects_list::",
+        "target_effects_list": [
+          "Cannot be seen outside of combat",
+          "Do not lose [Supply]",
+          "Do not attract [Sandworm]s",
+          "The target suffers ::target_effects:: for ::target_duration:: days when attacking undetected"
+        ]
+      }
+    ],
+    "image": "ambush_camouflage.png"
+  },
+  {
+    "name": "Analysis Visor",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "::target_effects:: for each ally Conscript nearby (x::target_stacking_limit:: max)"
+    ],
+    "image": "analysis_visor.png"
+  },
+  {
+    "name": "Anatomical Scanner",
+    "unit": [
+      "Fighting Mek"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [],
+    "image": "anatomical_scanner.png"
+  },
+  {
+    "name": "Anti-personnel Shrapnels",
+    "unit": [
+      "Skirmisher"
+    ],
+    "faction": [
+      "Locals"
+    ],
+    "attributes": [],
+    "image": "anti-personal_shrapnels.png"
+  },
+  {
+    "name": "Stealth Gear",
+    "unit": [
+      "Cerberus",
+      "Free Company"
+    ],
+    "faction": [
+      "Harkonnen",
+      "Smugglers"
+    ],
+    "attributes": [],
+    "image": "assassin_armors.png"
+  },
+  {
+    "name": "Assassin Gear",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "assassin_gear.png"
+  },
+  {
+    "name": "Automatic Weapons",
+    "unit": [
+      "Ranger"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      "::s_percent:: attack speed",
+      "::s_percent:: [Power]"
+    ],
+    "image": "automatic_weapons.png"
+  },
+  {
+    "name": "Barrel Cleaner",
+    "unit": [
+      "Sniper",
+      "Musketeer"
+    ],
+    "faction": [
+      "Smugglers",
+      "Ecaz"
+    ],
+    "attributes": [
+      "At full [Life], the first attack has ::s_percent_value:: [Power]"
+    ],
+    "image": "barrel_cleaner.png"
+  },
+  {
+    "name": "Battlefield Frenzy",
+    "unit": [
+      "Sardaukar"
+    ],
+    "faction": [
+      "NoFaction"
+    ],
+    "attributes": [
+      "::s_percent_value:: attack speed per allied unit at [Medium_Range]"
+    ],
+    "image": "battlefield_frenzy.png"
+  },
+  {
+    "name": "Bazooka",
+    "unit": [
+      "Wrecker"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [],
+    "image": "bazookas.png"
+  },
+  {
+    "name": "Better Ammunitions",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "::s_value:: [Solari] [!Upkeep]"
+    ],
+    "image": "better_ammunitions.png"
+  },
+  {
+    "name": "Better Protections",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "better_protections.png"
+  },
+  {
+    "name": "Big Banner",
+    "unit": [
+      "War Banner"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "::s_value:: [Life]",
+      "Increase range of effects to [Long_Range]"
+    ],
+    "image": "big banner.png"
+  },
+  {
+    "name": "Bird Slayer",
+    "unit": [
+      "Gunner",
+      "Musketeer"
+    ],
+    "faction": [
+      "Harkonnen",
+      "Ecaz"
+    ],
+    "attributes": [],
+    "image": "bird_slayer.png"
+  },
+  {
+    "name": "Blood Thinner",
+    "unit": [
+      "Gunner"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "Lose [Life] above ::percent_value:: at the start of combat",
+      "Regain [Life] lost that way at the end of combat"
+    ],
+    "image": "blood_thinner.png"
+  },
+  {
+    "name": "Caffeine Pills",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      {
+        "desc": "Outside combat, gain: ::target_effects_list::",
+        "target_effects_list": []
+      }
+    ],
+    "image": "caffeine_pills.png"
+  },
+  {
+    "name": "Camouflage Fabric",
+    "unit": [
+      "Skirmisher",
+      "Infiltrator"
+    ],
+    "faction": [
+      "Locals",
+      "Fremen"
+    ],
+    "attributes": [
+      "Cannot be seen outside of combat"
+    ],
+    "image": "camouflage_fabric.png"
+  },
+  {
+    "name": "Chasing Stance",
+    "unit": [
+      "Infiltrator",
+      "Scavenger",
+      "Fencer"
+    ],
+    "faction": [
+      "Fremen",
+      "Smugglers",
+      "Ecaz"
+    ],
+    "attributes": [
+      "Current target suffer ::target_effects:: (x::target_stacking_limit:: max)"
+    ],
+    "image": "chasing_stance.png"
+  },
+  {
+    "name": "Concentrated Toxins",
+    "unit": [
+      "Wrecker"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [],
+    "image": "concentrated_toxins.png"
+  },
+  {
+    "name": "Confusing Tactics",
+    "unit": [
+      "Warrior",
+      "Fedaykin"
+    ],
+    "faction": [
+      "NoFaction",
+      "Locals"
+    ],
+    "attributes": [
+      "::target_effects:: per enemy units at [Melee_Effect] (x::target_stacking_limit:: max)"
+    ],
+    "image": "confusing_tactics.png"
+  },
+  {
+    "name": "Cover Tactics",
+    "unit": [
+      "Warden"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      {
+        "desc": "While in combat, ally units with no target at [Short_Range] gain (x::target_stacking_limit:: max): ::target_effects_list::",
+        "target_effects_list": []
+      }
+    ],
+    "image": "cover_tactics.png"
+  },
+  {
+    "name": "Crossfire Tactics",
+    "unit": [
+      "Ranger"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      "Ally Military Units attacking the same target deal ::s_percent_value:: damage (x::target_stacking_limit:: max)"
+    ],
+    "image": "crossfire_tactics.png"
+  },
+  {
+    "name": "Devastating Strikes",
+    "unit": [
+      "Fedaykin"
+    ],
+    "faction": [
+      "Locals"
+    ],
+    "attributes": [
+      "::s_percent_value:: damage per enemy unit hit by the attack"
+    ],
+    "image": "devastating_strikes.png"
+  },
+  {
+    "name": "Dismantling Tools",
+    "unit": [
+      "Scavenger",
+      "Free Company",
+      "Suboid Soldier"
+    ],
+    "faction": [
+      "Smugglers",
+      "Vernius"
+    ],
+    "attributes": [
+      "Ignores half of mechanical units and building [Armor]"
+    ],
+    "image": "dismantling_tools.png"
+  },
+  {
+    "name": "Disruptive Ammunition",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      {
+        "desc": "The target is [TDisruptiveAmmunition_Debuff] (x::target_stacking_limit:: max): ::target_effects_list::",
+        "target_effects_list": []
+      }
+    ],
+    "image": "disruptive_ammunition.png"
+  },
+  {
+    "name": "Fractal Frequencies",
+    "unit": [
+      "Resonance Drone"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "The [V_Drone_Buff] deals ::s_percent_value:: damage",
+      "Enemy units in the [V_Drone_Debuff] have ::target_effects::",
+      "Requires ::s_value:: [FuelCell]"
+    ],
+    "image": "disruptive_field.png"
+  },
+  {
+    "name": "Distortion Umbrella",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Gives ::target_effects:: to allied unit at [Melee_Effect]"
+    ],
+    "image": "distorsion_umbrella.png"
+  },
+  {
+    "name": "Distracting Flashes",
+    "unit": [
+      "Heavy Weapon Squad"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      "Gives ::target_effects:: to allied units at [Melee_Effect]"
+    ],
+    "image": "distracting_flashes.png"
+  },
+  {
+    "name": "Distracting Lights",
+    "unit": [
+      "War Banner"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "Enemy units targeting this unit receive ::s_percent_value:: damage"
+    ],
+    "image": "distracting_lights.png"
+  },
+  {
+    "name": "Dry Training",
+    "unit": [
+      "Warrior"
+    ],
+    "faction": [
+      "NoFaction"
+    ],
+    "attributes": [
+      "::s_value:: [Life] per [Water]"
+    ],
+    "image": "dry_training.png"
+  },
+  {
+    "name": "Dual Guns",
+    "unit": [
+      "Free Company"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [
+      "Attacks at [Medium_Range]",
+      "Gains [Ranged_Trait]",
+      "::target_effects:: while engaged in melee"
+    ],
+    "image": "dual_gun.png"
+  },
+  {
+    "name": "Dual Swords",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "dual_swords.png"
+  },
+  {
+    "name": "Elacca Injector",
+    "unit": [
+      "Cerberus"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "Split into ::value:: [H_Elite_2] upon death",
+      "::s_value:: [Life]"
+    ],
+    "image": "elacca_injector.png"
+  },
+  {
+    "name": "Electronic Scrambler",
+    "unit": [
+      "Infiltrator"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      {
+        "desc": "Once per combat, a mechanical target is [TElectronicScrambler_Debuff] until the end of combat (x::target_stacking_limit:: max): ::target_effects_list::",
+        "target_effects_list": []
+      }
+    ],
+    "image": "electronic_scrambler.png"
+  },
+  {
+    "name": "Endocrine Arouser",
+    "unit": [
+      "Cerberus"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [],
+    "image": "endocrine_arouser.png"
+  },
+  {
+    "name": "Enhanced Weapons",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "enhanced_weapons.png"
+  },
+  {
+    "name": "Evasion Booster",
+    "unit": [
+      "Support Drone"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [],
+    "image": "evasion_booster.png"
+  },
+  {
+    "name": "Exotic Compounds",
+    "unit": [
+      "Incinerator"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [
+      "Units damaged by <good>2</good> or more [!C_Special]s accrue [Burned_Trait] ::percent_value:: faster"
+    ],
+    "image": "exotic_compounds.png"
+  },
+  {
+    "name": "Experimental Combustible",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Ignores half of the enemy armor"
+    ],
+    "image": "experimental_combustible.png"
+  },
+  {
+    "name": "Experimental Weapons",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "experimental_weapon.png"
+  },
+  {
+    "name": "Feedback Gate",
+    "unit": [
+      "Resonance Drone"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "::target_effects:: per ally drone at [Medium_Range] (x::target_stacking_limit:: max)"
+    ],
+    "image": "feedback_gate.png"
+  },
+  {
+    "name": "Fix-up Kit",
+    "unit": [
+      "Trooper"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "Heal ::percent_value:: [Life] at the start of combat",
+      "Lose [Life] healed this way at the end of combat"
+    ],
+    "image": "fix-up_kit.png"
+  },
+  {
+    "name": "Focused Mind",
+    "unit": [
+      "Infiltrator",
+      "Suboid Soldier"
+    ],
+    "faction": [
+      "Fremen",
+      "Vernius"
+    ],
+    "attributes": [],
+    "image": "focused_mind.png"
+  },
+  {
+    "name": "Folding Frame",
+    "unit": [
+      "Mobile Turret"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "::s_percent:: time to deploy and undeploy the turret"
+    ],
+    "image": "folding_frame.png"
+  },
+  {
+    "name": "Food Additives",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "food_additives.png"
+  },
+  {
+    "name": "Fremen Assault Gear",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "fremen_assault_gear.png"
+  },
+  {
+    "name": "Frightening Reputation",
+    "unit": [
+      "Sardaukar"
+    ],
+    "faction": [
+      "NoFaction"
+    ],
+    "attributes": [
+      "Every execution gives ::value:: [Influence]"
+    ],
+    "image": "frightening_reputation.png"
+  },
+  {
+    "name": "Front Line Tactics",
+    "unit": [
+      "Trooper",
+      "Squire"
+    ],
+    "faction": [
+      "Harkonnen",
+      "Ecaz"
+    ],
+    "attributes": [
+      "Gives ::target_effects:: to allied unit at [Melee_Effect]"
+    ],
+    "image": "front_line_tactics.png"
+  },
+  {
+    "name": "Gnarly Recyclers",
+    "unit": [
+      "Scavenger"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [],
+    "image": "gnarly_recyclers.png"
+  },
+  {
+    "name": "Heavy Armor",
+    "unit": [
+      "Scavenger"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [],
+    "image": "heavy_armor.png"
+  },
+  {
+    "name": "Makeshift Workshop",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Regenerates outside of combat"
+    ],
+    "image": "heavy_armor_altar.png"
+  },
+  {
+    "name": "Heavy Loads",
+    "unit": [
+      "Heavy Weapon Squad",
+      "Gunner",
+      "Artillery Drone",
+      "Musketeer"
+    ],
+    "faction": [
+      "Atreides",
+      "Harkonnen",
+      "Corrino",
+      "Ecaz"
+    ],
+    "attributes": [],
+    "image": "heavy_loads.png"
+  },
+  {
+    "name": "Heavy Shielding",
+    "unit": [
+      "Fighting Mek"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "Requires ::s_value:: [FuelCell]"
+    ],
+    "image": "heavy_shielding.png"
+  },
+  {
+    "name": "Hibernation Breastplate",
+    "unit": [
+      "Executioner"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      {
+        "desc": "While he has no stack of [H_Elite_Buff], the [!H_Elite] gains: ::target_effects_list2::",
+        "target_effects_list": []
+      }
+    ],
+    "image": "hibernation_breastplate.png"
+  },
+  {
+    "name": "Hunter's Eyes",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Can detect units with [Camouflage] in [Long_Range]"
+    ],
+    "image": "hunters_eyes.png"
+  },
+  {
+    "name": "Improved Alloy",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "::s_value:: [Solari] [!Upkeep]"
+    ],
+    "image": "improved_alloy.png"
+  },
+  {
+    "name": "Improved Medicines",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Nearby ally non-mechanical units gain ::s_percent_value:: [Life] regeneration per day"
+    ],
+    "image": "improved_medicine.png"
+  },
+  {
+    "name": "Incendiary Ammo",
+    "unit": [
+      "Artillery Drone"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [
+      "Dealing damage to an enemy unit applies ::value:: [Burned_Trait] stacks until the end of combat"
+    ],
+    "image": "incendiary_ammo.png"
+  },
+  {
+    "name": "Jumping Boot",
+    "unit": [
+      "Fencer"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "::target_effects:: for ::target_duration_seconds:: seconds after the target died"
+    ],
+    "image": "jumping_boot.png"
+  },
+  {
+    "name": "Knightly Protector",
+    "unit": [
+      "Squire"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "Get ::target_effects:: if at least ::value:: [E_Elite] is at [Short_Range]"
+    ],
+    "image": "knightly_protector.png"
+  },
+  {
+    "name": "Last Stand Protocols",
+    "unit": [
+      "Warden"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      {
+        "desc": "Allows using the [LastStandProtocols] ability: ::target_effects_list::",
+        "target_effects_list": [
+          "Ignore allied buffs",
+          "Cannot be turned off while engaged in melee"
+        ]
+      }
+    ],
+    "image": "last_stand_protocls.png"
+  },
+  {
+    "name": "Light Alloy",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "::percent:: Military Unit [Solari] [!Upkeep]"
+    ],
+    "image": "light_alloys.png"
+  },
+  {
+    "name": "Light Armor",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Lose [::target::]",
+      "Lose [::target::]"
+    ],
+    "image": "light_armor.png"
+  },
+  {
+    "name": "Wreck Harness",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Killing enemy flying units at [Long_Range] gives ::s_percent_value:: [Scraps]",
+      "Other ally Military Units at [Melee_Strict] gain ::target_effects:: (x::target_stacking_limit:: max)"
+    ],
+    "image": "listening_devices.png"
+  },
+  {
+    "name": "Live Reformation",
+    "unit": [
+      "Conscript Swordman",
+      "Conscript Rifleman"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [
+      "When [Life] is above 50%, transfer ::percent_value:: [Life] per day to a unit of the same kind with less [Life] at [Melee_Effect]"
+    ],
+    "image": "live_reformation.png"
+  },
+  {
+    "name": "Long Rifle",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "long_rifles.png"
+  },
+  {
+    "name": "Loud Bang",
+    "unit": [
+      "Skirmisher"
+    ],
+    "faction": [
+      "Locals"
+    ],
+    "attributes": [
+      "Damaged units deal ::s_percent:: damage"
+    ],
+    "image": "loud_bang.png"
+  },
+  {
+    "name": "Maker's Effigy",
+    "unit": [
+      "Fedaykin"
+    ],
+    "faction": [
+      "Locals"
+    ],
+    "attributes": [],
+    "image": "maker's_effigy.png"
+  },
+  {
+    "name": "Marching Colors",
+    "unit": [
+      "War Banner"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "::s_percent_value:: [Speed] outside combat",
+      "[Ecaz-adjective] non-mechanical units at [Medium_Range] get ::target_effects::"
+    ],
+    "image": "marching_colors.png"
+  },
+  {
+    "name": "Material Pre-processor",
+    "unit": [
+      "Fighting Mek"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "For each point of [Armor] the target has, get ::s_percent:: [Power]",
+      "For each point of [Armor] the target has, get ::s_percent:: attack speed"
+    ],
+    "image": "material_pre-processor.png"
+  },
+  {
+    "name": "Meat Armor",
+    "unit": [
+      "Executioner"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "On reaching no [Life], lose one stack of [H_Elite_Buff] and regain ::value:: [Life] instead of dying",
+      "::s_value:: [Life]"
+    ],
+    "image": "meat_armor.png"
+  },
+  {
+    "name": "Medkits",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "medkits.png"
+  },
+  {
+    "name": "Memory Implant",
+    "unit": [
+      "Fight-Engineer"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [],
+    "image": "memory_implant.png"
+  },
+  {
+    "name": "Morbid Climax",
+    "unit": [
+      "Trooper"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "In combat, keeps fighting for <good>::target_duration_seconds::</good> seconds after reaching no [Life], then dies"
+    ],
+    "image": "morbid_climax.png"
+  },
+  {
+    "name": "Motivational Cashbox",
+    "unit": [
+      "Scavenging Drone"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [
+      "When receiving [S_Drone_Buff], every ally unit at [Medium_Range] get ::target_effects2:: for ::value:: days (x::target_stacking_limit2:: max)"
+    ],
+    "image": "motivational_cashbox.png"
+  },
+  {
+    "name": "Offensive Mindset",
+    "unit": [
+      "Trooper"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [],
+    "image": "offensive_mindset.png"
+  },
+  {
+    "name": "Optic Camouflage",
+    "unit": [
+      "Combat Probe",
+      "Scavenging Drone"
+    ],
+    "faction": [
+      "Harkonnen",
+      "Smugglers"
+    ],
+    "attributes": [
+      "Requires ::s_value:: [FuelCell]"
+    ],
+    "image": "optic_camouflage.png"
+  },
+  {
+    "name": "Optimized Bed Arrangement",
+    "unit": [
+      "Support Drone"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      "::s_value:: [CarryCapacity]",
+      "Requires ::s_value:: [::target::]"
+    ],
+    "image": "optmized_bed_arrangement.png"
+  },
+  {
+    "name": "Padded Shielding",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "padded_shielding.png"
+  },
+  {
+    "name": "Parrying Armguards",
+    "unit": [
+      "Trooper",
+      "Warden",
+      "Executioner",
+      "Conscript Swordman",
+      "Sardaukar",
+      "Fencer"
+    ],
+    "faction": [
+      "Harkonnen",
+      "Atreides",
+      "Corrino",
+      "NoFaction",
+      "Ecaz"
+    ],
+    "attributes": [],
+    "image": "parrying_armguards.png"
+  },
+  {
+    "name": "Personal Mantlet",
+    "unit": [
+      "Fencer"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "::target_effects:: until first attack dealt in combat"
+    ],
+    "image": "personal_mantlet.png"
+  },
+  {
+    "name": "Phosphorus Mix",
+    "unit": [
+      "Incinerator"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [],
+    "image": "phosphorus_mix.png"
+  },
+  {
+    "name": "Pre-Loaded Weapons",
+    "unit": [
+      "Mobile Turret"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "::s_percent_value:: [Power] when attacking undetected"
+    ],
+    "image": "pre-loaded_weapons.png"
+  },
+  {
+    "name": "Pre-Loaded Weapons",
+    "unit": [
+      "Mobile Turret"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "::s_percent_value:: [Power] when attacking undetected"
+    ],
+    "image": "preloaded_veapon.png"
+  },
+  {
+    "name": "Prickly Spear",
+    "unit": [
+      "Squire"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "Target deals ::target_effects::"
+    ],
+    "image": "prickly_spear.png"
+  },
+  {
+    "name": "Propaganda Machine",
+    "unit": [
+      "War Banner"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "Enemy units at [Medium_Range] inflict ::target_effects:: (x::target_stacking_limit:: max)"
+    ],
+    "image": "propaganda_machine.png"
+  },
+  {
+    "name": "Propelling Ammo",
+    "unit": [
+      "Sniper",
+      "Railgun Drone"
+    ],
+    "faction": [
+      "Smugglers",
+      "Vernius"
+    ],
+    "attributes": [
+      "Gain [Power] depending on distance from target, up to ::s_value:: [Power] at [Long_Range]"
+    ],
+    "image": "propelling_ammo.png"
+  },
+  {
+    "name": "Recon Stations",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Increases vision range",
+      "Detect [Sneak_Trait] unit in a [VeryLong_Range]"
+    ],
+    "image": "recon_stations.png"
+  },
+  {
+    "name": "Recursive Lens",
+    "unit": [
+      "Sniper"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [],
+    "image": "recursive_lense.png"
+  },
+  {
+    "name": "Red Fluid",
+    "unit": [
+      "Trooper",
+      "Gunner",
+      "Cerberus",
+      "Executioner"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "::target_effects::, while in combat"
+    ],
+    "image": "red_fluid.png"
+  },
+  {
+    "name": "Repeater Node",
+    "unit": [
+      "Resonance Drone"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "Always [Tethered]",
+      "Ally mechanical units at [Medium_Range] are [Tethered]"
+    ],
+    "image": "repeater_node.png"
+  },
+  {
+    "name": "Running Sandshoes",
+    "unit": [
+      "Free Company"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [
+      {
+        "desc": "Allows using the [Haste] ability: ::target_effects_list::",
+        "target_effects_list": []
+      }
+    ],
+    "image": "running_sandshoes.png"
+  },
+  {
+    "name": "Sand Cover",
+    "unit": [
+      "Warrior"
+    ],
+    "faction": [
+      "NoFaction"
+    ],
+    "attributes": [],
+    "image": "sand_cover.png"
+  },
+  {
+    "name": "Sardaukar's Cleaver",
+    "unit": [
+      "Sardaukar"
+    ],
+    "faction": [
+      "NoFaction"
+    ],
+    "attributes": [
+      "Raises the execution threshold by ::percent_value:: as if there were <good>5</good> more units around the [!C_Elite]"
+    ],
+    "image": "sardaukar_cleaver.png"
+  },
+  {
+    "name": "Scarring Armor",
+    "unit": [
+      "Trooper"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [],
+    "image": "scarring_armor.png"
+  },
+  {
+    "name": "Scatter Grenades",
+    "unit": [
+      "Skirmisher"
+    ],
+    "faction": [
+      "Locals"
+    ],
+    "attributes": [],
+    "image": "scatter_grenades.png"
+  },
+  {
+    "name": "Self-sufficiency",
+    "unit": [
+      "Fedaykin"
+    ],
+    "faction": [
+      "Locals"
+    ],
+    "attributes": [
+      "Requires ::s_value:: [CommandPoint]"
+    ],
+    "image": "self_sufficiency.png"
+  },
+  {
+    "name": "Shadow Scan",
+    "unit": [
+      "Mobile Turret",
+      "Musketeer",
+      "Fight-Engineer"
+    ],
+    "faction": [
+      "Fremen",
+      "Ecaz",
+      "Vernius"
+    ],
+    "attributes": [
+      "Can detect [Sneak_Trait] units at [Long_Range]"
+    ],
+    "image": "shadow_scan.png"
+  },
+  {
+    "name": "Sharpened Tools",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Ignores half of the enemy armor"
+    ],
+    "image": "sharpen_tools.png"
+  },
+  {
+    "name": "Sharpened Blade",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "sharpened_blade.png"
+  },
+  {
+    "name": "Shelter Maps",
+    "unit": [
+      "Warrior"
+    ],
+    "faction": [
+      "NoFaction"
+    ],
+    "attributes": [],
+    "image": "shelter_maps.png"
+  },
+  {
+    "name": "Shielding Straightener",
+    "unit": [
+      "Scavenging Drone"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [
+      {
+        "desc": "Allows to use the [MakeshiftProtection] ability: ::target_effects_list::",
+        "target_effects_list": [
+          "Ally ground Military Units in [Medium_Range] gain ::target_effects:: (x::target_stacking_limit:: max)",
+          "Consumes ::value:: stacks of [S_Drone_Buff] per day",
+          "Can be turned off"
+        ]
+      }
+    ],
+    "image": "shielding_straightener.png"
+  },
+  {
+    "name": "Shock Dampener",
+    "unit": [
+      "Scavenging Drone"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [
+      "Gain ::value:: [Intel] when delivering [S_Drone_Buff] to a [!Village]"
+    ],
+    "image": "shock_dampener.png"
+  },
+  {
+    "name": "Shrapnel Ammunitions",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "shrapnel_ammunition.png"
+  },
+  {
+    "name": "Seismic Ammo",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Requires ::s_value:: [::target::]"
+    ],
+    "image": "sismic_ammo.png"
+  },
+  {
+    "name": "Skirmish Gear",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Enemy units engaged in combat suffer ::target_effects::"
+    ],
+    "image": "skirmish_gear.png"
+  },
+  {
+    "name": "Small Formation",
+    "unit": [
+      "Conscript Swordman",
+      "Conscript Rifleman"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [
+      "Requires ::s_value:: [CommandPoint]"
+    ],
+    "image": "small_formation.png"
+  },
+  {
+    "name": "Deep Signals",
+    "unit": [
+      "Resonance Drone"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "Ally mechanical units at [Medium_Range] inflict ::target_effects:: (x::target_stacking_limit:: max)"
+    ],
+    "image": "smart_armor.png"
+  },
+  {
+    "name": "Learning Transistors",
+    "unit": [
+      "Fighting Mek",
+      "Railgun Drone"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "::target_effects:: in combat"
+    ],
+    "image": "smart_lens.png"
+  },
+  {
+    "name": "Long Rifle",
+    "unit": [
+      "Ranger"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [],
+    "image": "sniper_rifles.png"
+  },
+  {
+    "name": "Sobering Medication",
+    "unit": [
+      "Squire"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "::percent_value:: of damage bonuses are turned into damage reduction"
+    ],
+    "image": "sobering_medication.png"
+  },
+  {
+    "name": "Stinging Gas",
+    "unit": [
+      "Wrecker"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [
+      "Damaged enemy units receive ::s_percent_value:: damage from all sources (x::target_stacking_limit:: max)"
+    ],
+    "image": "stinging_gaz.png"
+  },
+  {
+    "name": "Storm Sails",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Ignores damage from [Sandstorm]s",
+      "::s_percent_value:: [Speed] in a [Sandstorm]"
+    ],
+    "image": "storm_sails.png"
+  },
+  {
+    "name": "Supporting Field",
+    "unit": [
+      "Support Drone"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      {
+        "desc": "As long as the [!A_Drone] is not full, non-mechanical [Atreides-shortname] base units at [Long_Range] gain (x::target_stacking_limit:: max): ::target_effects_list::",
+        "target_effects_list": []
+      }
+    ],
+    "image": "supporting_field.png"
+  },
+  {
+    "name": "Supporting Tactics",
+    "unit": [
+      "Conscript Swordman",
+      "Conscript Rifleman"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [
+      "Gives ::target_effects:: to non-Conscript allied units at [Short_Range]"
+    ],
+    "image": "supporting_tactics.png"
+  },
+  {
+    "name": "Suppressive Coordination",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      {
+        "desc": "The target is [TSuppressiveCoordination_Debuff] (x::target_stacking_limit:: max): ::target_effects_list::",
+        "target_effects_list": [
+          "::s_value:: maximum stacks of [A_Soldier_Debuff]"
+        ]
+      }
+    ],
+    "image": "suppressive_coordination.png"
+  },
+  {
+    "name": "Symbol of Freedom",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Gain ::value:: [Authority] when liberating a [!Village] in the region"
+    ],
+    "image": "symbol_of_freedom.png"
+  },
+  {
+    "name": "Tempered Sword",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "::s_value:: [Solari] [!Upkeep]"
+    ],
+    "image": "tempered_sword.png"
+  },
+  {
+    "name": "Terrifying Mask",
+    "unit": [
+      "Incinerator"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [
+      "Enemy units deal ::percent_value:: less damage to [!C_Special]s per [Burned_Trait] stack"
+    ],
+    "image": "terrifying_mask.png"
+  },
+  {
+    "name": "Tinkering Gear",
+    "unit": [
+      "Suboid Soldier"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "Ally drones at [Short_Range] get ::target_effects:: (x::target_stacking_limit:: max)"
+    ],
+    "image": "tinkering_gear.png"
+  },
+  {
+    "name": "Traumatic Repeater",
+    "unit": [
+      "Wrecker"
+    ],
+    "faction": [
+      "Smugglers"
+    ],
+    "attributes": [
+      "Damaged units suffer ::target_effects:: (x::target_stacking_limit:: max)"
+    ],
+    "image": "traumatic_repeater.png"
+  },
+  {
+    "name": "Virtual Black Box",
+    "unit": [
+      "Combat Probe"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "Upon death, gain ::value:: [Intel]"
+    ],
+    "image": "virtual_black_box.png"
+  },
+  {
+    "name": "Vow of Bravery",
+    "unit": [
+      "Knight"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "Ignores half of the enemy armor"
+    ],
+    "image": "vow_of_bravery.png"
+  },
+  {
+    "name": "Vow of Fervor",
+    "unit": [
+      "Knight"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "::s_value:: [Life]"
+    ],
+    "image": "vow_of_fervor.png"
+  },
+  {
+    "name": "Vow of Heroism",
+    "unit": [
+      "Knight"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "Requires ::s_value:: [CommandPoint]"
+    ],
+    "image": "vow_of_heroism.png"
+  },
+  {
+    "name": "Vow of Honor",
+    "unit": [
+      "Knight"
+    ],
+    "faction": [
+      "Ecaz"
+    ],
+    "attributes": [
+      "[E_Trooper]s at [Short_Range] gain ::target_effects2::"
+    ],
+    "image": "vow_of_honor.png"
+  },
+  {
+    "name": "Strong Magnets",
+    "unit": [
+      "Railgun Drone"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "Requires ::s_value:: [FuelCell]"
+    ],
+    "image": "warm_magnets.png"
+  },
+  {
+    "name": "Weaponized Configuration",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "::s_value:: [CarryCapacity]"
+    ],
+    "image": "weaponized_configuration.png"
+  },
+  {
+    "name": "Whistling Ammo",
+    "unit": [
+      "Heavy Weapon Squad",
+      "Sniper",
+      "Conscript Rifleman",
+      "Artillery Drone",
+      "Railgun Drone"
+    ],
+    "faction": [
+      "Atreides",
+      "Smugglers",
+      "Corrino",
+      "Vernius"
+    ],
+    "attributes": [],
+    "image": "whistling_ammo.png"
+  },
+  {
+    "name": "Wide Nozzle",
+    "unit": [
+      "Incinerator"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [],
+    "image": "wide_nozzle.png"
+  },
+  {
+    "name": "Work Shelter",
+    "unit": [
+      "Fight-Engineer"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      "Gain ::target_effects:: while the repair station is deployed"
+    ],
+    "image": "work_shelter.png"
+  }
+]

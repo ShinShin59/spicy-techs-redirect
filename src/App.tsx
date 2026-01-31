@@ -16,7 +16,8 @@ function App() {
   const sidebarOpen = useUIStore((s) => s.sidebarOpen)
   const setSidebarOpen = useUIStore((s) => s.setSidebarOpen)
   const panelVisibility = useMainStore((s) => s.panelVisibility)
-  const resetToDefault = useMainStore((s) => s.resetToDefault)
+  const createNewBuild = useMainStore((s) => s.createNewBuild)
+  const forkCurrentBuild = useMainStore((s) => s.forkCurrentBuild)
 
   useEffect(() => {
     const payload = decodeBuildPayload(window.location.search)
@@ -27,7 +28,7 @@ function App() {
 
   return (
     <div className="w-screen h-screen bg-black text-white flex flex-col overflow-hidden select-none">
-      <Topbar onCreate={() => resetToDefault()} />
+      <Topbar onNew={createNewBuild} onFork={forkCurrentBuild} />
       <div className="flex-1 flex items-center justify-center p-4 overflow-auto">
         <BuildLayout
           mainBase={panelVisibility.mainBaseOpen ? <MainBase /> : undefined}

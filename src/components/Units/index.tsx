@@ -2,8 +2,6 @@ import { useState } from "react"
 import {
   useMainStore,
   useCurrentUnitSlots,
-  useCurrentUnitsOrder,
-  getUnitsOrderNumber,
   MAX_UNIT_SLOT_COUNT,
   HERO_SLOT_INDEX,
 } from "@/store"
@@ -12,8 +10,6 @@ import { getUnitById, type UnitData } from "./units-utils"
 import { getHeroById, getHeroIconPath, isHeroId } from "./heroes-utils"
 import UnitsSelector from "./UnitsSelector"
 import UnitTooltip from "./UnitTooltip"
-import OrderBadge from "@/components/OrderBadge"
-import { incrementOrder, decrementOrder, unitIsEqual } from "@/hooks/useItemOrder"
 
 interface AnchorPosition {
   x: number
@@ -29,9 +25,7 @@ const Units = () => {
   const addUnitSlot = useMainStore((s) => s.addUnitSlot)
   const setUnitSlot = useMainStore((s) => s.setUnitSlot)
   const removeUnitSlot = useMainStore((s) => s.removeUnitSlot)
-  const updateUnitsOrder = useMainStore((s) => s.updateUnitsOrder)
   const unitSlots = useCurrentUnitSlots()
-  const unitsOrder = useCurrentUnitsOrder()
 
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
@@ -41,10 +35,6 @@ const Units = () => {
   } | null>(null)
 
   const handleSlotClick = (e: React.MouseEvent, slotIndex: number) => {
-    // Don't open selector if clicking on the order badge
-    const target = e.target as HTMLElement
-    if (target.closest("[data-order-badge]")) return
-
     const rect = e.currentTarget.getBoundingClientRect()
     setAnchorPosition({ x: rect.left, y: rect.top })
     setSelectedSlotIndex(slotIndex)
@@ -78,6 +68,12 @@ const Units = () => {
     setAnchorPosition(null)
   }
 
+  const totalCP = unitSlots.reduce((sum, unitId) => {
+    if (!unitId) return sum
+    const unitData = !isHeroId(unitId) ? getUnitById(selectedFaction, unitId) : null
+    return sum + (unitData?.cpCost ?? 0)
+  }, 0)
+
   const handleSlotRightClick = (e: React.MouseEvent, slotIndex: number) => {
     e.preventDefault()
     const unitId = unitSlots[slotIndex]
@@ -94,9 +90,14 @@ const Units = () => {
   return (
     <>
       <div className="flex flex-col">
-        <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0 ml-auto">
-          Units
-        </h2>
+        <div className="flex justify-end items-center gap-2 mb-0">
+          <span className="text-xs font-mono text-white/70">
+            {totalCP} CP
+          </span>
+          <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0">
+            Units
+          </h2>
+        </div>
         <div
           id="units-grid"
           className="relative bg-zinc-900 border border-zinc-700 w-[432px] gap-4 p-4  box-border overflow-y-auto min-h-0"
@@ -109,7 +110,6 @@ const Units = () => {
               const unitData = unitId && !isHeroId(unitId) ? getUnitById(selectedFaction, unitId) : null
               const displayData = heroData ?? unitData ?? null
               const hasUnit = unitId !== null && unitId !== undefined && displayData !== null
-              const orderNumber = getUnitsOrderNumber(unitsOrder, index)
 
               const isHeroSlotEmpty = isHeroSlot && !hasUnit
               const cellStyle = isHeroSlot
@@ -163,13 +163,6 @@ const Units = () => {
                       loading="eager"
                       decoding="sync"
                       className="w-16 h-16 object-contain"
-                    />
-                  )}
-                  {orderNumber !== null && !isHeroSlot && (
-                    <OrderBadge
-                      orderNumber={orderNumber}
-                      onIncrement={() => updateUnitsOrder(incrementOrder(unitsOrder, index, unitIsEqual))}
-                      onDecrement={() => updateUnitsOrder(decrementOrder(unitsOrder, index, unitIsEqual))}
                     />
                   )}
                 </div>

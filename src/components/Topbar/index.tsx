@@ -2,10 +2,11 @@ import { useUIStore, useMainStore } from "@/store"
 import FactionSelector from "@/components/FactionSelector"
 
 interface TopbarProps {
-  onCreate: () => void
+  onNew: () => void
+  onFork: () => void
 }
 
-const Topbar = ({ onCreate }: TopbarProps) => {
+const Topbar = ({ onNew, onFork }: TopbarProps) => {
   const sidebarOpen = useUIStore((s) => s.sidebarOpen)
   const toggleSidebar = useUIStore((s) => s.toggleSidebar)
   const panelVisibility = useMainStore((s) => s.panelVisibility)
@@ -24,11 +25,19 @@ const Topbar = ({ onCreate }: TopbarProps) => {
       <FactionSelector />
       <button
         type="button"
-        onClick={onCreate}
+        onClick={onNew}
         aria-label="Create new build"
         className="px-3 py-1.5 text-sm font-medium border border-zinc-600 cursor-pointer bg-expansion text-white hover:bg-expansion/80 transition-colors"
       >
-        Create
+        New
+      </button>
+      <button
+        type="button"
+        onClick={onFork}
+        aria-label="Fork current build"
+        className="px-3 py-1.5 text-sm font-medium border border-accent/70 cursor-pointer bg-accent/50 text-zinc-200 hover:bg-accent/70 transition-colors"
+      >
+        Fork
       </button>
       <button
         type="button"

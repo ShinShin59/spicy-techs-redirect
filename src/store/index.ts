@@ -31,20 +31,8 @@ export type BuildingOrderState = Record<FactionLabel, BuildingCoords[]>
 /** Armory state: 5 units × 2 gear slots per faction */
 export type ArmoryState = Record<FactionLabel, (string | null)[][]>
 
-/** Armory slot coordinates for ordering */
-export interface ArmoryCoords {
-  unitIndex: number
-  slotIndex: number
-}
-
-/** Armory order per faction */
-export type ArmoryOrderState = Record<FactionLabel, ArmoryCoords[]>
-
 /** Unit slots state: array of unit IDs per faction */
 export type UnitSlotsState = Record<FactionLabel, (string | null)[]>
-
-/** Units order per faction (array of slot indices) */
-export type UnitsOrderState = Record<FactionLabel, number[]>
 
 /** Councillor slots: max 2 per faction, order = [oldest, newest] for FIFO replacement */
 export type CouncillorSlotsState = Record<FactionLabel, (string | null)[]>
@@ -81,17 +69,6 @@ const initialArmoryState: ArmoryState = {
   corrino: createEmptyArmoryForFaction(),
 }
 
-/** Initial armory order (empty per faction) */
-const initialArmoryOrder: ArmoryOrderState = {
-  harkonnen: [],
-  atreides: [],
-  ecaz: [],
-  smuggler: [],
-  vernius: [],
-  fremen: [],
-  corrino: [],
-}
-
 /** Index of the hero slot (always first) */
 export const HERO_SLOT_INDEX = 0
 
@@ -109,17 +86,6 @@ const initialUnitSlotsState: UnitSlotsState = {
   vernius: createEmptyUnitSlotsForFaction(),
   fremen: createEmptyUnitSlotsForFaction(),
   corrino: createEmptyUnitSlotsForFaction(),
-}
-
-/** Initial units order (empty per faction) */
-const initialUnitsOrder: UnitsOrderState = {
-  harkonnen: [],
-  atreides: [],
-  ecaz: [],
-  smuggler: [],
-  vernius: [],
-  fremen: [],
-  corrino: [],
 }
 
 /** Creates initial councillor slots for a faction (2 slots, both null) */
@@ -180,10 +146,8 @@ export interface SavedBuild {
   mainBaseState: Record<FactionLabel, MainBaseState>
   buildingOrder: BuildingOrderState
   armoryState: ArmoryState
-  armoryOrder: ArmoryOrderState
   unitSlotCount: number
   unitSlots: UnitSlotsState
-  unitsOrder: UnitsOrderState
   councillorSlots: CouncillorSlotsState
   panelVisibility: PanelVisibility
   metadata: BuildMetadata
@@ -207,10 +171,8 @@ interface MainStore {
   mainBaseState: Record<FactionLabel, MainBaseState>
   buildingOrder: BuildingOrderState
   armoryState: ArmoryState
-  armoryOrder: ArmoryOrderState
   unitSlotCount: number
   unitSlots: UnitSlotsState
-  unitsOrder: UnitsOrderState
   councillorSlots: CouncillorSlotsState
   panelVisibility: PanelVisibility
   metadata: BuildMetadata
@@ -222,9 +184,7 @@ interface MainStore {
   setMainBaseCell: (rowIndex: number, groupIndex: number, cellIndex: number, buildingId: string | null) => void
   updateBuildingOrder: (newOrder: BuildingCoords[]) => void
   setArmorySlot: (unitIndex: number, slotIndex: number, gearName: string | null) => void
-  updateArmoryOrder: (newOrder: ArmoryCoords[]) => void
   setUnitSlot: (slotIndex: number, unitId: string | null) => void
-  updateUnitsOrder: (newOrder: number[]) => void
   removeUnitSlot: (slotIndex: number) => void
   addUnitSlot: () => void
   toggleCouncillor: (councillorId: string) => void
@@ -244,6 +204,10 @@ interface MainStore {
   deleteBuild: (id: string) => void
   renameBuild: (id: string, name: string) => void
   resetToDefault: () => void
+  /** Reset to default and save as a new build. */
+  createNewBuild: () => void
+  /** Duplicate current build (or save current state as new if unsaved). */
+  forkCurrentBuild: () => void
   /** Saves current build if not empty, then switches to new faction with a fresh build and default name. */
   switchFaction: (faction: FactionLabel) => void
 }
@@ -253,10 +217,8 @@ export function getBuildSnapshot(state: {
   mainBaseState: Record<FactionLabel, MainBaseState>
   buildingOrder: BuildingOrderState
   armoryState: ArmoryState
-  armoryOrder: ArmoryOrderState
   unitSlotCount: number
   unitSlots: UnitSlotsState
-  unitsOrder: UnitsOrderState
   councillorSlots: CouncillorSlotsState
   panelVisibility: PanelVisibility
   metadata: BuildMetadata
@@ -267,10 +229,8 @@ export function getBuildSnapshot(state: {
     mainBaseState: state.mainBaseState,
     buildingOrder: state.buildingOrder,
     armoryState: state.armoryState,
-    armoryOrder: state.armoryOrder,
     unitSlotCount: state.unitSlotCount,
     unitSlots: state.unitSlots,
-    unitsOrder: state.unitsOrder,
     councillorSlots: state.councillorSlots,
     panelVisibility: state.panelVisibility,
     metadata: state.metadata,
@@ -354,10 +314,8 @@ export const useMainStore = create<MainStore>()(
       mainBaseState: mainBasesState,
       buildingOrder: initialBuildingOrder,
       armoryState: initialArmoryState,
-      armoryOrder: initialArmoryOrder,
       unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
       unitSlots: initialUnitSlotsState,
-      unitsOrder: initialUnitsOrder,
       councillorSlots: initialCouncillorSlotsState,
       panelVisibility: initialPanelVisibility,
       metadata: createEmptyMetadata(),
@@ -481,7 +439,7 @@ export const useMainStore = create<MainStore>()(
         get().saveCurrentBuild()
       },
       setArmorySlot: (unitIndex, slotIndex, gearName) => {
-        const { selectedFaction, armoryState, armoryOrder } = get()
+        const { selectedFaction, armoryState } = get()
         const factionArmory = armoryState[selectedFaction]
         const newUnitGearSlots = [...factionArmory[unitIndex]]
         newUnitGearSlots[slotIndex] = gearName
@@ -489,40 +447,16 @@ export const useMainStore = create<MainStore>()(
           i === unitIndex ? newUnitGearSlots : slots
         )
 
-        // Update armory order
-        const factionOrder = armoryOrder[selectedFaction]
-        const coords: ArmoryCoords = { unitIndex, slotIndex }
-        const filteredOrder = factionOrder.filter(
-          (c) => !(c.unitIndex === unitIndex && c.slotIndex === slotIndex)
-        )
-        const newFactionOrder = gearName !== null
-          ? [...filteredOrder, coords]
-          : filteredOrder
-
         set({
           armoryState: {
             ...armoryState,
             [selectedFaction]: newFactionArmory,
           },
-          armoryOrder: {
-            ...armoryOrder,
-            [selectedFaction]: newFactionOrder,
-          },
-        })
-        get().saveCurrentBuild()
-      },
-      updateArmoryOrder: (newOrder) => {
-        const { selectedFaction, armoryOrder } = get()
-        set({
-          armoryOrder: {
-            ...armoryOrder,
-            [selectedFaction]: newOrder,
-          },
         })
         get().saveCurrentBuild()
       },
       setUnitSlot: (slotIndex, unitId) => {
-        const { selectedFaction, unitSlots, unitsOrder } = get()
+        const { selectedFaction, unitSlots } = get()
         const factionUnitSlots = [...unitSlots[selectedFaction]]
         // Ensure the array is large enough
         while (factionUnitSlots.length <= slotIndex) {
@@ -530,52 +464,24 @@ export const useMainStore = create<MainStore>()(
         }
         factionUnitSlots[slotIndex] = unitId
 
-        // Update units order (exclude hero slot - order only applies to units)
-        const factionOrder = unitsOrder[selectedFaction]
-        const filteredOrder = factionOrder.filter((i) => i !== slotIndex)
-        const newFactionOrder =
-          unitId !== null && slotIndex !== HERO_SLOT_INDEX
-            ? [...filteredOrder, slotIndex]
-            : filteredOrder
-
         set({
           unitSlots: {
             ...unitSlots,
             [selectedFaction]: factionUnitSlots,
           },
-          unitsOrder: {
-            ...unitsOrder,
-            [selectedFaction]: newFactionOrder,
-          },
-        })
-        get().saveCurrentBuild()
-      },
-      updateUnitsOrder: (newOrder) => {
-        const { selectedFaction, unitsOrder } = get()
-        set({
-          unitsOrder: {
-            ...unitsOrder,
-            [selectedFaction]: newOrder,
-          },
         })
         get().saveCurrentBuild()
       },
       removeUnitSlot: (slotIndex) => {
-        const { selectedFaction, unitSlots, unitsOrder, unitSlotCount } = get()
+        const { selectedFaction, unitSlots, unitSlotCount } = get()
         const factionUnitSlots = [...unitSlots[selectedFaction]]
         // Hero slot (index 0): clear it, don't remove
         if (slotIndex === HERO_SLOT_INDEX) {
           factionUnitSlots[HERO_SLOT_INDEX] = null
-          const factionOrder = unitsOrder[selectedFaction]
-          const newFactionOrder = factionOrder.filter((i) => i !== HERO_SLOT_INDEX)
           set({
             unitSlots: {
               ...unitSlots,
               [selectedFaction]: factionUnitSlots,
-            },
-            unitsOrder: {
-              ...unitsOrder,
-              [selectedFaction]: newFactionOrder,
             },
           })
         } else {
@@ -584,20 +490,10 @@ export const useMainStore = create<MainStore>()(
           // Decrease slot count (minimum DEFAULT_UNIT_SLOT_COUNT)
           const newSlotCount = Math.max(DEFAULT_UNIT_SLOT_COUNT, unitSlotCount - 1)
 
-          // Update units order: remove the deleted index and decrement any indices greater than it
-          const factionOrder = unitsOrder[selectedFaction]
-          const newFactionOrder = factionOrder
-            .filter((i) => i !== slotIndex)
-            .map((i) => (i > slotIndex ? i - 1 : i))
-
           set({
             unitSlots: {
               ...unitSlots,
               [selectedFaction]: factionUnitSlots,
-            },
-            unitsOrder: {
-              ...unitsOrder,
-              [selectedFaction]: newFactionOrder,
             },
             unitSlotCount: newSlotCount,
           })
@@ -645,10 +541,8 @@ export const useMainStore = create<MainStore>()(
           mainBaseState,
           buildingOrder,
           armoryState,
-          armoryOrder,
           unitSlotCount,
           unitSlots,
-          unitsOrder,
           councillorSlots,
           panelVisibility,
           metadata,
@@ -669,10 +563,8 @@ export const useMainStore = create<MainStore>()(
           mainBaseState,
           buildingOrder,
           armoryState,
-          armoryOrder,
           unitSlotCount,
           unitSlots,
-          unitsOrder,
           councillorSlots,
           panelVisibility,
           metadata,
@@ -687,10 +579,8 @@ export const useMainStore = create<MainStore>()(
             mainBaseState: deepClone(mainBaseState),
             buildingOrder: deepClone(buildingOrder),
             armoryState: deepClone(armoryState),
-            armoryOrder: deepClone(armoryOrder),
             unitSlotCount,
             unitSlots: deepClone(unitSlots),
-            unitsOrder: deepClone(unitsOrder),
             councillorSlots: deepClone(councillorSlots),
             panelVisibility: deepClone(panelVisibility),
             metadata: deepClone(metadata),
@@ -712,10 +602,8 @@ export const useMainStore = create<MainStore>()(
             mainBaseState: deepClone(mainBaseState),
             buildingOrder: deepClone(buildingOrder),
             armoryState: deepClone(armoryState),
-            armoryOrder: deepClone(armoryOrder),
             unitSlotCount,
             unitSlots: deepClone(unitSlots),
-            unitsOrder: deepClone(unitsOrder),
             councillorSlots: deepClone(councillorSlots),
             panelVisibility: deepClone(panelVisibility),
             metadata: deepClone(metadata),
@@ -734,9 +622,7 @@ export const useMainStore = create<MainStore>()(
         if (!build) return
         const unitSlotCount = typeof build.unitSlotCount === "number" ? build.unitSlotCount : DEFAULT_UNIT_SLOT_COUNT
         const armoryState = build.armoryState || initialArmoryState
-        const armoryOrder = build.armoryOrder || initialArmoryOrder
         const unitSlots = build.unitSlots || initialUnitSlotsState
-        const unitsOrder = build.unitsOrder || initialUnitsOrder
         const councillorSlots = build.councillorSlots || initialCouncillorSlotsState
         const panelVisibility = build.panelVisibility || initialPanelVisibility
         const metadata = build.metadata || createEmptyMetadata(defaultAuthor)
@@ -745,10 +631,8 @@ export const useMainStore = create<MainStore>()(
           mainBaseState: build.mainBaseState,
           buildingOrder: build.buildingOrder,
           armoryState,
-          armoryOrder,
           unitSlotCount,
           unitSlots,
-          unitsOrder,
           councillorSlots,
           panelVisibility,
           metadata,
@@ -759,10 +643,8 @@ export const useMainStore = create<MainStore>()(
           mainBaseState: deepClone(build.mainBaseState),
           buildingOrder: deepClone(build.buildingOrder),
           armoryState: deepClone(armoryState),
-          armoryOrder: deepClone(armoryOrder),
           unitSlotCount,
           unitSlots: deepClone(unitSlots),
-          unitsOrder: deepClone(unitsOrder),
           councillorSlots: deepClone(councillorSlots),
           panelVisibility: deepClone(panelVisibility),
           metadata: deepClone(metadata),
@@ -777,9 +659,7 @@ export const useMainStore = create<MainStore>()(
         if (!build) return
         const unitSlotCount = typeof build.unitSlotCount === "number" ? build.unitSlotCount : DEFAULT_UNIT_SLOT_COUNT
         const armoryState = build.armoryState || initialArmoryState
-        const armoryOrder = build.armoryOrder || initialArmoryOrder
         const unitSlots = build.unitSlots || initialUnitSlotsState
-        const unitsOrder = build.unitsOrder || initialUnitsOrder
         const councillorSlots = build.councillorSlots || initialCouncillorSlotsState
         const panelVisibility = build.panelVisibility || initialPanelVisibility
         const metadata = build.metadata || createEmptyMetadata(defaultAuthor)
@@ -793,10 +673,8 @@ export const useMainStore = create<MainStore>()(
           mainBaseState: deepClone(build.mainBaseState),
           buildingOrder: deepClone(build.buildingOrder),
           armoryState: deepClone(armoryState),
-          armoryOrder: deepClone(armoryOrder),
           unitSlotCount,
           unitSlots: deepClone(unitSlots),
-          unitsOrder: deepClone(unitsOrder),
           councillorSlots: deepClone(councillorSlots),
           panelVisibility: deepClone(panelVisibility),
           metadata: deepClone(metadata),
@@ -806,10 +684,8 @@ export const useMainStore = create<MainStore>()(
           mainBaseState: duplicated.mainBaseState,
           buildingOrder: duplicated.buildingOrder,
           armoryState: duplicated.armoryState,
-          armoryOrder: duplicated.armoryOrder,
           unitSlotCount: duplicated.unitSlotCount,
           unitSlots: duplicated.unitSlots,
-          unitsOrder: duplicated.unitsOrder,
           councillorSlots: duplicated.councillorSlots,
           panelVisibility: duplicated.panelVisibility,
           metadata: duplicated.metadata,
@@ -821,10 +697,8 @@ export const useMainStore = create<MainStore>()(
           mainBaseState: deepClone(duplicated.mainBaseState),
           buildingOrder: deepClone(duplicated.buildingOrder),
           armoryState: deepClone(duplicated.armoryState),
-          armoryOrder: deepClone(duplicated.armoryOrder),
           unitSlotCount: duplicated.unitSlotCount,
           unitSlots: deepClone(duplicated.unitSlots),
-          unitsOrder: deepClone(duplicated.unitsOrder),
           councillorSlots: deepClone(duplicated.councillorSlots),
           panelVisibility: deepClone(duplicated.panelVisibility),
           metadata: deepClone(duplicated.metadata),
@@ -844,10 +718,8 @@ export const useMainStore = create<MainStore>()(
             mainBaseState: mainBasesState,
             buildingOrder: initialBuildingOrder,
             armoryState: initialArmoryState,
-            armoryOrder: initialArmoryOrder,
             unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
             unitSlots: initialUnitSlotsState,
-            unitsOrder: initialUnitsOrder,
             councillorSlots: initialCouncillorSlotsState,
             panelVisibility: initialPanelVisibility,
             metadata: createEmptyMetadata(defaultAuthor),
@@ -867,10 +739,8 @@ export const useMainStore = create<MainStore>()(
           mainBaseState: mainBasesState,
           buildingOrder: initialBuildingOrder,
           armoryState: initialArmoryState,
-          armoryOrder: initialArmoryOrder,
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
           unitSlots: initialUnitSlotsState,
-          unitsOrder: initialUnitsOrder,
           councillorSlots: initialCouncillorSlotsState,
           panelVisibility: initialPanelVisibility,
           metadata: createEmptyMetadata(defaultAuthor),
@@ -878,6 +748,31 @@ export const useMainStore = create<MainStore>()(
           currentBuildId: null,
           lastSavedSnapshot: null,
         })
+      },
+      createNewBuild: () => {
+        const { selectedFaction, savedBuilds, defaultAuthor } = get()
+        set({
+          mainBaseState: mainBasesState,
+          buildingOrder: initialBuildingOrder,
+          armoryState: initialArmoryState,
+          unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
+          unitSlots: initialUnitSlotsState,
+          councillorSlots: initialCouncillorSlotsState,
+          panelVisibility: initialPanelVisibility,
+          metadata: createEmptyMetadata(defaultAuthor),
+          currentBuildName: getDefaultBuildName(selectedFaction, savedBuilds),
+          currentBuildId: null,
+          lastSavedSnapshot: null,
+        })
+        get().saveCurrentBuild()
+      },
+      forkCurrentBuild: () => {
+        const { currentBuildId } = get()
+        if (currentBuildId !== null) {
+          get().duplicateBuild(currentBuildId)
+        } else {
+          get().saveCurrentBuild()
+        }
       },
       renameBuild: (id, name) => {
         const trimmed = name.trim()
@@ -892,10 +787,8 @@ export const useMainStore = create<MainStore>()(
             mainBaseState: g.mainBaseState,
             buildingOrder: g.buildingOrder,
             armoryState: g.armoryState,
-            armoryOrder: g.armoryOrder,
             unitSlotCount: g.unitSlotCount,
             unitSlots: g.unitSlots,
-            unitsOrder: g.unitsOrder,
             councillorSlots: g.councillorSlots,
             panelVisibility: g.panelVisibility,
             metadata: g.metadata,
@@ -919,10 +812,9 @@ export const useMainStore = create<MainStore>()(
         if (!migrated.armoryState) {
           migrated.armoryState = initialArmoryState
         }
-        // Migrate armoryOrder if missing
-        if (!migrated.armoryOrder) {
-          migrated.armoryOrder = initialArmoryOrder
-        }
+        // Remove deprecated armoryOrder and unitsOrder (order removed from Units/Armory panels)
+        delete migrated.armoryOrder
+        delete migrated.unitsOrder
         // Migrate unitSlots: prepend hero slot (null) to each faction if not already migrated
         if (!migrated.unitSlots) {
           migrated.unitSlots = initialUnitSlotsState
@@ -957,46 +849,10 @@ export const useMainStore = create<MainStore>()(
               }
             }
             migrated.unitSlots = newSlots
-            // Shift unitsOrder indices by +1
-            const order = migrated.unitsOrder as UnitsOrderState
-            if (order && typeof order === "object") {
-              const newOrder = { ...order }
-              for (const f of factionLabels) {
-                const arr = newOrder[f]
-                if (Array.isArray(arr)) {
-                  newOrder[f] = arr.map((i) => i + 1)
-                }
-              }
-              migrated.unitsOrder = newOrder
-            }
             if (typeof migrated.unitSlotCount === "number" && migrated.unitSlotCount === 5) {
               migrated.unitSlotCount = 6
             }
           }
-        }
-        // Migrate unitsOrder if missing
-        if (!migrated.unitsOrder) {
-          migrated.unitsOrder = initialUnitsOrder
-        } else {
-          // Filter out hero slot from order (order only applies to units)
-          const order = migrated.unitsOrder as UnitsOrderState
-          const factionLabels: FactionLabel[] = [
-            "harkonnen",
-            "atreides",
-            "ecaz",
-            "smuggler",
-            "vernius",
-            "fremen",
-            "corrino",
-          ]
-          const newOrder = { ...order }
-          for (const f of factionLabels) {
-            const arr = newOrder[f]
-            if (Array.isArray(arr)) {
-              newOrder[f] = arr.filter((i) => i !== HERO_SLOT_INDEX)
-            }
-          }
-          migrated.unitsOrder = newOrder
         }
         // Migrate councillorSlots if missing
         if (!migrated.councillorSlots) {
@@ -1033,9 +889,7 @@ export const useMainStore = create<MainStore>()(
             if (!(b as { armoryState?: unknown }).armoryState) {
               updated.armoryState = initialArmoryState
             }
-            if (!(b as { armoryOrder?: unknown }).armoryOrder) {
-              updated.armoryOrder = initialArmoryOrder
-            }
+            delete updated.armoryOrder
             if (!(b as { councillorSlots?: unknown }).councillorSlots) {
               updated.councillorSlots = initialCouncillorSlotsState
             }
@@ -1063,35 +917,12 @@ export const useMainStore = create<MainStore>()(
                   }
                 }
                 updated.unitSlots = newSlots
-                const order = (b as { unitsOrder?: UnitsOrderState }).unitsOrder
-                if (order) {
-                  const newOrder = { ...order }
-                  for (const f of factionLabels) {
-                    const arr = newOrder[f]
-                    if (Array.isArray(arr)) {
-                      newOrder[f] = arr.map((i: number) => i + 1)
-                    }
-                  }
-                  updated.unitsOrder = newOrder
-                }
                 if (typeof (b as { unitSlotCount?: number }).unitSlotCount === "number") {
                   updated.unitSlotCount = 6
                 }
               }
             }
-            if (!(b as { unitsOrder?: unknown }).unitsOrder) {
-              updated.unitsOrder = initialUnitsOrder
-            } else {
-              const order = (b as { unitsOrder: UnitsOrderState }).unitsOrder
-              const newOrder = { ...order }
-              for (const f of factionLabels) {
-                const arr = newOrder[f]
-                if (Array.isArray(arr)) {
-                  newOrder[f] = arr.filter((i: number) => i !== HERO_SLOT_INDEX)
-                }
-              }
-              updated.unitsOrder = newOrder
-            }
+            delete updated.unitsOrder
             if (!(b as { panelVisibility?: unknown }).panelVisibility) {
               updated.panelVisibility = initialPanelVisibility
             }
@@ -1165,10 +996,8 @@ export function useIsBuildUpToDate(): boolean {
   const mainBaseState = useMainStore((s) => s.mainBaseState)
   const buildingOrder = useMainStore((s) => s.buildingOrder)
   const armoryState = useMainStore((s) => s.armoryState)
-  const armoryOrder = useMainStore((s) => s.armoryOrder)
   const unitSlotCount = useMainStore((s) => s.unitSlotCount)
   const unitSlots = useMainStore((s) => s.unitSlots)
-  const unitsOrder = useMainStore((s) => s.unitsOrder)
   const councillorSlots = useMainStore((s) => s.councillorSlots)
   const panelVisibility = useMainStore((s) => s.panelVisibility)
   const metadata = useMainStore((s) => s.metadata)
@@ -1178,10 +1007,8 @@ export function useIsBuildUpToDate(): boolean {
     mainBaseState,
     buildingOrder,
     armoryState,
-    armoryOrder,
     unitSlotCount,
     unitSlots,
-    unitsOrder,
     councillorSlots,
     panelVisibility,
     metadata,
@@ -1204,38 +1031,11 @@ export function useCurrentArmoryState(): (string | null)[][] {
   return armoryState[selectedFaction]
 }
 
-/** Returns the armory order for the current faction. */
-export function useCurrentArmoryOrder(): ArmoryCoords[] {
-  const selectedFaction = useMainStore((s) => s.selectedFaction)
-  const armoryOrder = useMainStore((s) => s.armoryOrder)
-  return armoryOrder[selectedFaction] ?? []
-}
-
-/** Get armory slot order number (1-based) or null if not found. */
-export function getArmoryOrderNumber(
-  order: ArmoryCoords[],
-  unitIndex: number,
-  slotIndex: number
-): number | null {
-  const index = order.findIndex(
-    (c) => c.unitIndex === unitIndex && c.slotIndex === slotIndex
-  )
-  return index >= 0 ? index + 1 : null
-}
-
 /** Returns the unit slots for the current faction. */
 export function useCurrentUnitSlots(): (string | null)[] {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const unitSlots = useMainStore((s) => s.unitSlots)
   return unitSlots[selectedFaction]
-}
-
-/** Returns the units order for the current faction (excludes hero slot). */
-export function useCurrentUnitsOrder(): number[] {
-  const selectedFaction = useMainStore((s) => s.selectedFaction)
-  const unitsOrder = useMainStore((s) => s.unitsOrder)
-  const order = unitsOrder[selectedFaction] ?? []
-  return order.filter((i) => i !== HERO_SLOT_INDEX)
 }
 
 /** Returns the councillor slots for the current faction ([oldest, newest], max 2). */
@@ -1244,13 +1044,3 @@ export function useCurrentCouncillorSlots(): (string | null)[] {
   const councillorSlots = useMainStore((s) => s.councillorSlots)
   return councillorSlots[selectedFaction] ?? [null, null]
 }
-
-/** Get unit slot order number (1-based) or null if not found. */
-export function getUnitsOrderNumber(
-  order: number[],
-  slotIndex: number
-): number | null {
-  const index = order.indexOf(slotIndex)
-  return index >= 0 ? index + 1 : null
-}
-

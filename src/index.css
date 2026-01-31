@@ -5,6 +5,15 @@
   --color-military: #8B3A3A;
   --color-statecraft: #4A8B9C;
   --color-error: #8B3A3A;
+
+  /* Faction colors from game data */
+  --color-faction-atreides: #26764C;
+  --color-faction-harkonnen: #90121B;
+  --color-faction-smuggler: #2E7185;
+  --color-faction-fremen: #CA9329;
+  --color-faction-corrino: #9C8384;
+  --color-faction-ecaz: #C96092;
+  --color-faction-vernius: #3C166D;
 }
 
 /* Prevent image dragging */

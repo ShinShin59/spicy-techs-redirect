@@ -2,17 +2,30 @@ import { useState, useRef, useEffect, memo } from "react"
 import { useMainStore, type SavedBuild, type FactionLabel } from "@/store"
 import { getFactionIconPath } from "@/utils/assetPaths"
 
-function getFactionFocusRingClass(faction: FactionLabel): string {
+function getFactionRingClass(faction: FactionLabel): string {
   const ring: Record<FactionLabel, string> = {
-    harkonnen: "focus:ring-red-500",
-    atreides: "focus:ring-amber-500",
-    ecaz: "focus:ring-green-500",
-    smuggler: "focus:ring-yellow-500",
-    vernius: "focus:ring-blue-500",
-    fremen: "focus:ring-orange-500",
-    corrino: "focus:ring-purple-500",
+    harkonnen: "ring-faction-harkonnen",
+    atreides: "ring-faction-atreides",
+    ecaz: "ring-faction-ecaz",
+    smuggler: "ring-faction-smuggler",
+    vernius: "ring-faction-vernius",
+    fremen: "ring-faction-fremen",
+    corrino: "ring-faction-corrino",
   }
-  return ring[faction] ?? "focus:ring-amber-500"
+  return ring[faction] ?? "ring-faction-atreides"
+}
+
+function getFactionBorderClass(faction: FactionLabel): string {
+  const border: Record<FactionLabel, string> = {
+    harkonnen: "border-faction-harkonnen/50",
+    atreides: "border-faction-atreides/50",
+    ecaz: "border-faction-ecaz/50",
+    smuggler: "border-faction-smuggler/50",
+    vernius: "border-faction-vernius/50",
+    fremen: "border-faction-fremen/50",
+    corrino: "border-faction-corrino/50",
+  }
+  return border[faction] ?? "border-faction-atreides/50"
 }
 
 const PencilIcon = () => (
@@ -41,13 +54,14 @@ const TrashIcon = () => (
 
 interface BuildRowProps {
   build: SavedBuild
+  isSelected: boolean
   onLoad: (id: string) => void
   onDuplicate: (id: string) => void
   onDelete: (id: string) => void
   onRename: (id: string, name: string) => void
 }
 
-const BuildRow = memo(function BuildRow({ build, onLoad, onDuplicate, onDelete, onRename }: BuildRowProps) {
+const BuildRow = memo(function BuildRow({ build, isSelected, onLoad, onDuplicate, onDelete, onRename }: BuildRowProps) {
   const [renaming, setRenaming] = useState(false)
   const [editValue, setEditValue] = useState(build.name)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -104,12 +118,16 @@ const BuildRow = memo(function BuildRow({ build, onLoad, onDuplicate, onDelete, 
             }
           }}
           onClick={(e) => e.stopPropagation()}
-          className={`flex-1 min-w-0 h-6 bg-zinc-700 text-white border border-zinc-600  px-2 text-sm focus:outline-none focus:ring-2 focus:ring-inset ${getFactionFocusRingClass(build.selectedFaction)}`}
+          className={`flex-1 min-w-0 h-6 bg-zinc-700 text-white border border-zinc-600  px-2 text-sm focus:outline-none focus:ring-2 focus:ring-inset ${getFactionRingClass(build.selectedFaction)}`}
           aria-label="New name"
         />
       </div>
     )
   }
+
+  const selectedClass = isSelected
+    ? `bg-zinc-800/60 ${getFactionBorderClass(build.selectedFaction)}`
+    : "border-transparent hover:bg-zinc-800 hover:border-zinc-600"
 
   return (
     <div
@@ -122,7 +140,7 @@ const BuildRow = memo(function BuildRow({ build, onLoad, onDuplicate, onDelete, 
           onLoad(build.id)
         }
       }}
-      className={`${rowClass} hover:bg-zinc-800 hover:border-zinc-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-inset ${getFactionFocusRingClass(build.selectedFaction)}`}
+      className={`${rowClass} ${selectedClass} cursor-pointer focus:outline-none focus:ring-2 focus:ring-inset ${getFactionRingClass(build.selectedFaction)}`}
     >
       <img
         key={`${build.id}-faction`}
@@ -178,6 +196,7 @@ interface BuildsSidebarProps {
 
 const BuildsSidebar = ({ onClose }: BuildsSidebarProps) => {
   const savedBuilds = useMainStore((s) => s.savedBuilds)
+  const currentBuildId = useMainStore((s) => s.currentBuildId)
   const loadBuild = useMainStore((s) => s.loadBuild)
   const duplicateBuild = useMainStore((s) => s.duplicateBuild)
   const deleteBuild = useMainStore((s) => s.deleteBuild)
@@ -213,6 +232,7 @@ const BuildsSidebar = ({ onClose }: BuildsSidebarProps) => {
             <BuildRow
               key={build.id}
               build={build}
+              isSelected={build.id === currentBuildId}
               onLoad={loadBuild}
               onDuplicate={duplicateBuild}
               onDelete={deleteBuild}

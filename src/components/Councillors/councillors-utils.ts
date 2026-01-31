@@ -15,6 +15,7 @@ export interface CouncillorData {
   id: string
   name: string
   description: string
+  category: string
   attributes: string[]
   image: string
 }

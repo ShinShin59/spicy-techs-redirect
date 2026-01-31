@@ -98,12 +98,26 @@ function AttributeLine({ line }: { line: string }) {
 
 function renderAttribute(
   attr: string | { desc: string; target_effects_list: string[] },
-  index: number
+  index: number,
+  gearTargetEffects?: string[]
 ) {
   if (typeof attr === "string") {
+    // Check if this attribute contains ::target_effects:: placeholder
+    const hasTargetEffectsPlaceholder = attr.includes("::target_effects::")
+    const showTargetEffects = hasTargetEffectsPlaceholder && gearTargetEffects && gearTargetEffects.length > 0
+
     return (
       <li key={index}>
         <AttributeLine line={attr} />
+        {showTargetEffects && (
+          <ul className="list-disc list-inside ml-4 mt-1 space-y-0.5">
+            {gearTargetEffects.map((effect, i) => (
+              <li key={i}>
+                <AttributeLine line={effect} />
+              </li>
+            ))}
+          </ul>
+        )}
       </li>
     )
   }
@@ -155,7 +169,7 @@ export default function GearAttributesTooltip({
       {/* Attributes */}
       {gear.attributes.length > 0 ? (
         <ul className="list-disc list-inside space-y-0.5 text-zinc-400 px-3 py-2">
-          {gear.attributes.map((attr, i) => renderAttribute(attr, i))}
+          {gear.attributes.map((attr, i) => renderAttribute(attr, i, gear.target_effects))}
         </ul>
       ) : (
         <div className="px-3 py-2 text-zinc-500 text-sm italic">

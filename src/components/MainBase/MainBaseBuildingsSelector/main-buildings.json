@@ -29,7 +29,8 @@
       "+20% [harvester]s gathering rate per [Economy] [Buildings] in their [Village]",
       "10% [harvester] [crew] cost"
     ],
-    "category": "Economy"
+    "category": "Economy",
+    "excludeFromFaction": "vernius"
   },
   {
     "name": "Spice Laboratory",

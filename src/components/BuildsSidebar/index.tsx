@@ -22,6 +22,13 @@ const PencilIcon = () => (
   </svg>
 )
 
+const CopyIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 opacity-70">
+    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+  </svg>
+)
+
 const TrashIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 opacity-70 hover:opacity-100 hover:text-red-400 transition-all">
     <path d="M3 6h18" />
@@ -35,11 +42,12 @@ const TrashIcon = () => (
 interface BuildRowProps {
   build: SavedBuild
   onLoad: (id: string) => void
+  onDuplicate: (id: string) => void
   onDelete: (id: string) => void
   onRename: (id: string, name: string) => void
 }
 
-const BuildRow = memo(function BuildRow({ build, onLoad, onDelete, onRename }: BuildRowProps) {
+const BuildRow = memo(function BuildRow({ build, onLoad, onDuplicate, onDelete, onRename }: BuildRowProps) {
   const [renaming, setRenaming] = useState(false)
   const [editValue, setEditValue] = useState(build.name)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -64,7 +72,7 @@ const BuildRow = memo(function BuildRow({ build, onLoad, onDelete, onRename }: B
   const handleRowClick = (e: React.MouseEvent) => {
     if (renaming) return
     const target = e.target as HTMLElement
-    if (target.closest("[data-pencil]") || target.closest("[data-trash]") || target.closest("input")) return
+    if (target.closest("[data-pencil]") || target.closest("[data-copy]") || target.closest("[data-trash]") || target.closest("input")) return
     onLoad(build.id)
   }
 
@@ -132,9 +140,21 @@ const BuildRow = memo(function BuildRow({ build, onLoad, onDelete, onRename }: B
           setRenaming(true)
         }}
         aria-label="Rename"
-        className="opacity-0 group-hover:opacity-100 p-1  hover:bg-zinc-700 transition-all shrink-0"
+        className="opacity-0 group-hover:opacity-100 p-1 hover:bg-zinc-700 transition-all shrink-0"
       >
         <PencilIcon />
+      </button>
+      <button
+        type="button"
+        data-copy
+        onClick={(e) => {
+          e.stopPropagation()
+          onDuplicate(build.id)
+        }}
+        aria-label="Duplicate build"
+        className="opacity-0 group-hover:opacity-100 p-1 hover:bg-zinc-700 transition-all shrink-0"
+      >
+        <CopyIcon />
       </button>
       <button
         type="button"
@@ -159,6 +179,7 @@ interface BuildsSidebarProps {
 const BuildsSidebar = ({ onClose }: BuildsSidebarProps) => {
   const savedBuilds = useMainStore((s) => s.savedBuilds)
   const loadBuild = useMainStore((s) => s.loadBuild)
+  const duplicateBuild = useMainStore((s) => s.duplicateBuild)
   const deleteBuild = useMainStore((s) => s.deleteBuild)
   const renameBuild = useMainStore((s) => s.renameBuild)
 
@@ -193,6 +214,7 @@ const BuildsSidebar = ({ onClose }: BuildsSidebarProps) => {
               key={build.id}
               build={build}
               onLoad={loadBuild}
+              onDuplicate={duplicateBuild}
               onDelete={deleteBuild}
               onRename={renameBuild}
             />

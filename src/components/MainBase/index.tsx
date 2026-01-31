@@ -80,13 +80,13 @@ const MainBase = () => {
 
   return (
     <>
-      <div className="relative group flex flex-col">
+      <div className="relative group flex flex-col w-full">
         <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0 ml-auto">
           Main Base
         </h2>
         <div
           id="main-base-grid"
-          className="relative bg-zinc-900 border border-zinc-700 w-[432px] h-[420px] flex flex-col justify-center items-center gap-12 pl-12 pr-12 box-border"
+          className="relative bg-zinc-900 border border-zinc-700 w-full flex flex-col justify-center items-center gap-12 px-4 py-6 box-border"
         >
           {layout.map((row, rowIndex) => (
             <div key={rowIndex} className="flex" id={`main-base-row-${rowIndex}`}>

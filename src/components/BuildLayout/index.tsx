@@ -19,8 +19,8 @@ const BuildLayout = ({ mainBase, units, armory }: BuildLayoutProps) => {
     <div className="flex flex-col gap-6">
       {/* Top row: MainBase and Units side by side */}
       {hasTopRow && (
-        <div className="flex gap-6 items-start justify-center">
-          {mainBase}
+        <div className="flex gap-10 items-start">
+          <div className="flex-1">{mainBase}</div>
           {units}
         </div>
       )}

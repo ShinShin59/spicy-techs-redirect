@@ -12,6 +12,7 @@ export interface SharedBuildPayload {
   state: MainBaseState
   order: BuildingCoords[]
   armory?: (string | null)[][]
+  units?: (string | null)[]
 }
 
 export function encodeBuildPayload(payload: SharedBuildPayload): string {

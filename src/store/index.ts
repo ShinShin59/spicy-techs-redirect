@@ -31,6 +31,9 @@ export type BuildingOrderState = Record<FactionLabel, BuildingCoords[]>
 /** Armory state: 5 units × 2 gear slots per faction */
 export type ArmoryState = Record<FactionLabel, (string | null)[][]>
 
+/** Unit slots state: array of unit IDs per faction */
+export type UnitSlotsState = Record<FactionLabel, (string | null)[]>
+
 /** Initial building order (empty per faction) */
 const initialBuildingOrder: BuildingOrderState = {
   harkonnen: [],
@@ -60,8 +63,37 @@ const initialArmoryState: ArmoryState = {
   corrino: createEmptyArmoryForFaction(),
 }
 
-const DEFAULT_UNIT_SLOT_COUNT = 4
+/** Creates initial unit slots for a faction (empty array) */
+function createEmptyUnitSlotsForFaction(): (string | null)[] {
+  return []
+}
+
+/** Initial unit slots state (empty for all factions) */
+const initialUnitSlotsState: UnitSlotsState = {
+  harkonnen: createEmptyUnitSlotsForFaction(),
+  atreides: createEmptyUnitSlotsForFaction(),
+  ecaz: createEmptyUnitSlotsForFaction(),
+  smuggler: createEmptyUnitSlotsForFaction(),
+  vernius: createEmptyUnitSlotsForFaction(),
+  fremen: createEmptyUnitSlotsForFaction(),
+  corrino: createEmptyUnitSlotsForFaction(),
+}
+
+const DEFAULT_UNIT_SLOT_COUNT = 5
 export const MAX_UNIT_SLOT_COUNT = 25
+
+/** Panel visibility state */
+export interface PanelVisibility {
+  mainBaseOpen: boolean
+  armoryOpen: boolean
+  unitsOpen: boolean
+}
+
+const initialPanelVisibility: PanelVisibility = {
+  mainBaseOpen: true,
+  armoryOpen: true,
+  unitsOpen: true,
+}
 
 /** Saved build (local list, id not in URL) */
 export interface SavedBuild {
@@ -73,6 +105,8 @@ export interface SavedBuild {
   buildingOrder: BuildingOrderState
   armoryState: ArmoryState
   unitSlotCount: number
+  unitSlots: UnitSlotsState
+  panelVisibility: PanelVisibility
 }
 
 function generateBuildId(): string {
@@ -94,17 +128,25 @@ interface MainStore {
   buildingOrder: BuildingOrderState
   armoryState: ArmoryState
   unitSlotCount: number
+  unitSlots: UnitSlotsState
+  panelVisibility: PanelVisibility
   currentBuildName: string
   currentBuildId: CurrentBuildId
   savedBuilds: SavedBuild[]
   lastSavedSnapshot: BuildSnapshot
   setMainBaseCell: (rowIndex: number, groupIndex: number, cellIndex: number, buildingId: string | null) => void
   setArmorySlot: (unitIndex: number, slotIndex: number, gearName: string | null) => void
+  setUnitSlot: (slotIndex: number, unitId: string | null) => void
+  removeUnitSlot: (slotIndex: number) => void
   addUnitSlot: () => void
+  toggleMainBase: () => void
+  toggleArmory: () => void
+  toggleUnits: () => void
   loadSharedBuild: (payload: SharedBuildPayload) => void
   setCurrentBuildName: (name: string) => void
   saveCurrentBuild: (name?: string) => void
   loadBuild: (id: string) => void
+  duplicateBuild: (id: string) => void
   deleteBuild: (id: string) => void
   renameBuild: (id: string, name: string) => void
   resetToDefault: () => void
@@ -118,6 +160,8 @@ export function getBuildSnapshot(state: {
   buildingOrder: BuildingOrderState
   armoryState: ArmoryState
   unitSlotCount: number
+  unitSlots: UnitSlotsState
+  panelVisibility: PanelVisibility
   currentBuildName: string
 }): string {
   return JSON.stringify({
@@ -126,6 +170,8 @@ export function getBuildSnapshot(state: {
     buildingOrder: state.buildingOrder,
     armoryState: state.armoryState,
     unitSlotCount: state.unitSlotCount,
+    unitSlots: state.unitSlots,
+    panelVisibility: state.panelVisibility,
     currentBuildName: state.currentBuildName,
   })
 }
@@ -206,10 +252,27 @@ export const useMainStore = create<MainStore>()(
       buildingOrder: initialBuildingOrder,
       armoryState: initialArmoryState,
       unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
+      unitSlots: initialUnitSlotsState,
+      panelVisibility: initialPanelVisibility,
       currentBuildName: INITIAL_BUILD_NAME,
       currentBuildId: null,
       savedBuilds: [],
       lastSavedSnapshot: null,
+      toggleMainBase: () => {
+        const { panelVisibility } = get()
+        set({ panelVisibility: { ...panelVisibility, mainBaseOpen: !panelVisibility.mainBaseOpen } })
+        get().saveCurrentBuild()
+      },
+      toggleArmory: () => {
+        const { panelVisibility } = get()
+        set({ panelVisibility: { ...panelVisibility, armoryOpen: !panelVisibility.armoryOpen } })
+        get().saveCurrentBuild()
+      },
+      toggleUnits: () => {
+        const { panelVisibility } = get()
+        set({ panelVisibility: { ...panelVisibility, unitsOpen: !panelVisibility.unitsOpen } })
+        get().saveCurrentBuild()
+      },
       addUnitSlot: () => {
         const g = get()
         if (g.unitSlotCount >= MAX_UNIT_SLOT_COUNT) return
@@ -249,10 +312,10 @@ export const useMainStore = create<MainStore>()(
       setArmorySlot: (unitIndex, slotIndex, gearName) => {
         const { selectedFaction, armoryState } = get()
         const factionArmory = armoryState[selectedFaction]
-        const newUnitSlots = [...factionArmory[unitIndex]]
-        newUnitSlots[slotIndex] = gearName
+        const newUnitGearSlots = [...factionArmory[unitIndex]]
+        newUnitGearSlots[slotIndex] = gearName
         const newFactionArmory = factionArmory.map((slots, i) =>
-          i === unitIndex ? newUnitSlots : slots
+          i === unitIndex ? newUnitGearSlots : slots
         )
         set({
           armoryState: {
@@ -262,16 +325,50 @@ export const useMainStore = create<MainStore>()(
         })
         get().saveCurrentBuild()
       },
+      setUnitSlot: (slotIndex, unitId) => {
+        const { selectedFaction, unitSlots } = get()
+        const factionUnitSlots = [...unitSlots[selectedFaction]]
+        // Ensure the array is large enough
+        while (factionUnitSlots.length <= slotIndex) {
+          factionUnitSlots.push(null)
+        }
+        factionUnitSlots[slotIndex] = unitId
+        set({
+          unitSlots: {
+            ...unitSlots,
+            [selectedFaction]: factionUnitSlots,
+          },
+        })
+        get().saveCurrentBuild()
+      },
+      removeUnitSlot: (slotIndex) => {
+        const { selectedFaction, unitSlots, unitSlotCount } = get()
+        const factionUnitSlots = [...unitSlots[selectedFaction]]
+        // Remove the slot at the given index
+        factionUnitSlots.splice(slotIndex, 1)
+        // Decrease slot count (minimum DEFAULT_UNIT_SLOT_COUNT)
+        const newSlotCount = Math.max(DEFAULT_UNIT_SLOT_COUNT, unitSlotCount - 1)
+        set({
+          unitSlots: {
+            ...unitSlots,
+            [selectedFaction]: factionUnitSlots,
+          },
+          unitSlotCount: newSlotCount,
+        })
+        get().saveCurrentBuild()
+      },
       loadSharedBuild: (payload) => {
-        const { mainBaseState, buildingOrder, armoryState } = get()
+        const { mainBaseState, buildingOrder, armoryState, unitSlots } = get()
         const orderArray = Array.isArray(payload.order) ? payload.order : []
         const stateForFaction = Array.isArray(payload.state) ? payload.state : mainBasesState[payload.f]
         const armoryForFaction = Array.isArray(payload.armory) ? payload.armory : createEmptyArmoryForFaction()
+        const unitSlotsForFaction = Array.isArray(payload.units) ? payload.units : createEmptyUnitSlotsForFaction()
         set({
           selectedFaction: payload.f,
           mainBaseState: { ...mainBaseState, [payload.f]: stateForFaction },
           buildingOrder: { ...buildingOrder, [payload.f]: orderArray },
           armoryState: { ...armoryState, [payload.f]: armoryForFaction },
+          unitSlots: { ...unitSlots, [payload.f]: unitSlotsForFaction },
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
           currentBuildId: null,
         })
@@ -290,6 +387,8 @@ export const useMainStore = create<MainStore>()(
           buildingOrder,
           armoryState,
           unitSlotCount,
+          unitSlots,
+          panelVisibility,
           savedBuilds,
           currentBuildName,
           currentBuildId,
@@ -308,6 +407,8 @@ export const useMainStore = create<MainStore>()(
           buildingOrder,
           armoryState,
           unitSlotCount,
+          unitSlots,
+          panelVisibility,
           currentBuildName: finalName,
         })
         if (existing) {
@@ -320,6 +421,8 @@ export const useMainStore = create<MainStore>()(
             buildingOrder: deepClone(buildingOrder),
             armoryState: deepClone(armoryState),
             unitSlotCount,
+            unitSlots: deepClone(unitSlots),
+            panelVisibility: deepClone(panelVisibility),
             createdAt: Date.now(),
           }
           const newSavedBuilds = [...savedBuilds]
@@ -339,6 +442,8 @@ export const useMainStore = create<MainStore>()(
             buildingOrder: deepClone(buildingOrder),
             armoryState: deepClone(armoryState),
             unitSlotCount,
+            unitSlots: deepClone(unitSlots),
+            panelVisibility: deepClone(panelVisibility),
           }
           set({
             savedBuilds: [saved, ...savedBuilds],
@@ -354,12 +459,16 @@ export const useMainStore = create<MainStore>()(
         if (!build) return
         const unitSlotCount = typeof build.unitSlotCount === "number" ? build.unitSlotCount : DEFAULT_UNIT_SLOT_COUNT
         const armoryState = build.armoryState || initialArmoryState
+        const unitSlots = build.unitSlots || initialUnitSlotsState
+        const panelVisibility = build.panelVisibility || initialPanelVisibility
         const snapshot = getBuildSnapshot({
           selectedFaction: build.selectedFaction,
           mainBaseState: build.mainBaseState,
           buildingOrder: build.buildingOrder,
           armoryState,
           unitSlotCount,
+          unitSlots,
+          panelVisibility,
           currentBuildName: build.name,
         })
         set({
@@ -368,8 +477,56 @@ export const useMainStore = create<MainStore>()(
           buildingOrder: deepClone(build.buildingOrder),
           armoryState: deepClone(armoryState),
           unitSlotCount,
+          unitSlots: deepClone(unitSlots),
+          panelVisibility: deepClone(panelVisibility),
           currentBuildName: build.name,
           currentBuildId: id,
+          lastSavedSnapshot: snapshot,
+        })
+      },
+      duplicateBuild: (id) => {
+        const { savedBuilds } = get()
+        const build = savedBuilds.find((b) => b.id === id)
+        if (!build) return
+        const unitSlotCount = typeof build.unitSlotCount === "number" ? build.unitSlotCount : DEFAULT_UNIT_SLOT_COUNT
+        const armoryState = build.armoryState || initialArmoryState
+        const unitSlots = build.unitSlots || initialUnitSlotsState
+        const panelVisibility = build.panelVisibility || initialPanelVisibility
+        const newName = getUniqueBuildName(build.name + " (copy)", savedBuilds)
+        const newId = generateBuildId()
+        const duplicated: SavedBuild = {
+          id: newId,
+          name: newName,
+          createdAt: Date.now(),
+          selectedFaction: build.selectedFaction,
+          mainBaseState: deepClone(build.mainBaseState),
+          buildingOrder: deepClone(build.buildingOrder),
+          armoryState: deepClone(armoryState),
+          unitSlotCount,
+          unitSlots: deepClone(unitSlots),
+          panelVisibility: deepClone(panelVisibility),
+        }
+        const snapshot = getBuildSnapshot({
+          selectedFaction: duplicated.selectedFaction,
+          mainBaseState: duplicated.mainBaseState,
+          buildingOrder: duplicated.buildingOrder,
+          armoryState: duplicated.armoryState,
+          unitSlotCount: duplicated.unitSlotCount,
+          unitSlots: duplicated.unitSlots,
+          panelVisibility: duplicated.panelVisibility,
+          currentBuildName: duplicated.name,
+        })
+        set({
+          savedBuilds: [duplicated, ...savedBuilds],
+          selectedFaction: duplicated.selectedFaction,
+          mainBaseState: deepClone(duplicated.mainBaseState),
+          buildingOrder: deepClone(duplicated.buildingOrder),
+          armoryState: deepClone(duplicated.armoryState),
+          unitSlotCount: duplicated.unitSlotCount,
+          unitSlots: deepClone(duplicated.unitSlots),
+          panelVisibility: deepClone(duplicated.panelVisibility),
+          currentBuildName: duplicated.name,
+          currentBuildId: newId,
           lastSavedSnapshot: snapshot,
         })
       },
@@ -385,6 +542,8 @@ export const useMainStore = create<MainStore>()(
             buildingOrder: initialBuildingOrder,
             armoryState: initialArmoryState,
             unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
+            unitSlots: initialUnitSlotsState,
+            panelVisibility: initialPanelVisibility,
             currentBuildName: getDefaultBuildName("atreides", newSaved),
             currentBuildId: null,
             lastSavedSnapshot: null,
@@ -402,6 +561,8 @@ export const useMainStore = create<MainStore>()(
           buildingOrder: initialBuildingOrder,
           armoryState: initialArmoryState,
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
+          unitSlots: initialUnitSlotsState,
+          panelVisibility: initialPanelVisibility,
           currentBuildName: getDefaultBuildName("atreides", savedBuilds),
           currentBuildId: null,
           lastSavedSnapshot: null,
@@ -421,6 +582,8 @@ export const useMainStore = create<MainStore>()(
             buildingOrder: g.buildingOrder,
             armoryState: g.armoryState,
             unitSlotCount: g.unitSlotCount,
+            unitSlots: g.unitSlots,
+            panelVisibility: g.panelVisibility,
             currentBuildName: trimmed,
           })
         }
@@ -440,6 +603,14 @@ export const useMainStore = create<MainStore>()(
         if (!migrated.armoryState) {
           migrated.armoryState = initialArmoryState
         }
+        // Migrate unitSlots if missing
+        if (!migrated.unitSlots) {
+          migrated.unitSlots = initialUnitSlotsState
+        }
+        // Migrate panelVisibility if missing
+        if (!migrated.panelVisibility) {
+          migrated.panelVisibility = initialPanelVisibility
+        }
         const builds = migrated.savedBuilds
         if (Array.isArray(builds)) {
           migrated.savedBuilds = builds.map((b: Record<string, unknown>) => {
@@ -449,6 +620,12 @@ export const useMainStore = create<MainStore>()(
             }
             if (!(b as { armoryState?: unknown }).armoryState) {
               updated.armoryState = initialArmoryState
+            }
+            if (!(b as { unitSlots?: unknown }).unitSlots) {
+              updated.unitSlots = initialUnitSlotsState
+            }
+            if (!(b as { panelVisibility?: unknown }).panelVisibility) {
+              updated.panelVisibility = initialPanelVisibility
             }
             return updated
           })
@@ -518,6 +695,8 @@ export function useIsBuildUpToDate(): boolean {
   const buildingOrder = useMainStore((s) => s.buildingOrder)
   const armoryState = useMainStore((s) => s.armoryState)
   const unitSlotCount = useMainStore((s) => s.unitSlotCount)
+  const unitSlots = useMainStore((s) => s.unitSlots)
+  const panelVisibility = useMainStore((s) => s.panelVisibility)
   const currentBuildName = useMainStore((s) => s.currentBuildName)
   const currentSnapshot = getBuildSnapshot({
     selectedFaction,
@@ -525,6 +704,8 @@ export function useIsBuildUpToDate(): boolean {
     buildingOrder,
     armoryState,
     unitSlotCount,
+    unitSlots,
+    panelVisibility,
     currentBuildName,
   })
   return lastSavedSnapshot !== null && currentSnapshot === lastSavedSnapshot
@@ -542,5 +723,12 @@ export function useCurrentArmoryState(): (string | null)[][] {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const armoryState = useMainStore((s) => s.armoryState)
   return armoryState[selectedFaction]
+}
+
+/** Returns the unit slots for the current faction. */
+export function useCurrentUnitSlots(): (string | null)[] {
+  const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const unitSlots = useMainStore((s) => s.unitSlots)
+  return unitSlots[selectedFaction]
 }
 

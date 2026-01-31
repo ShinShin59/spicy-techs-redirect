@@ -13,9 +13,7 @@ import "./utils/assetPaths"
 function App() {
   const sidebarOpen = useUIStore((s) => s.sidebarOpen)
   const setSidebarOpen = useUIStore((s) => s.setSidebarOpen)
-  const mainBaseOpen = useUIStore((s) => s.mainBaseOpen)
-  const armoryOpen = useUIStore((s) => s.armoryOpen)
-  const unitsOpen = useUIStore((s) => s.unitsOpen)
+  const panelVisibility = useMainStore((s) => s.panelVisibility)
   const resetToDefault = useMainStore((s) => s.resetToDefault)
 
   useEffect(() => {
@@ -30,9 +28,9 @@ function App() {
       <Topbar onCreate={() => resetToDefault()} />
       <div className="flex-1 flex items-center justify-center p-4 overflow-auto">
         <BuildLayout
-          mainBase={mainBaseOpen ? <MainBase /> : undefined}
-          units={unitsOpen ? <Units /> : undefined}
-          armory={armoryOpen ? <Armory /> : undefined}
+          mainBase={panelVisibility.mainBaseOpen ? <MainBase /> : undefined}
+          units={panelVisibility.unitsOpen ? <Units /> : undefined}
+          armory={panelVisibility.armoryOpen ? <Armory /> : undefined}
         />
       </div>
       {sidebarOpen && <BuildsSidebar onClose={() => setSidebarOpen(false)} />}

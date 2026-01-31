@@ -1,4 +1,4 @@
-import { useUIStore } from "@/store"
+import { useUIStore, useMainStore } from "@/store"
 import FactionSelector from "@/components/FactionSelector"
 
 interface TopbarProps {
@@ -8,12 +8,10 @@ interface TopbarProps {
 const Topbar = ({ onCreate }: TopbarProps) => {
   const sidebarOpen = useUIStore((s) => s.sidebarOpen)
   const toggleSidebar = useUIStore((s) => s.toggleSidebar)
-  const mainBaseOpen = useUIStore((s) => s.mainBaseOpen)
-  const toggleMainBase = useUIStore((s) => s.toggleMainBase)
-  const armoryOpen = useUIStore((s) => s.armoryOpen)
-  const toggleArmory = useUIStore((s) => s.toggleArmory)
-  const unitsOpen = useUIStore((s) => s.unitsOpen)
-  const toggleUnits = useUIStore((s) => s.toggleUnits)
+  const panelVisibility = useMainStore((s) => s.panelVisibility)
+  const toggleMainBase = useMainStore((s) => s.toggleMainBase)
+  const toggleArmory = useMainStore((s) => s.toggleArmory)
+  const toggleUnits = useMainStore((s) => s.toggleUnits)
 
   const panelBtnClass = (open: boolean) =>
     `px-3 py-1.5 text-sm font-medium border transition-colors ${open ? "bg-amber-600 border-amber-500 text-white" : "bg-zinc-800 border-zinc-600 text-zinc-200 hover:bg-zinc-700"
@@ -33,27 +31,27 @@ const Topbar = ({ onCreate }: TopbarProps) => {
       <button
         type="button"
         onClick={toggleMainBase}
-        aria-pressed={mainBaseOpen}
+        aria-pressed={panelVisibility.mainBaseOpen}
         aria-label="Toggle Main Base"
-        className={panelBtnClass(mainBaseOpen)}
+        className={panelBtnClass(panelVisibility.mainBaseOpen)}
       >
         Main Base
       </button>
       <button
         type="button"
         onClick={toggleArmory}
-        aria-pressed={armoryOpen}
+        aria-pressed={panelVisibility.armoryOpen}
         aria-label="Toggle Armory"
-        className={panelBtnClass(armoryOpen)}
+        className={panelBtnClass(panelVisibility.armoryOpen)}
       >
         Armory
       </button>
       <button
         type="button"
         onClick={toggleUnits}
-        aria-pressed={unitsOpen}
+        aria-pressed={panelVisibility.unitsOpen}
         aria-label="Toggle Units"
-        className={panelBtnClass(unitsOpen)}
+        className={panelBtnClass(panelVisibility.unitsOpen)}
       >
         Units
       </button>

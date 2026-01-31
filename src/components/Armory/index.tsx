@@ -1,8 +1,9 @@
 import { useState } from "react"
-import { useMainStore, useCurrentArmoryState, UNITS_PER_FACTION, GEAR_SLOTS_PER_UNIT } from "../../store"
+import { useMainStore, useCurrentArmoryState, useCurrentArmoryOrder, getArmoryOrderNumber, UNITS_PER_FACTION, GEAR_SLOTS_PER_UNIT, type ArmoryCoords } from "../../store"
 import { getGearIconPath } from "@/utils/assetPaths"
 import ArmoryGearSelector from "./ArmoryGearSelector"
 import GearAttributesTooltip from "./GearAttributesTooltip"
+import OrderBadge from "@/components/OrderBadge"
 import {
   getUnitsForFaction,
   getGearByName,
@@ -10,6 +11,7 @@ import {
   type GearItem,
   type UnitData,
 } from "./armory-utils"
+import { incrementOrder, decrementOrder, armoryIsEqual } from "@/hooks/useItemOrder"
 
 // Re-export for external use
 export { getUnitsForFaction, getGearByName, getGearOptionsForUnit, type GearItem, type UnitData }
@@ -27,7 +29,9 @@ interface AnchorPosition {
 const Armory = () => {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const armoryState = useCurrentArmoryState()
+  const armoryOrder = useCurrentArmoryOrder()
   const setArmorySlot = useMainStore((s) => s.setArmorySlot)
+  const updateArmoryOrder = useMainStore((s) => s.updateArmoryOrder)
 
   const units = getUnitsForFaction(selectedFaction)
 
@@ -43,6 +47,10 @@ const Armory = () => {
     unitIndex: number,
     slotIndex: number
   ) => {
+    // Don't open selector if clicking on the order badge
+    const target = e.target as HTMLElement
+    if (target.closest("[data-order-badge]")) return
+    
     const rect = e.currentTarget.getBoundingClientRect()
     setAnchorPosition({ x: rect.left, y: rect.top })
     setSelectedSlot({ unitIndex, slotIndex })
@@ -117,13 +125,14 @@ const Armory = () => {
                   const gearName = armoryState[unitIndex]?.[slotIndex]
                   const gearData = gearName ? getGearByName(gearName) : null
                   const hasGear = gearName !== null && gearData !== undefined
+                  const orderNumber = getArmoryOrderNumber(armoryOrder, unitIndex, slotIndex)
 
                   return (
                     <div
                       key={slotIndex}
                       role="button"
                       tabIndex={0}
-                      className={`w-[64px] h-[64px] cursor-pointer flex items-center justify-center overflow-hidden border border-zinc-700 ${hasGear ? "bg-zinc-700" : "bg-zinc-600 hover:bg-zinc-500"
+                      className={`relative w-[64px] h-[64px] cursor-pointer flex items-center justify-center overflow-hidden border border-zinc-700 ${hasGear ? "bg-zinc-700" : "bg-zinc-600 hover:bg-zinc-500"
                         }`}
                       id={`armory-slot-${unitIndex}-${slotIndex}`}
                       onClick={(e) => handleSlotClick(e, unitIndex, slotIndex)}
@@ -155,6 +164,19 @@ const Armory = () => {
                           loading="eager"
                           decoding="sync"
                           className="w-12 h-12 object-contain"
+                        />
+                      )}
+                      {orderNumber !== null && (
+                        <OrderBadge
+                          orderNumber={orderNumber}
+                          onIncrement={() => {
+                            const coords: ArmoryCoords = { unitIndex, slotIndex }
+                            updateArmoryOrder(incrementOrder(armoryOrder, coords, armoryIsEqual))
+                          }}
+                          onDecrement={() => {
+                            const coords: ArmoryCoords = { unitIndex, slotIndex }
+                            updateArmoryOrder(decrementOrder(armoryOrder, coords, armoryIsEqual))
+                          }}
                         />
                       )}
                     </div>

@@ -1,9 +1,11 @@
 import { useState } from "react"
-import { useMainStore, useCurrentUnitSlots, MAX_UNIT_SLOT_COUNT } from "@/store"
+import { useMainStore, useCurrentUnitSlots, useCurrentUnitsOrder, getUnitsOrderNumber, MAX_UNIT_SLOT_COUNT } from "@/store"
 import { getUnitIconPath } from "@/utils/assetPaths"
 import { getUnitById, type UnitData } from "./units-utils"
 import UnitsSelector from "./UnitsSelector"
 import UnitTooltip from "./UnitTooltip"
+import OrderBadge from "@/components/OrderBadge"
+import { incrementOrder, decrementOrder, unitIsEqual } from "@/hooks/useItemOrder"
 
 interface AnchorPosition {
   x: number
@@ -19,7 +21,9 @@ const Units = () => {
   const addUnitSlot = useMainStore((s) => s.addUnitSlot)
   const setUnitSlot = useMainStore((s) => s.setUnitSlot)
   const removeUnitSlot = useMainStore((s) => s.removeUnitSlot)
+  const updateUnitsOrder = useMainStore((s) => s.updateUnitsOrder)
   const unitSlots = useCurrentUnitSlots()
+  const unitsOrder = useCurrentUnitsOrder()
 
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
@@ -29,6 +33,10 @@ const Units = () => {
   } | null>(null)
 
   const handleSlotClick = (e: React.MouseEvent, slotIndex: number) => {
+    // Don't open selector if clicking on the order badge
+    const target = e.target as HTMLElement
+    if (target.closest("[data-order-badge]")) return
+    
     const rect = e.currentTarget.getBoundingClientRect()
     setAnchorPosition({ x: rect.left, y: rect.top })
     setSelectedSlotIndex(slotIndex)
@@ -87,13 +95,14 @@ const Units = () => {
               const unitId = unitSlots[index]
               const unitData = unitId ? getUnitById(selectedFaction, unitId) : null
               const hasUnit = unitId !== null && unitId !== undefined && unitData !== undefined
+              const orderNumber = getUnitsOrderNumber(unitsOrder, index)
 
               return (
                 <div
                   key={`unit-${index}`}
                   role="button"
                   tabIndex={0}
-                  className={`${cellClass} cursor-pointer ${hasUnit ? "bg-zinc-700" : "bg-zinc-600 hover:bg-zinc-500"}`}
+                  className={`${cellClass} relative cursor-pointer ${hasUnit ? "bg-zinc-700" : "bg-zinc-600 hover:bg-zinc-500"}`}
                   id={`units-slot-${index}`}
                   onClick={(e) => handleSlotClick(e, index)}
                   onContextMenu={(e) => handleSlotRightClick(e, index)}
@@ -122,6 +131,13 @@ const Units = () => {
                       loading="eager"
                       decoding="sync"
                       className="w-16 h-16 object-contain"
+                    />
+                  )}
+                  {orderNumber !== null && (
+                    <OrderBadge
+                      orderNumber={orderNumber}
+                      onIncrement={() => updateUnitsOrder(incrementOrder(unitsOrder, index, unitIsEqual))}
+                      onDecrement={() => updateUnitsOrder(decrementOrder(unitsOrder, index, unitIsEqual))}
                     />
                   )}
                 </div>

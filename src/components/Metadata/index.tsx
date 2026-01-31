@@ -95,9 +95,17 @@ export default function Metadata() {
     setCommentaryValue(metadata.commentary)
   }, [metadata.commentary])
 
+  const adjustTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"
+      textareaRef.current.style.height = `${Math.max(96, textareaRef.current.scrollHeight)}px`
+    }
+  }
+
   useEffect(() => {
     if (commentaryEditing && textareaRef.current) {
       textareaRef.current.focus()
+      adjustTextareaHeight()
     }
   }, [commentaryEditing])
 
@@ -135,24 +143,30 @@ export default function Metadata() {
             <textarea
               ref={textareaRef}
               value={commentaryValue}
-              onChange={(e) => setCommentaryValue(e.target.value)}
+              onChange={(e) => {
+                setCommentaryValue(e.target.value)
+                adjustTextareaHeight()
+              }}
               onBlur={handleCommentarySubmit}
               onKeyDown={(e) => {
-                if (e.key === "Escape") {
+                if (e.key === "Enter" && e.shiftKey) {
+                  e.preventDefault()
+                  handleCommentarySubmit()
+                } else if (e.key === "Escape") {
                   setCommentaryValue(metadata.commentary)
                   setCommentaryEditing(false)
                 }
               }}
               placeholder="Write commentary here"
-              className="w-full h-24 bg-zinc-700 text-white text-sm border border-zinc-600 px-2 py-1.5 resize-none focus:outline-none focus:ring-1 focus:ring-amber-500"
+              className="w-full min-h-24 bg-zinc-700 text-white text-sm border border-zinc-600 px-2 py-1.5 resize-none focus:outline-none focus:ring-1 focus:ring-amber-500"
             />
           ) : (
             <button
               type="button"
               onClick={() => setCommentaryEditing(true)}
-              className="w-full text-left hover:bg-zinc-800 px-1 py-1 -mx-1 transition-colors min-h-[3rem]"
+              className="w-full text-left hover:bg-zinc-800 px-1 py-1 -mx-1 transition-colors min-h-12"
             >
-              <span className={`text-sm ${metadata.commentary ? "text-zinc-200" : "text-zinc-500 italic"}`}>
+              <span className={`text-sm whitespace-pre-wrap wrap-break-word ${metadata.commentary ? "text-zinc-200" : "text-zinc-500 italic"}`}>
                 {metadata.commentary || "Write commentary here"}
               </span>
             </button>

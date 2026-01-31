@@ -1,9 +1,11 @@
 import { useState } from "react"
-import { useCurrentMainBaseLayout, useCurrentMainBaseState, useMainStore, useUsedBuildingIds, useCurrentBuildingOrder, getBuildingOrderNumber } from "../../store"
+import { useCurrentMainBaseLayout, useCurrentMainBaseState, useMainStore, useUsedBuildingIds, useCurrentBuildingOrder, getBuildingOrderNumber, type BuildingCoords } from "../../store"
 import MainBaseBuildingsSelector, { type MainBuilding } from "./MainBaseBuildingsSelector"
 import { getBuildingIconPath } from "@/utils/assetPaths"
 import { useShareButton } from "@/hooks/useShareButton"
 import BuildingAttributesTooltip from "./BuildingAttributesTooltip"
+import OrderBadge from "@/components/OrderBadge"
+import { incrementOrder, decrementOrder, buildingIsEqual } from "@/hooks/useItemOrder"
 import mainBuildingsData from "./MainBaseBuildingsSelector/main-buildings.json"
 
 const mainBuildings = mainBuildingsData as MainBuilding[]
@@ -39,6 +41,7 @@ const MainBase = () => {
   const layout = useCurrentMainBaseLayout()
   const mainBaseState = useCurrentMainBaseState()
   const setMainBaseCell = useMainStore((state) => state.setMainBaseCell)
+  const updateBuildingOrder = useMainStore((state) => state.updateBuildingOrder)
   const usedBuildingIds = useUsedBuildingIds()
   const buildingOrder = useCurrentBuildingOrder()
   const { copied: shareCopied, handleShare } = useShareButton()
@@ -51,6 +54,10 @@ const MainBase = () => {
   } | null>(null)
 
   const handleCellClick = (e: React.MouseEvent, rowIndex: number, groupIndex: number, cellIndex: number) => {
+    // Don't open selector if clicking on the order badge
+    const target = e.target as HTMLElement
+    if (target.closest("[data-order-badge]")) return
+    
     const rect = e.currentTarget.getBoundingClientRect()
     setAnchorPosition({ x: rect.left, y: rect.top })
     setSelectedCell({ rowIndex, groupIndex, cellIndex })
@@ -143,9 +150,17 @@ const MainBase = () => {
                           />
                         )}
                         {orderNumber !== null && (
-                          <span className="absolute top-0.5 right-1 text-xs font-bold text-white bg-black/60 px-1 ">
-                            {orderNumber}
-                          </span>
+                          <OrderBadge
+                            orderNumber={orderNumber}
+                            onIncrement={() => {
+                              const coords: BuildingCoords = { rowIndex, groupIndex, cellIndex }
+                              updateBuildingOrder(incrementOrder(buildingOrder, coords, buildingIsEqual))
+                            }}
+                            onDecrement={() => {
+                              const coords: BuildingCoords = { rowIndex, groupIndex, cellIndex }
+                              updateBuildingOrder(decrementOrder(buildingOrder, coords, buildingIsEqual))
+                            }}
+                          />
                         )}
                       </div>
                     )

@@ -206,7 +206,7 @@ const BuildsSidebar = ({ onClose }: BuildsSidebarProps) => {
 
   return (
     <aside
-      className="fixed top-[calc(2.5rem+4em)] right-3 z-50 w-[280px] max-w-[90vw] max-h-[calc(100vh-2.5rem-4em-1rem)] flex flex-col border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden"
+      className="w-[280px] max-w-[90vw] flex flex-col border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden"
       aria-label="Build list"
     >
       <div className="flex items-center justify-between p-3 border-b border-zinc-700 shrink-0">

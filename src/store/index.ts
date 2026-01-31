@@ -87,12 +87,27 @@ export interface PanelVisibility {
   mainBaseOpen: boolean
   armoryOpen: boolean
   unitsOpen: boolean
+  metadataOpen: boolean
 }
 
 const initialPanelVisibility: PanelVisibility = {
   mainBaseOpen: true,
   armoryOpen: true,
   unitsOpen: true,
+  metadataOpen: false,
+}
+
+/** Build metadata (author, social, commentary) */
+export interface BuildMetadata {
+  author: string
+  social: string
+  commentary: string
+}
+
+const DEFAULT_AUTHOR = "anon"
+
+function createEmptyMetadata(author: string = DEFAULT_AUTHOR): BuildMetadata {
+  return { author, social: "", commentary: "" }
 }
 
 /** Saved build (local list, id not in URL) */
@@ -107,6 +122,7 @@ export interface SavedBuild {
   unitSlotCount: number
   unitSlots: UnitSlotsState
   panelVisibility: PanelVisibility
+  metadata: BuildMetadata
 }
 
 function generateBuildId(): string {
@@ -130,6 +146,8 @@ interface MainStore {
   unitSlotCount: number
   unitSlots: UnitSlotsState
   panelVisibility: PanelVisibility
+  metadata: BuildMetadata
+  defaultAuthor: string
   currentBuildName: string
   currentBuildId: CurrentBuildId
   savedBuilds: SavedBuild[]
@@ -142,6 +160,10 @@ interface MainStore {
   toggleMainBase: () => void
   toggleArmory: () => void
   toggleUnits: () => void
+  toggleMetadata: () => void
+  setMetadataAuthor: (author: string) => void
+  setMetadataSocial: (social: string) => void
+  setMetadataCommentary: (commentary: string) => void
   loadSharedBuild: (payload: SharedBuildPayload) => void
   setCurrentBuildName: (name: string) => void
   saveCurrentBuild: (name?: string) => void
@@ -162,6 +184,7 @@ export function getBuildSnapshot(state: {
   unitSlotCount: number
   unitSlots: UnitSlotsState
   panelVisibility: PanelVisibility
+  metadata: BuildMetadata
   currentBuildName: string
 }): string {
   return JSON.stringify({
@@ -172,6 +195,7 @@ export function getBuildSnapshot(state: {
     unitSlotCount: state.unitSlotCount,
     unitSlots: state.unitSlots,
     panelVisibility: state.panelVisibility,
+    metadata: state.metadata,
     currentBuildName: state.currentBuildName,
   })
 }
@@ -244,6 +268,7 @@ export const useMainStore = create<MainStore>()(
         set({
           selectedFaction: faction,
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
+          metadata: createEmptyMetadata(g.defaultAuthor),
           currentBuildId: null,
           currentBuildName: getDefaultBuildName(faction, get().savedBuilds),
         })
@@ -254,6 +279,8 @@ export const useMainStore = create<MainStore>()(
       unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
       unitSlots: initialUnitSlotsState,
       panelVisibility: initialPanelVisibility,
+      metadata: createEmptyMetadata(),
+      defaultAuthor: DEFAULT_AUTHOR,
       currentBuildName: INITIAL_BUILD_NAME,
       currentBuildId: null,
       savedBuilds: [],
@@ -271,6 +298,31 @@ export const useMainStore = create<MainStore>()(
       toggleUnits: () => {
         const { panelVisibility } = get()
         set({ panelVisibility: { ...panelVisibility, unitsOpen: !panelVisibility.unitsOpen } })
+        get().saveCurrentBuild()
+      },
+      toggleMetadata: () => {
+        const { panelVisibility } = get()
+        set({ panelVisibility: { ...panelVisibility, metadataOpen: !panelVisibility.metadataOpen } })
+        get().saveCurrentBuild()
+      },
+      setMetadataAuthor: (author) => {
+        const { metadata } = get()
+        const trimmed = author.trim() || DEFAULT_AUTHOR
+        set({
+          metadata: { ...metadata, author: trimmed },
+          // Update defaultAuthor if user specifies a non-default author
+          defaultAuthor: trimmed !== DEFAULT_AUTHOR ? trimmed : get().defaultAuthor,
+        })
+        get().saveCurrentBuild()
+      },
+      setMetadataSocial: (social) => {
+        const { metadata } = get()
+        set({ metadata: { ...metadata, social } })
+        get().saveCurrentBuild()
+      },
+      setMetadataCommentary: (commentary) => {
+        const { metadata } = get()
+        set({ metadata: { ...metadata, commentary } })
         get().saveCurrentBuild()
       },
       addUnitSlot: () => {
@@ -358,7 +410,7 @@ export const useMainStore = create<MainStore>()(
         get().saveCurrentBuild()
       },
       loadSharedBuild: (payload) => {
-        const { mainBaseState, buildingOrder, armoryState, unitSlots } = get()
+        const { mainBaseState, buildingOrder, armoryState, unitSlots, defaultAuthor } = get()
         const orderArray = Array.isArray(payload.order) ? payload.order : []
         const stateForFaction = Array.isArray(payload.state) ? payload.state : mainBasesState[payload.f]
         const armoryForFaction = Array.isArray(payload.armory) ? payload.armory : createEmptyArmoryForFaction()
@@ -370,6 +422,7 @@ export const useMainStore = create<MainStore>()(
           armoryState: { ...armoryState, [payload.f]: armoryForFaction },
           unitSlots: { ...unitSlots, [payload.f]: unitSlotsForFaction },
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
+          metadata: createEmptyMetadata(defaultAuthor),
           currentBuildId: null,
         })
       },
@@ -389,6 +442,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots,
           panelVisibility,
+          metadata,
           savedBuilds,
           currentBuildName,
           currentBuildId,
@@ -409,6 +463,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots,
           panelVisibility,
+          metadata,
           currentBuildName: finalName,
         })
         if (existing) {
@@ -423,6 +478,7 @@ export const useMainStore = create<MainStore>()(
             unitSlotCount,
             unitSlots: deepClone(unitSlots),
             panelVisibility: deepClone(panelVisibility),
+            metadata: deepClone(metadata),
             createdAt: Date.now(),
           }
           const newSavedBuilds = [...savedBuilds]
@@ -444,6 +500,7 @@ export const useMainStore = create<MainStore>()(
             unitSlotCount,
             unitSlots: deepClone(unitSlots),
             panelVisibility: deepClone(panelVisibility),
+            metadata: deepClone(metadata),
           }
           set({
             savedBuilds: [saved, ...savedBuilds],
@@ -454,13 +511,14 @@ export const useMainStore = create<MainStore>()(
         }
       },
       loadBuild: (id) => {
-        const { savedBuilds } = get()
+        const { savedBuilds, defaultAuthor } = get()
         const build = savedBuilds.find((b) => b.id === id)
         if (!build) return
         const unitSlotCount = typeof build.unitSlotCount === "number" ? build.unitSlotCount : DEFAULT_UNIT_SLOT_COUNT
         const armoryState = build.armoryState || initialArmoryState
         const unitSlots = build.unitSlots || initialUnitSlotsState
         const panelVisibility = build.panelVisibility || initialPanelVisibility
+        const metadata = build.metadata || createEmptyMetadata(defaultAuthor)
         const snapshot = getBuildSnapshot({
           selectedFaction: build.selectedFaction,
           mainBaseState: build.mainBaseState,
@@ -469,6 +527,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots,
           panelVisibility,
+          metadata,
           currentBuildName: build.name,
         })
         set({
@@ -479,19 +538,21 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots: deepClone(unitSlots),
           panelVisibility: deepClone(panelVisibility),
+          metadata: deepClone(metadata),
           currentBuildName: build.name,
           currentBuildId: id,
           lastSavedSnapshot: snapshot,
         })
       },
       duplicateBuild: (id) => {
-        const { savedBuilds } = get()
+        const { savedBuilds, defaultAuthor } = get()
         const build = savedBuilds.find((b) => b.id === id)
         if (!build) return
         const unitSlotCount = typeof build.unitSlotCount === "number" ? build.unitSlotCount : DEFAULT_UNIT_SLOT_COUNT
         const armoryState = build.armoryState || initialArmoryState
         const unitSlots = build.unitSlots || initialUnitSlotsState
         const panelVisibility = build.panelVisibility || initialPanelVisibility
+        const metadata = build.metadata || createEmptyMetadata(defaultAuthor)
         const newName = getUniqueBuildName(build.name + " (copy)", savedBuilds)
         const newId = generateBuildId()
         const duplicated: SavedBuild = {
@@ -505,6 +566,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots: deepClone(unitSlots),
           panelVisibility: deepClone(panelVisibility),
+          metadata: deepClone(metadata),
         }
         const snapshot = getBuildSnapshot({
           selectedFaction: duplicated.selectedFaction,
@@ -514,6 +576,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount: duplicated.unitSlotCount,
           unitSlots: duplicated.unitSlots,
           panelVisibility: duplicated.panelVisibility,
+          metadata: duplicated.metadata,
           currentBuildName: duplicated.name,
         })
         set({
@@ -525,13 +588,14 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount: duplicated.unitSlotCount,
           unitSlots: deepClone(duplicated.unitSlots),
           panelVisibility: deepClone(duplicated.panelVisibility),
+          metadata: deepClone(duplicated.metadata),
           currentBuildName: duplicated.name,
           currentBuildId: newId,
           lastSavedSnapshot: snapshot,
         })
       },
       deleteBuild: (id) => {
-        const { savedBuilds, currentBuildId } = get()
+        const { savedBuilds, currentBuildId, defaultAuthor } = get()
         const build = savedBuilds.find((b) => b.id === id)
         if (!build) return
         if (currentBuildId === id) {
@@ -544,6 +608,7 @@ export const useMainStore = create<MainStore>()(
             unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
             unitSlots: initialUnitSlotsState,
             panelVisibility: initialPanelVisibility,
+            metadata: createEmptyMetadata(defaultAuthor),
             currentBuildName: getDefaultBuildName("atreides", newSaved),
             currentBuildId: null,
             lastSavedSnapshot: null,
@@ -554,7 +619,7 @@ export const useMainStore = create<MainStore>()(
         }
       },
       resetToDefault: () => {
-        const { savedBuilds } = get()
+        const { savedBuilds, defaultAuthor } = get()
         set({
           selectedFaction: "atreides",
           mainBaseState: mainBasesState,
@@ -563,6 +628,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
           unitSlots: initialUnitSlotsState,
           panelVisibility: initialPanelVisibility,
+          metadata: createEmptyMetadata(defaultAuthor),
           currentBuildName: getDefaultBuildName("atreides", savedBuilds),
           currentBuildId: null,
           lastSavedSnapshot: null,
@@ -584,6 +650,7 @@ export const useMainStore = create<MainStore>()(
             unitSlotCount: g.unitSlotCount,
             unitSlots: g.unitSlots,
             panelVisibility: g.panelVisibility,
+            metadata: g.metadata,
             currentBuildName: trimmed,
           })
         }
@@ -596,6 +663,7 @@ export const useMainStore = create<MainStore>()(
         const p = persisted as Record<string, unknown> | null
         if (!p || typeof p !== "object") return persisted as unknown as MainStore
         const migrated = { ...p } as Record<string, unknown>
+        const defaultAuthor = typeof migrated.defaultAuthor === "string" ? migrated.defaultAuthor : DEFAULT_AUTHOR
         if (typeof migrated.unitSlotCount !== "number") {
           migrated.unitSlotCount = DEFAULT_UNIT_SLOT_COUNT
         }
@@ -610,6 +678,14 @@ export const useMainStore = create<MainStore>()(
         // Migrate panelVisibility if missing
         if (!migrated.panelVisibility) {
           migrated.panelVisibility = initialPanelVisibility
+        }
+        // Migrate metadata if missing
+        if (!migrated.metadata) {
+          migrated.metadata = createEmptyMetadata(defaultAuthor)
+        }
+        // Migrate defaultAuthor if missing
+        if (!migrated.defaultAuthor) {
+          migrated.defaultAuthor = DEFAULT_AUTHOR
         }
         const builds = migrated.savedBuilds
         if (Array.isArray(builds)) {
@@ -626,6 +702,9 @@ export const useMainStore = create<MainStore>()(
             }
             if (!(b as { panelVisibility?: unknown }).panelVisibility) {
               updated.panelVisibility = initialPanelVisibility
+            }
+            if (!(b as { metadata?: unknown }).metadata) {
+              updated.metadata = createEmptyMetadata(defaultAuthor)
             }
             return updated
           })
@@ -697,6 +776,7 @@ export function useIsBuildUpToDate(): boolean {
   const unitSlotCount = useMainStore((s) => s.unitSlotCount)
   const unitSlots = useMainStore((s) => s.unitSlots)
   const panelVisibility = useMainStore((s) => s.panelVisibility)
+  const metadata = useMainStore((s) => s.metadata)
   const currentBuildName = useMainStore((s) => s.currentBuildName)
   const currentSnapshot = getBuildSnapshot({
     selectedFaction,
@@ -706,6 +786,7 @@ export function useIsBuildUpToDate(): boolean {
     unitSlotCount,
     unitSlots,
     panelVisibility,
+    metadata,
     currentBuildName,
   })
   return lastSavedSnapshot !== null && currentSnapshot === lastSavedSnapshot

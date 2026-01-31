@@ -12,6 +12,7 @@ const Topbar = ({ onCreate }: TopbarProps) => {
   const toggleMainBase = useMainStore((s) => s.toggleMainBase)
   const toggleArmory = useMainStore((s) => s.toggleArmory)
   const toggleUnits = useMainStore((s) => s.toggleUnits)
+  const toggleMetadata = useMainStore((s) => s.toggleMetadata)
 
   const panelBtnClass = (open: boolean) =>
     `px-3 py-1.5 text-sm font-medium border transition-colors ${open ? "bg-amber-600 border-amber-500 text-white" : "bg-zinc-800 border-zinc-600 text-zinc-200 hover:bg-zinc-700"
@@ -63,6 +64,15 @@ const Topbar = ({ onCreate }: TopbarProps) => {
         className={panelBtnClass(sidebarOpen)}
       >
         Builds
+      </button>
+      <button
+        type="button"
+        onClick={toggleMetadata}
+        aria-pressed={panelVisibility.metadataOpen}
+        aria-label="Toggle Metadata"
+        className={panelBtnClass(panelVisibility.metadataOpen)}
+      >
+        Meta
       </button>
     </header>
   )

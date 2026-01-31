@@ -4,6 +4,7 @@ import Armory from "./components/Armory"
 import Units from "./components/Units"
 import Topbar from "./components/Topbar"
 import BuildsSidebar from "./components/BuildsSidebar"
+import Metadata from "./components/Metadata"
 import BuildLayout from "./components/BuildLayout"
 import { useMainStore, useUIStore } from "./store"
 import { decodeBuildPayload } from "./utils/mainBaseShare"
@@ -33,7 +34,10 @@ function App() {
           armory={panelVisibility.armoryOpen ? <Armory /> : undefined}
         />
       </div>
-      {sidebarOpen && <BuildsSidebar onClose={() => setSidebarOpen(false)} />}
+      <div className="fixed top-[calc(2.5rem+4em)] right-3 z-50 flex flex-col gap-2 max-h-[calc(100vh-2.5rem-4em-1rem)] overflow-y-auto">
+        {sidebarOpen && <BuildsSidebar onClose={() => setSidebarOpen(false)} />}
+        {panelVisibility.metadataOpen && <Metadata />}
+      </div>
     </div>
   )
 }

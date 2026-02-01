@@ -1,5 +1,6 @@
 import { useUIStore, useMainStore } from "@/store"
 import FactionSelector from "@/components/FactionSelector"
+import Button from "@/components/Button"
 
 interface TopbarProps {
   onNew: () => void
@@ -17,13 +18,6 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
   const toggleCouncillors = useMainStore((s) => s.toggleCouncillors)
   const toggleMetadata = useMainStore((s) => s.toggleMetadata)
 
-  const btnBase =
-    "w-28 h-9 shrink-0 px-4 py-1.5 text-sm font-normal cursor-pointer relative z-10 bg-no-repeat bg-center bg-contain transition-[background] flex items-center justify-center"
-  const btnRest = "bg-[url('/images/hud/btn_rest.png')]"
-  const btnHover = "hover:bg-[url('/images/hud/btn_hover.png')]"
-  const panelBtnClass = (open: boolean) =>
-    `${btnBase} ${btnRest} ${btnHover} text-topbar-btn ${open ? "!bg-[url('/images/hud/btn_hover.png')]" : ""}`
-
   const factionBgVar = `var(--color-faction-${selectedFaction})` as const
   const sideBgImage = "url(/images/hud/sides_left.png), url(/images/hud/sides_right.png)"
 
@@ -40,78 +34,70 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
     >
       <div className="flex items-center gap-2 relative z-10">
         <FactionSelector />
-        <button
-          type="button"
-          onClick={onNew}
-          aria-label="Create new build"
-          className={`${btnBase} ${btnRest} ${btnHover} text-topbar-btn`}
-        >
+        <Button onClick={onNew} aria-label="Create new build" mutedWhenUnpressed={false}>
           New
-        </button>
-        <button
-          type="button"
-          onClick={onFork}
-          aria-label="Fork current build"
-          className={`${btnBase} ${btnRest} ${btnHover} text-topbar-btn`}
-        >
+        </Button>
+        <Button onClick={onFork} aria-label="Fork current build" mutedWhenUnpressed={false}>
           Fork
-        </button>
+        </Button>
       </div>
       <div className="flex items-center gap-2 relative z-10">
-        <button
-          type="button"
+        <Button
           onClick={toggleMainBase}
           aria-pressed={panelVisibility.mainBaseOpen}
           aria-label="Toggle Main Base"
-          className={`${panelBtnClass(panelVisibility.mainBaseOpen)} relative z-10`}
+          pressed={panelVisibility.mainBaseOpen}
+          mutedWhenUnpressed
         >
           Main Base
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
           onClick={toggleArmory}
           aria-pressed={panelVisibility.armoryOpen}
           aria-label="Toggle Armory"
-          className={`${panelBtnClass(panelVisibility.armoryOpen)} relative z-10`}
+          pressed={panelVisibility.armoryOpen}
+          mutedWhenUnpressed
         >
           Armory
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
           onClick={toggleUnits}
           aria-pressed={panelVisibility.unitsOpen}
           aria-label="Toggle Units"
-          className={`${panelBtnClass(panelVisibility.unitsOpen)} relative z-10`}
+          pressed={panelVisibility.unitsOpen}
+          mutedWhenUnpressed
         >
           Units
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
           onClick={toggleCouncillors}
           aria-pressed={panelVisibility.councillorsOpen}
           aria-label="Toggle Councillors"
-          className={`${panelBtnClass(panelVisibility.councillorsOpen)} relative z-10`}
+          pressed={panelVisibility.councillorsOpen}
+          mutedWhenUnpressed
         >
           Councillors
-        </button>
-        <button
-          type="button"
-          onClick={toggleSidebar}
-          aria-pressed={sidebarOpen}
-          aria-label="Open build list"
-          className={`${panelBtnClass(sidebarOpen)} relative z-10`}
-        >
-          Builds
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
           onClick={toggleMetadata}
           aria-pressed={panelVisibility.metadataOpen}
           aria-label="Toggle Metadata"
-          className={`${panelBtnClass(panelVisibility.metadataOpen)} relative z-10`}
+          pressed={panelVisibility.metadataOpen}
+          mutedWhenUnpressed
         >
           Meta
-        </button>
+        </Button>
+        <Button
+          onClick={toggleSidebar}
+          aria-pressed={sidebarOpen}
+          aria-label="Open build list"
+          pressed={sidebarOpen}
+          mutedWhenUnpressed
+          primary
+          className="ml-3"
+        >
+          Builds
+        </Button>
       </div>
       {/* Logo */}
       <img

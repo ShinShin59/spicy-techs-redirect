@@ -20,7 +20,7 @@ const waveFragmentShader = `
 precision highp float;
 uniform vec2 resolution;
 uniform float time;
-uniform float waveSpeed;
+uniform vec2 waveDirection;
 uniform float waveFrequency;
 uniform float waveAmplitude;
 uniform vec3 waveColor;
@@ -75,7 +75,7 @@ float fbm(vec2 p) {
 }
 
 float pattern(vec2 p) {
-  vec2 p2 = p - time * waveSpeed;
+  vec2 p2 = p - time * waveDirection;
   return fbm(p + fbm(p2));
 }
 
@@ -150,7 +150,7 @@ class RetroEffectImpl extends Effect {
   }
 
   set colorNum(v: number) {
-    ;(this.uniforms.get("colorNum") as THREE.Uniform<number>).value = v
+    ; (this.uniforms.get("colorNum") as THREE.Uniform<number>).value = v
   }
 
   get colorNum() {
@@ -158,7 +158,7 @@ class RetroEffectImpl extends Effect {
   }
 
   set pixelSize(v: number) {
-    ;(this.uniforms.get("pixelSize") as THREE.Uniform<number>).value = v
+    ; (this.uniforms.get("pixelSize") as THREE.Uniform<number>).value = v
   }
 
   get pixelSize() {
@@ -178,7 +178,7 @@ const RetroEffect = forwardRef<
 RetroEffect.displayName = "RetroEffect"
 
 function DitheredWaves({
-  waveSpeed,
+  waveDirection,
   waveFrequency,
   waveAmplitude,
   waveColor,
@@ -188,7 +188,7 @@ function DitheredWaves({
   enableMouseInteraction,
   mouseRadius,
 }: {
-  waveSpeed: number
+  waveDirection: [number, number]
   waveFrequency: number
   waveAmplitude: number
   waveColor: [number, number, number]
@@ -204,7 +204,7 @@ function DitheredWaves({
   const waveUniformsRef = useRef({
     time: new THREE.Uniform(0),
     resolution: new THREE.Uniform(new THREE.Vector2(0, 0)),
-    waveSpeed: new THREE.Uniform(waveSpeed),
+    waveDirection: new THREE.Uniform(new THREE.Vector2(...waveDirection)),
     waveFrequency: new THREE.Uniform(waveFrequency),
     waveAmplitude: new THREE.Uniform(waveAmplitude),
     waveColor: new THREE.Uniform(new THREE.Color(...waveColor)),
@@ -226,19 +226,30 @@ function DitheredWaves({
   const prevColor = useRef([...waveColor])
   useFrame(({ clock }) => {
     const u = waveUniformsRef.current
-
-    if (!disableAnimation) {
-      ;(u.time.value as number) = clock.getElapsedTime()
+    // Initialize resolution in useFrame so it's set before first render (useEffect runs after paint)
+    const dpr = gl.getPixelRatio()
+    const w = Math.floor(size.width * dpr)
+    const h = Math.floor(size.height * dpr)
+    const res = u.resolution.value as THREE.Vector2
+    if (res.x !== w || res.y !== h) {
+      res.set(w, h)
     }
 
-    if (u.waveSpeed.value !== waveSpeed) u.waveSpeed.value = waveSpeed
+    if (!disableAnimation) {
+      ; (u.time.value as number) = clock.getElapsedTime()
+    }
+
+    const dir = u.waveDirection.value as THREE.Vector2
+    if (dir.x !== waveDirection[0] || dir.y !== waveDirection[1]) {
+      dir.set(waveDirection[0], waveDirection[1])
+    }
     if (u.waveFrequency.value !== waveFrequency)
       u.waveFrequency.value = waveFrequency
     if (u.waveAmplitude.value !== waveAmplitude)
       u.waveAmplitude.value = waveAmplitude
 
     if (!prevColor.current.every((v, i) => v === waveColor[i])) {
-      ;(u.waveColor.value as THREE.Color).setRGB(...waveColor)
+      ; (u.waveColor.value as THREE.Color).setRGB(...waveColor)
       prevColor.current = [...waveColor]
     }
 
@@ -246,7 +257,7 @@ function DitheredWaves({
     u.mouseRadius.value = mouseRadius
 
     if (enableMouseInteraction) {
-      ;(u.mousePos.value as THREE.Vector2).copy(mouseRef.current)
+      ; (u.mousePos.value as THREE.Vector2).copy(mouseRef.current)
     }
   })
 
@@ -263,7 +274,7 @@ function DitheredWaves({
   return (
     <>
       <mesh onPointerMove={handlePointerMove}>
-        <planeGeometry args={[2, 2]} />
+        <planeGeometry args={[size.width, size.height]} />
         <shaderMaterial
           vertexShader={waveVertexShader}
           fragmentShader={waveFragmentShader}
@@ -278,8 +289,9 @@ function DitheredWaves({
   )
 }
 
-export default function Dither({
+function DitherInner({
   waveSpeed = 0.05,
+  waveDirection: waveDirectionProp,
   waveFrequency = 3,
   waveAmplitude = 0.3,
   waveColor = [0.5, 0.5, 0.5] as [number, number, number],
@@ -292,6 +304,7 @@ export default function Dither({
   style,
 }: {
   waveSpeed?: number
+  waveDirection?: [number, number]
   waveFrequency?: number
   waveAmplitude?: number
   waveColor?: [number, number, number]
@@ -303,6 +316,9 @@ export default function Dither({
   className?: string
   style?: React.CSSProperties
 }) {
+  const waveDirection: [number, number] =
+    waveDirectionProp ?? [waveSpeed, waveSpeed]
+
   return (
     <div
       className={className}
@@ -314,7 +330,7 @@ export default function Dither({
         gl={{ alpha: true, antialias: false }}
       >
         <DitheredWaves
-          waveSpeed={waveSpeed}
+          waveDirection={waveDirection}
           waveFrequency={waveFrequency}
           waveAmplitude={waveAmplitude}
           waveColor={waveColor}
@@ -328,3 +344,5 @@ export default function Dither({
     </div>
   )
 }
+
+export default DitherInner

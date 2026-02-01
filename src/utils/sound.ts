@@ -60,6 +60,20 @@ export function playMenuToggleSound(isOpening: boolean): void {
   playSound(isOpening ? UI_MENU_OPEN : UI_MENU_CLOSE)
 }
 
+/** Played when changing faction, selecting a build in the list, or picking a councillor. */
+const UI_PICKCOUNCELOR = "UI_Mainmenu_Pickcouncelor.mp3"
+
+export function playSelectionSound(): void {
+  playSound(UI_PICKCOUNCELOR)
+}
+
+/** Played when choosing a building from the Main Base building picker. */
+const MAIN_BASE_BUILDING = "main_base_building.mp3"
+
+export function playMainBaseBuildingSound(): void {
+  playSound(MAIN_BASE_BUILDING)
+}
+
 export const BUTTON_SPENDRESOURCES_SOUNDS = [
   "Button_Spendresources.mp3",
   "Button_Spendresources_2.mp3",

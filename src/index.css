@@ -104,6 +104,46 @@ body {
   animation: logo-halo 5s ease-in-out infinite;
 }
 
+/* Title animations on faction change – quick, squared, metallic feel */
+@keyframes title-pulse-sharp {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes title-strike {
+  0% { transform: scale(1); }
+  20% { transform: scale(0.97); }
+  55% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes title-strobe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes title-impact {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(4px); }
+}
+
+.title-anim-pulse-sharp {
+  animation: title-pulse-sharp 0.14s linear forwards;
+}
+
+.title-anim-strike {
+  animation: title-strike 0.16s linear forwards;
+}
+
+.title-anim-strobe {
+  animation: title-strobe 0.1s steps(1) forwards;
+}
+
+.title-anim-impact {
+  animation: title-impact 0.12s steps(1) forwards;
+}
+
 /* Prevent image dragging */
 img {
   -webkit-user-drag: none;

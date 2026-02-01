@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useCurrentMainBaseLayout, useCurrentMainBaseState, useMainStore, useUsedBuildingIds, useCurrentBuildingOrder, getBuildingOrderNumber, type BuildingCoords } from "../../store"
 import MainBaseBuildingsSelector, { type MainBuilding } from "./MainBaseBuildingsSelector"
 import { getBuildingIconPath } from "@/utils/assetPaths"
-import { playCancelSlotSound } from "@/utils/sound"
+import { playCancelSlotSound, playMenuToggleSound, playMainBaseBuildingSound } from "@/utils/sound"
 import BuildingAttributesTooltip from "./BuildingAttributesTooltip"
 import OrderBadge from "@/components/OrderBadge"
 import PanelCorners from "@/components/PanelCorners"
@@ -60,6 +60,34 @@ const MainBase = () => {
     const target = e.target as HTMLElement
     if (target.closest("[data-order-badge]")) return
 
+    const buildingName = mainBaseState[rowIndex]?.[groupIndex]?.[cellIndex]
+    const buildingData = getBuildingByName(buildingName)
+    const hasBuilding = buildingName !== null && buildingData !== undefined
+    const groupState = mainBaseState[rowIndex]?.[groupIndex] ?? []
+    const emptyCount = groupState.filter((v) => v === null).length
+    const firstEmptyIndex = groupState.findIndex((v) => v === null)
+    const slotTypeForCell: SlotType =
+      hasBuilding && buildingData
+        ? "filled"
+        : emptyCount >= 2 && cellIndex !== firstEmptyIndex
+          ? "empty_disabled"
+          : "empty_add"
+
+    // Empty slot only: toggle building selector (second click on same slot closes it)
+    const isSameCell =
+      selectedCell &&
+      selectedCell.rowIndex === rowIndex &&
+      selectedCell.groupIndex === groupIndex &&
+      selectedCell.cellIndex === cellIndex
+    if (slotTypeForCell === "empty_add" && isSameCell) {
+      handleCloseSelector()
+      return
+    }
+
+    if (slotTypeForCell === "empty_add") {
+      playMenuToggleSound(true)
+    }
+
     const rect = e.currentTarget.getBoundingClientRect()
     setAnchorPosition({ x: rect.left, y: rect.top })
     setSelectedCell({ rowIndex, groupIndex, cellIndex })
@@ -67,6 +95,9 @@ const MainBase = () => {
 
   const handleSelectBuilding = (buildingId: string | null) => {
     if (selectedCell) {
+      if (buildingId !== null) {
+        playMainBaseBuildingSound()
+      }
       setMainBaseCell(selectedCell.rowIndex, selectedCell.groupIndex, selectedCell.cellIndex, buildingId)
       setSelectedCell(null)
       setAnchorPosition(null)

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, memo } from "react"
 import { useMainStore, type SavedBuild, type FactionLabel } from "@/store"
 import { getFactionIconPath } from "@/utils/assetPaths"
+import { playSelectionSound } from "@/utils/sound"
 import PanelCorners from "@/components/PanelCorners"
 
 function getFactionRingClass(faction: FactionLabel): string {
@@ -206,6 +207,13 @@ const BuildsSidebar = ({ onClose }: BuildsSidebarProps) => {
   const deleteBuild = useMainStore((s) => s.deleteBuild)
   const renameBuild = useMainStore((s) => s.renameBuild)
 
+  const handleLoadBuild = (id: string) => {
+    if (id !== currentBuildId) {
+      playSelectionSound()
+    }
+    loadBuild(id)
+  }
+
   return (
     <aside
       className="relative w-[280px] max-w-[90vw] flex flex-col border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden"
@@ -236,7 +244,7 @@ const BuildsSidebar = ({ onClose }: BuildsSidebarProps) => {
               key={build.id}
               build={build}
               isSelected={build.id === currentBuildId}
-              onLoad={loadBuild}
+              onLoad={handleLoadBuild}
               onDuplicate={duplicateBuild}
               onDelete={deleteBuild}
               onRename={renameBuild}

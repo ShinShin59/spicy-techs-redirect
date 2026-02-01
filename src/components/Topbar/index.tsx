@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useUIStore, useMainStore } from "@/store"
 import FactionSelector from "@/components/FactionSelector"
 import Button from "@/components/Button"
@@ -11,7 +11,10 @@ interface TopbarProps {
 
 const Topbar = ({ onNew, onFork }: TopbarProps) => {
   const [logoVisible, setLogoVisible] = useState(false)
+  const [titleAnimation, setTitleAnimation] = useState<string | null>(null)
+  const isInitialMount = useRef(true)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const currentBuildId = useMainStore((s) => s.currentBuildId)
   const sidebarOpen = useUIStore((s) => s.sidebarOpen)
   const toggleSidebar = useUIStore((s) => s.toggleSidebar)
   const panelVisibility = useMainStore((s) => s.panelVisibility)
@@ -27,6 +30,16 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
   useEffect(() => {
     document.fonts.load('1em "Dune Rise"').then(() => setLogoVisible(true))
   }, [])
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false
+      return
+    }
+    setTitleAnimation("title-anim-pulse-sharp")
+    const t = setTimeout(() => setTitleAnimation(null), 200)
+    return () => clearTimeout(t)
+  }, [selectedFaction, currentBuildId])
 
   return (
     <header
@@ -138,7 +151,12 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
           filter: "drop-shadow(0 0 40px rgba(0,0,0,0.4)) drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
         }}
       >
-        <span className="logo-title-halo">SPICY TECHS</span>
+        <span
+          className={`inline-block ${titleAnimation ?? ""}`}
+          onAnimationEnd={() => setTitleAnimation(null)}
+        >
+          <span className="logo-title-halo">SPICY TECHS</span>
+        </span>
       </h1>
     </header>
   )

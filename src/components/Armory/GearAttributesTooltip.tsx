@@ -1,6 +1,5 @@
 import type { GearItem } from "./armory-utils"
-
-const OFFSET = 8
+import TooltipWrapper from "@/components/shared/TooltipWrapper"
 
 export interface GearAttributesTooltipProps {
   gear: GearItem
@@ -142,18 +141,8 @@ export default function GearAttributesTooltip({
   gear,
   anchorRect,
 }: GearAttributesTooltipProps) {
-  const style: React.CSSProperties = {
-    position: "fixed",
-    left: anchorRect.left + anchorRect.width + OFFSET,
-    top: anchorRect.top,
-    maxWidth: 320,
-  }
-
   return (
-    <div
-      className="z-60 bg-zinc-900 border border-zinc-600 shadow-lg pointer-events-none overflow-hidden"
-      style={style}
-    >
+    <TooltipWrapper anchorRect={anchorRect}>
       {/* Header */}
       <div className="px-3 py-2 border-b border-zinc-700/80 bg-zinc-700">
         <div className="text-zinc-100 font-semibold text-sm uppercase tracking-wide">
@@ -176,6 +165,6 @@ export default function GearAttributesTooltip({
           No description available
         </div>
       )}
-    </div>
+    </TooltipWrapper>
   )
 }

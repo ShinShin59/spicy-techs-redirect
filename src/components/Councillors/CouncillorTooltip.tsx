@@ -1,4 +1,4 @@
-const OFFSET = 8
+import TooltipWrapper from "@/components/shared/TooltipWrapper"
 
 const CATEGORY_COLORS: Record<string, string> = {
   Economy: "text-economy",
@@ -21,18 +21,8 @@ export default function CouncillorTooltip({
   councillor,
   anchorRect,
 }: CouncillorTooltipProps) {
-  const style: React.CSSProperties = {
-    position: "fixed",
-    left: anchorRect.left + anchorRect.width + OFFSET,
-    top: anchorRect.top,
-    maxWidth: 320,
-  }
-
   return (
-    <div
-      className="z-60 bg-zinc-900 border border-zinc-600 shadow-lg pointer-events-none overflow-hidden"
-      style={style}
-    >
+    <TooltipWrapper anchorRect={anchorRect}>
       <div className="px-3 py-2 border-b border-zinc-700/80 bg-zinc flex items-center justify-between gap-2">
         <div className="text-zinc-100 font-semibold text-sm uppercase tracking-wide truncate">
           {councillor.name}
@@ -56,6 +46,6 @@ export default function CouncillorTooltip({
       <div className="px-3 py-2 text-gray-500 text-xs line-height-0.8 italic">
         {councillor.description}
       </div>
-    </div>
+    </TooltipWrapper>
   )
 }

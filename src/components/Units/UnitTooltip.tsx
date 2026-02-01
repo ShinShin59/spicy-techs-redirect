@@ -1,4 +1,4 @@
-const OFFSET = 8
+import TooltipWrapper from "@/components/shared/TooltipWrapper"
 
 export interface UnitTooltipProps {
   unit: {
@@ -15,22 +15,12 @@ export default function UnitTooltip({
   unit,
   anchorRect,
 }: UnitTooltipProps) {
-  const style: React.CSSProperties = {
-    position: "fixed",
-    left: anchorRect.left + anchorRect.width + OFFSET,
-    top: anchorRect.top,
-    maxWidth: 320,
-  }
-
   const hasAttributes = unit.attributes && unit.attributes.length > 0
   const stats = unit.stats
   const hasStats = stats && (stats.health != null || stats.power != null || stats.armor != null)
 
   return (
-    <div
-      className="z-60 bg-zinc-900 border border-zinc-600 shadow-lg pointer-events-none overflow-hidden"
-      style={style}
-    >
+    <TooltipWrapper anchorRect={anchorRect}>
       {/* Header: name + CP cost */}
       <div className="px-3 py-2 border-b border-zinc-700/80 bg-zinc-700 flex items-center justify-between gap-2">
         <div className="text-zinc-100 font-semibold text-sm uppercase tracking-wide truncate">
@@ -95,6 +85,6 @@ export default function UnitTooltip({
           No description available
         </div>
       )}
-    </div>
+    </TooltipWrapper>
   )
 }

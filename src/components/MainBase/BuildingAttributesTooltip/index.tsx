@@ -1,6 +1,5 @@
 import type { MainBuilding } from "../MainBaseBuildingsSelector"
-
-const OFFSET = 8
+import TooltipWrapper from "@/components/shared/TooltipWrapper"
 
 const categoryBg: Record<MainBuilding["category"], string> = {
   Economy: "bg-economy",
@@ -105,21 +104,11 @@ export default function BuildingAttributesTooltip({
   building,
   anchorRect,
 }: BuildingAttributesTooltipProps) {
-  const style: React.CSSProperties = {
-    position: "fixed",
-    left: anchorRect.left + anchorRect.width + OFFSET,
-    top: anchorRect.top,
-    maxWidth: 320,
-  }
-
   const bgClass = categoryBg[building.category]
   const borderClass = categoryBorder[building.category]
 
   return (
-    <div
-      className={`z-60 bg-zinc-900 border  shadow-lg pointer-events-none overflow-hidden ${borderClass}`}
-      style={style}
-    >
+    <TooltipWrapper anchorRect={anchorRect} className={borderClass}>
       <div className={`px-3 py-2 border-b border-zinc-700/80 ${bgClass}`}>
         <div className="text-zinc-100 font-semibold text-sm uppercase tracking-wide">
           {building.name}
@@ -141,6 +130,6 @@ export default function BuildingAttributesTooltip({
           {building.desc}
         </div>
       ) : null}
-    </div>
+    </TooltipWrapper>
   )
 }

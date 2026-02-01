@@ -8,6 +8,7 @@ import BuildsSidebar from "./components/BuildsSidebar"
 import Metadata from "./components/Metadata"
 import BuildLayout from "./components/BuildLayout"
 import AnimatedBackground from "./components/AnimatedBackground"
+import DitherBackground from "./components/DitherBackground"
 import { useMainStore, useUIStore } from "./store"
 import { decodeBuildPayload } from "./utils/mainBaseShare"
 // Import assetPaths to trigger preloading at module load time (before render)
@@ -30,6 +31,7 @@ function App() {
   return (
     <div className="w-screen h-screen text-white flex flex-col overflow-hidden select-none relative">
       <AnimatedBackground />
+      <DitherBackground />
       <Topbar onNew={createNewBuild} onFork={forkCurrentBuild} />
       <div className="flex-1 flex items-center justify-center p-4 overflow-auto">
         <BuildLayout

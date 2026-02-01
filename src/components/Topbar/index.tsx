@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { useUIStore, useMainStore } from "@/store"
 import FactionSelector from "@/components/FactionSelector"
 import Button from "@/components/Button"
@@ -8,6 +9,7 @@ interface TopbarProps {
 }
 
 const Topbar = ({ onNew, onFork }: TopbarProps) => {
+  const [logoVisible, setLogoVisible] = useState(false)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const sidebarOpen = useUIStore((s) => s.sidebarOpen)
   const toggleSidebar = useUIStore((s) => s.toggleSidebar)
@@ -20,6 +22,10 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
 
   const factionBgVar = `var(--color-faction-${selectedFaction})` as const
   const sideBgImage = "url(/images/hud/sides_left.png), url(/images/hud/sides_right.png)"
+
+  useEffect(() => {
+    document.fonts.load('1em "Dune Rise"').then(() => setLogoVisible(true))
+  }, [])
 
   return (
     <header
@@ -99,13 +105,16 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
           Builds
         </Button>
       </div>
-      {/* Logo */}
-      <img
-        src="/images/hud/spicy_techs.png"
-        alt=""
-        aria-hidden
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[100px] z-20 pointer-events-none"
-      />
+      {/* Logo – H1 with Dune Rise, hidden until font loads then fades in */}
+      <h1
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[130px] z-20 pointer-events-none font-display font-semibold uppercase tracking-[0.12em] text-center text-5xl md:text-6xl text-[#a89b82]/90 transition-opacity duration-300 ${logoVisible ? "opacity-100" : "opacity-0"}`}
+        style={{
+          fontFamily: "var(--font-display)",
+          textShadow: "0 0 40px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.3)",
+        }}
+      >
+        SPICY TECHS
+      </h1>
     </header>
   )
 }

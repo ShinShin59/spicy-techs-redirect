@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { useMemo, useState, useEffect, useRef } from "react"
 import Dither from "../Dither"
 import { useMainStore, type FactionLabel } from "@/store"
 
@@ -14,15 +14,60 @@ const FACTION_COLORS: Record<FactionLabel, [number, number, number]> = {
 }
 
 const WAVE_SPEED = 0.005
+const BASE_AMPLITUDE = 0.45
+const BASE_OPACITY = 0.7
+const BOOST_SPEED_MULT = 2.8
+const BOOST_AMPLITUDE_MULT = 1.7
+const BOOST_OPACITY_MULT = 1.5
+const BOOST_DURATION_MS = 450
+
+const easeOutCubic = (t: number) => 1 - (1 - t) ** 3
 
 const DitherBackground = () => {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const waveColor = FACTION_COLORS[selectedFaction]
 
-  const waveDirection = useMemo((): [number, number] => {
+  const [speedMult, setSpeedMult] = useState(1)
+  const [amplitudeMult, setAmplitudeMult] = useState(1)
+  const [opacityMult, setOpacityMult] = useState(1)
+  const animStartRef = useRef<number | null>(null)
+  const rafRef = useRef<number>(0)
+
+  const baseDirection = useMemo((): [number, number] => {
     const angle = Math.random() * Math.PI * 2
     return [Math.cos(angle) * WAVE_SPEED, Math.sin(angle) * WAVE_SPEED]
   }, [selectedFaction])
+
+  useEffect(() => {
+    setSpeedMult(BOOST_SPEED_MULT)
+    setAmplitudeMult(BOOST_AMPLITUDE_MULT)
+    setOpacityMult(BOOST_OPACITY_MULT)
+    animStartRef.current = null
+
+    const tick = (now: number) => {
+      if (animStartRef.current === null) animStartRef.current = now
+      const elapsed = now - animStartRef.current
+      const progress = Math.min(elapsed / BOOST_DURATION_MS, 1)
+      const eased = easeOutCubic(progress)
+
+      setSpeedMult(BOOST_SPEED_MULT + (1 - BOOST_SPEED_MULT) * eased)
+      setAmplitudeMult(BOOST_AMPLITUDE_MULT + (1 - BOOST_AMPLITUDE_MULT) * eased)
+      setOpacityMult(BOOST_OPACITY_MULT + (1 - BOOST_OPACITY_MULT) * eased)
+
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(tick)
+      }
+    }
+    rafRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [selectedFaction])
+
+  const waveDirection: [number, number] = [
+    baseDirection[0] * speedMult,
+    baseDirection[1] * speedMult,
+  ]
+  const waveAmplitude = BASE_AMPLITUDE * amplitudeMult
+  const opacity = BASE_OPACITY * opacityMult
 
   return (
     <div
@@ -30,7 +75,7 @@ const DitherBackground = () => {
       style={{
         zIndex: 0,
         mixBlendMode: "overlay",
-        opacity: 0.7,
+        opacity,
       }}
       aria-hidden
     >
@@ -42,7 +87,7 @@ const DitherBackground = () => {
         mouseRadius={0.5}
         colorNum={4}
         pixelSize={1}
-        waveAmplitude={0.45}
+        waveAmplitude={waveAmplitude}
         waveFrequency={3}
       />
     </div>

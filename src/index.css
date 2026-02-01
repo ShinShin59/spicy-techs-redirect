@@ -13,6 +13,15 @@ html, body {
   font-display: swap;
 }
 
+/* Dune Rise – TTF from public. Same pattern as Red Alert. */
+@font-face {
+  font-family: "Dune Rise";
+  src: url("/font/Dune_Rise/Dune_Rise.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-economy: #C87533;
   --color-military: #8B3A3A;
@@ -33,6 +42,9 @@ html, body {
 
   /* Default font everywhere – C&C Red Alert (with fallback) */
   --font-sans: "C&C Red Alert Inet", ui-sans-serif, system-ui, sans-serif;
+
+  /* Logo / hero title – Dune Rise */
+  --font-display: "Dune Rise", ui-sans-serif, system-ui, sans-serif;
 
   /* Faction colors from game data */
   --color-faction-atreides: #26764C;

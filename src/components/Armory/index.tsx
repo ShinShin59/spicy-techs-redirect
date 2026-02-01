@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useMainStore, useCurrentArmoryState, UNITS_PER_FACTION, GEAR_SLOTS_PER_UNIT } from "../../store"
 import { getGearIconPath } from "@/utils/assetPaths"
-import { playCancelSlotSound } from "@/utils/sound"
+import { playCancelSlotSound, playMenuToggleSound } from "@/utils/sound"
 import ArmoryGearSelector from "./ArmoryGearSelector"
 import GearAttributesTooltip from "./GearAttributesTooltip"
 import PanelCorners from "@/components/PanelCorners"
@@ -45,6 +45,16 @@ const Armory = () => {
     unitIndex: number,
     slotIndex: number
   ) => {
+    const isSameSlot =
+      selectedSlot &&
+      selectedSlot.unitIndex === unitIndex &&
+      selectedSlot.slotIndex === slotIndex
+    if (isSameSlot) {
+      playMenuToggleSound(false)
+      handleCloseSelector()
+      return
+    }
+    playMenuToggleSound(true)
     const rect = e.currentTarget.getBoundingClientRect()
     setAnchorPosition({ x: rect.left, y: rect.top })
     setSelectedSlot({ unitIndex, slotIndex })
@@ -52,6 +62,9 @@ const Armory = () => {
 
   const handleSelectGear = (gearName: string | null) => {
     if (selectedSlot) {
+      if (gearName !== null) {
+        playMenuToggleSound(true)
+      }
       setArmorySlot(selectedSlot.unitIndex, selectedSlot.slotIndex, gearName)
       setSelectedSlot(null)
       setAnchorPosition(null)

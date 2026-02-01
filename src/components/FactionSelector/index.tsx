@@ -52,7 +52,7 @@ const FactionSelector = () => {
       {open && (
         <ul
           role="listbox"
-          className="absolute left-0 top-full mt-1 min-w-[140px]  border border-zinc-700 bg-zinc-900 py-1 shadow-xl z-[150]"
+          className="absolute left-0 top-full mt-1 min-w-[140px]  border border-zinc-700 bg-zinc-900 py-1 shadow-xl z-150"
           aria-label="Faction list"
         >
           {FACTION_LABELS.map((label) => {

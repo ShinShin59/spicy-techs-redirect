@@ -33,7 +33,7 @@ export default function TooltipWrapper({
 
   const content = (
     <div
-      className={`z-[9999] bg-zinc-900 border border-zinc-600 shadow-lg pointer-events-none overflow-hidden ${className}`.trim()}
+      className={`z-9999 bg-linear-to-b from-black/70 to-black/85 backdrop-blur-md border border-white/10 shadow-lg pointer-events-none overflow-hidden ${className}`.trim()}
       style={style}
     >
       {children}

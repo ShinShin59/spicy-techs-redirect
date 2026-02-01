@@ -3,12 +3,12 @@
 html,
 body {
   background: #080809;
-  cursor: url("/images/hud/cursor-default.png") 0 0, auto;
+  cursor: url("/images/hud/cursor_default.png") 0 0, auto;
 }
 
 /* Custom pointer cursor when using Tailwind's cursor-pointer */
 .cursor-pointer {
-  cursor: url("/images/hud/cursor-pointer.png") 0 0, pointer;
+  cursor: url("/images/hud/cursor_pointer.png") 0 0, pointer;
 }
 
 /* C&C Red Alert – WOFF2 from public. Path relative to project; no format() per Vite font-loading fixes. */
@@ -142,6 +142,16 @@ body {
 
 .title-anim-impact {
   animation: title-impact 0.12s steps(1) forwards;
+}
+
+/* Unit selector: subtle inside pulse on valid unit click (brightness only, no overflow) */
+@keyframes unit-select-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.35); }
+}
+
+.unit-select-pulse {
+  animation: unit-select-pulse 0.2s ease-out forwards;
 }
 
 /* Prevent image dragging */

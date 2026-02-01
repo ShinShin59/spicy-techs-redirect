@@ -21,8 +21,8 @@ export default function UnitTooltip({
 
   return (
     <TooltipWrapper anchorRect={anchorRect}>
-      {/* Header: name + CP cost */}
-      <div className="px-3 py-2 border-b border-zinc-700/80 bg-zinc-700 flex items-center justify-between gap-2">
+      {/* Header: name + CP cost (same style as councillor tooltip) */}
+      <div className="px-3 py-2 border-b border-zinc-700/80 bg-zinc flex items-center justify-between gap-2">
         <div className="text-zinc-100 font-semibold text-sm uppercase tracking-wide truncate">
           {unit.name}
         </div>

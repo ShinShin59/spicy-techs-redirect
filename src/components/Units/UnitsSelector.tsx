@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from "react"
+import { useState, useMemo, useEffect, useRef, useCallback } from "react"
 import { useMainStore } from "@/store"
 import { getUnitIconPath } from "@/utils/assetPaths"
 import { getUnitsForFaction, type UnitData } from "./units-utils"
@@ -18,6 +18,8 @@ export interface UnitsSelectorProps {
   onClose: () => void
   onSelect: (unitId: string | null) => void
   anchorPosition: AnchorPosition
+  /** When true, popup top aligns with anchor y (opens below); when false, popup bottom aligns with anchor y (opens above). */
+  anchorBelow?: boolean
   heroOnly?: boolean
   /** When adding units: remaining CP budget (65 - totalCP). Units with cpCost > this are disabled. */
   remainingCP?: number
@@ -27,11 +29,29 @@ const UnitsSelector = ({
   onClose,
   onSelect,
   anchorPosition,
+  anchorBelow = false,
   heroOnly = false,
   remainingCP,
 }: UnitsSelectorProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const [pulseUnitId, setPulseUnitId] = useState<string | null>(null)
+  const pulseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleUnitClick = useCallback(
+    (unitId: string, disabled: boolean) => {
+      if (disabled) return
+      if (pulseTimeoutRef.current) clearTimeout(pulseTimeoutRef.current)
+      setPulseUnitId(unitId)
+      onSelect(unitId)
+      pulseTimeoutRef.current = setTimeout(() => {
+        setPulseUnitId(null)
+        pulseTimeoutRef.current = null
+      }, 220)
+    },
+    [onSelect]
+  )
+
   const [hoverTooltip, setHoverTooltip] = useState<{
     unit: UnitData | HeroData
     anchorRect: { left: number; top: number; width: number; height: number }
@@ -48,6 +68,10 @@ const UnitsSelector = ({
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [onClose])
 
+  useEffect(() => () => {
+    if (pulseTimeoutRef.current) clearTimeout(pulseTimeoutRef.current)
+  }, [])
+
   // Get available units or heroes for current faction
   const units = useMemo(
     () =>
@@ -57,14 +81,16 @@ const UnitsSelector = ({
     [selectedFaction, heroOnly]
   )
 
-  // Position the popup above the clicked slot
+  // Position: anchorBelow => popup top at y (opens below); else popup bottom at y (opens above)
   const popupStyle = useMemo<React.CSSProperties>(
     () => ({
       position: "fixed",
       left: anchorPosition.x,
-      bottom: window.innerHeight - anchorPosition.y,
+      ...(anchorBelow
+        ? { top: anchorPosition.y }
+        : { bottom: window.innerHeight - anchorPosition.y }),
     }),
-    [anchorPosition.x, anchorPosition.y]
+    [anchorPosition.x, anchorPosition.y, anchorBelow]
   )
 
   // Match Units panel: 64px slots, slot/hero bg; icon fills slot
@@ -107,7 +133,7 @@ const UnitsSelector = ({
               >
                 <button
                   type="button"
-                  onClick={() => !disabled && onSelect(unit.id)}
+                  onClick={() => handleUnitClick(unit.id, disabled)}
                   disabled={disabled}
                   className={`flex items-center w-16 h-16 justify-center ${slotBgClass} ${disabled
                     ? "opacity-50 cursor-not-allowed grayscale"
@@ -123,7 +149,7 @@ const UnitsSelector = ({
                     alt={unit.name}
                     loading="eager"
                     decoding="sync"
-                    className="w-full h-full object-contain"
+                    className={`w-full h-full object-contain ${pulseUnitId === unit.id ? "unit-select-pulse" : ""}`}
                   />
                 </button>
               </div>

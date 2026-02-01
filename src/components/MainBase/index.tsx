@@ -3,6 +3,7 @@ import { useCurrentMainBaseLayout, useCurrentMainBaseState, useMainStore, useUse
 import MainBaseBuildingsSelector, { type MainBuilding } from "./MainBaseBuildingsSelector"
 import { getBuildingIconPath } from "@/utils/assetPaths"
 import { playCancelSlotSound, playMenuToggleSound, playMainBaseBuildingSound } from "@/utils/sound"
+import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import BuildingAttributesTooltip from "./BuildingAttributesTooltip"
 import OrderBadge from "@/components/OrderBadge"
 import PanelCorners from "@/components/PanelCorners"
@@ -50,10 +51,10 @@ const MainBase = () => {
 
   const [selectedCell, setSelectedCell] = useState<SelectedCell | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
-  const [hoverTooltip, setHoverTooltip] = useState<{
+  const [hoverTooltip, setHoverTooltip, showTooltip] = usePanelTooltip<{
     building: MainBuilding
     anchorRect: { left: number; top: number; width: number; height: number }
-  } | null>(null)
+  }>(selectedCell !== null)
 
   const handleCellClick = (e: React.MouseEvent, rowIndex: number, groupIndex: number, cellIndex: number) => {
     // Don't open selector if clicking on the order badge
@@ -233,7 +234,8 @@ const MainBase = () => {
         </div>
 
       </div>
-      {hoverTooltip && (
+      {/* Hover tooltip (hidden when buildings selector is open) */}
+      {showTooltip && hoverTooltip && (
         <BuildingAttributesTooltip
           building={hoverTooltip.building}
           anchorRect={hoverTooltip.anchorRect}

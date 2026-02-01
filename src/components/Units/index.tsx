@@ -1,8 +1,9 @@
 import { useState, useContext, useRef, useEffect, useCallback } from "react"
-import { useMainStore, useCurrentUnitSlots, HERO_SLOT_INDEX, MAX_UNIT_SLOT_COUNT, MAX_UNIT_CP } from "@/store"
+import { useMainStore, useCurrentUnitSlots, HERO_SLOT_INDEX, MAX_UNIT_CP } from "@/store"
 import { getUnitIconPath } from "@/utils/assetPaths"
 import { playRandomSound, playCancelSlotSound, BUTTON_SPENDRESOURCES_SOUNDS } from "@/utils/sound"
-import { getUnitById, type UnitData } from "./units-utils"
+import { usePanelTooltip } from "@/hooks/usePanelTooltip"
+import { getUnitById, getUnitsForFaction, type UnitData } from "./units-utils"
 import { getHeroById, getHeroIconPath, isHeroId } from "./heroes-utils"
 import UnitsSelector from "./UnitsSelector"
 import UnitTooltip from "./UnitTooltip"
@@ -18,7 +19,6 @@ const DEFAULT_SLOT_PX = 64
 const MIN_SLOT_PX = 32
 const GRID_GAP_PX = 4
 const GRID_COLS_DEFAULT = 5
-const MAX_GRID_COLS = 8
 const GRID_PADDING_PX = 32 // p-4 top + bottom
 const MAX_PANEL_WIDTH = 432
 const AVAILABLE_WIDTH_PX = MAX_PANEL_WIDTH - GRID_PADDING_PX
@@ -56,7 +56,7 @@ const Units = () => {
     }
     let bestSlot = MIN_SLOT_PX - 1
     let bestCols = GRID_COLS_DEFAULT
-    const maxCols = Math.min(MAX_GRID_COLS, unitSlotCount)
+    const maxCols = unitSlotCount
     for (let cols = 1; cols <= maxCols; cols++) {
       const rows = Math.ceil(unitSlotCount / cols)
       const heightSlot = (availableHeight - (rows - 1) * GRID_GAP_PX) / rows
@@ -92,14 +92,15 @@ const Units = () => {
 
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
-  const [hoverTooltip, setHoverTooltip] = useState<{
+  const [hoverTooltip, setHoverTooltip, showTooltip] = usePanelTooltip<{
     unit: UnitData | { name: string; desc?: string }
     anchorRect: { left: number; top: number; width: number; height: number }
-  } | null>(null)
+  }>(selectedSlotIndex !== null)
 
   const handleSlotClick = (e: React.MouseEvent, slotIndex: number) => {
     // Add slot (0) and hero slot (1) can open the selector; other slots cannot
     if (slotIndex !== 0 && slotIndex !== HERO_SLOT_INDEX) return
+    if (slotIndex === 0 && addSlotDisabled) return
     const rect = e.currentTarget.getBoundingClientRect()
     setAnchorPosition({ x: rect.left, y: rect.top })
     setSelectedSlotIndex(slotIndex)
@@ -130,15 +131,18 @@ const Units = () => {
             break
           }
         }
-        if (!placed && unitSlotCount < MAX_UNIT_SLOT_COUNT) {
+        if (!placed) {
           const newIndex = addUnitSlot()
           if (newIndex !== undefined) {
             setUnitSlot(newIndex, unitId)
             playRandomSound(BUTTON_SPENDRESOURCES_SOUNDS)
           }
         }
+        if (totalCP + unitCost === MAX_UNIT_CP) {
+          handleCloseSelector()
+        }
       }
-      // Keep selector open; user closes it by clicking outside
+      // Otherwise keep selector open; user closes it by clicking outside
     }
   }
 
@@ -152,6 +156,13 @@ const Units = () => {
     const unitData = !isHeroId(unitId) ? getUnitById(selectedFaction, unitId) : null
     return sum + (unitData?.cpCost ?? 0)
   }, 0)
+
+  const unitsForFaction = getUnitsForFaction(selectedFaction)
+  const minUnitCost = unitsForFaction.length
+    ? Math.min(...unitsForFaction.map((u) => u.cpCost ?? Infinity))
+    : Infinity
+  const addSlotDisabled = totalCP >= MAX_UNIT_CP || totalCP + minUnitCost > MAX_UNIT_CP
+  const cpNumberRed = totalCP < MAX_UNIT_CP && totalCP + minUnitCost > MAX_UNIT_CP
 
   const handleSlotRightClick = (e: React.MouseEvent, slotIndex: number) => {
     e.preventDefault()
@@ -176,7 +187,9 @@ const Units = () => {
         style={mainBaseHeight != null ? { maxHeight: mainBaseHeight } : undefined}
       >
         <div className="flex justify-end items-center gap-1 mb-0 shrink-0">
-          <span className="text-xs font-mono text-white/70">
+          <span
+            className={`text-xs font-mono ${cpNumberRed ? "font-bold text-(--color-error)" : totalCP === MAX_UNIT_CP ? "font-bold text-white/70" : "text-white/70"}`}
+          >
             {totalCP} CP
           </span>
           <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0">
@@ -209,22 +222,25 @@ const Units = () => {
               const hasUnit = unitId !== null && unitId !== undefined && displayData !== null
 
               const isHeroSlotEmpty = isHeroSlot && !hasUnit
+              const addSlotDisabledStyle = isAddSlot && addSlotDisabled
               const cellStyle = isAddSlot
-                ? "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center hover:bg-[url('/images/hud/slot_add_hover.png')]"
+                ? addSlotDisabledStyle
+                  ? "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center opacity-70 brightness-[0.5] cursor-not-allowed"
+                  : "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center hover:bg-[url('/images/hud/slot_add_hover.png')]"
                 : isHeroSlot
                   ? "bg-[url('/images/hud/background_hero.png')] bg-cover bg-center"
                   : hasUnit
                     ? "bg-cover bg-center"
                     : "bg-cover bg-center hover:brightness-110"
               const heroSlotMuted = isHeroSlotEmpty ? "opacity-70" : ""
-              const canOpenSelector = index === 0 || index === HERO_SLOT_INDEX
+              const canOpenSelector = (isAddSlot && !addSlotDisabled) || isHeroSlot
 
               return (
                 <div
                   key={`unit-${index}`}
                   role={canOpenSelector ? "button" : undefined}
                   tabIndex={canOpenSelector ? 0 : undefined}
-                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative ${canOpenSelector ? "cursor-pointer" : "cursor-default"} ${cellStyle} ${heroSlotMuted}`}
+                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative cursor-pointer ${cellStyle} ${heroSlotMuted}`}
                   style={slotStyle}
                   id={`units-slot-${index}`}
                   title={isAddSlot ? "Add unit" : isHeroSlotEmpty ? "Hero slot (optional)" : undefined}
@@ -284,8 +300,8 @@ const Units = () => {
         </div>
       </div>
 
-      {/* Hover tooltip */}
-      {hoverTooltip && (
+      {/* Hover tooltip (hidden when unit selector is open) */}
+      {showTooltip && hoverTooltip && (
         <UnitTooltip
           unit={hoverTooltip.unit}
           anchorRect={hoverTooltip.anchorRect}

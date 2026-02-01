@@ -54,8 +54,8 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
         <Button onClick={onNew} aria-label="Create new build" mutedWhenUnpressed={false}>
           New
         </Button>
-        <Button onClick={onFork} aria-label="Fork current build" mutedWhenUnpressed={false}>
-          Fork
+        <Button onClick={onFork} aria-label="Copy current build" mutedWhenUnpressed={false}>
+          Copy
         </Button>
       </div>
       <div className="flex items-center gap-2 relative z-10">

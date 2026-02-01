@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useMainStore, useCurrentArmoryState, UNITS_PER_FACTION, GEAR_SLOTS_PER_UNIT } from "../../store"
 import { getGearIconPath } from "@/utils/assetPaths"
 import { playCancelSlotSound, playMenuToggleSound } from "@/utils/sound"
+import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import ArmoryGearSelector from "./ArmoryGearSelector"
 import GearAttributesTooltip from "./GearAttributesTooltip"
 import PanelCorners from "@/components/PanelCorners"
@@ -17,7 +18,6 @@ const SLOT_PX = 48
 const ICON_PX = 36
 const LABEL_HEIGHT_PX = 14
 const SLOT_GAP_PX = 8
-const SEPARATOR_COLOR = "#524a3c"
 
 // Re-export for external use
 export { getUnitsForFaction, getGearByName, getGearOptionsForUnit, type GearItem, type UnitData }
@@ -38,20 +38,20 @@ const Armory = () => {
   const setArmorySlot = useMainStore((s) => s.setArmorySlot)
 
   const units = getUnitsForFaction(selectedFaction)
+  const firstSlotRefs = useRef<(HTMLDivElement | null)[]>([])
 
   const [selectedSlot, setSelectedSlot] = useState<SelectedSlot | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
-  const [hoverTooltip, setHoverTooltip] = useState<{
+  const [hoverTooltip, setHoverTooltip, showTooltip] = usePanelTooltip<{
     gear: GearItem
     anchorRect: { left: number; top: number; width: number; height: number }
-  } | null>(null)
+  }>(selectedSlot !== null)
 
   const handleSlotClick = (
     e: React.MouseEvent,
     unitIndex: number,
     slotIndex: number
   ) => {
-    setHoverTooltip(null)
     const isSameSlot =
       selectedSlot &&
       selectedSlot.unitIndex === unitIndex &&
@@ -62,7 +62,9 @@ const Armory = () => {
       return
     }
     playMenuToggleSound(true)
-    const rect = e.currentTarget.getBoundingClientRect()
+    // Always anchor selector above the first cell of the block (slot 0), for both cells
+    const firstSlotEl = firstSlotRefs.current[unitIndex]
+    const rect = (firstSlotEl ?? e.currentTarget).getBoundingClientRect()
     setAnchorPosition({ x: rect.left, y: rect.top })
     setSelectedSlot({ unitIndex, slotIndex })
   }
@@ -119,7 +121,7 @@ const Armory = () => {
           <PanelCorners />
           <div className="flex flex-col gap-0">
             {units.slice(0, UNITS_PER_FACTION).map((unit, unitIndex) => (
-              <div key={unit.id} className="flex flex-col shrink-0">
+              <div key={unit.id} className="flex flex-col shrink-0 mb-2">
                 <div
                   className="text-[10px] font-mono text-white/70 uppercase shrink-0 text-center"
                   style={{ height: LABEL_HEIGHT_PX }}
@@ -138,6 +140,7 @@ const Armory = () => {
                     return (
                       <div
                         key={slotIndex}
+                        ref={slotIndex === 0 ? (el) => { firstSlotRefs.current[unitIndex] = el } : undefined}
                         role="button"
                         tabIndex={0}
                         className={`relative cursor-pointer flex items-center justify-center overflow-hidden border border-zinc-700 shrink-0 ${hasGear ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center" : "bg-[url('/images/hud/slot.png')] bg-cover bg-center hover:brightness-110"}`}
@@ -179,12 +182,6 @@ const Armory = () => {
                     )
                   })}
                 </div>
-                {unitIndex < UNITS_PER_FACTION - 1 && (
-                  <div
-                    className="shrink-0 w-full"
-                    style={{ height: 1, backgroundColor: SEPARATOR_COLOR, marginTop: 6, marginBottom: 6 }}
-                  />
-                )}
               </div>
             ))}
           </div>
@@ -202,8 +199,8 @@ const Armory = () => {
         </div>
       </div>
 
-      {/* Hover tooltip */}
-      {hoverTooltip && (
+      {/* Hover tooltip (hidden when gear selector is open) */}
+      {showTooltip && hoverTooltip && (
         <GearAttributesTooltip
           gear={hoverTooltip.gear}
           anchorRect={hoverTooltip.anchorRect}

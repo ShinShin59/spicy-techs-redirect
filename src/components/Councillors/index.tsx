@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useMainStore, useCurrentCouncillorSlots } from "@/store"
 import { getCouncillorIconPath } from "@/utils/assetPaths"
 import { playSelectionSound } from "@/utils/sound"
+import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import { getCouncillorById, type CouncillorData } from "./councillors-utils"
 import CouncillorsSelector from "./CouncillorsSelector"
 import CouncillorTooltip from "./CouncillorTooltip"
@@ -22,10 +23,10 @@ const Councillors = () => {
 
   const [selectorOpen, setSelectorOpen] = useState(false)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
-  const [hoverTooltip, setHoverTooltip] = useState<{
+  const [hoverTooltip, setHoverTooltip, showTooltip] = usePanelTooltip<{
     councillor: CouncillorData
     anchorRect: { left: number; top: number; width: number; height: number }
-  } | null>(null)
+  }>(selectorOpen)
 
   const selectedIds = councillorSlots.filter(Boolean) as string[]
 
@@ -123,7 +124,8 @@ const Councillors = () => {
         </div>
       </div>
 
-      {hoverTooltip && (
+      {/* Hover tooltip (hidden when councillors selector is open) */}
+      {showTooltip && hoverTooltip && (
         <CouncillorTooltip
           councillor={hoverTooltip.councillor}
           anchorRect={hoverTooltip.anchorRect}

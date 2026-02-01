@@ -421,7 +421,6 @@ export const useMainStore = create<MainStore>()(
       },
       addUnitSlot: () => {
         const g = get()
-        if (g.unitSlotCount >= MAX_UNIT_SLOT_COUNT) return undefined
         const newSlotIndex = g.unitSlotCount
         set({ unitSlotCount: newSlotIndex + 1 })
         get().saveCurrentBuild()

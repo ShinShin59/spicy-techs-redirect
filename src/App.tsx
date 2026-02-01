@@ -31,9 +31,9 @@ function App() {
       <DitherBackground />
       <div className="relative z-10 flex flex-col flex-1 min-h-0">
         <Topbar onNew={createNewBuild} onFork={forkCurrentBuild} />
-        <div className="flex flex-1 min-h-0 gap-3 p-3 pt-[4em]">
+        <div className="flex flex-1 min-h-0 gap-3 p-3 pt-[2em]">
           <Metadata />
-          <div className="flex-1 flex items-center justify-center min-h-0 overflow-auto p-4">
+          <div className="flex-1 flex items-start mt-48 justify-center min-h-0 overflow-auto px-4 pb-4">
             <BuildLayout
               mainBase={panelVisibility.mainBaseOpen ? <MainBase /> : undefined}
               units={panelVisibility.unitsOpen ? <Units /> : undefined}

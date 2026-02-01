@@ -3,6 +3,12 @@
 html,
 body {
   background: #080809;
+  cursor: url("/images/hud/cursor-default.png") 0 0, auto;
+}
+
+/* Custom pointer cursor when using Tailwind's cursor-pointer */
+.cursor-pointer {
+  cursor: url("/images/hud/cursor-pointer.png") 0 0, pointer;
 }
 
 /* C&C Red Alert – WOFF2 from public. Path relative to project; no format() per Vite font-loading fixes. */

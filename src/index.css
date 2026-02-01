@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* C&C Red Alert – WOFF2 from public. Path relative to project; no format() per Vite font-loading fixes. */
+@font-face {
+  font-family: "C&C Red Alert Inet";
+  src: url("/font/c_c_red_alert_inet/C&C Red Alert [LAN].woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-economy: #C87533;
   --color-military: #8B3A3A;
@@ -14,6 +23,12 @@
   /* Button accent - subtle cornflower blue */
   --color-accent: #6b7b94;
   --color-accent-hover: #545f72;
+
+  /* Topbar button text */
+  --color-topbar-btn: #dcc4ad;
+
+  /* Default font everywhere – C&C Red Alert (with fallback) */
+  --font-sans: "C&C Red Alert Inet", ui-sans-serif, system-ui, sans-serif;
 
   /* Faction colors from game data */
   --color-faction-atreides: #26764C;

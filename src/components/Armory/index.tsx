@@ -3,6 +3,7 @@ import { useMainStore, useCurrentArmoryState, UNITS_PER_FACTION, GEAR_SLOTS_PER_
 import { getGearIconPath } from "@/utils/assetPaths"
 import { playCancelSlotSound, playMenuToggleSound } from "@/utils/sound"
 import { usePanelTooltip } from "@/hooks/usePanelTooltip"
+import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
 import ArmoryGearSelector from "./ArmoryGearSelector"
 import GearAttributesTooltip from "./GearAttributesTooltip"
 import PanelCorners from "@/components/PanelCorners"
@@ -14,11 +15,6 @@ import {
   type GearItem,
   type UnitData,
 } from "./armory-utils"
-
-const SLOT_PX = 48
-const ICON_PX = 36
-const LABEL_HEIGHT_PX = 14
-const SLOT_GAP_PX = 8
 
 // Re-export for external use
 export { getUnitsForFaction, getGearByName, getGearOptionsForUnit, type GearItem, type UnitData }
@@ -37,6 +33,9 @@ const Armory = () => {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const armoryState = useCurrentArmoryState()
   const setArmorySlot = useMainStore((s) => s.setArmorySlot)
+  const toggleArmory = useMainStore((s) => s.toggleArmory)
+  const armoryOpen = useMainStore((s) => s.panelVisibility.armoryOpen)
+  const panelRightClickHide = usePanelHideOnRightClick(toggleArmory, armoryOpen)
 
   const units = getUnitsForFaction(selectedFaction)
   const firstSlotRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -110,93 +109,101 @@ const Armory = () => {
     <>
       <div className="relative group flex flex-col h-full min-h-0">
         {/* Title at top, outside panel, aligned right */}
-        <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0 text-right">
+        <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0 text-left">
           Armory
         </h2>
 
-        {/* Panel: column of unit blocks (unit name, 2 slots, separator except last) */}
-        <div
-          id="armory-grid"
-          className={`relative bg-zinc-900 flex flex-col flex-1 min-h-0 p-4 box-border overflow-auto ${PANEL_BORDER_HOVER_CLASS}`}
-        >
-          <PanelCorners />
-          <div className="flex flex-col gap-0">
-            {units.slice(0, UNITS_PER_FACTION).map((unit, unitIndex) => (
-              <div key={unit.id} className="flex flex-col shrink-0 mb-2">
-                <div
-                  className="text-[10px] font-mono text-white/70 uppercase shrink-0 text-center"
-                  style={{ height: LABEL_HEIGHT_PX }}
-                >
-                  {unit.name}
-                </div>
-                <div
-                  className="flex gap-2 shrink-0"
-                  style={{ gap: SLOT_GAP_PX }}
-                >
-                  {Array.from({ length: GEAR_SLOTS_PER_UNIT }).map((_, slotIndex) => {
-                    const gearName = armoryState[unitIndex]?.[slotIndex]
-                    const gearData = gearName ? getGearByName(gearName) : null
-                    const hasGear = gearName !== null && gearData !== undefined
+        {/* Panel (slots only) + unit names to the right, aligned with middle of each gear row */}
+        <div className="flex flex-1 min-h-0 gap-2 items-stretch">
+          <div
+            id="armory-grid"
+            className={`relative bg-zinc-900 flex flex-col flex-1 min-h-0 p-4 box-border overflow-y-auto overflow-x-hidden min-w-0 ${PANEL_BORDER_HOVER_CLASS}`}
+            {...panelRightClickHide}
+          >
+            <PanelCorners />
+            <div
+              className="grid flex-1 min-h-0 gap-1 w-fit"
+              style={{
+                gridTemplateColumns: "auto auto",
+                gridTemplateRows: `repeat(${UNITS_PER_FACTION}, minmax(0, 1fr))`,
+              }}
+            >
+              {units.slice(0, UNITS_PER_FACTION).flatMap((unit, unitIndex) =>
+                Array.from({ length: GEAR_SLOTS_PER_UNIT }).map((_, slotIndex) => {
+                  const gearName = armoryState[unitIndex]?.[slotIndex]
+                  const gearData = gearName ? getGearByName(gearName) : null
+                  const hasGear = gearName !== null && gearData !== undefined
+                  return (
+                    <div
+                      key={`${unit.id}-${slotIndex}`}
+                      ref={slotIndex === 0 ? (el) => { firstSlotRefs.current[unitIndex] = el } : undefined}
+                      role="button"
+                      tabIndex={0}
+                      className={`w-12 h-12 relative cursor-pointer flex items-center justify-center overflow-hidden border border-zinc-700 aspect-square ${hasGear ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center" : "bg-[url('/images/hud/slot.png')] bg-cover bg-center hover:brightness-110"}`}
+                      id={`armory-slot-${unitIndex}-${slotIndex}`}
+                      data-panel-slot
+                      onClick={(e) => handleSlotClick(e, unitIndex, slotIndex)}
+                      onContextMenu={(e) =>
+                        handleSlotRightClick(e, unitIndex, slotIndex)
+                      }
+                      onMouseEnter={
+                        hasGear && gearData
+                          ? (e) => {
+                            const rect = e.currentTarget.getBoundingClientRect()
+                            setHoverTooltip({
+                              gear: gearData,
+                              anchorRect: {
+                                left: rect.left,
+                                top: rect.top,
+                                width: rect.width,
+                                height: rect.height,
+                              },
+                            })
+                          }
+                          : undefined
+                      }
+                      onMouseLeave={hasGear ? () => setHoverTooltip(null) : undefined}
+                    >
+                      {hasGear && gearData && (
+                        <img
+                          src={getGearIconPath(gearData.image)}
+                          alt={gearData.name}
+                          loading="eager"
+                          decoding="sync"
+                          className="object-contain w-full h-full"
+                        />
+                      )}
+                    </div>
+                  )
+                })
+              )}
+            </div>
 
-                    return (
-                      <div
-                        key={slotIndex}
-                        ref={slotIndex === 0 ? (el) => { firstSlotRefs.current[unitIndex] = el } : undefined}
-                        role="button"
-                        tabIndex={0}
-                        className={`relative cursor-pointer flex items-center justify-center overflow-hidden border border-zinc-700 shrink-0 ${hasGear ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center" : "bg-[url('/images/hud/slot.png')] bg-cover bg-center hover:brightness-110"}`}
-                        style={{ width: SLOT_PX, height: SLOT_PX }}
-                        id={`armory-slot-${unitIndex}-${slotIndex}`}
-                        onClick={(e) => handleSlotClick(e, unitIndex, slotIndex)}
-                        onContextMenu={(e) =>
-                          handleSlotRightClick(e, unitIndex, slotIndex)
-                        }
-                        onMouseEnter={
-                          hasGear && gearData
-                            ? (e) => {
-                              const rect = e.currentTarget.getBoundingClientRect()
-                              setHoverTooltip({
-                                gear: gearData,
-                                anchorRect: {
-                                  left: rect.left,
-                                  top: rect.top,
-                                  width: rect.width,
-                                  height: rect.height,
-                                },
-                              })
-                            }
-                            : undefined
-                        }
-                        onMouseLeave={hasGear ? () => setHoverTooltip(null) : undefined}
-                      >
-                        {hasGear && gearData && (
-                          <img
-                            src={getGearIconPath(gearData.image)}
-                            alt={gearData.name}
-                            loading="eager"
-                            decoding="sync"
-                            className="object-contain"
-                            style={{ width: ICON_PX, height: ICON_PX }}
-                          />
-                        )}
-                      </div>
-                    )
-                  })}
-                </div>
+            {/* Gear selector popup */}
+            {selectedSlot && anchorPosition && (
+              <ArmoryGearSelector
+                unit={units[selectedSlot.unitIndex]}
+                selectedGear={getSelectedGearForUnit(selectedSlot.unitIndex)}
+                onClose={handleCloseSelector}
+                onSelect={handleSelectGear}
+                anchorPosition={anchorPosition}
+              />
+            )}
+          </div>
+          {/* Unit names outside panel, to the right, vertically aligned with middle of each gear row */}
+          <div
+            className="grid shrink-0 pl-2 min-h-0 self-stretch mt-2"
+            style={{ gridTemplateRows: `repeat(${UNITS_PER_FACTION}, 1fr)` }}
+          >
+            {units.slice(0, UNITS_PER_FACTION).map((unit) => (
+              <div
+                key={unit.id}
+                className="flex items-center text-[10px] font-mono text-white/70 uppercase text-left h-12 whitespace-nowrap"
+              >
+                {unit.name}
               </div>
             ))}
           </div>
-
-          {/* Gear selector popup */}
-          {selectedSlot && anchorPosition && (
-            <ArmoryGearSelector
-              unit={units[selectedSlot.unitIndex]}
-              selectedGear={getSelectedGearForUnit(selectedSlot.unitIndex)}
-              onClose={handleCloseSelector}
-              onSelect={handleSelectGear}
-              anchorPosition={anchorPosition}
-            />
-          )}
         </div>
       </div>
 

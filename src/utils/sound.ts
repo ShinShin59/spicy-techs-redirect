@@ -1,7 +1,7 @@
 const SOUNDS_PATH = "/sounds"
 
 /** Background music: single instance, looped, lower volume. */
-const BACKGROUND_PATH = "/sounds/background.mp3"
+const BACKGROUND_PATH = "/sounds/background-noise.m4a"
 let backgroundAudio: HTMLAudioElement | null = null
 
 /**
@@ -12,7 +12,7 @@ export function startBackgroundMusic(): Promise<void> {
   if (!backgroundAudio) {
     backgroundAudio = new Audio(BACKGROUND_PATH)
     backgroundAudio.loop = true
-    backgroundAudio.volume = 0.2
+    backgroundAudio.volume = 1
   }
   return backgroundAudio.play()
 }

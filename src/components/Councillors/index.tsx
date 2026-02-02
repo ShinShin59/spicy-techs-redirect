@@ -8,6 +8,7 @@ import CouncillorsSelector from "./CouncillorsSelector"
 import CouncillorTooltip from "./CouncillorTooltip"
 import PanelCorners from "@/components/PanelCorners"
 import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
+import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
 
 interface AnchorPosition {
   x: number
@@ -21,6 +22,9 @@ const Councillors = () => {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const councillorSlots = useCurrentCouncillorSlots()
   const toggleCouncillor = useMainStore((s) => s.toggleCouncillor)
+  const toggleCouncillors = useMainStore((s) => s.toggleCouncillors)
+  const councillorsOpen = useMainStore((s) => s.panelVisibility.councillorsOpen)
+  const panelRightClickHide = usePanelHideOnRightClick(toggleCouncillors, councillorsOpen)
 
   const [selectorOpen, setSelectorOpen] = useState(false)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
@@ -57,6 +61,7 @@ const Councillors = () => {
         <div
           id="councillors-grid"
           className={`relative bg-zinc-900 w-[168px] gap-2 p-4 box-border overflow-y-auto min-h-0 ${PANEL_BORDER_HOVER_CLASS}`}
+          {...panelRightClickHide}
         >
           <PanelCorners />
           <div className="flex gap-2">
@@ -78,6 +83,7 @@ const Councillors = () => {
                   className={`${cellClass} relative cursor-pointer ${hasCouncillor ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center" : "bg-[url('/images/hud/slot.png')] bg-cover bg-center hover:brightness-110"
                     }`}
                   id={`councillors-slot-${index}`}
+                  data-panel-slot
                   onClick={handleSlotClick}
                   onMouseEnter={
                     hasCouncillor && councillorData

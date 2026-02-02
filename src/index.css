@@ -225,3 +225,48 @@ a img {
 .dev-last-selected-glow {
   animation: dev-last-selected-glow 2s ease-in-out infinite;
 }
+
+/* Global minimal gray scrollbar – track + thumb only, no arrows */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #52525b #27272a;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #27272a;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #52525b;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
+}
+
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-button:vertical:start,
+*::-webkit-scrollbar-button:vertical:end,
+*::-webkit-scrollbar-button:horizontal:start,
+*::-webkit-scrollbar-button:horizontal:end {
+  display: none;
+  height: 0;
+  width: 0;
+}
+
+/* Units scroll area: no horizontal scrollbar */
+.units-scroll-area {
+  overflow-x: hidden;
+}

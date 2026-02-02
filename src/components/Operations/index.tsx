@@ -8,6 +8,7 @@ import OperationSelector from "./OperationSelector"
 import OperationTooltip from "./OperationTooltip"
 import PanelCorners from "@/components/PanelCorners"
 import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
+import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
 
 // Same slot size as Armory
 const SLOT_PX = 48
@@ -23,6 +24,9 @@ const Operations = () => {
   const usedBuildingIds = useUsedBuildingIds()
   const setOperationSlot = useMainStore((s) => s.setOperationSlot)
   const hasIntelligenceAgency = usedBuildingIds.includes("Intelligence Agency")
+  const toggleOperations = useMainStore((s) => s.toggleOperations)
+  const operationsOpen = useMainStore((s) => s.panelVisibility.operationsOpen)
+  const panelRightClickHide = usePanelHideOnRightClick(toggleOperations, operationsOpen)
 
   const gridRef = useRef<HTMLDivElement>(null)
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null)
@@ -108,6 +112,7 @@ const Operations = () => {
         </div>
         <div
           className={`relative w-full bg-zinc-900 box-border overflow-hidden p-4 flex justify-center ${PANEL_BORDER_HOVER_CLASS}`}
+          {...panelRightClickHide}
         >
           <PanelCorners />
           <div
@@ -136,6 +141,7 @@ const Operations = () => {
                   tabIndex={enabled ? 0 : undefined}
                   className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative ${cellStyle}`}
                   style={slotStyle}
+                  data-panel-slot
                   title={isAddSlot ? (enabled ? "Add operation" : "Requires Intelligence Agency") : operation?.name}
                   onClick={(e) => handleSlotClick(e, index)}
                   onContextMenu={(e) => handleSlotRightClick(e, index)}

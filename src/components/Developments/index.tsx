@@ -4,6 +4,7 @@ import { getDevelopmentsSlotPath } from "@/utils/assetPaths"
 import { playDevelopmentsOpenSound, playDevelopmentsCloseSound } from "@/utils/sound"
 import PanelCorners from "@/components/PanelCorners"
 import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
+import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
 import DevelopmentsPicker from "./DevelopmentsPicker"
 
 const cellClass =
@@ -20,6 +21,9 @@ const GRID_ORDER: (keyof import("@/store").DevelopmentsSummary)[] = [
 const Developments = () => {
   const developmentsSummary = useMainStore((s) => s.developmentsSummary)
   const [pickerOpen, setPickerOpen] = useState(false)
+  const toggleDevelopments = useMainStore((s) => s.toggleDevelopments)
+  const developmentsOpen = useMainStore((s) => s.panelVisibility.developmentsOpen)
+  const panelRightClickHide = usePanelHideOnRightClick(toggleDevelopments, developmentsOpen)
 
   return (
     <div className="flex flex-col">
@@ -34,6 +38,7 @@ const Developments = () => {
           setPickerOpen(true)
         }}
         className={`relative bg-zinc-900 w-[168px] gap-2 p-4 box-border overflow-y-auto min-h-0 grid grid-cols-2 grid-rows-2 cursor-pointer text-left ${PANEL_BORDER_HOVER_CLASS}`}
+        {...panelRightClickHide}
       >
         <PanelCorners />
         {GRID_ORDER.map((key) => {
@@ -43,6 +48,7 @@ const Developments = () => {
               key={key}
               className={cellClass}
               style={{ backgroundImage: `url(${getDevelopmentsSlotPath(key)})` }}
+              data-panel-slot
             >
               <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                 {value}

@@ -4,6 +4,7 @@ import MainBaseBuildingsSelector, { type MainBuilding } from "./MainBaseBuilding
 import { getBuildingIconPath } from "@/utils/assetPaths"
 import { playCancelSlotSound, playMenuToggleSound, playMainBaseBuildingSound } from "@/utils/sound"
 import { usePanelTooltip } from "@/hooks/usePanelTooltip"
+import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
 import BuildingAttributesTooltip from "./BuildingAttributesTooltip"
 import OrderBadge from "@/components/OrderBadge"
 import PanelCorners from "@/components/PanelCorners"
@@ -46,6 +47,9 @@ const MainBase = () => {
   const layout = useCurrentMainBaseLayout()
   const mainBaseState = useCurrentMainBaseState()
   const setMainBaseCell = useMainStore((state) => state.setMainBaseCell)
+  const toggleMainBase = useMainStore((s) => s.toggleMainBase)
+  const mainBaseOpen = useMainStore((s) => s.panelVisibility.mainBaseOpen)
+  const panelRightClickHide = usePanelHideOnRightClick(toggleMainBase, mainBaseOpen)
   const updateBuildingOrder = useMainStore((state) => state.updateBuildingOrder)
   const usedBuildingIds = useUsedBuildingIds()
   const buildingOrder = useCurrentBuildingOrder()
@@ -130,6 +134,7 @@ const MainBase = () => {
         <div
           id="main-base-grid"
           className={`relative w-full p-4 box-border bg-zinc-900 bg-[url('/images/hud/mb_bg_pattern.png')] bg-repeat bg-center ${PANEL_BORDER_HOVER_CLASS}`}
+          {...panelRightClickHide}
         >
           <PanelCorners />
           <div className="relative flex flex-col justify-center items-center gap-12">
@@ -174,6 +179,7 @@ const MainBase = () => {
                           aria-disabled={isDisabled ? true : undefined}
                           className={`relative w-[64px] h-[64px] flex items-center justify-center overflow-hidden border border-zinc-700 ${cellBgClass} ${isDisabled ? 'pointer-events-none' : 'cursor-pointer'}`}
                           id={`main-base-building-${cellIndex}`}
+                          data-panel-slot
                           onClick={isDisabled ? undefined : (e) => handleCellClick(e, rowIndex, groupIndex, cellIndex)}
                           onContextMenu={isDisabled ? undefined : (e) => handleCellRightClick(e, rowIndex, groupIndex, cellIndex)}
                           onMouseEnter={

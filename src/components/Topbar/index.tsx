@@ -142,7 +142,7 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
       </div>
       {/* Logo – H1 with Dune Rise, halo rest animation, hidden until font loads then fades in */}
       <h1
-        className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[150px] z-20 pointer-events-none font-display font-bold uppercase tracking-[0.12em] text-center text-5xl md:text-6xl transition-opacity duration-300 ${logoVisible ? "opacity-100" : "opacity-0"}`}
+        className={`absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[150px] z-20 pointer-events-none font-display font-bold uppercase tracking-[0.12em] text-center text-5xl md:text-6xl transition-opacity duration-300 flex flex-col items-center gap-2 ${logoVisible ? "opacity-100" : "opacity-0"}`}
         style={{
           fontFamily: "var(--font-display)",
           filter: "drop-shadow(0 0 40px rgba(0,0,0,0.4)) drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
@@ -154,6 +154,14 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
         >
           <span className="logo-title-halo">SPICY TECHS</span>
         </span>
+        <span
+          className="block w-full max-w-[320px] h-2 shrink-0 bg-no-repeat bg-center"
+          style={{
+            backgroundImage: "url(/images/hud/title_underline.png)",
+            backgroundSize: "auto 100%",
+          }}
+          aria-hidden
+        />
       </h1>
     </header>
   )

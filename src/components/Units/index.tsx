@@ -9,6 +9,7 @@ import UnitsSelector from "./UnitsSelector"
 import UnitTooltip from "./UnitTooltip"
 import PanelCorners from "@/components/PanelCorners"
 import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
+import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
 
 // Match Armory slot size and gap
 const SLOT_PX = 48
@@ -16,6 +17,8 @@ const SLOT_GAP_PX = 8
 const GRID_COLS = 5
 const GRID_PADDING_PX = 32
 const PANEL_WIDTH = GRID_COLS * SLOT_PX + (GRID_COLS - 1) * SLOT_GAP_PX + GRID_PADDING_PX
+const MIN_GRID_ROWS = 3
+const MIN_GRID_HEIGHT_PX = MIN_GRID_ROWS * SLOT_PX + (MIN_GRID_ROWS - 1) * SLOT_GAP_PX
 
 interface AnchorPosition {
   x: number
@@ -29,6 +32,9 @@ const Units = () => {
   const setUnitSlot = useMainStore((s) => s.setUnitSlot)
   const removeUnitSlot = useMainStore((s) => s.removeUnitSlot)
   const unitSlots = useCurrentUnitSlots()
+  const toggleUnits = useMainStore((s) => s.toggleUnits)
+  const unitsOpen = useMainStore((s) => s.panelVisibility.unitsOpen)
+  const panelRightClickHide = usePanelHideOnRightClick(toggleUnits, unitsOpen)
 
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
@@ -119,17 +125,29 @@ const Units = () => {
   return (
     <>
       <div className="flex flex-col shrink-0">
+        <div className="flex justify-end items-center gap-1 mb-1 shrink-0">
+          <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0">
+            Units
+          </h2>
+          <span
+            className={`text-xs font-mono ${cpNumberRed ? "font-bold text-(--color-error)" : totalCP === MAX_UNIT_CP ? "font-bold text-white/70" : "text-white/70"}`}
+          >
+            {totalCP} CP
+          </span>
+        </div>
         <div
           id="units-grid"
           className={`relative bg-zinc-900 box-border overflow-hidden p-4 ${PANEL_BORDER_HOVER_CLASS}`}
           style={{ width: PANEL_WIDTH }}
+          {...panelRightClickHide}
         >
           <PanelCorners />
           <div
-            className="grid"
+            className="grid content-start"
             style={{
               gridTemplateColumns: `repeat(${GRID_COLS}, ${SLOT_PX}px)`,
               gap: `${SLOT_GAP_PX}px`,
+              minHeight: MIN_GRID_HEIGHT_PX,
             }}
           >
             {Array.from({ length: unitSlotCount }).map((_, index) => {
@@ -163,6 +181,7 @@ const Units = () => {
                   className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative ${cellStyle} ${heroSlotMuted}`}
                   style={slotStyle}
                   id={`units-slot-${index}`}
+                  data-panel-slot
                   title={isAddSlot ? "Add unit" : isHeroSlotEmpty ? "Hero slot (optional)" : undefined}
                   onClick={(e) => handleSlotClick(e, index)}
                   onContextMenu={(e) => handleSlotRightClick(e, index)}
@@ -216,16 +235,6 @@ const Units = () => {
               remainingCP={selectedSlotIndex === 0 ? MAX_UNIT_CP - totalCP : undefined}
             />
           )}
-        </div>
-        <div className="flex justify-start items-center gap-1 mt-1 shrink-0">
-          <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0">
-            Units
-          </h2>
-          <span
-            className={`text-xs font-mono ${cpNumberRed ? "font-bold text-(--color-error)" : totalCP === MAX_UNIT_CP ? "font-bold text-white/70" : "text-white/70"}`}
-          >
-            {totalCP} CP
-          </span>
         </div>
       </div>
 

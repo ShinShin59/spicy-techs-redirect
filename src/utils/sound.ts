@@ -19,7 +19,7 @@ export function playSound(pathOrName: string): void {
   const path = pathOrName.startsWith("/") ? pathOrName : getSoundPath(pathOrName)
   const audio = new Audio(path)
   audio.volume = DEFAULT_VOLUME
-  audio.play().catch(() => {})
+  audio.play().catch(() => { })
 }
 
 /**
@@ -72,6 +72,13 @@ const MAIN_BASE_BUILDING = "main_base_building.mp3"
 
 export function playMainBaseBuildingSound(): void {
   playSound(MAIN_BASE_BUILDING)
+}
+
+/** Played when setting an operation in the Operations panel. */
+const UI_SPY_OPERATION = "UI_Spyoperation.mp3"
+
+export function playSpyOperationSound(): void {
+  playSound(UI_SPY_OPERATION)
 }
 
 export const BUTTON_SPENDRESOURCES_SOUNDS = [

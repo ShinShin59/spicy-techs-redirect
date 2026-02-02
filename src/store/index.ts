@@ -37,8 +37,14 @@ export type UnitSlotsState = Record<FactionLabel, (string | null)[]>
 /** Councillor slots: max 2 per faction, order = [oldest, newest] for FIFO replacement */
 export type CouncillorSlotsState = Record<FactionLabel, (string | null)[]>
 
+/** Operation slots: 5 per faction (mission ids or null) */
+export type OperationSlotsState = Record<FactionLabel, (string | null)[]>
+
 /** Max councillors selectable per build */
 export const MAX_COUNCILLORS = 2
+
+/** Number of operation slots per faction */
+export const OPERATION_SLOTS_COUNT = 5
 
 /** Initial building order (empty per faction) */
 const initialBuildingOrder: BuildingOrderState = {
@@ -104,6 +110,22 @@ const initialCouncillorSlotsState: CouncillorSlotsState = {
   corrino: createEmptyCouncillorSlotsForFaction(),
 }
 
+/** Creates initial operation slots for a faction (5 slots, all null) */
+function createEmptyOperationSlotsForFaction(): (string | null)[] {
+  return Array.from({ length: OPERATION_SLOTS_COUNT }, () => null)
+}
+
+/** Initial operation slots state (empty for all factions) */
+const initialOperationSlotsState: OperationSlotsState = {
+  harkonnen: createEmptyOperationSlotsForFaction(),
+  atreides: createEmptyOperationSlotsForFaction(),
+  ecaz: createEmptyOperationSlotsForFaction(),
+  smuggler: createEmptyOperationSlotsForFaction(),
+  vernius: createEmptyOperationSlotsForFaction(),
+  fremen: createEmptyOperationSlotsForFaction(),
+  corrino: createEmptyOperationSlotsForFaction(),
+}
+
 const DEFAULT_UNIT_SLOT_COUNT = 2
 export const MAX_UNIT_SLOT_COUNT = 26
 /** Max total CP for units (hero not counted); units that would exceed this are disabled in the add selector */
@@ -115,6 +137,7 @@ export interface PanelVisibility {
   armoryOpen: boolean
   unitsOpen: boolean
   councillorsOpen: boolean
+  operationsOpen: boolean
 }
 
 const initialPanelVisibility: PanelVisibility = {
@@ -122,6 +145,7 @@ const initialPanelVisibility: PanelVisibility = {
   armoryOpen: true,
   unitsOpen: true,
   councillorsOpen: true,
+  operationsOpen: true,
 }
 
 /** Build metadata (author, social, commentary, media) */
@@ -151,6 +175,7 @@ function normalizePanelVisibility(pv: Partial<PanelVisibility> | undefined): Pan
     armoryOpen: pv?.armoryOpen ?? initialPanelVisibility.armoryOpen,
     unitsOpen: pv?.unitsOpen ?? initialPanelVisibility.unitsOpen,
     councillorsOpen: pv?.councillorsOpen ?? initialPanelVisibility.councillorsOpen,
+    operationsOpen: pv?.operationsOpen ?? initialPanelVisibility.operationsOpen,
   }
 }
 
@@ -176,6 +201,7 @@ export interface SavedBuild {
   unitSlotCount: number
   unitSlots: UnitSlotsState
   councillorSlots: CouncillorSlotsState
+  operationSlots: OperationSlotsState
   panelVisibility: PanelVisibility
   metadata: BuildMetadata
 }
@@ -201,6 +227,7 @@ interface MainStore {
   unitSlotCount: number
   unitSlots: UnitSlotsState
   councillorSlots: CouncillorSlotsState
+  operationSlots: OperationSlotsState
   panelVisibility: PanelVisibility
   metadata: BuildMetadata
   defaultAuthor: string
@@ -214,11 +241,13 @@ interface MainStore {
   setUnitSlot: (slotIndex: number, unitId: string | null) => void
   removeUnitSlot: (slotIndex: number) => void
   addUnitSlot: () => number | undefined
+  setOperationSlot: (slotIndex: number, missionId: string | null) => void
   toggleCouncillor: (councillorId: string) => void
   toggleMainBase: () => void
   toggleArmory: () => void
   toggleUnits: () => void
   toggleCouncillors: () => void
+  toggleOperations: () => void
   setMetadataAuthor: (author: string) => void
   setMetadataSocial: (social: string) => void
   setMetadataMedia: (media: string) => void
@@ -247,6 +276,7 @@ export function getBuildSnapshot(state: {
   unitSlotCount: number
   unitSlots: UnitSlotsState
   councillorSlots: CouncillorSlotsState
+  operationSlots: OperationSlotsState
   panelVisibility: PanelVisibility
   metadata: BuildMetadata
   currentBuildName: string
@@ -259,6 +289,7 @@ export function getBuildSnapshot(state: {
     unitSlotCount: state.unitSlotCount,
     unitSlots: state.unitSlots,
     councillorSlots: state.councillorSlots,
+    operationSlots: state.operationSlots,
     panelVisibility: state.panelVisibility,
     metadata: state.metadata,
     currentBuildName: state.currentBuildName,
@@ -344,6 +375,7 @@ export const useMainStore = create<MainStore>()(
       unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
       unitSlots: initialUnitSlotsState,
       councillorSlots: initialCouncillorSlotsState,
+      operationSlots: initialOperationSlotsState,
       panelVisibility: initialPanelVisibility,
       metadata: createEmptyMetadata(),
       defaultAuthor: DEFAULT_AUTHOR,
@@ -370,6 +402,26 @@ export const useMainStore = create<MainStore>()(
         const { panelVisibility } = get()
         set({ panelVisibility: { ...panelVisibility, councillorsOpen: !panelVisibility.councillorsOpen } })
         get().saveCurrentBuild()
+      },
+      toggleOperations: () => {
+        const { panelVisibility } = get()
+        set({ panelVisibility: { ...panelVisibility, operationsOpen: !panelVisibility.operationsOpen } })
+        get().saveCurrentBuild()
+      },
+      setOperationSlot: (slotIndex, missionId) => {
+        const { selectedFaction, operationSlots } = get()
+        const factionSlots = operationSlots[selectedFaction] ?? createEmptyOperationSlotsForFaction()
+        const next = [...factionSlots]
+        if (slotIndex >= 0 && slotIndex < OPERATION_SLOTS_COUNT) {
+          next[slotIndex] = missionId
+          set({
+            operationSlots: {
+              ...operationSlots,
+              [selectedFaction]: next,
+            },
+          })
+          get().saveCurrentBuild()
+        }
       },
       toggleCouncillor: (councillorId) => {
         const { selectedFaction, councillorSlots } = get()
@@ -529,7 +581,7 @@ export const useMainStore = create<MainStore>()(
         get().saveCurrentBuild()
       },
       loadSharedBuild: (payload) => {
-        const { mainBaseState, buildingOrder, armoryState, unitSlots, councillorSlots, defaultAuthor } = get()
+        const { mainBaseState, buildingOrder, armoryState, unitSlots, councillorSlots, operationSlots, defaultAuthor } = get()
         const orderArray = Array.isArray(payload.order) ? payload.order : []
         const stateForFaction = Array.isArray(payload.state) ? payload.state : mainBasesState[payload.f]
         const armoryForFaction = Array.isArray(payload.armory) ? payload.armory : createEmptyArmoryForFaction()
@@ -537,6 +589,10 @@ export const useMainStore = create<MainStore>()(
         const councillorSlotsForFaction = Array.isArray(payload.councillors)
           ? payload.councillors
           : createEmptyCouncillorSlotsForFaction()
+        let operationSlotsForFaction = Array.isArray((payload as { operations?: (string | null)[] }).operations)
+          ? (payload as { operations: (string | null)[] }).operations.slice(0, OPERATION_SLOTS_COUNT)
+          : createEmptyOperationSlotsForFaction()
+        operationSlotsForFaction = Array.from({ length: OPERATION_SLOTS_COUNT }, (_, i) => operationSlotsForFaction[i] ?? null)
         // Migrate shared builds: ensure add slot at 0, hero at 1, length 6
         if (unitSlotsForFaction.length > 0) {
           const first = unitSlotsForFaction[0]
@@ -555,6 +611,7 @@ export const useMainStore = create<MainStore>()(
           armoryState: { ...armoryState, [payload.f]: armoryForFaction },
           unitSlots: { ...unitSlots, [payload.f]: unitSlotsForFaction },
           councillorSlots: { ...councillorSlots, [payload.f]: councillorSlotsForFaction },
+          operationSlots: { ...operationSlots, [payload.f]: operationSlotsForFaction },
           unitSlotCount: Math.max(DEFAULT_UNIT_SLOT_COUNT, unitSlotsForFaction.length),
           metadata: createEmptyMetadata(defaultAuthor),
           currentBuildId: null,
@@ -576,6 +633,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots,
           councillorSlots,
+          operationSlots,
           panelVisibility,
           metadata,
           savedBuilds,
@@ -598,6 +656,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots,
           councillorSlots,
+          operationSlots,
           panelVisibility,
           metadata,
           currentBuildName: finalName,
@@ -614,6 +673,7 @@ export const useMainStore = create<MainStore>()(
             unitSlotCount,
             unitSlots: deepClone(unitSlots),
             councillorSlots: deepClone(councillorSlots),
+            operationSlots: deepClone(operationSlots),
             panelVisibility: deepClone(panelVisibility),
             metadata: deepClone(metadata),
             // Keep original createdAt - don't update on save
@@ -637,6 +697,7 @@ export const useMainStore = create<MainStore>()(
             unitSlotCount,
             unitSlots: deepClone(unitSlots),
             councillorSlots: deepClone(councillorSlots),
+            operationSlots: deepClone(operationSlots),
             panelVisibility: deepClone(panelVisibility),
             metadata: deepClone(metadata),
           }
@@ -656,6 +717,7 @@ export const useMainStore = create<MainStore>()(
         const armoryState = build.armoryState || initialArmoryState
         const unitSlots = build.unitSlots || initialUnitSlotsState
         const councillorSlots = build.councillorSlots || initialCouncillorSlotsState
+        const operationSlots = build.operationSlots ?? initialOperationSlotsState
         const panelVisibility = normalizePanelVisibility(build.panelVisibility)
         const metadata = normalizeMetadata(build.metadata, defaultAuthor)
         const snapshot = getBuildSnapshot({
@@ -666,6 +728,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots,
           councillorSlots,
+          operationSlots,
           panelVisibility,
           metadata,
           currentBuildName: build.name,
@@ -678,6 +741,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots: deepClone(unitSlots),
           councillorSlots: deepClone(councillorSlots),
+          operationSlots: deepClone(operationSlots),
           panelVisibility,
           metadata: deepClone(metadata),
           currentBuildName: build.name,
@@ -693,6 +757,7 @@ export const useMainStore = create<MainStore>()(
         const armoryState = build.armoryState || initialArmoryState
         const unitSlots = build.unitSlots || initialUnitSlotsState
         const councillorSlots = build.councillorSlots || initialCouncillorSlotsState
+        const operationSlots = build.operationSlots ?? initialOperationSlotsState
         const panelVisibility = normalizePanelVisibility(build.panelVisibility)
         const metadata = normalizeMetadata(build.metadata, defaultAuthor)
         const newName = getUniqueBuildName(build.name + " (copy)", savedBuilds)
@@ -708,6 +773,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount,
           unitSlots: deepClone(unitSlots),
           councillorSlots: deepClone(councillorSlots),
+          operationSlots: deepClone(operationSlots),
           panelVisibility,
           metadata: deepClone(metadata),
         }
@@ -719,6 +785,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount: duplicated.unitSlotCount,
           unitSlots: duplicated.unitSlots,
           councillorSlots: duplicated.councillorSlots,
+          operationSlots: duplicated.operationSlots,
           panelVisibility: duplicated.panelVisibility,
           metadata: duplicated.metadata,
           currentBuildName: duplicated.name,
@@ -732,6 +799,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount: duplicated.unitSlotCount,
           unitSlots: deepClone(duplicated.unitSlots),
           councillorSlots: deepClone(duplicated.councillorSlots),
+          operationSlots: deepClone(duplicated.operationSlots),
           panelVisibility: duplicated.panelVisibility,
           metadata: deepClone(duplicated.metadata),
           currentBuildName: duplicated.name,
@@ -753,6 +821,7 @@ export const useMainStore = create<MainStore>()(
             unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
             unitSlots: initialUnitSlotsState,
             councillorSlots: initialCouncillorSlotsState,
+            operationSlots: initialOperationSlotsState,
             panelVisibility: initialPanelVisibility,
             metadata: createEmptyMetadata(defaultAuthor),
             currentBuildName: getDefaultBuildName("atreides", newSaved),
@@ -774,6 +843,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
           unitSlots: initialUnitSlotsState,
           councillorSlots: initialCouncillorSlotsState,
+          operationSlots: initialOperationSlotsState,
           panelVisibility: initialPanelVisibility,
           metadata: createEmptyMetadata(defaultAuthor),
           currentBuildName: getDefaultBuildName("atreides", savedBuilds),
@@ -790,6 +860,7 @@ export const useMainStore = create<MainStore>()(
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
           unitSlots: initialUnitSlotsState,
           councillorSlots: initialCouncillorSlotsState,
+          operationSlots: initialOperationSlotsState,
           panelVisibility: initialPanelVisibility,
           metadata: createEmptyMetadata(defaultAuthor),
           currentBuildName: getDefaultBuildName(selectedFaction, savedBuilds),
@@ -821,6 +892,7 @@ export const useMainStore = create<MainStore>()(
             armoryState: g.armoryState,
             unitSlotCount: g.unitSlotCount,
             unitSlots: g.unitSlots,
+            operationSlots: g.operationSlots,
             councillorSlots: g.councillorSlots,
             panelVisibility: g.panelVisibility,
             metadata: g.metadata,
@@ -902,6 +974,10 @@ export const useMainStore = create<MainStore>()(
         if (!migrated.councillorSlots) {
           migrated.councillorSlots = initialCouncillorSlotsState
         }
+        // Migrate operationSlots if missing
+        if (!migrated.operationSlots) {
+          migrated.operationSlots = initialOperationSlotsState
+        }
         // Migrate panelVisibility if missing or strip metadataOpen
         migrated.panelVisibility = normalizePanelVisibility(migrated.panelVisibility as Partial<PanelVisibility> | undefined)
         // Migrate metadata if missing or add media
@@ -926,7 +1002,7 @@ export const useMainStore = create<MainStore>()(
             if (typeof (b as { unitSlotCount?: number }).unitSlotCount !== "number") {
               const slots = (b as { unitSlots?: UnitSlotsState }).unitSlots
               const maxLen = slots
-                ? Math.max(0, ...FACTION_LABELS.map((f) => (slots[f]?.length ?? 0)))
+                ? Math.max(0, ...FACTION_LABELS.map((f) => (slots[f as FactionLabel]?.length ?? 0)))
                 : 0
               updated.unitSlotCount = Math.max(DEFAULT_UNIT_SLOT_COUNT, maxLen)
             }
@@ -936,6 +1012,9 @@ export const useMainStore = create<MainStore>()(
             delete updated.armoryOrder
             if (!(b as { councillorSlots?: unknown }).councillorSlots) {
               updated.councillorSlots = initialCouncillorSlotsState
+            }
+            if (!(b as { operationSlots?: unknown }).operationSlots) {
+              updated.operationSlots = initialOperationSlotsState
             }
             if (!(b as { unitSlots?: unknown }).unitSlots) {
               updated.unitSlots = initialUnitSlotsState
@@ -1050,6 +1129,7 @@ export function useIsBuildUpToDate(): boolean {
   const unitSlotCount = useMainStore((s) => s.unitSlotCount)
   const unitSlots = useMainStore((s) => s.unitSlots)
   const councillorSlots = useMainStore((s) => s.councillorSlots)
+  const operationSlots = useMainStore((s) => s.operationSlots)
   const panelVisibility = useMainStore((s) => s.panelVisibility)
   const metadata = useMainStore((s) => s.metadata)
   const currentBuildName = useMainStore((s) => s.currentBuildName)
@@ -1061,6 +1141,7 @@ export function useIsBuildUpToDate(): boolean {
     unitSlotCount,
     unitSlots,
     councillorSlots,
+    operationSlots,
     panelVisibility,
     metadata,
     currentBuildName,
@@ -1094,4 +1175,11 @@ export function useCurrentCouncillorSlots(): (string | null)[] {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const councillorSlots = useMainStore((s) => s.councillorSlots)
   return councillorSlots[selectedFaction] ?? [null, null]
+}
+
+/** Returns the operation slots for the current faction (5 slots). */
+export function useCurrentOperationSlots(): (string | null)[] {
+  const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const operationSlots = useMainStore((s) => s.operationSlots)
+  return operationSlots[selectedFaction] ?? createEmptyOperationSlotsForFaction()
 }

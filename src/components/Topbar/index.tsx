@@ -20,6 +20,7 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
   const toggleArmory = useMainStore((s) => s.toggleArmory)
   const toggleUnits = useMainStore((s) => s.toggleUnits)
   const toggleCouncillors = useMainStore((s) => s.toggleCouncillors)
+  const toggleOperations = useMainStore((s) => s.toggleOperations)
 
   const factionBgVar = `var(--color-faction-${selectedFaction})` as const
   const sideBgImage = "url(/images/hud/sides_left.png), url(/images/hud/sides_right.png)"
@@ -110,6 +111,19 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
           mutedWhenUnpressed
         >
           Councillors
+        </Button>
+        <Button
+          onClick={() => {
+            const willOpen = !panelVisibility.operationsOpen
+            toggleOperations()
+            playMenuToggleSound(willOpen)
+          }}
+          aria-pressed={panelVisibility.operationsOpen}
+          aria-label="Toggle Operations"
+          pressed={panelVisibility.operationsOpen}
+          mutedWhenUnpressed
+        >
+          Operations
         </Button>
       </div>
       {/* Logo – H1 with Dune Rise, halo rest animation, hidden until font loads then fades in */}

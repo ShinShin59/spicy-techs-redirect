@@ -1,0 +1,1025 @@
+[
+  {
+    "id": "MProbeSetup",
+    "effects": {
+      "ope": "ProbeSetup"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 50
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 27,
+      "y": 0
+    },
+    "image": "operation_27.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Probe Setup",
+    "desc": "Knowledge is power, they say. It's even more true on Arrakis, where ignorance can be lethal."
+  },
+  {
+    "id": "MGearSabotage",
+    "effects": {
+      "ope": "GearSabotage"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 21,
+      "y": 0
+    },
+    "image": "operation_21.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Defense Sabotage",
+    "desc": "The most effective defensive weapons do not matter if your enemy cannot use them."
+  },
+  {
+    "id": "MPoisonReserves",
+    "effects": {
+      "ope": "PoisonReserves"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 0,
+      "y": 0
+    },
+    "image": "operation_0.png",
+    "props": {
+      "onlyForFactions": [
+        "smuggler"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Poison the Reserves",
+    "desc": "Tainted rations will not only make you physically sick but will infect even your trust and confidence in your teammates."
+  },
+  {
+    "id": "MEpicQuest",
+    "effects": {
+      "ope": "EpicQuest"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 36,
+      "y": 0
+    },
+    "image": "operation_36.png",
+    "props": {
+      "onlyForFactions": [
+        "ecaz"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Epic Quest",
+    "desc": "A personal mission given to a proud soldier is the best motivation in the world."
+  },
+  {
+    "id": "MSupplyDrop",
+    "effects": {
+      "ope": "SupplyDrop"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 34,
+      "y": 0
+    },
+    "image": "operation_34.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Supply Drop",
+    "desc": "An army without supply will not last long in the desert."
+  },
+  {
+    "id": "MSupportIntelligence",
+    "effects": {
+      "ope": "SupportIntelligence"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 30,
+      "y": 0
+    },
+    "image": "operation_30.png",
+    "props": {
+      "onlyForFactions": [
+        "atreides"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Support Intelligence",
+    "desc": "Coordinating analysts at the office and soldiers on the field allows for a better reaction to threats, which saves many lives."
+  },
+  {
+    "id": "MSandCloak",
+    "effects": {
+      "ope": "SandCloak"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 40,
+      "y": 0
+    },
+    "image": "operation_40.png",
+    "props": {
+      "onlyForFactions": [
+        "fremen"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Hiding Tracks",
+    "desc": "By choosing when to strike, Fremen can disarm the invaders of their strongest tools."
+  },
+  {
+    "id": "MScavengerTeam",
+    "effects": {
+      "ope": "ScavengerTeam"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 25,
+      "y": 0
+    },
+    "image": "operation_25.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Scavenger Team",
+    "desc": "Corpses usually have many valuables on them. It'd be a shame to leave them to the desert."
+  },
+  {
+    "id": "MCombatDrugs",
+    "effects": {
+      "ope": "CombatDrugs"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 6,
+      "y": 0
+    },
+    "image": "operation_6.png",
+    "props": {
+      "onlyForFactions": [
+        "harkonnen"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Combat Drugs",
+    "desc": "Some drugs and chemical compounds can significantly enhance combat efficiency at the cost of a reduced lifespan."
+  },
+  {
+    "id": "MConsolidation",
+    "effects": {
+      "ope": "Consolidation"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 24,
+      "y": 0
+    },
+    "image": "operation_24.png",
+    "props": {
+      "onlyForFactions": [
+        "corrino"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Consolidation",
+    "desc": "The constant redeployment of the Imperial army on various fronts of the Imperium has made them incredibly resistant. Through unusual formations and well-timed restocking, they can enhance this ability even further."
+  },
+  {
+    "id": "MLeaveOrder",
+    "effects": {
+      "ope": "LeaveOrder"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 35,
+      "y": 0
+    },
+    "image": "operation_35.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Leave Order",
+    "desc": "The Landsraad cannot force you to remove your troops, but it can fine you for not complying."
+  },
+  {
+    "id": "MAmbientConnection",
+    "effects": {
+      "ope": "AmbientConnection"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 41,
+      "y": 0
+    },
+    "image": "operation_41.png",
+    "props": {
+      "onlyForFactions": [
+        "vernius"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Ambient Connection",
+    "desc": "Drones can connect to the Nodal Network through natural static electricity, but preparation should be made and a temporary relay installed."
+  },
+  {
+    "id": "MDecoyThumper",
+    "effects": {
+      "ope": "WormCalling"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 29,
+      "y": 0
+    },
+    "image": "operation_29.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Decoy Thumper",
+    "desc": "Fremen place thumpers in peculiar places to attract and enrage sandworms on their enemies' paths and out of theirs."
+  },
+  {
+    "id": "MArrakisDiplomacy",
+    "effects": {
+      "ope": "ArrakisDiplomacy"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 4,
+      "y": 0
+    },
+    "image": "operation_4.png",
+    "props": {
+      "onlyForFactions": [
+        "atreides"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Arrakis Diplomacy",
+    "desc": "Empathy, patience, and attention for cultural differences lead to a great deal of success in getting the locals' favors."
+  },
+  {
+    "id": "MSleeperAgents",
+    "effects": {
+      "ope": "SleeperAgent"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 28,
+      "y": 0
+    },
+    "image": "operation_28.png",
+    "props": {
+      "onlyForFactions": [
+        "harkonnen"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Sleeper Agent",
+    "desc": "With care and meticulousness, it's possible to plant a sleeper agent in every army squad that will betray them on command."
+  },
+  {
+    "id": "MHiddenThumpers",
+    "effects": {
+      "ope": "HiddenThumpers"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 23,
+      "y": 0
+    },
+    "image": "operation_23.png",
+    "props": {
+      "onlyForFactions": [
+        "fremen"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Hidden Thumpers",
+    "desc": "Fremen are masters at using Shai-Hulud for transport. A secret technique lets them influence the movement of sandworms on the whole planet, facilitating wormriding."
+  },
+  {
+    "id": "MEMPBomb",
+    "effects": {
+      "ope": "EMPBomb"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 32,
+      "y": 0
+    },
+    "image": "operation_32.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "EMP Bomb",
+    "desc": "An electromagnetic pulse that will deactivated all electronics, making drones useless for a little while."
+  },
+  {
+    "id": "MSmugglingOperation",
+    "effects": {
+      "ope": "ExtractionNetwork"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 15,
+      "y": 0
+    },
+    "image": "operation_15.png",
+    "props": {
+      "onlyForFactions": [
+        "smuggler"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Extraction Network",
+    "desc": "Leaving combat to fight another day is not cowardice; it is tactical acumen."
+  },
+  {
+    "id": "MInterdictionZone",
+    "effects": {
+      "ope": "InterdictionZone"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 12,
+      "y": 0
+    },
+    "image": "operation_12.png",
+    "props": {
+      "onlyForFactions": [
+        "corrino"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Interdiction Zone",
+    "desc": "To be effective, a no-fly zone has to be enforced by a mix of political and legal means, as well as military support often given from space."
+  },
+  {
+    "id": "MLivePerformance",
+    "effects": {
+      "ope": "LivePerformance"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 37,
+      "y": 0
+    },
+    "image": "operation_37.png",
+    "props": {
+      "onlyForFactions": [
+        "ecaz"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Live Performance",
+    "desc": "A good show provokes admiration, but a bad one invites mockery."
+  },
+  {
+    "id": "MEmpiricalData",
+    "effects": {
+      "ope": "EmpiricalData"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 200
+      },
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 42,
+      "y": 0
+    },
+    "image": "operation_42.png",
+    "props": {
+      "onlyForFactions": [
+        "vernius"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Empirical Data",
+    "desc": "Progress is a constant back and forth between theoretical breakthrough and practical issues. Collecting data from real life fights on the surface of Arrakis informs current researches."
+  },
+  {
+    "id": "MToxicVapors",
+    "effects": {
+      "ope": "ToxicVapors"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 26,
+      "y": 0
+    },
+    "image": "operation_26.png",
+    "props": {
+      "onlyForFactions": [
+        "harkonnen"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Toxic Vapors",
+    "desc": "Chemical weapons are an easy way to get rid of military resistance if you are not too concerned with ethical considerations."
+  },
+  {
+    "id": "MOrbitalStrike",
+    "effects": {
+      "ope": "OrbitalStrike"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 20,
+      "y": 0
+    },
+    "image": "operation_20.png",
+    "props": {
+      "onlyForFactions": [
+        "corrino"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Orbital Strike",
+    "desc": "The Emperor always keeps a few ships in low orbit. They are ready to strike at any time, as long as they get the right coordinates."
+  },
+  {
+    "id": "MAdministrativeBurden",
+    "effects": {
+      "ope": "AdministrativeBurden"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 44,
+      "y": 0
+    },
+    "image": "operation_44.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Administrative Burden",
+    "desc": "By liberal use of red tape and obfuscation, a colonial administration can be almost completely immobilised, at least for a while."
+  },
+  {
+    "id": "MCommunicationJamming",
+    "effects": {
+      "ope": "CommunicationJamming"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 22,
+      "y": 0
+    },
+    "image": "operation_22.png",
+    "props": {
+      "onlyForFactions": [
+        "smuggler"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Communication Jamming",
+    "desc": "Controlling the flow of information in battle is often the way to victory."
+  },
+  {
+    "id": "MAwakePeople",
+    "effects": {
+      "ope": "CrowdManipulation"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 11,
+      "y": 0
+    },
+    "image": "operation_11.png",
+    "props": {
+      "onlyForFactions": [
+        "fremen"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Awake the People",
+    "desc": "Carefully placed instigators and targeted propaganda are enough to turn docile workers into violent dissidents."
+  },
+  {
+    "id": "MElaccaFog",
+    "effects": {
+      "ope": "ElaccaFog"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 38,
+      "y": 0
+    },
+    "image": "operation_38.png",
+    "props": {
+      "onlyForFactions": [
+        "ecaz"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Elacca Fog",
+    "desc": "The Elacca drug from Ecaz forests is used in gladiator shows to inhibit self-preservation. During war time, it can be deployed as a thick fog to get the same effect. "
+  },
+  {
+    "id": "MDefenseSabotage",
+    "effects": {
+      "ope": "DefenseSabotage"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 9,
+      "y": 0
+    },
+    "image": "operation_9.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Defense Breaches",
+    "desc": "Even the best fortress has weaknesses. With a little bit of planning, it's easy to exploit them and fully disorganize the defenders."
+  },
+  {
+    "id": "MCeaseFire",
+    "effects": {
+      "ope": "CeaseFire"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 10,
+      "y": 0
+    },
+    "image": "operation_10.png",
+    "props": {
+      "onlyForFactions": [
+        "atreides"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Cease Fire",
+    "desc": "Sometimes a ceasefire is the stepping stone to a durable peace. More often, it is only a stalling scheme."
+  },
+  {
+    "id": "MHiddenBackdoor",
+    "effects": {
+      "ope": "HiddenBackdoor"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 500
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 43,
+      "y": 0
+    },
+    "image": "operation_43.png",
+    "props": {
+      "onlyForFactions": [
+        "vernius"
+      ],
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Hidden Backdoor",
+    "desc": "A tiny security default, hidden deep within the mechanical engineering of any machine built by the House, can be activated at any moment to take control. There shall be no witness to such an event left alive, for it would ruin Ix reputation."
+  },
+  {
+    "id": "CellSearch",
+    "effects": {
+      "ope": "CellSearch"
+    },
+    "cost": [
+      {
+        "res": "Solari",
+        "qty": 200
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 45,
+      "y": 0
+    },
+    "image": "operation_45.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Cell Search",
+    "desc": "A cell of assassins is easy to miss, if you don't look for it meticulously."
+  },
+  {
+    "id": "InfiltrationCells",
+    "effects": {
+      "ope": "InfiltrationCells"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 39,
+      "y": 0
+    },
+    "image": "operation_39.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Infiltration Cells",
+    "desc": "There is a limit to what you can do from afar. If you really want to know someone, you need to get closer."
+  },
+  {
+    "id": "Assassination",
+    "effects": {
+      "ope": "Assassination"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 500
+      },
+      {
+        "res": "Solari",
+        "qty": 1000
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 17,
+      "y": 0
+    },
+    "image": "operation_17.png",
+    "props": {
+      "tip": {
+        "cat": "Mission"
+      }
+    },
+    "name": "Assassination",
+    "desc": "Murder is such an ugly word, but when someone has become too much of a pain, it can be efficient."
+  },
+  {
+    "id": "MSupplyCaches",
+    "effects": {
+      "ope": "SupplyCaches"
+    },
+    "cost": [
+      {
+        "res": "Intel",
+        "qty": 100
+      }
+    ],
+    "gfx": {
+      "file": "UI/spying/missionIconsBW.png",
+      "size": 114,
+      "x": 19,
+      "y": 0
+    },
+    "image": "operation_19.png",
+    "props": {
+      "onlyForFactions": [
+        "smuggler"
+      ]
+    },
+    "name": "Supply Caches",
+    "desc": "There are only few ways to get what you need in the middle of the desert. The easiest one is to have it ready and set up in the right place, long in advance."
+  }
+]

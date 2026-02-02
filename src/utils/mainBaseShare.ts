@@ -14,6 +14,7 @@ export interface SharedBuildPayload {
   armory?: (string | null)[][]
   units?: (string | null)[]
   councillors?: (string | null)[]
+  operations?: (string | null)[]
 }
 
 export function encodeBuildPayload(payload: SharedBuildPayload): string {

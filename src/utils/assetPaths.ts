@@ -11,6 +11,7 @@ const MAINBASE_ICONS_PATH = "/images/mainbase_icons"
 const GEAR_ICONS_PATH = "/images/gear"
 const UNIT_ICONS_PATH = "/images/units"
 const COUNCILLOR_ICONS_PATH = "/images/councillors"
+const OPERATIONS_ICONS_PATH = "/images/operations"
 
 export function getFactionIconPath(faction: FactionLabel): string {
   return `${FACTION_ICON_PATH}/${faction}.png`
@@ -31,6 +32,14 @@ export function getUnitIconPath(faction: FactionLabel, unitName: string): string
 
 export function getCouncillorIconPath(imageFileName: string): string {
   return `${COUNCILLOR_ICONS_PATH}/${imageFileName}`
+}
+
+/** Operation icon: use image filename from JSON if present, else placeholder. */
+export function getOperationIconPath(_missionId: string, imageFileName?: string | null): string {
+  if (imageFileName) {
+    return `${OPERATIONS_ICONS_PATH}/${imageFileName}`
+  }
+  return getHudImagePath("operations_icon.png")
 }
 
 /** Set of URLs that have been preloaded */

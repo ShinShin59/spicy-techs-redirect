@@ -7,6 +7,7 @@ import MainBase from "./components/MainBase"
 import Armory from "./components/Armory"
 import Units from "./components/Units"
 import Councillors from "./components/Councillors"
+import Operations from "./components/Operations"
 import BuildsSidebar from "./components/BuildsSidebar"
 import Metadata from "./components/Metadata"
 import { useMainStore } from "./store"
@@ -39,6 +40,7 @@ function App() {
               units={panelVisibility.unitsOpen ? <Units /> : undefined}
               councillors={panelVisibility.councillorsOpen ? <Councillors /> : undefined}
               armory={panelVisibility.armoryOpen ? <Armory /> : undefined}
+              operations={panelVisibility.operationsOpen ? <Operations /> : undefined}
             />
           </div>
           <BuildsSidebar />

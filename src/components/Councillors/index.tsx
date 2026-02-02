@@ -7,6 +7,7 @@ import { getCouncillorById, type CouncillorData } from "./councillors-utils"
 import CouncillorsSelector from "./CouncillorsSelector"
 import CouncillorTooltip from "./CouncillorTooltip"
 import PanelCorners from "@/components/PanelCorners"
+import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
 
 interface AnchorPosition {
   x: number
@@ -55,7 +56,7 @@ const Councillors = () => {
         </h2>
         <div
           id="councillors-grid"
-          className="relative bg-zinc-900 border border-zinc-700 w-[168px] gap-2 p-4 box-border overflow-y-auto min-h-0"
+          className={`relative bg-zinc-900 w-[168px] gap-2 p-4 box-border overflow-y-auto min-h-0 ${PANEL_BORDER_HOVER_CLASS}`}
         >
           <PanelCorners />
           <div className="flex gap-2">
@@ -74,25 +75,24 @@ const Councillors = () => {
                   key={`councillor-slot-${index}`}
                   role="button"
                   tabIndex={0}
-                  className={`${cellClass} relative cursor-pointer ${
-                    hasCouncillor ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center" : "bg-[url('/images/hud/slot.png')] bg-cover bg-center hover:brightness-110"
-                  }`}
+                  className={`${cellClass} relative cursor-pointer ${hasCouncillor ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center" : "bg-[url('/images/hud/slot.png')] bg-cover bg-center hover:brightness-110"
+                    }`}
                   id={`councillors-slot-${index}`}
                   onClick={handleSlotClick}
                   onMouseEnter={
                     hasCouncillor && councillorData
                       ? (e) => {
-                          const rect = e.currentTarget.getBoundingClientRect()
-                          setHoverTooltip({
-                            councillor: councillorData,
-                            anchorRect: {
-                              left: rect.left,
-                              top: rect.top,
-                              width: rect.width,
-                              height: rect.height,
-                            },
-                          })
-                        }
+                        const rect = e.currentTarget.getBoundingClientRect()
+                        setHoverTooltip({
+                          councillor: councillorData,
+                          anchorRect: {
+                            left: rect.left,
+                            top: rect.top,
+                            width: rect.width,
+                            height: rect.height,
+                          },
+                        })
+                      }
                       : undefined
                   }
                   onMouseLeave={

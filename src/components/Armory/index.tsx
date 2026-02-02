@@ -6,6 +6,7 @@ import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import ArmoryGearSelector from "./ArmoryGearSelector"
 import GearAttributesTooltip from "./GearAttributesTooltip"
 import PanelCorners from "@/components/PanelCorners"
+import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
 import {
   getUnitsForFaction,
   getGearByName,
@@ -116,7 +117,7 @@ const Armory = () => {
         {/* Panel: column of unit blocks (unit name, 2 slots, separator except last) */}
         <div
           id="armory-grid"
-          className="relative bg-zinc-900 border border-zinc-700 flex flex-col flex-1 min-h-0 p-4 box-border overflow-auto"
+          className={`relative bg-zinc-900 flex flex-col flex-1 min-h-0 p-4 box-border overflow-auto ${PANEL_BORDER_HOVER_CLASS}`}
         >
           <PanelCorners />
           <div className="flex flex-col gap-0">

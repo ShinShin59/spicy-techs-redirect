@@ -3,6 +3,7 @@ import { useMainStore } from "@/store"
 import { getDevelopmentsSlotPath } from "@/utils/assetPaths"
 import { playDevelopmentsOpenSound, playDevelopmentsCloseSound } from "@/utils/sound"
 import PanelCorners from "@/components/PanelCorners"
+import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
 import DevelopmentsPicker from "./DevelopmentsPicker"
 
 const cellClass =
@@ -32,7 +33,7 @@ const Developments = () => {
           playDevelopmentsOpenSound()
           setPickerOpen(true)
         }}
-        className="relative bg-zinc-900 border border-zinc-700 w-[168px] gap-2 p-4 box-border overflow-y-auto min-h-0 grid grid-cols-2 grid-rows-2 cursor-pointer hover:border-zinc-500 transition-colors text-left"
+        className={`relative bg-zinc-900 w-[168px] gap-2 p-4 box-border overflow-y-auto min-h-0 grid grid-cols-2 grid-rows-2 cursor-pointer text-left ${PANEL_BORDER_HOVER_CLASS}`}
       >
         <PanelCorners />
         {GRID_ORDER.map((key) => {

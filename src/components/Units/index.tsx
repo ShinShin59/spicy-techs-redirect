@@ -8,6 +8,7 @@ import { getHeroById, getHeroIconPath, isHeroId } from "./heroes-utils"
 import UnitsSelector from "./UnitsSelector"
 import UnitTooltip from "./UnitTooltip"
 import PanelCorners from "@/components/PanelCorners"
+import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
 
 // Match Armory slot size and gap
 const SLOT_PX = 48
@@ -130,7 +131,7 @@ const Units = () => {
         </div>
         <div
           id="units-grid"
-          className="relative bg-zinc-900 border border-zinc-700 box-border overflow-hidden p-4"
+          className={`relative bg-zinc-900 box-border overflow-hidden p-4 ${PANEL_BORDER_HOVER_CLASS}`}
           style={{ width: PANEL_WIDTH }}
         >
           <PanelCorners />

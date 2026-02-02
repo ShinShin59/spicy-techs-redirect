@@ -7,6 +7,7 @@ import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import BuildingAttributesTooltip from "./BuildingAttributesTooltip"
 import OrderBadge from "@/components/OrderBadge"
 import PanelCorners from "@/components/PanelCorners"
+import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
 import { incrementOrder, decrementOrder, buildingIsEqual } from "@/hooks/useItemOrder"
 import mainBuildingsData from "./MainBaseBuildingsSelector/main-buildings.json"
 
@@ -128,11 +129,11 @@ const MainBase = () => {
         </h2>
         <div
           id="main-base-grid"
-          className="relative w-full p-4 border border-zinc-700 box-border bg-zinc-900 bg-[url('/images/hud/mb_bg_pattern.png')] bg-repeat bg-center"
+          className={`relative w-full p-4 box-border bg-zinc-900 bg-[url('/images/hud/mb_bg_pattern.png')] bg-repeat bg-center ${PANEL_BORDER_HOVER_CLASS}`}
         >
           <PanelCorners />
           <div className="relative flex flex-col justify-center items-center gap-12">
-          {layout.map((row, rowIndex) => (
+            {layout.map((row, rowIndex) => (
               <div key={rowIndex} className="flex" id={`main-base-row-${rowIndex}`}>
                 {row.map((building, groupIndex) => (
                   <div

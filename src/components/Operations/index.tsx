@@ -7,6 +7,7 @@ import { getOperationById } from "./operations-utils"
 import OperationSelector from "./OperationSelector"
 import OperationTooltip from "./OperationTooltip"
 import PanelCorners from "@/components/PanelCorners"
+import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
 
 // Same slot size as Armory
 const SLOT_PX = 48
@@ -106,7 +107,7 @@ const Operations = () => {
           </h2>
         </div>
         <div
-          className="relative w-full bg-zinc-900 border border-zinc-700 box-border overflow-hidden p-4 flex justify-center"
+          className={`relative w-full bg-zinc-900 box-border overflow-hidden p-4 flex justify-center ${PANEL_BORDER_HOVER_CLASS}`}
         >
           <PanelCorners />
           <div

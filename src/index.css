@@ -106,26 +106,59 @@ body {
 
 /* Title animations on faction change – quick, squared, metallic feel */
 @keyframes title-pulse-sharp {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes title-strike {
-  0% { transform: scale(1); }
-  20% { transform: scale(0.97); }
-  55% { transform: scale(1.03); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  20% {
+    transform: scale(0.97);
+  }
+
+  55% {
+    transform: scale(1.03);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes title-strobe {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
 
 @keyframes title-impact {
-  0%, 100% { transform: translateY(0); }
-  30% { transform: translateY(4px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(4px);
+  }
 }
 
 .title-anim-pulse-sharp {
@@ -146,8 +179,15 @@ body {
 
 /* Unit selector: subtle inside pulse on valid unit click (brightness only, no overflow) */
 @keyframes unit-select-pulse {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.35); }
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.35);
+  }
 }
 
 .unit-select-pulse {
@@ -165,4 +205,23 @@ img {
 button img,
 a img {
   pointer-events: auto;
+}
+
+/* Light white radial glow pulse for last-selected development */
+@keyframes dev-last-selected-glow {
+
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+.dev-last-selected-glow {
+  animation: dev-last-selected-glow 2s ease-in-out infinite;
 }

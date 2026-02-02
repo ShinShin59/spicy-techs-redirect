@@ -1,14 +1,39 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react"
 import { useMainStore, type FactionLabel } from "@/store"
-import { getDevelopmentSpriteStyle } from "@/utils/assetPaths"
+import { getDevelopmentSpriteStyle, getDevelopmentPickerAssetPath } from "@/utils/assetPaths"
+import { playCancelSlotSound, playMenuToggleSound } from "@/utils/sound"
 import DevelopmentDetailTooltip, {
   type DevelopmentEntry,
   type DevelopmentDomain,
 } from "./DevelopmentDetailTooltip"
 import PanelCorners from "@/components/PanelCorners"
+import OrderBadge from "@/components/OrderBadge"
 import developmentsData from "./developments.json"
 
-const NODE_SIZE = 52
+/** Single source of truth for development node scale (px). All layout dimensions are derived from this. */
+const DEV_SCALE = 56
+
+const DEV_LAYOUT = {
+  /** Node outer size – grid cells use these; nodes are explicitly sized to match. Width > scale so names fit. */
+  nodeWidth: Math.round(DEV_SCALE * 2.15),
+  nodeHeight: Math.round(DEV_SCALE * 1),
+  /** Frame (icon container) and icon inside it */
+  frameSize: Math.round(DEV_SCALE * 0.55),
+  iconInnerSize: Math.round(DEV_SCALE * 0.35),
+  /** Badges */
+  counterSize: Math.round(DEV_SCALE * 0.39),
+  flagSize: Math.round(DEV_SCALE * 0.39),
+  /** Spacing between nodes – grid gap */
+  gapX: Math.round(DEV_SCALE * 0.21),
+  gapY: Math.round(DEV_SCALE * 0.36),
+  /** Node padding and icon raise */
+  nodePaddingTop: Math.round(DEV_SCALE * 0.40),
+  nodePaddingX: Math.round(DEV_SCALE * 0.09),
+  nodePaddingBottom: Math.round(DEV_SCALE * 0.09),
+  iconRaise: Math.round(DEV_SCALE * 0.27),
+  /** Flag: nudge up so it sits a tad higher */
+  flagTopOffset: -5,
+} as const
 
 const DOMAIN_ORDER: DevelopmentDomain[] = ["economic", "military", "statecraft", "green"]
 
@@ -21,10 +46,41 @@ const DOMAIN_BORDER_CLASS: Record<DevelopmentDomain, string> = {
 }
 
 const DOMAIN_BG_SELECTED_CLASS: Record<DevelopmentDomain, string> = {
-  economic: "bg-economy/90",
-  military: "bg-military/90",
-  statecraft: "bg-statecraft/90",
-  green: "bg-expansion/90",
+  economic: "bg-economy",
+  military: "bg-military",
+  statecraft: "bg-statecraft",
+  green: "bg-expansion",
+}
+
+/** Frame filename prefix per domain (green → expansion). */
+const FRAME_PREFIX: Record<DevelopmentDomain, string> = {
+  economic: "economic",
+  military: "military",
+  statecraft: "statecraft",
+  green: "expansion",
+}
+
+/** Background image per quadrant (4 grid). */
+const QUADRANT_BG_FILES: Record<DevelopmentDomain, string> = {
+  economic: "bg__economic.png",
+  military: "bg__military.png",
+  statecraft: "bg__statecraft.png",
+  green: "bg__expansion.png",
+}
+
+const DEV_SELECTED_CIRCLE_IMAGE = getDevelopmentPickerAssetPath("selectedCircle.png")
+/** Pattern used as background on selected developments (blended with domain color). */
+const SELECTED_PATTERN_IMAGE = getDevelopmentPickerAssetPath("completed_pattern.png")
+
+/** Flag image filename per faction (faction-exclusive techs). */
+const FACTION_FLAG_FILES: Record<FactionLabel, string> = {
+  atreides: "flag__atreides.png",
+  corrino: "flag__corrino.png",
+  ecaz: "flag__ecaz.png",
+  smuggler: "flag__smuggler.png",
+  vernius: "flag__vernius.png",
+  fremen: "flag_fremen.png",
+  harkonnen: "flag_harkonnen.png",
 }
 
 const allDevelopments = developmentsData as DevelopmentEntry[]
@@ -102,6 +158,23 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
 
   const selectedSet = useMemo(() => new Set(selectedDevelopments), [selectedDevelopments])
 
+  /** Selected ids that cannot be deselected: direct prerequisites of others, or faction-exclusive techs that replace such a prerequisite */
+  const cannotDeselectIds = useMemo(() => {
+    const requiredBySelected = new Set<string>()
+    selectedDevelopments.forEach((id) => {
+      const dev = idToDev.get(id)
+      if (dev == null) return
+      const req = getEffectiveRequires(dev)
+      if (req != null) requiredBySelected.add(req)
+    })
+    const set = new Set<string>(requiredBySelected)
+    selectedDevelopments.forEach((id) => {
+      const dev = idToDev.get(id)
+      if (dev?.replaces != null && requiredBySelected.has(dev.replaces)) set.add(id)
+    })
+    return set
+  }, [selectedDevelopments])
+
   /** Selected ids + ids that are replaced by a selected development (so "Foot In the Door" satisfies "IntelligenceNetwork" for prerequisites) */
   const satisfiedPrereqIds = useMemo(() => {
     const set = new Set(selectedDevelopments)
@@ -128,20 +201,23 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
     [satisfiedPrereqIds]
   )
 
-  const handleNodeClick = useCallback(
+  const handleSelect = useCallback(
     (d: DevelopmentEntry) => {
-      const available = isAvailable(d)
-      const selected = selectedSet.has(d.id)
-      if (!available && !selected) return
-      if (selected) {
-        const next = selectedDevelopments.filter((id) => id !== d.id)
-        setSelectedDevelopments(next, computeSummary(next))
-      } else {
-        const next = [...selectedDevelopments, d.id]
-        setSelectedDevelopments(next, computeSummary(next))
-      }
+      if (!isAvailable(d) || selectedSet.has(d.id)) return
+      playCancelSlotSound()
+      setSelectedDevelopments([...selectedDevelopments, d.id], computeSummary([...selectedDevelopments, d.id]))
     },
-    [selectedSet, selectedDevelopments, setSelectedDevelopments, isAvailable]
+    [selectedDevelopments, setSelectedDevelopments, isAvailable, selectedSet]
+  )
+
+  const handleDeselect = useCallback(
+    (d: DevelopmentEntry) => {
+      if (!selectedSet.has(d.id) || cannotDeselectIds.has(d.id)) return
+      playMenuToggleSound(false)
+      const next = selectedDevelopments.filter((id) => id !== d.id)
+      setSelectedDevelopments(next, computeSummary(next))
+    },
+    [selectedSet, selectedDevelopments, setSelectedDevelopments, cannotDeselectIds]
   )
 
   useEffect(() => {
@@ -171,29 +247,22 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
       <div className="fixed inset-0 z-40 bg-black/70" aria-hidden />
       <div
         ref={modalRef}
-        className="fixed left-1/2 top-1/2 z-50 flex max-h-[90vh] w-[95vw] max-w-6xl -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded border border-zinc-700 bg-zinc-900 shadow-2xl"
+        className="fixed left-1/2 top-1/2 z-50 flex max-h-[90vh] w-[95vw] max-w-6xl bg-zinc-950 -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded border border-zinc-700 shadow-2xl p-6"
       >
         <PanelCorners />
-        <div className="flex shrink-0 items-center justify-between border-b border-zinc-700 px-4 py-2">
-          <h2 className="text-sm font-bold text-zinc-200">Developments</h2>
-          <button
-            type="button"
-            onClick={onClose}
-            className="rounded px-2 py-1 text-zinc-400 hover:bg-zinc-700 hover:text-white"
-          >
-            Close
-          </button>
-        </div>
-        <div className="grid flex-1 grid-cols-2 grid-rows-2 gap-px overflow-auto bg-zinc-800 p-2">
+        <div className="grid flex-1 grid-cols-2 grid-rows-2 bg-zinc-950 gap-6 overflow-auto min-h-0">
           {DOMAIN_ORDER.map((domain) => (
             <Quadrant
               key={domain}
               domain={domain}
               developments={byDomain[domain]}
               selectedSet={selectedSet}
+              lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
+              cannotDeselectIds={cannotDeselectIds}
               isAvailable={isAvailable}
               getOrderNumber={getOrderNumber}
-              onNodeClick={handleNodeClick}
+              onSelect={handleSelect}
+              onDeselect={handleDeselect}
               onHover={setHoverTooltip}
             />
           ))}
@@ -213,19 +282,25 @@ interface QuadrantProps {
   domain: DevelopmentDomain
   developments: DevelopmentEntry[]
   selectedSet: Set<string>
+  lastSelectedId: string | null
+  cannotDeselectIds: Set<string>
   isAvailable: (d: DevelopmentEntry) => boolean
   getOrderNumber: (id: string) => number | null
-  onNodeClick: (d: DevelopmentEntry) => void
+  onSelect: (d: DevelopmentEntry) => void
+  onDeselect: (d: DevelopmentEntry) => void
   onHover: React.Dispatch<React.SetStateAction<{ development: DevelopmentEntry; x: number; y: number } | null>>
 }
 
 function Quadrant({
-  domain: _domain,
+  domain,
   developments,
   selectedSet,
+  lastSelectedId,
+  cannotDeselectIds,
   isAvailable,
   getOrderNumber,
-  onNodeClick,
+  onSelect,
+  onDeselect,
   onHover,
 }: QuadrantProps) {
   const maxX = useMemo(
@@ -244,40 +319,69 @@ function Quadrant({
     return isAvailable(d) ? "available" : "locked"
   }
 
-  /** Unselected: light dark bg + category border. Selected: category bg. Locked signified by opacity/cursor only. */
+  /** Unselected: light dark bg + category border. Selected: category bg. Locked: no hover. No outline/ring. */
   const getNodeClasses = (d: DevelopmentEntry, state: "locked" | "available" | "selected") => {
     const border = DOMAIN_BORDER_CLASS[d.domain]
-    const base = "rounded border p-0.5 transition-colors flex flex-col items-center justify-start"
+    const base = "rounded border transition-colors flex flex-col items-center justify-start outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 box-border"
     if (state === "selected") {
-      return `${base} ${border} ${DOMAIN_BG_SELECTED_CLASS[d.domain]} cursor-pointer text-white`
+      const cannotDeselect = cannotDeselectIds.has(d.id)
+      return `${base} ${border} ${DOMAIN_BG_SELECTED_CLASS[d.domain]} ring-2 ring-black ring-inset ${cannotDeselect ? "cursor-not-allowed" : "cursor-pointer"} text-white`
     }
-    const unselectedBg = "bg-black/20"
-    const unselected = `${base} ${border} ${unselectedBg} ${state === "locked" ? "opacity-60 cursor-not-allowed" : "hover:bg-black/30 cursor-pointer"}`
-    return unselected
+    if (state === "locked") {
+      return `${base} ${border} bg-zinc-950 cursor-not-allowed`
+    }
+    return `${base} ${border} bg-zinc-950 cursor-pointer`
   }
 
+  const getFrameImage = (domain: DevelopmentDomain, selected: boolean) =>
+    getDevelopmentPickerAssetPath(`frame_${FRAME_PREFIX[domain]}_${selected}.png`)
+
+  const quadrantBg = getDevelopmentPickerAssetPath(QUADRANT_BG_FILES[domain])
+
   return (
-    <div className="relative min-h-[140px] overflow-auto bg-zinc-900/80 p-2">
+    <div className="relative min-h-[140px] overflow-auto bg-zinc-900/80 p-5">
+      {/* Domain grid background as filigree at 50% opacity */}
       <div
-        className="grid w-full gap-3"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10"
+        style={{ backgroundImage: `url(${quadrantBg})` }}
+        aria-hidden
+      />
+      <div
+        className="relative z-10 grid w-full"
         style={{
-          gridTemplateColumns: `repeat(${cols}, minmax(${NODE_SIZE}px, 1fr))`,
-          gridTemplateRows: `repeat(${rows}, minmax(${NODE_SIZE - 8}px, auto))`,
+          gridTemplateColumns: `repeat(${cols}, ${DEV_LAYOUT.nodeWidth}px)`,
+          gridTemplateRows: `repeat(${rows}, ${DEV_LAYOUT.nodeHeight}px)`,
+          gap: `${DEV_LAYOUT.gapY}px ${DEV_LAYOUT.gapX}px`,
         }}
       >
         {developments.map((d) => {
           const state = nodeState(d)
           const orderNumber = getOrderNumber(d.id)
           const spriteStyle = getDevelopmentSpriteStyle(d.gfx)
+          const frameImage = getFrameImage(d.domain, state === "selected")
           return (
             <div
               key={d.id}
-              className={getNodeClasses(d, state)}
+              className={`relative ${getNodeClasses(d, state)}`}
               style={{
                 gridColumn: d.gridX + 1,
                 gridRow: d.gridY + 1,
+                width: DEV_LAYOUT.nodeWidth,
+                height: DEV_LAYOUT.nodeHeight,
+                paddingTop: DEV_LAYOUT.nodePaddingTop,
+                paddingLeft: DEV_LAYOUT.nodePaddingX,
+                paddingRight: DEV_LAYOUT.nodePaddingX,
+                paddingBottom: DEV_LAYOUT.nodePaddingBottom,
               }}
-              onClick={() => state !== "locked" && onNodeClick(d)}
+              onClick={(e) => {
+                if (e.button !== 0) return
+                if (state === "locked") return
+                onSelect(d)
+              }}
+              onContextMenu={(e) => {
+                e.preventDefault()
+                onDeselect(d)
+              }}
               onMouseEnter={(e) => {
                 onHover({ development: d, x: e.clientX, y: e.clientY })
               }}
@@ -288,20 +392,108 @@ function Quadrant({
               }}
               onMouseLeave={() => onHover(null)}
             >
-              <div className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-sm">
-                {spriteStyle && (
-                  <div className="h-full w-full shrink-0" style={spriteStyle} />
-                )}
-                {orderNumber !== null && (
-                  <span className="absolute top-0 right-0.5 z-10 text-[10px] font-bold text-white bg-black/60 px-0.5 rounded-sm pointer-events-none">
-                    {orderNumber}
-                  </span>
-                )}
-                {state === "selected" && orderNumber === null && (
-                  <span className="absolute top-0 right-0.5 text-white text-xs">✓</span>
+              {/* Pattern overlay: selected devs always; unselected only if faction-exclusive */}
+              {(state === "selected" || d.faction) && (
+                <div
+                  className="absolute inset-0 pointer-events-none z-0"
+                  style={{
+                    backgroundImage: `url(${SELECTED_PATTERN_IMAGE})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "repeat",
+                  }}
+                  aria-hidden
+                />
+              )}
+              {/* Selected gradient overlay: soft black to transparent top-to-bottom, above pattern but below icon */}
+              {state === "selected" && (
+                <div
+                  className="absolute inset-0 pointer-events-none z-0"
+                  style={{
+                    background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 100%)",
+                  }}
+                  aria-hidden
+                />
+              )}
+              {/* Faction flag: top-left, ~10% from left, a tad higher */}
+              {d.faction && FACTION_FLAG_FILES[d.faction as FactionLabel] && (
+                <div
+                  className="absolute left-[10%] z-10 bg-contain bg-center bg-no-repeat pointer-events-none"
+                  style={{
+                    top: DEV_LAYOUT.flagTopOffset,
+                    width: DEV_LAYOUT.flagSize,
+                    height: DEV_LAYOUT.flagSize,
+                    backgroundImage: `url(${getDevelopmentPickerAssetPath(FACTION_FLAG_FILES[d.faction as FactionLabel])})`,
+                  }}
+                />
+              )}
+              {/* Icon + frame: always centered horizontally (left 50% + translate -50%), raised; z-10 so above gradient */}
+              <div
+                className="absolute top-0 z-10 flex items-center justify-center bg-contain bg-center bg-no-repeat shrink-0 pointer-events-none"
+                style={{
+                  left: "50%",
+                  width: DEV_LAYOUT.frameSize,
+                  height: DEV_LAYOUT.frameSize,
+                  transform: `translate(-50%, -${DEV_LAYOUT.iconRaise}px)`,
+                  backgroundImage: `url(${frameImage})`,
+                }}
+              >
+                {spriteStyle && d.gfx && (
+                  <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-full" aria-hidden>
+                    <div
+                      className="shrink-0 bg-no-repeat"
+                      style={{
+                        ...spriteStyle,
+                        width: d.gfx.size,
+                        height: d.gfx.size,
+                        transform: `translate(-50%, -50%) scale(${DEV_LAYOUT.iconInnerSize / d.gfx.size})`,
+                        transformOrigin: "center center",
+                        position: "absolute",
+                        left: "50%",
+                        top: "50%",
+                      }}
+                    />
+                  </div>
                 )}
               </div>
-              <span className={`mt-0.5 line-clamp-1 text-center text-[9px] leading-tight ${state === "selected" ? "text-white" : "text-zinc-200"}`}>
+              {/* Light white animated radial glow around the icon container (last selected only) */}
+              {state === "selected" && d.id === lastSelectedId && (
+                <div
+                  className="absolute top-0 left-1/2 pointer-events-none rounded-full flex items-center justify-center"
+                  style={{
+                    width: DEV_LAYOUT.frameSize * 1.8,
+                    height: DEV_LAYOUT.frameSize * 1.8,
+                    transform: `translate(-50%, -${DEV_LAYOUT.iconRaise}px)`,
+                    zIndex: 0,
+                  }}
+                >
+                  <div
+                    className="dev-last-selected-glow w-full h-full rounded-full"
+                    style={{
+                      background: "radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.08) 40%, transparent 70%)",
+                    }}
+                  />
+                </div>
+              )}
+              {/* Selected circle overlay on icon for the last selected tech */}
+              {state === "selected" && d.id === lastSelectedId && (
+                <div
+                  className="absolute top-0 flex items-center justify-center bg-contain bg-center bg-no-repeat shrink-0 pointer-events-none z-10"
+                  style={{
+                    left: "50%",
+                    width: DEV_LAYOUT.frameSize,
+                    height: DEV_LAYOUT.frameSize,
+                    transform: `translate(-50%, -${DEV_LAYOUT.iconRaise}px)`,
+                    backgroundImage: `url(${DEV_SELECTED_CIRCLE_IMAGE})`,
+                  }}
+                />
+              )}
+              {/* Order badge: shared with Main Base (OrderBadge display-only, compact in picker) */}
+              {orderNumber !== null && <OrderBadge orderNumber={orderNumber} compact />}
+              {state === "selected" && orderNumber === null && <OrderBadge compact>✓</OrderBadge>}
+              <span
+                className={`text-center text-xs pb-1 w-4/5 leading-tight ${state === "selected" ? "text-white" : "text-zinc-200"}`}
+              >
                 {d.name}
               </span>
             </div>

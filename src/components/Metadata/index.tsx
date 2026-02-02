@@ -130,67 +130,80 @@ export default function Metadata() {
         aria-label="Build metadata"
       >
         <PanelCorners />
-      <div className="flex items-center justify-between p-3 border-b border-zinc-700 shrink-0">
-        <h2 className="text-sm font-semibold text-zinc-200">Metadata</h2>
-      </div>
-
-      <div className="p-3 space-y-3">
-        <EditableField
-          value={metadata.author}
-          placeholder="Author name"
-          icon={<PersonIcon />}
-          onSave={setMetadataAuthor}
-        />
-
-        <EditableField
-          value={metadata.social}
-          placeholder="Social link"
-          icon={<LinkIcon />}
-          onSave={setMetadataSocial}
-        />
-
-        <EditableField
-          value={metadata.media}
-          placeholder="Media link"
-          icon={<MediaIcon />}
-          onSave={setMetadataMedia}
-        />
-
-        <div className="pt-1">
-          {commentaryEditing ? (
-            <textarea
-              ref={textareaRef}
-              value={commentaryValue}
-              onChange={(e) => {
-                setCommentaryValue(e.target.value)
-                adjustTextareaHeight()
-              }}
-              onBlur={handleCommentarySubmit}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && e.shiftKey) {
-                  e.preventDefault()
-                  handleCommentarySubmit()
-                } else if (e.key === "Escape") {
-                  setCommentaryValue(metadata.commentary)
-                  setCommentaryEditing(false)
-                }
-              }}
-              placeholder="Write commentary here"
-              className="w-full min-h-24 bg-zinc-700 text-white text-sm border border-zinc-600 px-2 py-1.5 resize-none focus:outline-none focus:ring-1 focus:ring-accent"
-            />
-          ) : (
-            <button
-              type="button"
-              onClick={() => setCommentaryEditing(true)}
-              className="w-full text-left hover:bg-zinc-800 px-1 py-1 -mx-1 transition-colors min-h-12 cursor-pointer"
-            >
-              <span className={`text-sm whitespace-pre-wrap wrap-break-word ${metadata.commentary ? "text-zinc-200" : "text-zinc-500 italic"}`}>
-                {metadata.commentary || "Write commentary here"}
-              </span>
-            </button>
-          )}
+        <div className="flex items-center justify-between p-3 border-b border-zinc-700 shrink-0">
+          <h2 className="text-sm font-semibold text-zinc-200">Metadata</h2>
         </div>
-      </div>
+
+        <div className="p-3 space-y-3">
+          <EditableField
+            value={metadata.author}
+            placeholder="Author name"
+            icon={<PersonIcon />}
+            onSave={setMetadataAuthor}
+          />
+
+          <EditableField
+            value={metadata.social}
+            placeholder="Social link"
+            icon={<LinkIcon />}
+            onSave={setMetadataSocial}
+          />
+
+          <EditableField
+            value={metadata.media}
+            placeholder="Media link"
+            icon={<MediaIcon />}
+            onSave={setMetadataMedia}
+          />
+
+          <div className="pt-1">
+            {commentaryEditing ? (
+              <textarea
+                ref={textareaRef}
+                value={commentaryValue}
+                onChange={(e) => {
+                  setCommentaryValue(e.target.value)
+                  adjustTextareaHeight()
+                }}
+                onBlur={handleCommentarySubmit}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && e.shiftKey) {
+                    e.preventDefault()
+                    handleCommentarySubmit()
+                  } else if (e.key === "Escape") {
+                    setCommentaryValue(metadata.commentary)
+                    setCommentaryEditing(false)
+                  }
+                }}
+                placeholder="Write commentary here"
+                className="w-full min-h-24 bg-zinc-700 text-white text-sm border border-zinc-600 px-2 py-1.5 resize-none focus:outline-none focus:ring-1 focus:ring-accent"
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setCommentaryEditing(true)}
+                className="w-full text-left hover:bg-zinc-800 px-1 py-1 -mx-1 transition-colors min-h-12 cursor-pointer"
+              >
+                <span className={`text-sm whitespace-pre-wrap wrap-break-word ${metadata.commentary ? "text-zinc-200" : "text-zinc-500 italic"}`}>
+                  {metadata.commentary || "Write commentary here"}
+                </span>
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between p-3 border-t border-b border-zinc-700 shrink-0">
+          <h2 className="text-sm font-semibold text-zinc-200">Settings</h2>
+        </div>
+
+
+        {/* // add slidedr volume control */}
+        <div className="p-3">
+          <h2 className="text-sm font-semibold text-zinc-200">Volume</h2>
+          <input type="range" min="0" max="100" value="50" className="w-full" />
+        </div>
+        {/* // add a  toogleable button  to toggle all sound  */}
+
       </aside>
     </div>
   )

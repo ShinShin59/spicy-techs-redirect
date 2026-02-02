@@ -78,11 +78,11 @@ export function getDevelopmentsSlotPath(category: keyof DevelopmentsSummary): st
   return getHudImagePath(DEVELOPMENTS_SLOT_IMAGES[category])
 }
 
-/** Development icon from sprite sheet. gfx from developments.json: { file, size, x, y }. */
+/** Development icon from sprite sheet. gfx from developments.json: { file, size, x, y }. Uses developments/ subfolder. */
 export function getDevelopmentSpriteStyle(gfx: { file: string; size: number; x: number; y: number } | undefined): Record<string, string | number> | null {
   if (!gfx?.file || gfx.size == null || gfx.x == null || gfx.y == null) return null
   const base = gfx.file.replace(/^UI\/developments\//, "").replace(/^UI\//, "")
-  const url = getHudImagePath(base)
+  const url = getHudImagePath(`developments/${base}`)
   const px = -(gfx.x * gfx.size)
   const py = -(gfx.y * gfx.size)
   return {
@@ -93,11 +93,16 @@ export function getDevelopmentSpriteStyle(gfx: { file: string; size: number; x: 
   }
 }
 
+/** Picker assets (window, bg, frames) in developments/ folder */
+export function getDevelopmentPickerAssetPath(fileName: string): string {
+  return getHudImagePath(`developments/${fileName}`)
+}
+
 function initPreload(): void {
   // Preload HUD images (slot, background_hero, development sprite sheet)
   preloadImage(getHudImagePath("slot.png"))
   preloadImage(getHudImagePath("background_hero.png"))
-  preloadImage(getHudImagePath("techIcons2.png"))
+  preloadImage(getHudImagePath("developments/techIcons2.png"))
 
   // Preload faction icons
   FACTION_LABELS.forEach((faction) => {

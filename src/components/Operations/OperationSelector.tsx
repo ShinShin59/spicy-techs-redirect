@@ -13,19 +13,21 @@ interface OperationSelectorProps {
   onClose: () => void
   onSelect: (missionId: string | null) => void
   anchorPosition: AnchorPosition
+  /** Operation IDs already used in other slots (excludes the slot being edited) */
+  usedOperationIds?: string[]
 }
 
 // Same slot size as panel (Operations index)
 const SLOT_PX = 48
 const SLOT_GAP_PX = 8
 const GRID_COLS = 4
-const GRID_ROWS = 4
 const PADDING_PX = 12
 
 const OperationSelector = ({
   onClose,
   onSelect,
   anchorPosition,
+  usedOperationIds = [],
 }: OperationSelectorProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
@@ -44,10 +46,11 @@ const OperationSelector = ({
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [onClose])
 
-  const availableOperations = useMemo(
-    () => getOperationsForFaction(selectedFaction),
-    [selectedFaction]
-  )
+  const availableOperations = useMemo(() => {
+    const all = getOperationsForFaction(selectedFaction)
+    const used = new Set(usedOperationIds)
+    return all.filter((op) => !used.has(op.id))
+  }, [selectedFaction, usedOperationIds])
 
   const popupStyle = useMemo<React.CSSProperties>(
     () => ({
@@ -60,8 +63,6 @@ const OperationSelector = ({
 
   const gridWidth =
     GRID_COLS * SLOT_PX + (GRID_COLS - 1) * SLOT_GAP_PX + PADDING_PX * 2
-  const gridHeight =
-    GRID_ROWS * SLOT_PX + (GRID_ROWS - 1) * SLOT_GAP_PX + PADDING_PX * 2
 
   return (
     <>

@@ -411,17 +411,24 @@ export const useMainStore = create<MainStore>()(
       setOperationSlot: (slotIndex, missionId) => {
         const { selectedFaction, operationSlots } = get()
         const factionSlots = operationSlots[selectedFaction] ?? createEmptyOperationSlotsForFaction()
+        if (slotIndex < 0 || slotIndex >= OPERATION_SLOTS_COUNT) return
         const next = [...factionSlots]
-        if (slotIndex >= 0 && slotIndex < OPERATION_SLOTS_COUNT) {
-          next[slotIndex] = missionId
-          set({
-            operationSlots: {
-              ...operationSlots,
-              [selectedFaction]: next,
-            },
-          })
-          get().saveCurrentBuild()
-        }
+        next[slotIndex] = missionId
+        // When clearing, compact: shift remaining operations left (like Units)
+        const final =
+          missionId === null
+            ? (() => {
+              const compacted = next.filter((id): id is string => id != null)
+              return [...compacted, ...Array(OPERATION_SLOTS_COUNT - compacted.length).fill(null)]
+            })()
+            : next
+        set({
+          operationSlots: {
+            ...operationSlots,
+            [selectedFaction]: final,
+          },
+        })
+        get().saveCurrentBuild()
       },
       toggleCouncillor: (councillorId) => {
         const { selectedFaction, councillorSlots } = get()

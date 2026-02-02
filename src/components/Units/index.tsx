@@ -1,4 +1,4 @@
-import { useState, useContext, useRef, useEffect, useCallback } from "react"
+import { useState } from "react"
 import { useMainStore, useCurrentUnitSlots, HERO_SLOT_INDEX, MAX_UNIT_CP } from "@/store"
 import { getUnitIconPath } from "@/utils/assetPaths"
 import { playRandomSound, playCancelSlotSound, BUTTON_SPENDRESOURCES_SOUNDS } from "@/utils/sound"
@@ -8,20 +8,18 @@ import { getHeroById, getHeroIconPath, isHeroId } from "./heroes-utils"
 import UnitsSelector from "./UnitsSelector"
 import UnitTooltip from "./UnitTooltip"
 import PanelCorners from "@/components/PanelCorners"
-import { MainBaseHeightContext } from "@/components/BuildLayout/mainBaseHeightContext"
+
+// Match Armory slot size and gap
+const SLOT_PX = 48
+const SLOT_GAP_PX = 8
+const GRID_COLS = 5
+const GRID_PADDING_PX = 32
+const PANEL_WIDTH = GRID_COLS * SLOT_PX + (GRID_COLS - 1) * SLOT_GAP_PX + GRID_PADDING_PX
 
 interface AnchorPosition {
   x: number
   y: number
 }
-
-const DEFAULT_SLOT_PX = 64
-const MIN_SLOT_PX = 32
-const GRID_GAP_PX = 4
-const GRID_COLS_DEFAULT = 5
-const GRID_PADDING_PX = 32 // p-4 top + bottom
-const MAX_PANEL_WIDTH = 432
-const AVAILABLE_WIDTH_PX = MAX_PANEL_WIDTH - GRID_PADDING_PX
 
 const Units = () => {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
@@ -30,65 +28,6 @@ const Units = () => {
   const setUnitSlot = useMainStore((s) => s.setUnitSlot)
   const removeUnitSlot = useMainStore((s) => s.removeUnitSlot)
   const unitSlots = useCurrentUnitSlots()
-  const mainBaseHeight = useContext(MainBaseHeightContext)
-  const gridContainerRef = useRef<HTMLDivElement>(null)
-  const [slotSizePx, setSlotSizePx] = useState(DEFAULT_SLOT_PX)
-  const [gridCols, setGridCols] = useState(GRID_COLS_DEFAULT)
-
-  // Scale slot size and pick column count so slots grow when units are deleted
-  const updateSlotSize = useCallback(() => {
-    const el = gridContainerRef.current
-    if (!el) {
-      setSlotSizePx(DEFAULT_SLOT_PX)
-      setGridCols(GRID_COLS_DEFAULT)
-      return
-    }
-    if (mainBaseHeight == null || unitSlotCount <= 0) {
-      setSlotSizePx(DEFAULT_SLOT_PX)
-      setGridCols(GRID_COLS_DEFAULT)
-      return
-    }
-    const availableHeight = el.clientHeight - GRID_PADDING_PX
-    if (availableHeight <= 0) {
-      setSlotSizePx(DEFAULT_SLOT_PX)
-      setGridCols(GRID_COLS_DEFAULT)
-      return
-    }
-    let bestSlot = MIN_SLOT_PX - 1
-    let bestCols = GRID_COLS_DEFAULT
-    const maxCols = unitSlotCount
-    for (let cols = 1; cols <= maxCols; cols++) {
-      const rows = Math.ceil(unitSlotCount / cols)
-      const heightSlot = (availableHeight - (rows - 1) * GRID_GAP_PX) / rows
-      const widthSlot = (AVAILABLE_WIDTH_PX - (cols - 1) * GRID_GAP_PX) / cols
-      const slot = Math.min(DEFAULT_SLOT_PX, Math.floor(heightSlot), Math.floor(widthSlot))
-      if (slot >= MIN_SLOT_PX && slot > bestSlot) {
-        bestSlot = slot
-        bestCols = cols
-      }
-    }
-    if (bestSlot < MIN_SLOT_PX) {
-      setSlotSizePx(DEFAULT_SLOT_PX)
-      setGridCols(GRID_COLS_DEFAULT)
-    } else {
-      setSlotSizePx(bestSlot)
-      setGridCols(bestCols)
-    }
-  }, [mainBaseHeight, unitSlotCount])
-
-  useEffect(() => {
-    const el = gridContainerRef.current
-    if (!el) return
-    // Recalc immediately and after layout (so slot size grows back when unit count drops)
-    updateSlotSize()
-    const raf = requestAnimationFrame(() => updateSlotSize())
-    const ro = new ResizeObserver(updateSlotSize)
-    ro.observe(el)
-    return () => {
-      cancelAnimationFrame(raf)
-      ro.disconnect()
-    }
-  }, [updateSlotSize])
 
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
@@ -98,7 +37,6 @@ const Units = () => {
   }>(selectedSlotIndex !== null)
 
   const handleSlotClick = (e: React.MouseEvent, slotIndex: number) => {
-    // Add slot (0) and hero slot (1) can open the selector; other slots cannot
     if (slotIndex !== 0 && slotIndex !== HERO_SLOT_INDEX) return
     if (slotIndex === 0 && addSlotDisabled) return
     const rect = e.currentTarget.getBoundingClientRect()
@@ -109,7 +47,6 @@ const Units = () => {
   const handleSelectUnit = (unitId: string | null) => {
     if (selectedSlotIndex === null) return
     if (selectedSlotIndex === HERO_SLOT_INDEX) {
-      // Hero slot: set hero and close selector (same sound as unit selection)
       if (unitId !== null) playRandomSound(BUTTON_SPENDRESOURCES_SOUNDS)
       setUnitSlot(HERO_SLOT_INDEX, unitId)
       setSelectedSlotIndex(null)
@@ -117,7 +54,6 @@ const Units = () => {
       return
     }
     if (selectedSlotIndex === 0) {
-      // Add slot: assign to first empty unit slot (2..N), or add a new slot if all full (respect 65 CP cap)
       if (unitId !== null) {
         const unitData = getUnitById(selectedFaction, unitId)
         const unitCost = unitData?.cpCost ?? 0
@@ -142,7 +78,6 @@ const Units = () => {
           handleCloseSelector()
         }
       }
-      // Otherwise keep selector open; user closes it by clicking outside
     }
   }
 
@@ -178,14 +113,11 @@ const Units = () => {
     }
   }
 
-  const slotStyle = { width: slotSizePx, height: slotSizePx, minWidth: slotSizePx, minHeight: slotSizePx }
+  const slotStyle = { width: SLOT_PX, height: SLOT_PX, minWidth: SLOT_PX, minHeight: SLOT_PX }
 
   return (
     <>
-      <div
-        className="flex flex-col min-h-0"
-        style={mainBaseHeight != null ? { maxHeight: mainBaseHeight } : undefined}
-      >
+      <div className="flex flex-col shrink-0">
         <div className="flex justify-end items-center gap-1 mb-0 shrink-0">
           <span
             className={`text-xs font-mono ${cpNumberRed ? "font-bold text-(--color-error)" : totalCP === MAX_UNIT_CP ? "font-bold text-white/70" : "text-white/70"}`}
@@ -197,19 +129,16 @@ const Units = () => {
           </h2>
         </div>
         <div
-          ref={gridContainerRef}
           id="units-grid"
-          className="relative bg-zinc-900 border border-zinc-700 flex-1 min-h-0 box-border overflow-hidden p-4"
-          style={{
-            width: Math.min(MAX_PANEL_WIDTH, gridCols * slotSizePx + (gridCols - 1) * GRID_GAP_PX + GRID_PADDING_PX),
-          }}
+          className="relative bg-zinc-900 border border-zinc-700 box-border overflow-hidden p-4"
+          style={{ width: PANEL_WIDTH }}
         >
           <PanelCorners />
           <div
             className="grid"
             style={{
-              gridTemplateColumns: `repeat(${gridCols}, ${slotSizePx}px)`,
-              gap: `${GRID_GAP_PX}px`,
+              gridTemplateColumns: `repeat(${GRID_COLS}, ${SLOT_PX}px)`,
+              gap: `${SLOT_GAP_PX}px`,
             }}
           >
             {Array.from({ length: unitSlotCount }).map((_, index) => {
@@ -226,12 +155,12 @@ const Units = () => {
               const cellStyle = isAddSlot
                 ? addSlotDisabledStyle
                   ? "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center opacity-70 brightness-[0.5] cursor-not-allowed"
-                  : "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center hover:bg-[url('/images/hud/slot_add_hover.png')]"
+                  : "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center hover:bg-[url('/images/hud/slot_add_hover.png')] cursor-pointer"
                 : isHeroSlot
-                  ? "bg-[url('/images/hud/background_hero.png')] bg-cover bg-center"
+                  ? "bg-[url('/images/hud/background_hero.png')] bg-cover bg-center cursor-pointer"
                   : hasUnit
-                    ? "bg-cover bg-center"
-                    : "bg-cover bg-center hover:brightness-110"
+                    ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center border border-zinc-700 cursor-pointer"
+                    : "bg-[url('/images/hud/slot.png')] bg-cover bg-center border border-zinc-700 cursor-pointer hover:brightness-110"
               const heroSlotMuted = isHeroSlotEmpty ? "opacity-70" : ""
               const canOpenSelector = (isAddSlot && !addSlotDisabled) || isHeroSlot
 
@@ -240,7 +169,7 @@ const Units = () => {
                   key={`unit-${index}`}
                   role={canOpenSelector ? "button" : undefined}
                   tabIndex={canOpenSelector ? 0 : undefined}
-                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative cursor-pointer ${cellStyle} ${heroSlotMuted}`}
+                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative ${cellStyle} ${heroSlotMuted}`}
                   style={slotStyle}
                   id={`units-slot-${index}`}
                   title={isAddSlot ? "Add unit" : isHeroSlotEmpty ? "Hero slot (optional)" : undefined}
@@ -287,7 +216,6 @@ const Units = () => {
             })}
           </div>
 
-          {/* Unit selector popup */}
           {selectedSlotIndex !== null && anchorPosition && (
             <UnitsSelector
               onClose={handleCloseSelector}
@@ -300,7 +228,6 @@ const Units = () => {
         </div>
       </div>
 
-      {/* Hover tooltip (hidden when unit selector is open) */}
       {showTooltip && hoverTooltip && (
         <UnitTooltip
           unit={hoverTooltip.unit}

@@ -11,8 +11,6 @@ import PanelCorners from "@/components/PanelCorners"
 // Same slot size as Armory
 const SLOT_PX = 48
 const SLOT_GAP_PX = 8
-const GRID_PADDING_PX = 16
-const MAX_PANEL_WIDTH = 5 * SLOT_PX + 4 * SLOT_GAP_PX + GRID_PADDING_PX * 2
 
 interface AnchorPosition {
   x: number
@@ -101,15 +99,14 @@ const Operations = () => {
 
   return (
     <>
-      <div className="flex flex-col shrink-0">
+      <div className="flex flex-col w-full shrink-0">
         <div className="flex justify-end items-center gap-1 mb-0 shrink-0">
           <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0">
             Operations
           </h2>
         </div>
         <div
-          className="relative bg-zinc-900 border border-zinc-700 box-border overflow-hidden p-4"
-          style={{ width: MAX_PANEL_WIDTH }}
+          className="relative w-full bg-zinc-900 border border-zinc-700 box-border overflow-hidden p-4 flex justify-center"
         >
           <PanelCorners />
           <div
@@ -182,6 +179,9 @@ const Operations = () => {
               onClose={handleCloseSelector}
               onSelect={handleSelectOperation}
               anchorPosition={anchorPosition}
+              usedOperationIds={operationSlots
+                .map((id, i) => (i !== selectedSlotIndex && id != null ? id : null))
+                .filter((id): id is string => id != null)}
             />
           )}
         </div>

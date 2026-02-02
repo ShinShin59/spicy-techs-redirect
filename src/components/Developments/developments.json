@@ -1,0 +1,2610 @@
+[
+  {
+    "id": "CompositeMaterials",
+    "name": "Composite Materials",
+    "desc": "Dune's harsh environment makes composite materials a key part of building a vast and durable infrastructure.",
+    "domain": "economic",
+    "tier": 0,
+    "gridX": 1,
+    "gridY": 0,
+    "requires": null,
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 0
+    },
+    "attributes": [
+      "::s_value:: [Plascrete] production",
+      "Unlocks the [::target::] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "AdvancedEngineering",
+    "name": "Advanced Engineering",
+    "desc": "These improved construction techniques specific to Arrakis' environment are dedicated to infrastructure efficiency.",
+    "domain": "economic",
+    "tier": 1,
+    "gridX": 2,
+    "gridY": 1,
+    "requires": "CompositeMaterials",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 0
+    },
+    "attributes": [
+      "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]",
+      "Unlocks the [::target::] [Treaty]"
+    ]
+  },
+  {
+    "id": "ModularParts",
+    "name": "Modular Parts",
+    "desc": "Modular parts unlock customization options for your vehicles, such as extra crew cabins in your Harvesters.",
+    "domain": "economic",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 1,
+    "requires": "CompositeMaterials",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 0
+    },
+    "attributes": [
+      "Unlocks the [::target::] [!Village] [!Building_Village]",
+      "Unlocks the [Main_HarvesterWorks] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "EnergyMarkets",
+    "name": "Geothermal Condensers",
+    "desc": "Geothermal energy sources can be used for a lot more than charging batteries.",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 2,
+    "gridY": 2,
+    "requires": "AdvancedEngineering",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 0
+    },
+    "attributes": [
+      "[::target::]s produce ::s_value:: [::target2::]",
+      "[::target::]s produce ::s_value:: [::target2::]",
+      "::s_percent_value:: resource production in villages with [FuelCellFactory]"
+    ]
+  },
+  {
+    "id": "AraakisRiches",
+    "name": "Riches of Arrakis",
+    "desc": "Arrakis teaches the attitude of the knife - chopping off what's incomplete and saying: \"Now, it's complete because it's ended here.\"",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 3,
+    "gridY": 2,
+    "requires": "AdvancedEngineering",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 9
+    },
+    "attributes": [
+      "::s_value:: [Solari] production per controlled [SpecialRegion]",
+      "::s_percent_value:: total [Solari] production per controlled [SpecialRegion]"
+    ]
+  },
+  {
+    "id": "EconomicLobbying",
+    "name": "Insulated Valley",
+    "desc": "Some places are naturally protected from the scorching winds of Arrakis. With a bit of effort, they can even be made almost livable.",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 1,
+    "gridY": 2,
+    "requires": "AdvancedEngineering",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 1
+    }
+  },
+  {
+    "id": "GridexPlane",
+    "name": "CHOAM Integration",
+    "desc": "Integrating yourself in the regular operation of the CHOAM gives you precious knowledge about the [Spice] trade.",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 2,
+    "requires": "ModularParts",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 0
+    },
+    "attributes": [
+      "See next period's [Spice] exchange rate in the Spice Report",
+      "Unlocks the [Main_ChoamBranch] [!Building_MB] in [$my(mainbase)]",
+      "::s_value:: [Agent] slot in [IChoam]"
+    ]
+  },
+  {
+    "id": "StructuredWarehouses",
+    "name": "CHOAM Support",
+    "desc": "You might be harvesting Spice, but CHOAM distributes it, controls its flow, and gets very rich doing it. That is a powerful friend to have.",
+    "domain": "economic",
+    "tier": 3,
+    "gridX": 1,
+    "gridY": 3,
+    "requires": "GridexPlane",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 0
+    }
+  },
+  {
+    "id": "VeteranCrews",
+    "name": "Crew Training Program",
+    "desc": "Some Houses consider harvester crews as expendable. Others know in their happiness lies the recipe for the very best Spice yields.",
+    "domain": "economic",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 3,
+    "requires": "GridexPlane",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 0
+    },
+    "attributes": [
+      "::s_percent:: [Spice] production"
+    ]
+  },
+  {
+    "id": "LocalDialectStudies",
+    "name": "Local Dialect Studies",
+    "desc": "Efforts toward social and cultural integration always help assuage the pyons' fears.",
+    "domain": "green",
+    "tier": 0,
+    "gridX": 1,
+    "gridY": 0,
+    "requires": null,
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 1
+    },
+    "attributes": [
+      "Controlled [!Village]s produce ::s_value:: [Water]"
+    ]
+  },
+  {
+    "id": "LayoftheLand",
+    "name": "Lay of the Land",
+    "desc": "To the layman, Dune is only a pile of dust. Only those who know the land see the deadly traps and abundant opportunities.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 1,
+    "requires": "LocalDialectStudies",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 9
+    },
+    "attributes": [
+      "::s_value:: [Knowledge] per controlled [!Village]",
+      "Unlocks the [::target::] [Treaty]"
+    ]
+  },
+  {
+    "id": "LocalHubs",
+    "name": "Local Hubs",
+    "desc": "Further fostering local ties helps when it comes to surviving on a planet like Arrakis.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 1,
+    "gridY": 1,
+    "requires": "LocalDialectStudies",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 1
+    },
+    "attributes": [
+      "::percent:: [!Village] [!Building_Village]s construction costs",
+      "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "Paracompass",
+    "name": "Native Customs",
+    "desc": "Learning the behavior of the locals and knowing when and how to react is an essential first step in gaining their acceptance.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 2,
+    "gridY": 1,
+    "requires": "LocalDialectStudies",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 5
+    },
+    "attributes": [
+      "::s_percent_value:: [Authority] from [Agent]s on a [Field_Infiltration] slot"
+    ]
+  },
+  {
+    "id": "WaterSellersContacts",
+    "name": "Valuable Trinkets",
+    "desc": "People of all creeds and origins overestimate the value of shiny, decorative objects.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 3,
+    "gridY": 2,
+    "requires": "Paracompass",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 0
+    },
+    "attributes": [
+      "Unlocks the [CraftsWorkshop] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "OutpostLogistics",
+    "name": "Outpost Logistics",
+    "desc": "Setting up a solid network of outposts generally requires defensive installations, the right people, and convincing gifts.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 2,
+    "gridY": 2,
+    "requires": "Paracompass",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 1
+    },
+    "attributes": [
+      "::s_value:: [Agent] slot in [IField]"
+    ]
+  },
+  {
+    "id": "SpectralImaging",
+    "name": "Civilian Defense Force",
+    "desc": "Training civilians to take care of their own defenses is a key component of keeping a huge territory during war time.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 1,
+    "gridY": 2,
+    "requires": "LocalHubs",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 0
+    },
+    "attributes": [
+      "::s_percent:: [Airfield] [!Upkeep]"
+    ]
+  },
+  {
+    "id": "BorderDefense",
+    "name": "Border Defense",
+    "desc": "These small stations are usually built within villages, allowing for better communication with remote places.",
+    "domain": "green",
+    "tier": 3,
+    "gridX": 1,
+    "gridY": 3,
+    "requires": "SpectralImaging",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 3
+    },
+    "attributes": [
+      "::s_value:: [MissileBattery] limit"
+    ]
+  },
+  {
+    "id": "WaterTrade",
+    "name": "Wonders of the Desert",
+    "desc": "While the desert is often harsh and painful, it can also be beautiful in the right circumstances.",
+    "domain": "green",
+    "tier": 3,
+    "gridX": 3,
+    "gridY": 3,
+    "requires": "WaterSellersContacts",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 6,
+      "y": 1
+    },
+    "attributes": [
+      "::s_percent_value:: resource production in [SpecialRegion]s"
+    ]
+  },
+  {
+    "id": "SurvivalTraining",
+    "name": "Survival Training",
+    "desc": "Arrakis is the deadliest and most efficient instructor.",
+    "domain": "military",
+    "tier": 0,
+    "gridX": 1,
+    "gridY": 0,
+    "requires": null,
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 2
+    },
+    "attributes": [
+      "Unlocks the Armory to customize units' equipment",
+      "Unlocks the [MilitaryBase] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "DefenseSystems",
+    "name": "Mechanization",
+    "desc": "Remote-controlled drones and small exoskeletons can help the armed force in many ways.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 1,
+    "gridY": 1,
+    "requires": "SurvivalTraining",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 12
+    },
+    "attributes": [
+      "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]",
+      "Unlocks the [A_Drone] unit",
+      "Unlocks the [H_Drone] unit",
+      "Unlocks the [F_Special] unit",
+      "Unlocks the [C_Drone] unit",
+      "Unlocks the [E_Drone] unit",
+      "Unlocks the [V_Drone] unit"
+    ]
+  },
+  {
+    "id": "ArmyLogistics",
+    "name": "Army Logistics",
+    "desc": "An army needs a lot of resources to operate, including those found in the field.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 1,
+    "requires": "SurvivalTraining",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 2
+    },
+    "attributes": [
+      "::s_value:: [Water]",
+      "Unlock the second gear slot in the Armory"
+    ]
+  },
+  {
+    "id": "CalltoArms",
+    "name": "Recruitment Initiative",
+    "desc": "Restructuring the army and investing in recruitment is the only way to increase significantly its size.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 2,
+    "gridY": 1,
+    "requires": "SurvivalTraining",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 2
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "::s_percent_value:: [Manpower] production",
+      "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "MilitaryThreat",
+    "name": "Energy Efficiency",
+    "desc": "New generations of energy cells are more efficient and durable.",
+    "domain": "military",
+    "tier": 2,
+    "gridX": 1,
+    "gridY": 2,
+    "requires": "DefenseSystems",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 11
+    },
+    "attributes": [
+      "::s_percent:: [FuelCell]",
+      "::s_value:: mechanical units [::target::] [!Requirement]"
+    ]
+  },
+  {
+    "id": "GroundCommand",
+    "name": "Parallel Training",
+    "desc": "Improved training techniques focusing on autonomy and tutorship from senior trainees allow for faster recruitment.",
+    "domain": "military",
+    "tier": 2,
+    "gridX": 2,
+    "gridY": 2,
+    "requires": "CalltoArms",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 6,
+      "y": 2
+    },
+    "attributes": [
+      "::s_value:: [TrainingSlot]",
+      "Unlocks the [Main_MilitaryAcademy] [!Building_MB] in [$my(mainbase)]",
+      "::s_value:: [Agent] slot in [ISpaceGuild]"
+    ]
+  },
+  {
+    "id": "SupportStructures",
+    "name": "Siege Incentives",
+    "desc": "Annhiliation of a complete city is a harrowing idea. Most people wouldn't do it. But with the right incentives, you can convince anyone.",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 3,
+    "gridY": 3,
+    "requires": "GroundCommand",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 2
+    },
+    "attributes": [
+      "Military units deal ::s_percent_value:: damage against Main Bases",
+      "Military Units gives ::value:: [Solari] per damage inflicted on a Main Base"
+    ]
+  },
+  {
+    "id": "AirCommand",
+    "name": "Parts Production",
+    "desc": "The mass production of serialized parts allows for fast and cheap repairs of mechanized units.",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 1,
+    "gridY": 3,
+    "requires": "MilitaryThreat",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 8
+    }
+  },
+  {
+    "id": "HighCommand",
+    "name": "Military Propaganda",
+    "desc": "There are times when appearing to be the strongest is more important than actually being so.",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 2,
+    "gridY": 3,
+    "requires": "GroundCommand",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 3
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "::target_effects:: if no other factions use more [CommandPoint]"
+    ]
+  },
+  {
+    "id": "IntelligenceNetwork",
+    "name": "Intelligence Network",
+    "desc": "All agents on the field should be able to input and access information, creating an ever-expanding web of knowledge.",
+    "domain": "statecraft",
+    "tier": 0,
+    "gridX": 1,
+    "gridY": 0,
+    "requires": null,
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 3
+    },
+    "attributes": [
+      "Getting the chosen result on at least one resolution grants ::value:: [Standing] every Council"
+    ]
+  },
+  {
+    "id": "DiplomaticManoeuvers",
+    "name": "Diplomatic Maneuvers",
+    "desc": "Diplomacy is a complex game, one that can be played only by those who accept and even enjoy such intricacies.",
+    "domain": "statecraft",
+    "tier": 1,
+    "gridX": 1,
+    "gridY": 1,
+    "requires": "IntelligenceNetwork",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 3
+    },
+    "attributes": [
+      "[MinorHouses] deliver a [MinorHousesDonation] near [$my(MainBase)] after every Council",
+      "Unlocks the [::target::] [Treaty]",
+      "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "SpyingLogistic",
+    "name": "Spying Logistic",
+    "desc": "Not everybody is born a natural spy. Most have to train hard to become one.",
+    "domain": "statecraft",
+    "tier": 1,
+    "gridX": 2,
+    "gridY": 1,
+    "requires": "IntelligenceNetwork",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 3
+    },
+    "attributes": [
+      "Allows the training of [Assassin]s",
+      "Unlocks the [Main_IntelAgency] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "CounterMeasures",
+    "name": "Counter Measures",
+    "desc": "Sometimes, the best offense is defense. This is particularly true in espionage and politics.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 2,
+    "requires": "DiplomaticManoeuvers",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 1
+    },
+    "attributes": [
+      "After every Council, receive <good>1</good> [LandsraadSoldiers_Dev] per ::value:: [Influence] spent, up to ::value(Dev_CounterMeasures_MaxUnitSpawn)::",
+      "::s_value:: [Agent] slot in [!CounterIntel]"
+    ]
+  },
+  {
+    "id": "PoliticalStrength",
+    "name": "Landsraad Support",
+    "desc": "The deep spiral of politics can be overwhelming to newcomers.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 1,
+    "gridY": 2,
+    "requires": "DiplomaticManoeuvers",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 3
+    },
+    "attributes": [
+      "::target_effects:: per [Agent] assigned to a [Landsraad_Infiltration] slot",
+      "::s_value:: [Agent] slot in [ILandsraad]"
+    ]
+  },
+  {
+    "id": "NegotiationTactics",
+    "name": "Nefarious Contacts",
+    "desc": "Some endeavors require to hire specialists, even if you might not want to meet them eye to eye.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 3,
+    "gridY": 2,
+    "requires": "SpyingLogistic",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 3
+    },
+    "attributes": [
+      "::percent:: [Assassin] recruitment costs"
+    ]
+  },
+  {
+    "id": "StealthGear",
+    "name": "Stealth Gear",
+    "desc": "The best way not to get caught is to not be seen at all.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 2,
+    "gridY": 2,
+    "requires": "SpyingLogistic",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 6,
+      "y": 3
+    },
+    "attributes": [
+      "::percent_value:: of an operation's [::target2::] cost is refund when launched in the territory of a faction in [War]"
+    ]
+  },
+  {
+    "id": "SandDiplomacy",
+    "name": "Insider Trading",
+    "desc": "Politicians are as much subject to bribery as anyone else, but the bribe often takes a more subtle form.",
+    "domain": "statecraft",
+    "tier": 3,
+    "gridX": 1,
+    "gridY": 3,
+    "requires": "PoliticalStrength",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 4
+    },
+    "attributes": [
+      "Selling [CHOAMShare]s grants ::value:: [Influence] per share",
+      "Ignore CHOAM selling cooldown and max [Influence] during the [LandsraadCouncil]"
+    ]
+  },
+  {
+    "id": "SpyingMastery",
+    "name": "Spying Mastery",
+    "desc": "Secrets are best kept by fewer guardians, and a strong encryption.",
+    "domain": "statecraft",
+    "tier": 3,
+    "gridX": 2,
+    "gridY": 3,
+    "requires": "StealthGear",
+    "replaces": null,
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 5
+    }
+  },
+  {
+    "id": "AtreidesMerchants",
+    "name": "Local Community",
+    "desc": "Investing in local communities is the foundation of trust between the people and their leader.",
+    "domain": "economic",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CompositeMaterials",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 10
+    },
+    "attributes": [
+      "::s_value:: [Plascrete] production",
+      "Unlocks the [::target::] [!Village] [!Building_Village]",
+      "Unlocks the [::target::] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "UrbanPlanning",
+    "name": "Urban Planning",
+    "desc": "With careful planning and heavy investment, it's possible to build a full city in no time.",
+    "domain": "economic",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "AdvancedEngineering",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 6
+    },
+    "attributes": [
+      "Allow constructing multiple [!Village] [!Building_Village]s simultaneously",
+      "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]",
+      "Unlocks the [::target::] [Treaty]"
+    ]
+  },
+  {
+    "id": "AtreidesForemen",
+    "name": "Atreides Foremen",
+    "desc": "Loyal workers at key posts will make sure that your assets are maintained in working order.",
+    "domain": "economic",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "VeteranCrews",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 8
+    }
+  },
+  {
+    "id": "UnderstandTheBeauty",
+    "name": "Air Network",
+    "desc": "On a planet like Arrakis, distant outposts are islands in an ocean of sand. Reaching them on time is often easier by air.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LocalHubs",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 2
+    },
+    "attributes": [
+      "::percent:: [Airfield] construction costs",
+      "::s_percent:: [Airfield] [!Upkeep]"
+    ]
+  },
+  {
+    "id": "EmbraceCulture",
+    "name": "Cultural Assimilation",
+    "desc": "Most people would rather have a tyrant who act like them than a strange but benevolent leader.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "OutpostLogistics",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 7
+    },
+    "attributes": [
+      "::s_percent:: [Authority] and [Influence] cost to use [PeacefullyAnnex]",
+      "Unlocks the [AtreidesFremenEmbassy] [!Village] [!Building_Village]",
+      "::s_value:: [Agent] slot in [IField]"
+    ]
+  },
+  {
+    "id": "VeteranMilitia",
+    "name": "Veteran Militia",
+    "desc": "A soldier too old to remain on active duty can be sent as an officer in a far-away outpost. His knowledge will help the local militia with strategic planning and training.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "SpectralImaging",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 2
+    },
+    "attributes": [
+      "::target_effects:: by Military Units inside [$my(faction)-adjective] borders"
+    ]
+  },
+  {
+    "id": "NewHomeland",
+    "name": "Post-Trauma Reintegration",
+    "desc": "With the proper medical techniques and  thorough psychological care, soldiers who have lived through traumatic experiences can still serve.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CalltoArms",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 6
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "AtreidesOfficers",
+    "name": "Proud Liberator",
+    "desc": "You are on the right side of this fight. Everyone says so. Just enjoy and stop thinking about it!",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "SupportStructures",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 6
+    },
+    "attributes": [
+      "Non-mechanical units get <good>+1%</good> max [Life] per ::value:: [Standing]",
+      "Units Liberating or Annexing a [!Village] from a faction with less [Standing] heal ::percent_value:: of [Life] for free"
+    ]
+  },
+  {
+    "id": "AtreidesSympathizers",
+    "name": "Atreides Sympathizers",
+    "desc": "A pervasive spy network can also be used for benevolent means.",
+    "domain": "statecraft",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "IntelligenceNetwork",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 9
+    },
+    "attributes": [
+      "::s_value:: [Standing] per [ILandsraad] level, on Council opening",
+      "::s_value:: [Influence] production"
+    ]
+  },
+  {
+    "id": "AtreidesDelegations",
+    "name": "Political Entente",
+    "desc": "With tension rising, gathering friendly houses into an informal alliance is the only way to get some help when chaos inevitably ensues.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CounterMeasures",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 4
+    },
+    "attributes": [
+      "When another faction betrays a [Peace] with [Atreides-longname], receive ::value:: free [::target::]",
+      "Unlocks the [Main_CouncilChamber] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "ActiveSurveillance",
+    "name": "Active Surveillance",
+    "desc": "To catch a spy in our midst, it is not enough to look within. We must also turn our gaze towards friends and enemies alike.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "NegotiationTactics",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 5
+    },
+    "attributes": [
+      "::s_value:: [Influence] and [Intel] production per [Agent] assigned to [!CounterIntel]",
+      "::s_value:: [Agent] slot in [!CounterIntel]"
+    ]
+  },
+  {
+    "id": "SustainableSpying",
+    "name": "Sustainable Spying",
+    "desc": "Agents that focus on bringing positive results to their House instead of participating in nefarious plots often end up forming deep and durable alliances.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "StealthGear",
+    "faction": "atreides",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 10
+    },
+    "attributes": [
+      "[Agent]s assigned on [IChoam], [ILandsraad], or [ISpaceGuild] slots produce ::s_percent_value:: of their associated resources",
+      "[Agent] traits present only once on an [!Infiltration] field apply their effects twice"
+    ]
+  },
+  {
+    "id": "HarkonnenNegociation",
+    "name": "Work Ethics",
+    "desc": "For too long, the lazy have fed off the diligent. No more! House Harkonnen needs men and women willing to give their 200%.",
+    "domain": "economic",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CompositeMaterials",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 6,
+      "y": 0
+    },
+    "attributes": [
+      "::s_value:: [Plascrete] production",
+      "::s_value:: [Manpower] production",
+      "Unlocks the [::target::] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "MartialEconomy",
+    "name": "Martial Economy",
+    "desc": "The invisible hand needs a good whip to teach these lazy locals how to be useful to the market.",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "AraakisRiches",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 7
+    },
+    "attributes": [
+      "Unlocks the [OppressionHeadquarter] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "InstillFear",
+    "name": "Instill Fear",
+    "desc": "It is by will alone I set my mind in motion.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "Paracompass",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 9
+    },
+    "attributes": [
+      "Pillaging a village does not increase its annexation cost",
+      "::target_effects:: pillaged [!Village]s",
+      "::percent:: [Authority] cost to [Annex] again a [!Village] owned by [Harkonnen-shortname] in the past"
+    ]
+  },
+  {
+    "id": "MonitoringNetworks",
+    "name": "Savage Cleansing",
+    "desc": "The savages hide in their dirty burrows. To get rid of that pest would only strengthen our claim on Arrakis.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "WaterSellersContacts",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 9
+    },
+    "attributes": [
+      "Pillaging a [Sietch] for the first time gives ::value:: [Authority] and immediately reveals another [Sietch]",
+      "A successful[Pillage] resupply ::s_percent_value:: of max [Supply] of units in the occupation circle"
+    ]
+  },
+  {
+    "id": "SymbolsOfAuthority",
+    "name": "Symbols of Authority",
+    "desc": "Desecration of their symbols is the fastest way to tame the savages' spirit.",
+    "domain": "green",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "WaterTrade",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 8
+    },
+    "attributes": [
+      "Oppressed [SpecialRegion]s grant ::target_effects::",
+      "Unlocks the [CraftsWorkshop] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "BloodCommand",
+    "name": "Adrenaline Addiction",
+    "desc": "If they do not dread our very name, we have failed!",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "HighCommand",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 7
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "Every time a unit dies, ally Military Units that are fighting nearby receive  ::target_effects:: (x::target_stacking_limit:: max)",
+      "Unlock the second gear slot in the Armory"
+    ]
+  },
+  {
+    "id": "AssemblyLines",
+    "name": "Assembly Lines",
+    "desc": "Reduce the manufacturing process to its essential gestures, and even the dullest worker can do it.",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "AirCommand",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 5
+    },
+    "attributes": [
+      "::percent:: [H_Drone] and [H_Ship] recruitment costs",
+      "::percent:: [H_Drone] and [H_Ship] training time"
+    ]
+  },
+  {
+    "id": "AraakisButchers",
+    "name": "Arrakis Butchers",
+    "desc": "The butcher cuts off the diseased flesh before it can infect all the meat.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "ArmyLogistics",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 1
+    },
+    "attributes": [
+      "::s_value:: [Water]",
+      "::s_percent_value:: damage against [Militia] and [Rebels]",
+      "Gains ::value:: [Manpower] upon killing [Militia] and [Rebels]"
+    ]
+  },
+  {
+    "id": "CruelReputation",
+    "name": "Cruel Reputation",
+    "desc": "It is a good thing they are not too fond of us. It keeps them on their toes and us on our feet.",
+    "domain": "statecraft",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "DiplomaticManoeuvers",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 4
+    },
+    "attributes": [
+      "Using an operation on a faction in [War] grants ::percent_value:: of its [Solari] cost as [Influence]",
+      "Unlocks the [::target::] [Treaty]"
+    ]
+  },
+  {
+    "id": "LandsraadWhispers",
+    "name": "Landsraad Whispers",
+    "desc": "Always keeping both ears open and always being ready to jump at an opportunity is the key to a successful Landsraad Council.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "PoliticalStrength",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 5
+    },
+    "attributes": [
+      "[Agent]s assigned on a [Landsraad_Infiltration] slot produce ::s_value:: [Intel]",
+      "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]",
+      "::s_value:: [Agent] slot in [ILandsraad]"
+    ]
+  },
+  {
+    "id": "HarkonnenLegacy",
+    "name": "Enhanced Questionning",
+    "desc": "With the right tools, an enemy can be more helpful than a friend.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "StealthGear",
+    "faction": "harkonnen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 5
+    },
+    "attributes": [
+      "Oppressed [!Village]s grant ::target_effects::",
+      "Unlocks the [Main_InterrogationCenter] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "TinkererTeams",
+    "name": "Tinkerer Teams",
+    "desc": "It may only hold together with bits of string and tape, but it's better than breaking apart in the middle of the desert.",
+    "domain": "economic",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "ModularParts",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 8
+    },
+    "attributes": [
+      "Unlocks the [SmugglingCenter] [!Village] [!Building_Village]",
+      "Unlocks the [Main_HarvesterWorks] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "UnderworldContacts",
+    "name": "Underworld Contacts",
+    "desc": "They say there is no money among friends. Maybe they should find more profitable friends.",
+    "domain": "economic",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "VeteranCrews",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 4
+    },
+    "attributes": [
+      "[UWHeadquarters]s produce ::percent_value:: of their [!Village]'s [Spice] production",
+      "Unlocks Contraband Supply special events"
+    ]
+  },
+  {
+    "id": "CriminalPast",
+    "name": "Criminal Barons",
+    "desc": "Being able to delegate, to share the leadership roles, makes an underworld empire more nimble.",
+    "domain": "green",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LocalDialectStudies",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 5
+    },
+    "attributes": [
+      "::percent:: [UWHeadquarters] installation cost",
+      "::s_value:: [Water] per [UWHeadquarters]"
+    ]
+  },
+  {
+    "id": "UndergroundNetwork",
+    "name": "Underground Network",
+    "desc": "The Smugglers are everywhere and take advantage of every opportunity.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LocalHubs",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 8
+    },
+    "attributes": [
+      "[Smugglers-adjective] [!Village]s produce ::s_value:: [Solari] per [UWHeadquarters] in adjacent regions",
+      "Unlocks the [Main_BlackMarketBranch] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "AegisoftheUnderworld",
+    "name": "Illicit Methods",
+    "desc": "A tactful shakedown can serve as a reminder of everyone's place on the ladder. No hard feelings.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "OutpostLogistics",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 12
+    },
+    "attributes": [
+      "Ignore the cost penalty to [Annex] pillaged [!Village]s",
+      "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]",
+      "::s_value:: [Agent] slot in [IField]"
+    ]
+  },
+  {
+    "id": "OrganizedLooting",
+    "name": "Organized Looting",
+    "desc": "Looting seems random and messy to the untrained eye, but getting the most from a chaotic situation requires a coordinated team of rabble-rousers.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "DefenseSystems",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 4
+    },
+    "attributes": [
+      "Unlocks the [S_Drone] unit"
+    ]
+  },
+  {
+    "id": "GuerrillaTactics",
+    "name": "Guerrilla Tactics",
+    "desc": "Mixing offense and defense is a sound tactic when you don't have the backing of a Great House.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "ArmyLogistics",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 4
+    },
+    "attributes": [
+      "::s_value:: [Water]",
+      "At night, Military Units gain: ::target_effects_list::"
+    ]
+  },
+  {
+    "id": "IndustrialScavenging",
+    "name": "Industrial Scavenging",
+    "desc": "When a good team is supported by a proper industry of crime, profits are bound to rise.",
+    "domain": "military",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "MilitaryThreat",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 11
+    },
+    "attributes": [
+      "Non-mechanical units in the same region as at least ::value:: [S_Drone] consume ::target_effects::",
+      "Unlock the second gear slot in the Armory",
+      "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "MilitaryAdministration",
+    "name": "Synchronized Heist",
+    "desc": "If you have enough trusted men, hitting multiple locations at once ensures that at least one will go through.",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "HighCommand",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 4
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "On completing a siege, units in the occupation circle gain ::target_effects:: for 1 day",
+      "When at least ::value:: sieges are under way against the same faction, ::target_effects::"
+    ]
+  },
+  {
+    "id": "UnderworldBosses",
+    "name": "Foot In the Door",
+    "desc": "Get them to agree to one thing, and they'll agree to anything.",
+    "domain": "statecraft",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "IntelligenceNetwork",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 6,
+      "y": 12
+    },
+    "attributes": [
+      "::s_percent:: [UWHeadquarters] installation costs within territories of factions in [Peace]",
+      "::value:: [Influence] and [Intel] production per faction hosting at least one [UWHeadquarters]"
+    ]
+  },
+  {
+    "id": "SecurityDetails",
+    "name": "Security Details",
+    "desc": "Important men have important friends, and these friends would be happy to provide protection.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CounterMeasures",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 3
+    },
+    "attributes": [
+      "Receive ::value:: free [Mercenaries] after any resolution choice marked by a [Bounty] passes",
+      "::s_value:: [Agent] slot in [!CounterIntel]"
+    ]
+  },
+  {
+    "id": "UnderworldBribes",
+    "name": "Underworld Bribes",
+    "desc": "Listening can get you further than talking.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "PoliticalStrength",
+    "faction": "smuggler",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 7
+    },
+    "attributes": [
+      "::s_value:: [::target::] upon successfully paying the [GuildFees]",
+      "Resolutions marked by a [Bounty] receives 1 more vote from the [MinorHouses] per ::value:: [Standing]",
+      "::s_value:: [Agent] slot in [ILandsraad]"
+    ]
+  },
+  {
+    "id": "SpreadingTheFaith",
+    "name": "Freedom Fighters",
+    "desc": "Those who fight for freedom and self-determination will always find support from those they free.",
+    "domain": "economic",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "AdvancedEngineering",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 1
+    },
+    "attributes": [
+      "::s_value:: [Solari] production per existing neutral or [Fremen] [!Village]",
+      "::s_value:: [Solari] when liberating a [!Village]",
+      "Unlocks the [::target::] [Treaty]"
+    ]
+  },
+  {
+    "id": "ArrakisSecrets",
+    "name": "Arrakis Secrets",
+    "desc": "The offworlders are not the only ones who need vast amounts of Spice.",
+    "domain": "economic",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "ModularParts",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 9
+    },
+    "attributes": [
+      "Reveals the position of all [SpiceArea]s",
+      "Deployed [F_Harvester]s regain [Life] and [Supply]",
+      "When they pack up, [F_Harvester]s leave combat immediately and have [Sneak_Trait] for ::value:: day",
+      "Unlocks the [::target::] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "SpiceMarket",
+    "name": "Sand Brotherhood",
+    "desc": "The strongest bonds are forged in adversity. Once the desert becomes your home, every visitor is your brother.",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "EconomicLobbying",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 12
+    },
+    "attributes": [
+      "::s_percent_value:: [Solari] production per ally [Sietch]",
+      "Unlocks the [Main_Bazaar] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "FremenCommand",
+    "name": "Shared Transcendence",
+    "desc": "The [Spice] orgy is an intoxicating experience. The Fremen merge minds in a sensorial whirlwind, if only for an instant.",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "EnergyMarkets",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 12
+    },
+    "attributes": [
+      "[::target::]s produce ::s_value:: [::target2::]",
+      "[::target::]s produce ::s_value:: [::target2::]"
+    ]
+  },
+  {
+    "id": "DuneWanderers",
+    "name": "Heir of Arrakis",
+    "desc": "For as much as the Pan and Graben people see Arrakis as their home, its rightful owners are the Fremen.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LayoftheLand",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 9
+    },
+    "attributes": [
+      "Controlled [DeepDesert]s grant neighboring [!Village]s: ::target_effects_list::",
+      "Unlocks the [::target::] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "SpiceHegemony",
+    "name": "Desert Wisdom",
+    "desc": "Fremen numbers are often underestimated. When joining forces, they can accomplish anything.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LocalHubs",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 5
+    },
+    "attributes": [
+      "[::target::]s produce ::target_effects2::",
+      "Unlocks the [::target::] [Treaty]",
+      "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "AdvancedThumpers",
+    "name": "Desert Watchers",
+    "desc": "The Fremen see all of Arrakis as their duty to protect from the invaders.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "SpectralImaging",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 9
+    },
+    "attributes": [
+      "Ally units in [Fremen] territory and near allied [Sietch]s have [Sneak_Trait]"
+    ]
+  },
+  {
+    "id": "SkyGazing",
+    "name": "Sky Gazing",
+    "desc": "The open desert is an invitation to look at the night sky and wonder.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "ArmyLogistics",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 2
+    },
+    "attributes": [
+      "Unlocks the [F_Special] unit"
+    ]
+  },
+  {
+    "id": "DesertTrekkers",
+    "name": "Desert Trekkers",
+    "desc": "When you are needed somewhere, the question is not whether you will get there on time, but how.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "DefenseSystems",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 7
+    },
+    "attributes": [
+      "::s_value:: [Water]"
+    ]
+  },
+  {
+    "id": "StalwartAlliance",
+    "name": "Stalwart Alliance",
+    "desc": "Fremen society is often fragmented, but everyone agrees on the necessity to remove the offworlder oppressors.",
+    "domain": "military",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "MilitaryThreat",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 0
+    },
+    "attributes": [
+      "During the liberation of an enemy [!Village], neighboring allied [Sietch]s send a supporting raid",
+      "Allied [!Sietch]s get ::target_effects::",
+      "Unlock the second gear slot in the Armory"
+    ]
+  },
+  {
+    "id": "TruePeople",
+    "name": "Iday Alakrab",
+    "desc": "The scorpion keeps its strength hidden and only strikes once victory is certain.",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "AirCommand",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 4
+    },
+    "attributes": [
+      "Wormriding is ::s_percent_value:: faster",
+      "Wormriding cannot be seen",
+      "On exiting wormriding, units inflict ::s_value:: damage on first attack and gain [Sneak_Trait] for a day"
+    ]
+  },
+  {
+    "id": "DesertShadows",
+    "name": "Fremen Solidarity",
+    "desc": "Fremen do not agree on everything, in fact they rarely do. But on the subject of offworlders, they make an exception.",
+    "domain": "statecraft",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "IntelligenceNetwork",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 5
+    }
+  },
+  {
+    "id": "SandDiplomats",
+    "name": "Sand Diplomats",
+    "desc": "When a whole planet gets its mind on something, it generally has results.",
+    "domain": "statecraft",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "DiplomaticManoeuvers",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 9
+    },
+    "attributes": [
+      "Unlocks the [::target::] [Treaty]",
+      "Unlocks the [Main_Temple] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "SietchNetwork",
+    "name": "Sietch Network",
+    "desc": "Each rallied [Sietch] brings the Fremen closer to victory!",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CounterMeasures",
+    "faction": "fremen",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 9
+    },
+    "attributes": [
+      "::s_value:: [Agent] slot in [!CounterIntel]"
+    ]
+  },
+  {
+    "id": "SolidMaterials",
+    "name": "Solid Materials",
+    "desc": "The Emperor's stay on Arrakis might be short, but the infrastructure He brings may endure for centuries.",
+    "domain": "economic",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CompositeMaterials",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 6
+    },
+    "attributes": [
+      "::s_value:: [Plascrete] production"
+    ]
+  },
+  {
+    "id": "ImperialTaxes",
+    "name": "Integrated Costs",
+    "desc": "Infrastructure on the planet can deteriorate quickly without proper care. Integrating most of the maintenance into the [ImpBase] protocols would save costs.",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "EconomicLobbying",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 7
+    },
+    "attributes": [
+      "Ally [!Village]s neighboring [ImpBase] get: ::target_effects::"
+    ]
+  },
+  {
+    "id": "CHOAMManipulation",
+    "name": "CHOAM Manipulation",
+    "desc": "A good grip on the CHOAM has been used for centuries to keep control of the Great Houses.",
+    "domain": "economic",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "StructuredWarehouses",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 5
+    }
+  },
+  {
+    "id": "Megalopolis",
+    "name": "Megalopolis",
+    "desc": "Centralization of power and population brings a lot of benefits through economies of scale.",
+    "domain": "green",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LocalDialectStudies",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 6
+    },
+    "attributes": [
+      "::percent:: construction costs in [ImpBase]",
+      "::target_effects::"
+    ]
+  },
+  {
+    "id": "ImperialResearchers",
+    "name": "Imperial Researchers",
+    "desc": "Any government needs the support of the intellectual class. It's even more true for a galactic governement.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LayoftheLand",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 4
+    },
+    "attributes": [
+      "::s_value:: [Knowledge] per completed district",
+      "Unlocks the [::target::] [Treaty]"
+    ]
+  },
+  {
+    "id": "ImperialAdministration",
+    "name": "Imperial Administration",
+    "desc": "Economies of scale are very powerful things that a galactic Emperor uses with abundance.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LocalHubs",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 7
+    },
+    "attributes": [
+      "::target_effects::",
+      "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "AdministrativeConsolidation",
+    "name": "Administrative Consolidation",
+    "desc": "Continuous investment can make the local economy thrive beyond imagination.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "Paracompass",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 4
+    },
+    "attributes": [
+      "Unlocks the [Main_Monument] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "ImperialCommand",
+    "name": "Imperial Command",
+    "desc": "It's the prerogative of the Emperor to commandeer any airport He may need for official business.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "ArmyLogistics",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 6
+    },
+    "attributes": [
+      "Unlock the second gear slot in the Armory"
+    ]
+  },
+  {
+    "id": "ImperialThreat",
+    "name": "Imperial Protocols",
+    "desc": "The presence of the Emperor alone is often enough to intimidate the bravest nobles of the Imperium.",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "HighCommand",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 9
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "::target_effects:: for Military Units in regions where [Corrino-shortname] has a numerical superiority"
+    ]
+  },
+  {
+    "id": "AbsolutePower",
+    "name": "Absolute Power",
+    "desc": "One cannot lead without the consent of one's subjects. The trick is to get their consent without their noticing.",
+    "domain": "statecraft",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "IntelligenceNetwork",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 8
+    },
+    "attributes": [
+      "Proposing a [::target::] has no cost if no [Peace] is active",
+      "Gain ::value:: [::target::] on Council opening if at least one [Peace] is active",
+      "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "DiplomaticSpying",
+    "name": "Diplomatic Spying",
+    "desc": "Keep your friends close, but your enemies even closer.",
+    "domain": "statecraft",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "DiplomaticManoeuvers",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 7
+    },
+    "attributes": [
+      "::s_value:: [Influence] production per [Agent]s assigned on a faction in [Peace]",
+      "::s_value:: [Intel] production per [Agent]s assigned on a faction in [War]",
+      "Unlocks the [::target::] [Treaty]"
+    ]
+  },
+  {
+    "id": "EmperorEyes",
+    "name": "Emperor Eyes",
+    "desc": "No machination can stay hidden for long from the sight of an Emperor.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CounterMeasures",
+    "faction": "corrino",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 8
+    },
+    "attributes": [
+      "::s_percent:: Military Units cost while victim of a treason"
+    ]
+  },
+  {
+    "id": "ArtisticAspirations",
+    "name": "Artistic Aspirations",
+    "desc": "Even the lowest of men want to create, to shape the world to their image. If only we could channel this primal energy into practical matters!",
+    "domain": "economic",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "AdvancedEngineering",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 11
+    },
+    "attributes": [
+      "Gain ::value:: [Solari] upon building a [!Masterpiece]",
+      "::s_percent:: cost to add a [!Building_Village] slot",
+      "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "CulturalTourism",
+    "name": "Cultural Tourism",
+    "desc": "Some people are attracted by the quaint and simple lifestyle of Arrakis' pyon. Why not indulge them, for a price?",
+    "domain": "economic",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "EnergyMarkets",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 6,
+      "y": 11
+    },
+    "attributes": [
+      "Each [!Ecaz_Sanctuary] provides ::target_effects_list::",
+      "Unlocks the [::target::] [Treaty]"
+    ]
+  },
+  {
+    "id": "ManicheanPropaganda",
+    "name": "Manichean Propaganda",
+    "desc": "Who does not like an epic tale with a grand conflict between good and evil? It's hard not to be moved by such a story.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LocalHubs",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 9
+    },
+    "attributes": [
+      "Other factions lose ::value:: [::target::] when killing an [Ecaz-adjective] [Militia]"
+    ]
+  },
+  {
+    "id": "NativeArtists",
+    "name": "Native Artists",
+    "desc": "Even the savage inhabitants of a backwater planet like Arrakis are elevated by the act of creation.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "Paracompass",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 9
+    },
+    "attributes": [
+      "Unlocks the [Main_MuseumOfUnboundArts] [!Building_Village]"
+    ]
+  },
+  {
+    "id": "PridefulCrown",
+    "name": "Prideful Crown",
+    "desc": "When you have an amazing jewel, you don't just leave it hanging around. No, you need an equally great casket to display it properly.",
+    "domain": "green",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "SpectralImaging",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 10
+    },
+    "attributes": [
+      "[!Village]s at a distance of ::value:: regions from the [::target::] gain: ::target_effects_list2::"
+    ]
+  },
+  {
+    "id": "NationalMythos",
+    "name": "National Mythos",
+    "desc": "What is the difference between a people and a crowd? A story. Good stories you can believe in are the foundation of any patriotism.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "DefenseSystems",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 2,
+      "y": 6
+    },
+    "attributes": [
+      "Unlocks the [E_Drone] unit",
+      "::target_effects2:: by [Ecaz-adjective] units in a large area around the [TEcazChampion]"
+    ]
+  },
+  {
+    "id": "MartialPerfectionism",
+    "name": "Martial Perfectionism",
+    "desc": "When you really want to shine, good enough is not good enough. Everything has to be perfect.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "CalltoArms",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 10
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "Can choose to pay ::s_percent_value(PerfectedRecruitment_CostFactor):: of the price to recruit units in ::s_percent(PerfectedRecruitment_TimeFactor):: of the time, giving them permanently: ::target_effects_list::",
+      "Unlocks the [Main_MilitaryAcademy] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "InspiringStandart",
+    "name": "Inspiring Standard",
+    "desc": "A well-designed flag should show strength and determination, evoking exaltation from any potential onlooker.",
+    "domain": "military",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "MilitaryThreat",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 1,
+      "y": 11
+    },
+    "attributes": [
+      "[E_Drone]s produce ::value:: [Manpower]",
+      "Non-mechanical units in the same region as at least ::value:: [E_Drone] ::target_effects::",
+      "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "LogisticalFlourish",
+    "name": "Logistical Flourish",
+    "desc": "War is won by the soldiers. But without the support of a precise logistic, they won't be able to show off their skills.",
+    "domain": "military",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "GroundCommand",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 0,
+      "y": 11
+    },
+    "attributes": [
+      "When a [TEcazChampion] dies, get ::target_effects:: for ::value:: days",
+      "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]",
+      "::s_value:: [Agent] slot in [ISpaceGuild]"
+    ]
+  },
+  {
+    "id": "CosmopoliteElegance",
+    "name": "Cosmopolite Elegance",
+    "desc": "Elegance and style are the best disguises. The classy type can belong anywhere.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "NegotiationTactics",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 12
+    },
+    "attributes": [
+      "[Infiltration] levels rise and fall ::percent:: faster"
+    ]
+  },
+  {
+    "id": "PoliticalArt",
+    "name": "Political Art",
+    "desc": "Art is inherently political. Some artworks assume and shape this component toward a focused objective.",
+    "domain": "statecraft",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "SandDiplomacy",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 10
+    },
+    "attributes": [
+      "Gain ::value:: [Influence] upon building a [!Masterpiece]",
+      "Any Charter currently claimed by [Ecaz-longname] cannot be proposed to vote"
+    ]
+  },
+  {
+    "id": "InfluentialPlots",
+    "name": "Influential Plots",
+    "desc": "Some people are so likable than they can get away with anything, even publicly.",
+    "domain": "statecraft",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "SpyingMastery",
+    "faction": "ecaz",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 3,
+      "y": 11
+    },
+    "attributes": [
+      "When out of [::target::], [::target2::] is used in its stead for mission preparation, assassination upkeep and [Assassin] recruitment"
+    ]
+  },
+  {
+    "id": "EntropicEngineering",
+    "name": "Entropic Engineering",
+    "desc": "[Spice] affects the mind's abilities in unexpected ways. Studying those effects, and the chemical composition of the melange, will require a much better yield from the gatherer.",
+    "domain": "economic",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 1,
+    "requires": "CompositeMaterials",
+    "replaces": "ModularParts",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 7
+    },
+    "attributes": [
+      "Can spend up to 2 [FuelCell] in [$my(harvester)]s to increase their production",
+      "Unlocks the [::target::] [!Village] [!Building_Village]",
+      "Unlocks the [Main_SpiceLaboratory] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "SpiceEnlightenment",
+    "name": "Spice Enlightenment",
+    "desc": "As we begin to understand [Spice] as an organic component of the ecosystem, we discover new ways to attract it into our gatherer at a molecular level.",
+    "domain": "economic",
+    "tier": 3,
+    "gridX": 0,
+    "gridY": 3,
+    "requires": "GridexPlane",
+    "replaces": "VeteranCrews",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 7
+    },
+    "attributes": [
+      "Can spend up to 4 [FuelCell]s in [$my(harvester)]s to increase their production",
+      "::s_percent_value:: [Spice] production per [Knowledge]"
+    ]
+  },
+  {
+    "id": "SequentialThinking",
+    "name": "Sequential Thinking",
+    "desc": "Most processes happen in order. One step. And the next one. And the next one. Our architectures must reflect and support this pattern.",
+    "domain": "green",
+    "tier": 0,
+    "gridX": 1,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "LocalDialectStudies",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 6,
+      "y": 7
+    },
+    "attributes": [
+      "The Nodal Network can optionaly connect to [NeuralNode]s across a [DeepDesert]",
+      "Each node on the longest path of the Nodal Network gives <good>+0.5</good> [Knowledge] and <good>+2%</good> [Authority] production"
+    ]
+  },
+  {
+    "id": "NeuralTropism",
+    "name": "Neural Tropism",
+    "desc": "The same species is capable of growing into many different shapes to accommodate the environmental conditions.",
+    "domain": "green",
+    "tier": 1,
+    "gridX": 2,
+    "gridY": 1,
+    "requires": "LocalDialectStudies",
+    "replaces": "Paracompass",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 7
+    },
+    "attributes": [
+      "Enemy factions pay ::s_percent_value:: [Authority] to [Annex] a [!Village] neighboring at least <good>2</good> regions connected to the Nodal Network",
+      "Unlocks the [Main_NeuralCore] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "AutomatedDefenses",
+    "name": "Automated Defenses",
+    "desc": "A chain is only as strong as its weakest link. It is natural to prioritize protecting our more sensitive spots. The Nodal Network is no exception.",
+    "domain": "green",
+    "tier": 3,
+    "gridX": 1,
+    "gridY": 3,
+    "requires": "SpectralImaging",
+    "replaces": "BorderDefense",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 7
+    },
+    "attributes": [
+      "Connected [NeuralNode]s automatically attack enemy units within your territory",
+      "[!Village]s connected to the Nodal Network gain: ::target_effects_list::"
+    ]
+  },
+  {
+    "id": "WaterBatteries",
+    "name": "Water Batteries",
+    "desc": "Machines, mechanical or organic, require energy to function. But how come can we not power ourselves with sharp electricity? And why could our drones not feed on fresh vegetables?",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 0,
+    "gridY": 1,
+    "requires": "SurvivalTraining",
+    "replaces": "ArmyLogistics",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 7
+    },
+    "attributes": [
+      "When out of [FuelCell]s, [Water] is used in its stead",
+      "Unlock the second gear slot in the Armory"
+    ]
+  },
+  {
+    "id": "GuildCollaboration",
+    "name": "Guild Collaboration",
+    "desc": "A navigator is nothing without a ship to pilot. Their elevated world of probability would not exist without our grounded science of machine. It's worth a bit of support.",
+    "domain": "military",
+    "tier": 1,
+    "gridX": 2,
+    "gridY": 1,
+    "requires": "SurvivalTraining",
+    "replaces": "CalltoArms",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 4,
+      "y": 8
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "[Agent]s assigned on a [SpaceGuild_Infiltration] slot produce ::value:: [FuelCell]",
+      "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "AutomatedManufacture",
+    "name": "Automated Manufacture",
+    "desc": "For as much as the Human mind is exquisite, its body is quite frail and demanding. Automating most of the workforce would free our minds and increase the pace of production.",
+    "domain": "military",
+    "tier": 3,
+    "gridX": 2,
+    "gridY": 3,
+    "requires": "GroundCommand",
+    "replaces": "HighCommand",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 5,
+      "y": 8
+    },
+    "attributes": [
+      "::s_value:: [CommandPoint]",
+      "::s_percent_value:: recruitment and regeneration speed of all units per [Knowledge]"
+    ]
+  },
+  {
+    "id": "TechnologicalExchange",
+    "name": "Technological Exchange",
+    "desc": "The exchange of ideas, the exchange of truth, is the foundation of civilization. In many ways, the communicative scientist is at the heart of society, much more than any emperor.",
+    "domain": "statecraft",
+    "tier": 0,
+    "gridX": 0,
+    "gridY": 0,
+    "requires": null,
+    "replaces": "IntelligenceNetwork",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 6,
+      "y": 8
+    },
+    "attributes": [
+      "Gain ::value:: [Standing] on Council opening per active [Peace]",
+      "::s_value:: [Knowledge] per active [Peace]"
+    ]
+  },
+  {
+    "id": "HereticalComputing",
+    "name": "Heretical Computing",
+    "desc": "A machine would need many different elements to be \"thinking\". What if one of those elements could be isolated, and used for our purpose?",
+    "domain": "statecraft",
+    "tier": 1,
+    "gridX": 2,
+    "gridY": 1,
+    "requires": "IntelligenceNetwork",
+    "replaces": "SpyingLogistic",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 7,
+      "y": 8
+    },
+    "attributes": [
+      "Unlock [DataAnalysisUnit] [Agent]s and get ::value:: for free",
+      "Unlocks the [HarmlessGadget] [Treaty]",
+      "Unlocks the [Main_IntelAgency] [!Building_MB] in [$my(mainbase)]"
+    ]
+  },
+  {
+    "id": "HolisticThinking",
+    "name": "Holistic Thinking",
+    "desc": "Treating information as isolated bits of knowledge is not enough. To see the whole picture you have to consider things in relation with everything else.",
+    "domain": "statecraft",
+    "tier": 2,
+    "gridX": 3,
+    "gridY": 2,
+    "requires": "SpyingLogistic",
+    "replaces": "NegotiationTactics",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 8,
+      "y": 8
+    },
+    "attributes": [
+      "::s_value:: [Knowledge] per [!Infiltration] field with at least ::value:: [DataAnalysisUnit]",
+      "[!Infiltration] increases by ::value:: level in factions that have accepted a [HarmlessGadget]"
+    ]
+  },
+  {
+    "id": "PhysicalWiring",
+    "name": "Physical Wiring",
+    "desc": "While electromagnetic transmission of data through the air has many advantages, a truly secured connection can only be achieved with good old wires and active surveillance of such wires.",
+    "domain": "statecraft",
+    "tier": 3,
+    "gridX": 2,
+    "gridY": 3,
+    "requires": "StealthGear",
+    "replaces": "SpyingMastery",
+    "faction": "vernius",
+    "gfx": {
+      "file": "UI/developments/techIcons2.png",
+      "size": 64,
+      "x": 9,
+      "y": 8
+    },
+    "attributes": [
+      "[InfiltrationCells] neighboring a connected [NeuralNode] produce ::s_value:: [Knowledge]",
+      "Each [Statecraft] [!Building_Village] in the [!Village] of such a cell also gives: ::target_effects_list::",
+      "Allows the training of [Assassin]s"
+    ]
+  }
+]

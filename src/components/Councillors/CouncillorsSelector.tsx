@@ -100,10 +100,9 @@ const CouncillorsSelector = ({
                   className={`
                     w-full h-full flex items-center justify-center border-2
                     ${isSelected
-                      ? "border-zinc-400 bg-slot"
-                      : "border-zinc-600 bg-slot/50 hover:brightness-125 hover:border-zinc-500"
+                      ? "border-zinc-500 bg-slot/50 opacity-50 grayscale cursor-pointer"
+                      : "border-zinc-600 bg-slot/50 hover:brightness-125 hover:border-zinc-500 cursor-pointer"
                     }
-                    cursor-pointer
                   `}
                 >
                   <img

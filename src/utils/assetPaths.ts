@@ -78,10 +78,26 @@ export function getDevelopmentsSlotPath(category: keyof DevelopmentsSummary): st
   return getHudImagePath(DEVELOPMENTS_SLOT_IMAGES[category])
 }
 
+/** Development icon from sprite sheet. gfx from developments.json: { file, size, x, y }. */
+export function getDevelopmentSpriteStyle(gfx: { file: string; size: number; x: number; y: number } | undefined): Record<string, string | number> | null {
+  if (!gfx?.file || gfx.size == null || gfx.x == null || gfx.y == null) return null
+  const base = gfx.file.replace(/^UI\/developments\//, "").replace(/^UI\//, "")
+  const url = getHudImagePath(base)
+  const px = -(gfx.x * gfx.size)
+  const py = -(gfx.y * gfx.size)
+  return {
+    backgroundImage: `url(${url})`,
+    backgroundPosition: `${px}px ${py}px`,
+    width: gfx.size,
+    height: gfx.size,
+  }
+}
+
 function initPreload(): void {
-  // Preload HUD images (slot, background_hero)
+  // Preload HUD images (slot, background_hero, development sprite sheet)
   preloadImage(getHudImagePath("slot.png"))
   preloadImage(getHudImagePath("background_hero.png"))
+  preloadImage(getHudImagePath("techIcons2.png"))
 
   // Preload faction icons
   FACTION_LABELS.forEach((faction) => {

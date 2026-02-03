@@ -11,7 +11,7 @@ export const mainBasesLayout: Record<FactionLabel, MainBaseLayout> = {
   ecaz: [[1, 3], [2], [3, 1]],
   smuggler: [[3], [2, 1, 1], [1, 1]],
   vernius: [[3], [3], [3]],
-  fremen: [[2, 2], [3], [2, 1]],
+  fremen: [[3], [2], [1]],
   corrino: [[3], [2], [1]],
 }
 

@@ -167,6 +167,12 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
         }}
       >
         <span
+          className={`absolute top-0 right-0 text-[0.65rem] md:text-xs tracking-[0.2em] ${lightweightMode ? "logo-title-static" : "logo-title-halo"}`}
+          aria-hidden
+        >
+          ALPHA
+        </span>
+        <span
           className={`inline-block ${titleAnimation ?? ""}`}
           onAnimationEnd={() => setTitleAnimation(null)}
         >

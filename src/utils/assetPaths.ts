@@ -5,13 +5,15 @@ import unitsData from "@/components/Units/units.json"
 import heroesData from "@/components/Units/hero.json"
 import councillorsData from "@/components/Councillors/councillors.json"
 
-const FACTION_ICON_PATH = "/images/faction_buttons_square"
-const HUD_IMAGES_PATH = "/images/hud"
-const MAINBASE_ICONS_PATH = "/images/mainbase_icons"
-const GEAR_ICONS_PATH = "/images/gear"
-const UNIT_ICONS_PATH = "/images/units"
-const COUNCILLOR_ICONS_PATH = "/images/councillors"
-const OPERATIONS_ICONS_PATH = "/images/operations"
+const BASE = import.meta.env.BASE_URL
+
+const FACTION_ICON_PATH = `${BASE}images/faction_buttons_square`
+const HUD_IMAGES_PATH = `${BASE}images/hud`
+const MAINBASE_ICONS_PATH = `${BASE}images/mainbase_icons`
+const GEAR_ICONS_PATH = `${BASE}images/gear`
+const UNIT_ICONS_PATH = `${BASE}images/units`
+const COUNCILLOR_ICONS_PATH = `${BASE}images/councillors`
+const OPERATIONS_ICONS_PATH = `${BASE}images/operations`
 
 export function getFactionIconPath(faction: FactionLabel): string {
   return `${FACTION_ICON_PATH}/${faction}.png`

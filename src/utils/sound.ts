@@ -1,9 +1,10 @@
 import { useUIStore } from "@/store/ui"
 
-const SOUNDS_PATH = "/sounds"
+const BASE = import.meta.env.BASE_URL
+const SOUNDS_PATH = `${BASE}sounds`
 
 /** Background music: single instance, looped, lower volume. */
-const BACKGROUND_PATH = "/sounds/background-noise.m4a"
+const BACKGROUND_PATH = `${BASE}sounds/background-noise.m4a`
 let backgroundAudio: HTMLAudioElement | null = null
 
 function getEffectiveVolume(): number {
@@ -38,7 +39,9 @@ export function startBackgroundMusic(): Promise<void> {
  */
 export function getSoundPath(name: string): string {
   const base = name.endsWith(".mp3") ? name : `${name}.mp3`
-  return base.startsWith("/") ? base : `${SOUNDS_PATH}/${base}`
+  if (base.startsWith("/")) return `${BASE}${base.slice(1)}`
+  if (base.startsWith(BASE)) return base
+  return `${SOUNDS_PATH}/${base}`
 }
 
 /**
@@ -47,7 +50,7 @@ export function getSoundPath(name: string): string {
  * Uses app volume and mute from UI store.
  */
 export function playSound(pathOrName: string): void {
-  const path = pathOrName.startsWith("/") ? pathOrName : getSoundPath(pathOrName)
+  const path = getSoundPath(pathOrName)
   const audio = new Audio(path)
   audio.volume = getEffectiveVolume()
   audio.play().catch(() => { })

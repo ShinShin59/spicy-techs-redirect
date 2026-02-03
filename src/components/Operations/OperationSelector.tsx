@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from "react"
 import { useMainStore } from "@/store"
-import { getOperationIconPath } from "@/utils/assetPaths"
+import { getOperationIconPath, getHudImagePath } from "@/utils/assetPaths"
 import { getOperationsForFaction, type OperationItem } from "./operations-utils"
 import OperationTooltip from "./OperationTooltip"
 
@@ -102,7 +102,8 @@ const OperationSelector = ({
               <button
                 type="button"
                 onClick={() => onSelect(op.id)}
-                className="w-full h-full bg-[url('/images/hud/slot.png')] bg-cover bg-center border border-zinc-700 flex items-center justify-center hover:brightness-110 cursor-pointer"
+                className="w-full h-full bg-cover bg-center border border-zinc-700 flex items-center justify-center hover:brightness-110 cursor-pointer"
+                style={{ backgroundImage: `url(${getHudImagePath("slot.png")})` }}
               >
                 <img
                   src={getOperationIconPath(op.id, op.image)}

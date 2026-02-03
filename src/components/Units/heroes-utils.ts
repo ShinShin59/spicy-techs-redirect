@@ -1,7 +1,8 @@
 import type { FactionLabel } from "../../store"
 import heroesData from "./hero.json"
 
-const UNIT_ICONS_PATH = "/images/units"
+const BASE = import.meta.env.BASE_URL
+const UNIT_ICONS_PATH = `${BASE}images/units`
 
 export interface HeroData {
   id: string

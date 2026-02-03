@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useMainStore, useCurrentUnitSlots, HERO_SLOT_INDEX, MAX_UNIT_CP } from "@/store"
-import { getUnitIconPath } from "@/utils/assetPaths"
+import { getUnitIconPath, getHudImagePath } from "@/utils/assetPaths"
 import { playRandomSound, playCancelSlotSound, BUTTON_SPENDRESOURCES_SOUNDS } from "@/utils/sound"
 import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import { getUnitById, getUnitsForFaction, type UnitData } from "./units-utils"
@@ -161,15 +161,14 @@ const Units = () => {
 
               const isHeroSlotEmpty = isHeroSlot && !hasUnit
               const addSlotDisabledStyle = isAddSlot && addSlotDisabled
-              const cellStyle = isAddSlot
-                ? addSlotDisabledStyle
-                  ? "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center opacity-70 brightness-[0.5] cursor-not-allowed"
-                  : "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center hover:bg-[url('/images/hud/slot_add_hover.png')] cursor-pointer"
-                : isHeroSlot
-                  ? "bg-[url('/images/hud/background_hero.png')] bg-cover bg-center cursor-pointer"
-                  : hasUnit
-                    ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center border border-zinc-700 cursor-pointer"
-                    : "bg-[url('/images/hud/slot.png')] bg-cover bg-center border border-zinc-700 cursor-pointer hover:brightness-110"
+              const cellBgUrl =
+                isAddSlot
+                  ? getHudImagePath("slot_add.png")
+                  : isHeroSlot
+                    ? getHudImagePath("background_hero.png")
+                    : getHudImagePath("slot.png")
+              const cellHoverUrl =
+                isAddSlot && !addSlotDisabled ? getHudImagePath("slot_add_hover.png") : !isHeroSlot && !hasUnit ? getHudImagePath("slot.png") : null
               const heroSlotMuted = isHeroSlotEmpty ? "opacity-70" : ""
               const canOpenSelector = (isAddSlot && !addSlotDisabled) || isHeroSlot
 
@@ -178,8 +177,8 @@ const Units = () => {
                   key={`unit-${index}`}
                   role={canOpenSelector ? "button" : undefined}
                   tabIndex={canOpenSelector ? 0 : undefined}
-                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative ${cellStyle} ${heroSlotMuted}`}
-                  style={slotStyle}
+                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative bg-cover bg-center border border-zinc-700 ${cellHoverUrl ? "hover:bg-[image:var(--unit-slot-hover)]" : ""} ${addSlotDisabledStyle ? "opacity-70 brightness-[0.5] cursor-not-allowed" : canOpenSelector ? "cursor-pointer hover:brightness-110" : ""} ${heroSlotMuted}`}
+                  style={{ ...slotStyle, backgroundImage: `url(${cellBgUrl})`, ...(cellHoverUrl ? { ["--unit-slot-hover" as string]: `url(${cellHoverUrl})` } : {}) }}
                   id={`units-slot-${index}`}
                   data-panel-slot
                   title={isAddSlot ? "Add unit" : isHeroSlotEmpty ? "Hero slot (optional)" : undefined}

@@ -3,27 +3,27 @@
 html,
 body {
   background: #080809;
-  cursor: url("/images/hud/cursor_default.png") 0 0, auto;
+  cursor: var(--cursor-default) 0 0, auto;
 }
 
 /* Custom pointer cursor when using Tailwind's cursor-pointer */
 .cursor-pointer {
-  cursor: url("/images/hud/cursor_pointer.png") 0 0, pointer;
+  cursor: var(--cursor-pointer) 0 0, pointer;
 }
 
-/* C&C Red Alert – WOFF2 from public. Path relative to project; no format() per Vite font-loading fixes. */
+/* C&C Red Alert – WOFF2 from public. Base URL set in main.tsx. */
 @font-face {
   font-family: "C&C Red Alert Inet";
-  src: url("/font/c_c_red_alert_inet/C&C Red Alert [LAN].woff2");
+  src: var(--font-red-alert);
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-/* Dune Rise – TTF from public. Same pattern as Red Alert. */
+/* Dune Rise – TTF from public. Base URL set in main.tsx. */
 @font-face {
   font-family: "Dune Rise";
-  src: url("/font/Dune_Rise/Dune_Rise.ttf");
+  src: var(--font-dune-rise);
   font-weight: normal;
   font-style: normal;
   font-display: swap;

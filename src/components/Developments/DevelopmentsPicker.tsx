@@ -9,7 +9,8 @@ import DevelopmentDetailTooltip, {
 import PanelCorners from "@/components/PanelCorners"
 import OrderBadge from "@/components/OrderBadge"
 import developmentsData from "./developments.json"
-import CROSS_IMAGE from "/images/hud/developments/cross_section.png"
+
+const CROSS_IMAGE = getDevelopmentPickerAssetPath("cross_section.png")
 
 /** Single source of truth for development node scale (px). All layout dimensions are derived from this. */
 const DEV_SCALE = 56

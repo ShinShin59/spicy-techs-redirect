@@ -2,19 +2,31 @@ import {
   compressToEncodedURIComponent,
   decompressFromEncodedURIComponent,
 } from "lz-string"
-import type { FactionLabel, BuildingCoords } from "../store"
+import type {
+  FactionLabel,
+  BuildingCoords,
+  PanelVisibility,
+  DevelopmentsSummary,
+  BuildMetadata,
+} from "../store"
 import type { MainBaseState } from "../store/main-base"
 
 export const BUILD_PARAM = "build"
 
+/** Full current-build payload: selected faction + panel visibility, developments, metadata. */
 export interface SharedBuildPayload {
   f: FactionLabel
   state: MainBaseState
   order: BuildingCoords[]
-  armory?: (string | null)[][]
-  units?: (string | null)[]
-  councillors?: (string | null)[]
-  operations?: (string | null)[]
+  armory: (string | null)[][]
+  units: (string | null)[]
+  councillors: (string | null)[]
+  operations: (string | null)[]
+  unitSlotCount: number
+  panelVisibility: PanelVisibility
+  developmentsSummary: DevelopmentsSummary
+  selectedDevelopments: string[]
+  metadata: BuildMetadata
 }
 
 export function encodeBuildPayload(payload: SharedBuildPayload): string {

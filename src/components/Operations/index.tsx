@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 import { useMainStore, useCurrentOperationSlots, useUsedBuildingIds, OPERATION_SLOTS_COUNT } from "@/store"
-import { getOperationIconPath } from "@/utils/assetPaths"
+import { getOperationIconPath, getHudImagePath } from "@/utils/assetPaths"
 import { playCancelSlotSound, playMenuToggleSound, playSpyOperationSound } from "@/utils/sound"
 import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import { getOperationById } from "./operations-utils"
@@ -129,18 +129,18 @@ const Operations = () => {
               const hasOperation = missionId !== null && operation !== undefined
               const enabled = isSlotEnabled(index)
               const isAddSlot = !hasOperation
-              const addStyle = enabled
-                ? "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center hover:bg-[url('/images/hud/slot_add_hover.png')] cursor-pointer"
-                : "bg-[url('/images/hud/slot_disabled.png')] bg-cover bg-center opacity-70 brightness-[0.5] cursor-not-allowed"
-              const cellStyle = isAddSlot ? addStyle : "bg-[url('/images/hud/slot.png')] bg-cover bg-center border border-zinc-700 cursor-pointer hover:brightness-110"
+              const addBgUrl = enabled ? getHudImagePath("slot_add.png") : getHudImagePath("slot_disabled.png")
+              const addHoverUrl = enabled ? getHudImagePath("slot_add_hover.png") : null
+              const cellBgUrl = isAddSlot ? addBgUrl : getHudImagePath("slot.png")
+              const cellHoverUrl = isAddSlot ? addHoverUrl : null
 
               return (
                 <div
                   key={`op-${index}`}
                   role={enabled ? "button" : undefined}
                   tabIndex={enabled ? 0 : undefined}
-                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative ${cellStyle}`}
-                  style={slotStyle}
+                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative bg-cover bg-center border border-zinc-700 ${cellHoverUrl ? "hover:bg-[image:var(--op-slot-hover)]" : ""} ${isAddSlot && !enabled ? "opacity-70 brightness-[0.5] cursor-not-allowed" : "cursor-pointer hover:brightness-110"}`}
+                  style={{ ...slotStyle, backgroundImage: `url(${cellBgUrl})`, ...(cellHoverUrl ? { ["--op-slot-hover" as string]: `url(${cellHoverUrl})` } : {}) }}
                   data-panel-slot
                   title={isAddSlot ? (enabled ? "Add operation" : "Requires Intelligence Agency") : operation?.name}
                   onClick={(e) => handleSlotClick(e, index)}

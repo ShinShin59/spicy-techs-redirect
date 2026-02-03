@@ -4,6 +4,7 @@ import FactionSelector from "@/components/FactionSelector"
 import Button from "@/components/Button"
 import { playMenuToggleSound } from "@/utils/sound"
 import { useShareButton } from "@/hooks/useShareButton"
+import { getHudImagePath } from "@/utils/assetPaths"
 
 interface TopbarProps {
   onNew: () => void
@@ -23,10 +24,10 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
   const toggleCouncillors = useMainStore((s) => s.toggleCouncillors)
   const toggleDevelopments = useMainStore((s) => s.toggleDevelopments)
   const toggleOperations = useMainStore((s) => s.toggleOperations)
-  const { handleShare } = useShareButton()
+  const { copied, handleShare } = useShareButton()
 
   const factionBgVar = `var(--color-faction-${selectedFaction})` as const
-  const sideBgImage = "url(/images/hud/sides_left.png), url(/images/hud/sides_right.png)"
+  const sideBgImage = `url(${getHudImagePath("sides_left.png")}), url(${getHudImagePath("sides_right.png")})`
 
   useEffect(() => {
     document.fonts.load('1em "Dune Rise"').then(() => setLogoVisible(true))
@@ -67,7 +68,7 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
           mutedWhenUnpressed={false}
           className="topbar-share-btn"
         >
-          Share
+          {copied ? "Copied" : "Share"}
         </Button>
       </div>
       <div className="flex items-center gap-2 relative z-10">
@@ -167,7 +168,7 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
         <span
           className="block w-full max-w-[320px] h-2 shrink-0 bg-no-repeat bg-center"
           style={{
-            backgroundImage: "url(/images/hud/title_underline.png)",
+            backgroundImage: `url(${getHudImagePath("title_underline.png")})`,
             backgroundSize: "auto 100%",
           }}
           aria-hidden

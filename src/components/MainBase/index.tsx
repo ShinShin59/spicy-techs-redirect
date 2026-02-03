@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useCurrentMainBaseLayout, useCurrentMainBaseState, useMainStore, useUsedBuildingIds, useCurrentBuildingOrder, getBuildingOrderNumber, type BuildingCoords } from "../../store"
 import MainBaseBuildingsSelector, { type MainBuilding } from "./MainBaseBuildingsSelector"
-import { getBuildingIconPath } from "@/utils/assetPaths"
+import { getBuildingIconPath, getHudImagePath } from "@/utils/assetPaths"
 import { playCancelSlotSound, playMenuToggleSound, playMainBaseBuildingSound } from "@/utils/sound"
 import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
@@ -19,14 +19,14 @@ function getBuildingByName(name: string | null): MainBuilding | undefined {
   return mainBuildings.find((b) => b.name === name)
 }
 
-function getCategorySlotBgClass(category: MainBuilding['category']): string {
+function getCategorySlotBgUrl(category: MainBuilding['category']): string {
   switch (category) {
     case 'Economy':
-      return "bg-[url('/images/hud/slot_economic.png')]"
+      return getHudImagePath("slot_economic.png")
     case 'Military':
-      return "bg-[url('/images/hud/slot_military.png')]"
+      return getHudImagePath("slot_military.png")
     case 'Statecraft':
-      return "bg-[url('/images/hud/slot_statecraft.png')]"
+      return getHudImagePath("slot_statecraft.png")
   }
 }
 
@@ -133,7 +133,8 @@ const MainBase = () => {
         </h2>
         <div
           id="main-base-grid"
-          className={`relative w-full p-4 box-border bg-zinc-900 bg-[url('/images/hud/mb_bg_pattern.png')] bg-repeat bg-center ${PANEL_BORDER_HOVER_CLASS}`}
+          className={`relative w-full p-4 box-border bg-zinc-900 bg-repeat bg-center ${PANEL_BORDER_HOVER_CLASS}`}
+          style={{ backgroundImage: `url(${getHudImagePath("mb_bg_pattern.png")})` }}
           {...panelRightClickHide}
         >
           <PanelCorners />
@@ -162,12 +163,14 @@ const MainBase = () => {
                           ? 'empty_disabled'
                           : 'empty_add'
 
-                      const cellBgClass =
+                      const cellBgUrl =
                         slotType === 'filled' && buildingData
-                          ? `${getCategorySlotBgClass(buildingData.category)} bg-cover bg-center`
+                          ? getCategorySlotBgUrl(buildingData.category)
                           : slotType === 'empty_add'
-                            ? "bg-[url('/images/hud/slot_add.png')] bg-cover bg-center hover:bg-[url('/images/hud/slot_add_hover.png')]"
-                            : "bg-[url('/images/hud/slot_disabled.png')] bg-cover bg-center"
+                            ? getHudImagePath("slot_add.png")
+                            : getHudImagePath("slot_disabled.png")
+                      const cellBgHoverUrl =
+                        slotType === 'empty_add' ? getHudImagePath("slot_add_hover.png") : null
 
                       const isDisabled = slotType === 'empty_disabled'
 
@@ -177,7 +180,11 @@ const MainBase = () => {
                           role="button"
                           tabIndex={isDisabled ? -1 : 0}
                           aria-disabled={isDisabled ? true : undefined}
-                          className={`relative w-[64px] h-[64px] flex items-center justify-center overflow-hidden border border-zinc-700 ${cellBgClass} ${isDisabled ? 'pointer-events-none' : 'cursor-pointer'}`}
+                          className={`relative w-[64px] h-[64px] flex items-center justify-center overflow-hidden border border-zinc-700 bg-cover bg-center ${cellBgHoverUrl && !isDisabled ? "hover:bg-[image:var(--slot-hover)]" : ""} ${isDisabled ? 'pointer-events-none' : 'cursor-pointer'}`}
+                          style={{
+                            backgroundImage: `url(${cellBgUrl})`,
+                            ...(cellBgHoverUrl && !isDisabled ? { ["--slot-hover" as string]: `url(${cellBgHoverUrl})` } : {}),
+                          }}
                           id={`main-base-building-${cellIndex}`}
                           data-panel-slot
                           onClick={isDisabled ? undefined : (e) => handleCellClick(e, rowIndex, groupIndex, cellIndex)}

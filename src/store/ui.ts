@@ -23,22 +23,6 @@ export const useUIStore = create<UIStore>()(
       setMuted: (muted) => set({ muted }),
       toggleMuted: () => set((s) => ({ muted: !s.muted })),
     }),
-    {
-      name: UI_STORAGE_KEY,
-      migrate: (persisted: unknown) => {
-        const p = persisted as Record<string, unknown> | null
-        if (!p || typeof p !== "object") {
-          return {
-            volume: DEFAULT_VOLUME,
-            muted: false,
-          } as UIStore
-        }
-        const { sidebarOpen: _removed, ...rest } = p
-        const volume =
-          typeof rest.volume === "number" ? rest.volume : DEFAULT_VOLUME
-        const muted = typeof rest.muted === "boolean" ? rest.muted : false
-        return { ...rest, volume, muted } as UIStore
-      },
-    }
+    { name: UI_STORAGE_KEY }
   )
 )

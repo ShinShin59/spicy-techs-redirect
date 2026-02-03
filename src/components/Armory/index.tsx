@@ -1,6 +1,6 @@
 import { useState, useRef } from "react"
 import { useMainStore, useCurrentArmoryState, UNITS_PER_FACTION, GEAR_SLOTS_PER_UNIT } from "../../store"
-import { getGearIconPath } from "@/utils/assetPaths"
+import { getGearIconPath, getHudImagePath } from "@/utils/assetPaths"
 import { playCancelSlotSound, playMenuToggleSound } from "@/utils/sound"
 import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
@@ -139,7 +139,8 @@ const Armory = () => {
                       ref={slotIndex === 0 ? (el) => { firstSlotRefs.current[unitIndex] = el } : undefined}
                       role="button"
                       tabIndex={0}
-                      className={`w-12 h-12 relative cursor-pointer flex items-center justify-center overflow-hidden border border-zinc-700 aspect-square ${hasGear ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center" : "bg-[url('/images/hud/slot.png')] bg-cover bg-center hover:brightness-110"}`}
+                      className="w-12 h-12 relative cursor-pointer flex items-center justify-center overflow-hidden border border-zinc-700 aspect-square bg-cover bg-center hover:brightness-110"
+                      style={{ backgroundImage: `url(${getHudImagePath("slot.png")})` }}
                       id={`armory-slot-${unitIndex}-${slotIndex}`}
                       data-panel-slot
                       onClick={(e) => handleSlotClick(e, unitIndex, slotIndex)}

@@ -26,6 +26,8 @@ function App() {
     const payload = decodeBuildPayload(window.location.search)
     if (payload) {
       useMainStore.getState().loadSharedBuild(payload)
+      const url = window.location.origin + window.location.pathname
+      window.history.replaceState(null, "", url)
     }
   }, [])
 

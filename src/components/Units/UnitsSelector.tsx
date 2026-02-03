@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from "react"
 import { useMainStore } from "@/store"
-import { getUnitIconPath } from "@/utils/assetPaths"
+import { getUnitIconPath, getHudImagePath } from "@/utils/assetPaths"
 import { getUnitsForFaction, type UnitData } from "./units-utils"
 import {
   getHeroesForFaction,
@@ -94,9 +94,7 @@ const UnitsSelector = ({
   )
 
   // Match Units panel: 64px slots, slot/hero bg; icon fills slot
-  const slotBgClass = heroOnly
-    ? "bg-[url('/images/hud/background_hero.png')] bg-cover bg-center"
-    : "bg-cover bg-center"
+  const slotBgUrl = heroOnly ? getHudImagePath("background_hero.png") : null
 
   return (
     <>
@@ -135,10 +133,11 @@ const UnitsSelector = ({
                   type="button"
                   onClick={() => handleUnitClick(unit.id, disabled)}
                   disabled={disabled}
-                  className={`flex items-center w-16 h-16 justify-center ${slotBgClass} ${disabled
+                  className={`flex items-center w-16 h-16 justify-center bg-cover bg-center ${slotBgUrl ? "" : ""} ${disabled
                     ? "opacity-50 cursor-not-allowed grayscale"
                     : "hover:brightness-110 cursor-pointer"
                     }`}
+                  style={slotBgUrl ? { backgroundImage: `url(${slotBgUrl})` } : undefined}
                 >
                   <img
                     src={

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useMainStore, useCurrentCouncillorSlots } from "@/store"
-import { getCouncillorIconPath } from "@/utils/assetPaths"
+import { getCouncillorIconPath, getHudImagePath } from "@/utils/assetPaths"
 import { playSelectionSound } from "@/utils/sound"
 import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import { getCouncillorById, type CouncillorData } from "./councillors-utils"
@@ -80,8 +80,8 @@ const Councillors = () => {
                   key={`councillor-slot-${index}`}
                   role="button"
                   tabIndex={0}
-                  className={`${cellClass} relative cursor-pointer ${hasCouncillor ? "bg-[url('/images/hud/slot.png')] bg-cover bg-center" : "bg-[url('/images/hud/slot.png')] bg-cover bg-center hover:brightness-110"
-                    }`}
+                  className={`${cellClass} relative cursor-pointer bg-cover bg-center ${!hasCouncillor ? "hover:brightness-110" : ""}`}
+                  style={{ backgroundImage: `url(${getHudImagePath("slot.png")})` }}
                   id={`councillors-slot-${index}`}
                   data-panel-slot
                   onClick={handleSlotClick}

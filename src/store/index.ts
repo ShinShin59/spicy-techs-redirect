@@ -651,11 +651,11 @@ export const useMainStore = create<MainStore>()(
         const councillorSlotsForFaction = Array.isArray(payload.councillors)
           ? payload.councillors
           : createEmptyCouncillorSlotsForFaction()
-        let operationSlotsForFaction = Array.isArray((payload as { operations?: (string | null)[] }).operations)
-          ? (payload as { operations: (string | null)[] }).operations.slice(0, OPERATION_SLOTS_COUNT)
+        let operationSlotsForFaction = Array.isArray(payload.operations)
+          ? payload.operations.slice(0, OPERATION_SLOTS_COUNT)
           : createEmptyOperationSlotsForFaction()
         operationSlotsForFaction = Array.from({ length: OPERATION_SLOTS_COUNT }, (_, i) => operationSlotsForFaction[i] ?? null)
-        // Migrate shared builds: ensure add slot at 0, hero at 1, length 6
+        // Ensure add slot at 0, hero at 1, length 6
         if (unitSlotsForFaction.length > 0) {
           const first = unitSlotsForFaction[0]
           if (first && /^[AHFSECV]_Hero_[12]$/.test(first)) {
@@ -666,6 +666,9 @@ export const useMainStore = create<MainStore>()(
             unitSlotsForFaction = [...unitSlotsForFaction, ...Array(6).fill(null)].slice(0, 6)
           }
         }
+        const unitCount = typeof payload.unitSlotCount === "number"
+          ? Math.max(DEFAULT_UNIT_SLOT_COUNT, Math.min(MAX_UNIT_SLOT_COUNT, payload.unitSlotCount))
+          : Math.max(DEFAULT_UNIT_SLOT_COUNT, unitSlotsForFaction.length)
         set({
           selectedFaction: payload.f,
           mainBaseState: { ...mainBaseState, [payload.f]: stateForFaction },
@@ -674,8 +677,15 @@ export const useMainStore = create<MainStore>()(
           unitSlots: { ...unitSlots, [payload.f]: unitSlotsForFaction },
           councillorSlots: { ...councillorSlots, [payload.f]: councillorSlotsForFaction },
           operationSlots: { ...operationSlots, [payload.f]: operationSlotsForFaction },
-          unitSlotCount: Math.max(DEFAULT_UNIT_SLOT_COUNT, unitSlotsForFaction.length),
-          metadata: createEmptyMetadata(defaultAuthor),
+          unitSlotCount: unitCount,
+          panelVisibility: normalizePanelVisibility(payload.panelVisibility),
+          developmentsSummary:
+            payload.developmentsSummary && typeof payload.developmentsSummary === "object" && "economic" in payload.developmentsSummary
+              ? payload.developmentsSummary as DevelopmentsSummary
+              : initialDevelopmentsSummary,
+          selectedDevelopments: Array.isArray(payload.selectedDevelopments) ? payload.selectedDevelopments : [],
+          metadata: normalizeMetadata(payload.metadata, defaultAuthor),
+          currentBuildName: "Shared build",
           currentBuildId: null,
         })
       },
@@ -993,191 +1003,7 @@ export const useMainStore = create<MainStore>()(
         set(updates)
       },
     }),
-    {
-      name: "spicy-techs-main-store",
-      migrate: (persisted: unknown) => {
-        const p = persisted as Record<string, unknown> | null
-        if (!p || typeof p !== "object") return persisted as unknown as MainStore
-        const migrated = { ...p } as Record<string, unknown>
-        const defaultAuthor = typeof migrated.defaultAuthor === "string" ? migrated.defaultAuthor : DEFAULT_AUTHOR
-        if (typeof migrated.unitSlotCount !== "number") {
-          migrated.unitSlotCount = DEFAULT_UNIT_SLOT_COUNT
-        }
-        // Migrate armoryState if missing
-        if (!migrated.armoryState) {
-          migrated.armoryState = initialArmoryState
-        }
-        // Remove deprecated armoryOrder and unitsOrder (order removed from Units/Armory panels)
-        delete migrated.armoryOrder
-        delete migrated.unitsOrder
-        // Migrate unitSlots: add slot at 0, hero at 1, units at 2..5 (length 6)
-        if (!migrated.unitSlots) {
-          migrated.unitSlots = initialUnitSlotsState
-        } else {
-          const slots = migrated.unitSlots as UnitSlotsState
-          const factionLabels: FactionLabel[] = [
-            "harkonnen",
-            "atreides",
-            "ecaz",
-            "smuggler",
-            "vernius",
-            "fremen",
-            "corrino",
-          ]
-          const heroRegex = /^[AHFSECV]_Hero_[12]$/
-          let needsMigration = false
-          for (const f of factionLabels) {
-            const arr = slots[f]
-            if (Array.isArray(arr) && arr.length > 0) {
-              const first = arr[0]
-              const second = arr[1]
-              // Already new format: add at 0, hero at 1
-              if (first === null && arr.length === 6 && (second === null || (typeof second === "string" && heroRegex.test(second)))) {
-                continue
-              }
-              needsMigration = true
-              break
-            }
-          }
-          if (needsMigration) {
-            const newSlots = { ...slots } as UnitSlotsState
-            for (const f of factionLabels) {
-              const arr = newSlots[f]
-              if (!Array.isArray(arr) || arr.length === 0) continue
-              const first = arr[0]
-              let raw: (string | null | undefined)[]
-              if (first && heroRegex.test(first)) {
-                raw = [null, first, arr[1], arr[2], arr[3], arr[4]]
-              } else if (first === null && arr.length >= 2) {
-                raw = [null, null, arr[1], arr[2], arr[3], arr[4]]
-              } else {
-                raw = [null, null, arr[0], arr[1], arr[2], arr[3]]
-              }
-              newSlots[f] = Array.from({ length: 6 }, (_, i) => raw[i] ?? null)
-            }
-            migrated.unitSlots = newSlots
-            if (typeof migrated.unitSlotCount === "number" && migrated.unitSlotCount === 5) {
-              migrated.unitSlotCount = 6
-            }
-          }
-        }
-        // Migrate councillorSlots if missing
-        if (!migrated.councillorSlots) {
-          migrated.councillorSlots = initialCouncillorSlotsState
-        }
-        // Migrate operationSlots if missing
-        if (!migrated.operationSlots) {
-          migrated.operationSlots = initialOperationSlotsState
-        }
-        // Migrate panelVisibility if missing or add knowledgeOpen
-        migrated.panelVisibility = normalizePanelVisibility(migrated.panelVisibility as Partial<PanelVisibility> | undefined)
-        // Migrate developmentsSummary if missing (or from old key knowledgeSummary)
-        const oldKnowledge = (migrated as Record<string, unknown>).knowledgeSummary
-        if (migrated.developmentsSummary) {
-          // already have new key
-        } else if (oldKnowledge && typeof oldKnowledge === "object" && "economic" in oldKnowledge) {
-          migrated.developmentsSummary = oldKnowledge as DevelopmentsSummary
-          delete (migrated as Record<string, unknown>).knowledgeSummary
-        } else {
-          migrated.developmentsSummary = initialDevelopmentsSummary
-        }
-        // Migrate selectedDevelopments if missing
-        if (!Array.isArray(migrated.selectedDevelopments)) {
-          migrated.selectedDevelopments = []
-        }
-        // Migrate metadata if missing or add media
-        migrated.metadata = normalizeMetadata(migrated.metadata as BuildMetadata | undefined, defaultAuthor)
-        // Migrate defaultAuthor if missing
-        if (!migrated.defaultAuthor) {
-          migrated.defaultAuthor = DEFAULT_AUTHOR
-        }
-        const builds = migrated.savedBuilds
-        if (Array.isArray(builds)) {
-          const factionLabels: FactionLabel[] = [
-            "harkonnen",
-            "atreides",
-            "ecaz",
-            "smuggler",
-            "vernius",
-            "fremen",
-            "corrino",
-          ]
-          migrated.savedBuilds = builds.map((b: Record<string, unknown>) => {
-            const updated = { ...b }
-            if (typeof (b as { unitSlotCount?: number }).unitSlotCount !== "number") {
-              const slots = (b as { unitSlots?: UnitSlotsState }).unitSlots
-              const maxLen = slots
-                ? Math.max(0, ...FACTION_LABELS.map((f) => (slots[f as FactionLabel]?.length ?? 0)))
-                : 0
-              updated.unitSlotCount = Math.max(DEFAULT_UNIT_SLOT_COUNT, maxLen)
-            }
-            if (!(b as { armoryState?: unknown }).armoryState) {
-              updated.armoryState = initialArmoryState
-            }
-            delete updated.armoryOrder
-            if (!(b as { councillorSlots?: unknown }).councillorSlots) {
-              updated.councillorSlots = initialCouncillorSlotsState
-            }
-            if (!(b as { operationSlots?: unknown }).operationSlots) {
-              updated.operationSlots = initialOperationSlotsState
-            }
-            if (!(b as { unitSlots?: unknown }).unitSlots) {
-              updated.unitSlots = initialUnitSlotsState
-            } else {
-              const slots = (b as { unitSlots: UnitSlotsState }).unitSlots
-              const heroRegex = /^[AHFSECV]_Hero_[12]$/
-              let needsAddSlotMigration = false
-              for (const f of factionLabels) {
-                const arr = slots[f]
-                if (Array.isArray(arr) && arr.length > 0) {
-                  const first = arr[0]
-                  const second = arr[1]
-                  if (first === null && arr.length === 6 && (second === null || (typeof second === "string" && heroRegex.test(second)))) {
-                    continue
-                  }
-                  needsAddSlotMigration = true
-                  break
-                }
-              }
-              if (needsAddSlotMigration) {
-                const newSlots = { ...slots }
-                for (const f of factionLabels) {
-                  const arr = newSlots[f]
-                  if (!Array.isArray(arr) || arr.length === 0) continue
-                  const first = arr[0]
-                  let raw: (string | null | undefined)[]
-                  if (first && heroRegex.test(first)) {
-                    raw = [null, first, arr[1], arr[2], arr[3], arr[4]]
-                  } else if (first === null && arr.length >= 2) {
-                    raw = [null, null, arr[1], arr[2], arr[3], arr[4]]
-                  } else {
-                    raw = [null, null, arr[0], arr[1], arr[2], arr[3]]
-                  }
-                  newSlots[f] = Array.from({ length: 6 }, (_, i) => raw[i] ?? null)
-                }
-                updated.unitSlots = newSlots
-                if (typeof (b as { unitSlotCount?: number }).unitSlotCount === "number") {
-                  updated.unitSlotCount = 6
-                }
-              }
-            }
-            delete updated.unitsOrder
-            updated.panelVisibility = normalizePanelVisibility((b as { panelVisibility?: Partial<PanelVisibility> }).panelVisibility)
-            const bDev = (b as Record<string, unknown>).developmentsSummary ?? (b as Record<string, unknown>).knowledgeSummary
-            updated.developmentsSummary =
-              bDev && typeof bDev === "object" && "economic" in bDev
-                ? (bDev as DevelopmentsSummary)
-                : initialDevelopmentsSummary
-            if (!Array.isArray((b as { selectedDevelopments?: unknown }).selectedDevelopments)) {
-              updated.selectedDevelopments = []
-            }
-            updated.metadata = normalizeMetadata((b as { metadata?: BuildMetadata }).metadata, defaultAuthor)
-            return updated
-          })
-        }
-        return migrated as unknown as MainStore
-      },
-    }
+    { name: "spicy-techs-main-store" }
   )
 )
 

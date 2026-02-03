@@ -965,31 +965,83 @@ export const useMainStore = create<MainStore>()(
       {
         name: MAIN_STORE_PERSIST_KEY,
         version: 1,
-        partialize: (s) => ({
-          savedBuilds: s.savedBuilds,
-          currentBuildId: s.currentBuildId,
-          currentBuildName: s.currentBuildName,
-          defaultAuthor: s.defaultAuthor,
-          selectedFaction: s.selectedFaction,
-          selectedMainBaseIndex: s.selectedMainBaseIndex,
-          mainBaseState: s.mainBaseState,
-          buildingOrder: s.buildingOrder,
-          armoryState: s.armoryState,
-          unitSlotCount: s.unitSlotCount,
-          unitSlots: s.unitSlots,
-          councillorSlots: s.councillorSlots,
-          operationSlots: s.operationSlots,
-          panelVisibility: s.panelVisibility,
-          developmentsSummary: s.developmentsSummary,
-          selectedDevelopments: s.selectedDevelopments,
-          metadata: s.metadata,
-        }),
+        // When a saved build is selected, its state lives in savedBuilds[id]; only persist that.
+        // When currentBuildId is null (unsaved/new build), persist root state so we don't lose work.
+        partialize: (s) => {
+          const base = {
+            savedBuilds: s.savedBuilds,
+            currentBuildId: s.currentBuildId,
+            currentBuildName: s.currentBuildName,
+            defaultAuthor: s.defaultAuthor,
+          }
+          if (s.currentBuildId !== null) {
+            return base
+          }
+          return {
+            ...base,
+            selectedFaction: s.selectedFaction,
+            selectedMainBaseIndex: s.selectedMainBaseIndex,
+            mainBaseState: s.mainBaseState,
+            buildingOrder: s.buildingOrder,
+            armoryState: s.armoryState,
+            unitSlotCount: s.unitSlotCount,
+            unitSlots: s.unitSlots,
+            councillorSlots: s.councillorSlots,
+            operationSlots: s.operationSlots,
+            panelVisibility: s.panelVisibility,
+            developmentsSummary: s.developmentsSummary,
+            selectedDevelopments: s.selectedDevelopments,
+            metadata: s.metadata,
+          }
+        },
         merge: (persisted, current) => {
-          const p = persisted as Partial<MainStore> & Pick<MainStore, "currentBuildId" | "currentBuildName">
-          const merged = { ...current, ...p }
-          // Normalize mainBaseState and buildingOrder so old/corrupted persisted data never causes findIndex crashes
+          const p = persisted as Partial<MainStore> & Pick<MainStore, "currentBuildId" | "currentBuildName" | "savedBuilds">
+          const merged = { ...current, savedBuilds: p.savedBuilds ?? current.savedBuilds, currentBuildId: p.currentBuildId ?? current.currentBuildId, currentBuildName: p.currentBuildName ?? current.currentBuildName, defaultAuthor: p.defaultAuthor ?? current.defaultAuthor }
+          const buildId = merged.currentBuildId
+          const savedBuilds = merged.savedBuilds
+          if (buildId != null && savedBuilds?.length) {
+            const build = savedBuilds.find((b) => b.id === buildId)
+            if (build) {
+              const norm = normalizeLoadedBuild(build, merged.defaultAuthor)
+              const buildSelectedMainBase = (build as SavedBuild & { selectedMainBaseIndex?: Record<FactionLabel, 0 | 1> }).selectedMainBaseIndex ?? initialSelectedMainBaseIndex
+              merged.selectedFaction = build.selectedFaction
+              merged.selectedMainBaseIndex = deepClone(buildSelectedMainBase)
+              merged.mainBaseState = normalizeMainBaseStateFromBuild(deepClone(build.mainBaseState))
+              merged.buildingOrder = normalizeBuildingOrderFromBuild(deepClone(build.buildingOrder))
+              merged.armoryState = deepClone(norm.armoryState)
+              merged.unitSlotCount = norm.unitSlotCount
+              merged.unitSlots = deepClone(norm.unitSlots)
+              merged.councillorSlots = deepClone(norm.councillorSlots)
+              merged.operationSlots = deepClone(norm.operationSlots)
+              merged.panelVisibility = norm.panelVisibility
+              merged.developmentsSummary = deepClone(norm.developmentsSummary)
+              merged.selectedDevelopments = norm.selectedDevelopments
+              merged.metadata = deepClone(norm.metadata)
+              merged.lastSavedSnapshot = getBuildSnapshot({
+                selectedFaction: build.selectedFaction,
+                selectedMainBaseIndex: buildSelectedMainBase,
+                mainBaseState: build.mainBaseState,
+                buildingOrder: build.buildingOrder,
+                ...norm,
+                currentBuildName: build.name,
+              })
+              return merged
+            }
+          }
+          // No saved build selected: restore root state from persisted (or keep initial)
           if (p.mainBaseState != null) merged.mainBaseState = normalizeMainBaseStateFromBuild(p.mainBaseState)
           if (p.buildingOrder != null) merged.buildingOrder = normalizeBuildingOrderFromBuild(p.buildingOrder)
+          if (p.selectedFaction != null) merged.selectedFaction = p.selectedFaction
+          if (p.selectedMainBaseIndex != null) merged.selectedMainBaseIndex = p.selectedMainBaseIndex
+          if (p.armoryState != null) merged.armoryState = p.armoryState
+          if (p.unitSlotCount != null) merged.unitSlotCount = p.unitSlotCount
+          if (p.unitSlots != null) merged.unitSlots = p.unitSlots
+          if (p.councillorSlots != null) merged.councillorSlots = p.councillorSlots
+          if (p.operationSlots != null) merged.operationSlots = p.operationSlots
+          if (p.panelVisibility != null) merged.panelVisibility = p.panelVisibility
+          if (p.developmentsSummary != null) merged.developmentsSummary = p.developmentsSummary
+          if (p.selectedDevelopments != null) merged.selectedDevelopments = p.selectedDevelopments
+          if (p.metadata != null) merged.metadata = p.metadata
           merged.lastSavedSnapshot =
             p.currentBuildId != null && p.mainBaseState != null
               ? getBuildSnapshot({

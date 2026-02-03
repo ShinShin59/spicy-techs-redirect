@@ -5,6 +5,9 @@
 export const FACTION_LABELS = ["harkonnen", "atreides", "ecaz", "smuggler", "vernius", "fremen", "corrino"] as const
 export type FactionLabel = (typeof FACTION_LABELS)[number]
 
+/** Factions that have two main-base views (title toggle). Must match mainBaseVariants in main-base.tsx. */
+export const MAIN_BASE_VARIANT_FACTIONS: FactionLabel[] = ["corrino", "fremen", "vernius", "smuggler"]
+
 export const UNITS_PER_FACTION = 5
 export const GEAR_SLOTS_PER_UNIT = 2
 export const MAX_COUNCILLORS = 2
@@ -28,6 +31,8 @@ export interface BuildingCoords {
 }
 
 export type BuildingOrderState = Record<FactionLabel, BuildingCoords[]>
+
+export type MainStoreBuildingOrder = Record<FactionLabel, BuildingOrderStatePerFaction>
 export type ArmoryState = Record<FactionLabel, (string | null)[][]>
 export type UnitSlotsState = Record<FactionLabel, (string | null)[]>
 export type CouncillorSlotsState = Record<FactionLabel, (string | null)[]>
@@ -61,13 +66,20 @@ export interface BuildMetadata {
 /** Main base state shape (row → group → cell). Same as main-base.MainBaseState. */
 export type MainBaseStateShape = (string | null)[][][]
 
+/** Per-faction: single base or [base0, base1] for factions with two main bases. */
+export type MainBaseStatePerFaction = MainBaseStateShape | [MainBaseStateShape, MainBaseStateShape]
+
+/** Per-faction building order: single array or [order0, order1] for two main bases. */
+export type BuildingOrderStatePerFaction = BuildingCoords[] | [BuildingCoords[], BuildingCoords[]]
+
 export interface SavedBuild {
   id: string
   name: string
   createdAt: number
   selectedFaction: FactionLabel
-  mainBaseState: Record<FactionLabel, MainBaseStateShape>
-  buildingOrder: BuildingOrderState
+  selectedMainBaseIndex?: Record<FactionLabel, 0 | 1>
+  mainBaseState: Record<FactionLabel, MainBaseStatePerFaction>
+  buildingOrder: Record<FactionLabel, BuildingOrderStatePerFaction>
   armoryState: ArmoryState
   unitSlotCount: number
   unitSlots: UnitSlotsState
@@ -96,8 +108,9 @@ export interface NormalizedBuildFields {
 
 export type BuildSnapshotState = {
   selectedFaction: FactionLabel
-  mainBaseState: Record<FactionLabel, MainBaseStateShape>
-  buildingOrder: BuildingOrderState
+  selectedMainBaseIndex: Record<FactionLabel, 0 | 1>
+  mainBaseState: Record<FactionLabel, MainBaseStatePerFaction>
+  buildingOrder: Record<FactionLabel, BuildingOrderStatePerFaction>
   armoryState: ArmoryState
   unitSlotCount: number
   unitSlots: UnitSlotsState
@@ -113,6 +126,7 @@ export type BuildSnapshotState = {
 export function getBuildSnapshot(state: BuildSnapshotState): string {
   return JSON.stringify({
     selectedFaction: state.selectedFaction,
+    selectedMainBaseIndex: state.selectedMainBaseIndex,
     mainBaseState: state.mainBaseState,
     buildingOrder: state.buildingOrder,
     armoryState: state.armoryState,
@@ -157,12 +171,7 @@ export function getUniqueBuildName(
   return `${baseName} #${nextNum}`
 }
 
-export function isFactionBaseEmpty(
-  mainBaseState: Record<FactionLabel, MainBaseStateShape>,
-  faction: FactionLabel
-): boolean {
-  const state = mainBaseState[faction]
-  if (!state || !Array.isArray(state)) return true
+function isSingleBaseEmpty(state: MainBaseStateShape): boolean {
   for (const row of state) {
     if (!Array.isArray(row)) continue
     for (const group of row) {
@@ -173,4 +182,17 @@ export function isFactionBaseEmpty(
     }
   }
   return true
+}
+
+export function isFactionBaseEmpty(
+  mainBaseState: Record<FactionLabel, MainBaseStatePerFaction>,
+  faction: FactionLabel
+): boolean {
+  const state = mainBaseState[faction]
+  if (!state) return true
+  const isTuple = state.length === 2 && Array.isArray(state[0]) && Array.isArray(state[1])
+  if (isTuple) {
+    return isSingleBaseEmpty(state[0] as MainBaseStateShape) && isSingleBaseEmpty(state[1] as MainBaseStateShape)
+  }
+  return isSingleBaseEmpty(state as MainBaseStateShape)
 }

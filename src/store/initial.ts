@@ -4,7 +4,9 @@
 
 import type {
   ArmoryState,
-  BuildingOrderState,
+  BuildingCoords,
+  BuildingOrderStatePerFaction,
+  FactionLabel,
   UnitSlotsState,
   CouncillorSlotsState,
   OperationSlotsState,
@@ -15,11 +17,13 @@ import type {
   SavedBuild,
 } from "./types"
 import {
+  FACTION_LABELS,
   UNITS_PER_FACTION,
   GEAR_SLOTS_PER_UNIT,
   OPERATION_SLOTS_COUNT,
   DEFAULT_UNIT_SLOT_COUNT,
   DEFAULT_AUTHOR,
+  MAIN_BASE_VARIANT_FACTIONS,
 } from "./types"
 
 export const initialPanelVisibility: PanelVisibility = {
@@ -38,15 +42,16 @@ export const initialDevelopmentsSummary: DevelopmentsSummary = {
   statecraft: 0,
 }
 
-export const initialBuildingOrder: BuildingOrderState = {
-  harkonnen: [],
-  atreides: [],
-  ecaz: [],
-  smuggler: [],
-  vernius: [],
-  fremen: [],
-  corrino: [],
-}
+export const initialBuildingOrder: Record<FactionLabel, BuildingOrderStatePerFaction> = Object.fromEntries(
+  (FACTION_LABELS as readonly FactionLabel[]).map((f) => [
+    f,
+    MAIN_BASE_VARIANT_FACTIONS.includes(f) ? ([[], []] as [BuildingCoords[], BuildingCoords[]]) : [],
+  ])
+) as Record<FactionLabel, BuildingOrderStatePerFaction>
+
+export const initialSelectedMainBaseIndex: Record<FactionLabel, 0 | 1> = Object.fromEntries(
+  (FACTION_LABELS as readonly FactionLabel[]).map((f) => [f, 0])
+) as Record<FactionLabel, 0 | 1>
 
 export function createEmptyArmoryForFaction(): (string | null)[][] {
   return Array.from({ length: UNITS_PER_FACTION }, () =>

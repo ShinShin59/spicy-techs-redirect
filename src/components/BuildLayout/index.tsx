@@ -1,6 +1,6 @@
 import { useMemo, useRef, useEffect, useState, type ReactNode } from "react"
-import { useMainStore } from "@/store"
-import { mainBasesLayout, getMainBaseMinWidth } from "@/store/main-base"
+import { useMainStore, useCurrentMainBaseLayout } from "@/store"
+import { getMainBaseMinWidth, getMainBaseMinHeight, getMainBaseLayoutForIndex, hasMainBaseVariant } from "@/store/main-base"
 
 interface BuildLayoutProps {
   mainBase?: ReactNode
@@ -21,13 +21,20 @@ interface BuildLayoutProps {
 const BuildLayout = ({ mainBase, units, councillors, developments, armory, operations }: BuildLayoutProps) => {
   const hasTopRow = mainBase || units || councillors || developments || armory || operations
   const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const currentLayout = useCurrentMainBaseLayout()
   const mainBaseColRef = useRef<HTMLDivElement>(null)
   const [rowHeight, setRowHeight] = useState<number | null>(null)
 
   const mainBaseWidth = useMemo(() => {
-    const layout = mainBasesLayout[selectedFaction]
-    const minPx = getMainBaseMinWidth(layout)
+    const minPx = getMainBaseMinWidth(currentLayout)
     return `min(${minPx}px, 72vw)`
+  }, [currentLayout])
+
+  const mainBaseMinHeight = useMemo(() => {
+    if (!hasMainBaseVariant(selectedFaction)) return undefined
+    const h0 = getMainBaseMinHeight(getMainBaseLayoutForIndex(selectedFaction, 0))
+    const h1 = getMainBaseMinHeight(getMainBaseLayoutForIndex(selectedFaction, 1))
+    return Math.max(h0, h1)
   }, [selectedFaction])
 
   // Measure main base column height when it has natural size (row not stretched), then fix row height
@@ -40,7 +47,7 @@ const BuildLayout = ({ mainBase, units, councillors, developments, armory, opera
     }
     const raf = requestAnimationFrame(measure)
     return () => cancelAnimationFrame(raf)
-  }, [hasTopRow, mainBase, selectedFaction])
+  }, [hasTopRow, mainBase, selectedFaction, currentLayout])
 
   const rowStyle = rowHeight !== null ? { height: rowHeight } : undefined
   const alignStretch = rowHeight !== null
@@ -64,7 +71,7 @@ const BuildLayout = ({ mainBase, units, councillors, developments, armory, opera
           <div
             ref={mainBaseColRef}
             className="shrink-0 flex flex-col"
-            style={{ width: mainBaseWidth }}
+            style={{ width: mainBaseWidth, minHeight: mainBaseMinHeight ?? undefined }}
           >
             {mainBase}
           </div>

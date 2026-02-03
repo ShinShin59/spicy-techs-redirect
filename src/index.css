@@ -123,6 +123,21 @@ body {
   animation: logo-halo 5s ease-in-out infinite;
 }
 
+/* Same gradient as logo-title-halo but no animation (lightweight mode) */
+.logo-title-static {
+  background: linear-gradient(90deg,
+      rgba(120, 110, 95, 0.95) 0%,
+      rgba(120, 110, 95, 0.95) 28%,
+      rgba(220, 208, 180, 1) 50%,
+      rgba(120, 110, 95, 0.95) 72%,
+      rgba(120, 110, 95, 0.95) 100%);
+  background-size: 200% 100%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* Title animations on faction change – quick, squared, metallic feel */
 @keyframes title-pulse-sharp {
   0% {
@@ -243,6 +258,14 @@ a img {
 
 .dev-last-selected-glow {
   animation: dev-last-selected-glow 2s ease-in-out infinite;
+}
+
+/* Lightweight mode: disable UI animations */
+.lightweight-mode .unit-select-pulse {
+  animation: none;
+}
+.lightweight-mode .dev-last-selected-glow {
+  animation: none;
 }
 
 /* Global minimal gray scrollbar – track + thumb only, no arrows */

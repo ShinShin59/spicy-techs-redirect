@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect, useRef } from "react"
 import Dither from "../Dither"
 import { useMainStore, type FactionLabel } from "@/store"
+import { useUIStore } from "@/store/ui"
 
 /** Faction colors as [r, g, b] in 0–1 range (matches CSS --color-faction-*) */
 const FACTION_COLORS: Record<FactionLabel, [number, number, number]> = {
@@ -25,6 +26,7 @@ const easeOutCubic = (t: number) => 1 - (1 - t) ** 3
 
 const DitherBackground = () => {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const lightweightMode = useUIStore((s) => s.lightweightMode)
   const waveColor = FACTION_COLORS[selectedFaction]
 
   const [speedMult, setSpeedMult] = useState(1)
@@ -82,7 +84,7 @@ const DitherBackground = () => {
       <Dither
         waveColor={waveColor}
         waveDirection={waveDirection}
-        disableAnimation={false}
+        disableAnimation={lightweightMode}
         enableMouseInteraction={true}
         mouseRadius={1.}
         colorNum={6}

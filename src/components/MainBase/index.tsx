@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { useCurrentMainBaseLayout, useCurrentMainBaseState, useMainStore, useUsedBuildingIds, useCurrentBuildingOrder, getBuildingOrderNumber, type BuildingCoords } from "../../store"
+import { hasMainBaseVariant, mainBaseVariants } from "@/store/main-base"
 import MainBaseBuildingsSelector, { type MainBuilding } from "./MainBaseBuildingsSelector"
 import { getBuildingIconPath, getHudImagePath } from "@/utils/assetPaths"
-import { playCancelSlotSound, playMenuToggleSound, playMainBaseBuildingSound } from "@/utils/sound"
+import { playCancelSlotSound, playMenuToggleSound, playMainBaseBuildingSound, playMainBaseSwitchSound } from "@/utils/sound"
 import { usePanelTooltip } from "@/hooks/usePanelTooltip"
 import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
 import BuildingAttributesTooltip from "./BuildingAttributesTooltip"
@@ -46,6 +47,9 @@ interface AnchorPosition {
 const MainBase = () => {
   const layout = useCurrentMainBaseLayout()
   const mainBaseState = useCurrentMainBaseState()
+  const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const selectedMainBaseIndex = useMainStore((s) => s.selectedMainBaseIndex[s.selectedFaction] ?? 0)
+  const setSelectedMainBaseIndex = useMainStore((s) => s.setSelectedMainBaseIndex)
   const setMainBaseCell = useMainStore((state) => state.setMainBaseCell)
   const toggleMainBase = useMainStore((s) => s.toggleMainBase)
   const mainBaseOpen = useMainStore((s) => s.panelVisibility.mainBaseOpen)
@@ -53,6 +57,8 @@ const MainBase = () => {
   const updateBuildingOrder = useMainStore((state) => state.updateBuildingOrder)
   const usedBuildingIds = useUsedBuildingIds()
   const buildingOrder = useCurrentBuildingOrder()
+
+  const variant = hasMainBaseVariant(selectedFaction) ? mainBaseVariants[selectedFaction] : null
 
   const [selectedCell, setSelectedCell] = useState<SelectedCell | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
@@ -128,9 +134,39 @@ const MainBase = () => {
   return (
     <>
       <div className="relative group flex flex-col w-full">
-        <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0 ml-auto">
-          Main Base
-        </h2>
+        {variant ? (
+          <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0 ml-auto flex items-center justify-end gap-1.5" role="group" aria-label="Main base view">
+            <button
+              type="button"
+              className={`uppercase bg-transparent border-none cursor-pointer p-0 font-inherit ${selectedMainBaseIndex === 0 ? "text-white" : "text-white/70 hover:text-white/85"}`}
+              onClick={() => {
+                playMainBaseSwitchSound()
+                setSelectedMainBaseIndex(0)
+              }}
+              aria-pressed={selectedMainBaseIndex === 0}
+              aria-label={variant.leftLabel}
+            >
+              {variant.leftLabel}
+            </button>
+            <span className="text-white/50 select-none" aria-hidden>|</span>
+            <button
+              type="button"
+              className={`uppercase bg-transparent border-none cursor-pointer p-0 font-inherit ${selectedMainBaseIndex === 1 ? "text-white" : "text-white/70 hover:text-white/85"}`}
+              onClick={() => {
+                playMainBaseSwitchSound()
+                setSelectedMainBaseIndex(1)
+              }}
+              aria-pressed={selectedMainBaseIndex === 1}
+              aria-label={variant.rightLabel}
+            >
+              {variant.rightLabel}
+            </button>
+          </h2>
+        ) : (
+          <h2 className="text-xs font-mono font-bold text-white/70 uppercase m-0 ml-auto">
+            Main Base
+          </h2>
+        )}
         <div
           id="main-base-grid"
           className={`relative w-full p-4 box-border bg-zinc-900 bg-repeat bg-center ${PANEL_BORDER_HOVER_CLASS}`}

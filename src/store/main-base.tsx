@@ -15,6 +15,40 @@ export const mainBasesLayout: Record<FactionLabel, MainBaseLayout> = {
   corrino: [[3], [2], [1]],
 }
 
+/** When present, faction has two main-base views with a title toggle (leftLabel | rightLabel). */
+export type MainBaseVariant = {
+  leftLabel: string
+  rightLabel: string
+  /** Second base layout; omit to use same as main layout. */
+  secondLayout?: MainBaseLayout
+}
+
+export const mainBaseVariants: Partial<Record<FactionLabel, MainBaseVariant>> = {
+  corrino: { leftLabel: "Base #1", rightLabel: "Base #2" },
+  fremen: {
+    leftLabel: "Main Base",
+    rightLabel: "Sietchs",
+    secondLayout: [[1, 1, 1, 1], [1, 1, 1]], // 2 rows: 4 and 3, spaced evenly
+  },
+  vernius: { leftLabel: "Main Base", rightLabel: "Reordered" },
+  smuggler: {
+    leftLabel: "Main Base",
+    rightLabel: "UHQ",
+    secondLayout: [[3], [3]], // 3x2
+  },
+}
+
+export function hasMainBaseVariant(faction: FactionLabel): boolean {
+  return mainBaseVariants[faction] != null
+}
+
+/** Layout for base index 0 (left) or 1 (right). Uses secondLayout when index is 1 and variant defines it. */
+export function getMainBaseLayoutForIndex(faction: FactionLabel, baseIndex: 0 | 1): MainBaseLayout {
+  const variant = mainBaseVariants[faction]
+  if (!variant || baseIndex === 0) return mainBasesLayout[faction]
+  return variant.secondLayout ?? mainBasesLayout[faction]
+}
+
 /**
  * Initializes base state from layout.
  * Each number n (group size) becomes an array of n `null`.
@@ -26,15 +60,29 @@ export function initializeMainBaseState(layout: MainBaseLayout): MainBaseState {
   )
 }
 
-export const mainBasesState: Record<FactionLabel, MainBaseState> = Object.fromEntries(
-  (Object.entries(mainBasesLayout) as [FactionLabel, MainBaseLayout][]).map(
-    ([faction, layout]) => [faction, initializeMainBaseState(layout)]
-  )
-) as Record<FactionLabel, MainBaseState>
+/** Per-faction state: single base or [base0, base1] for factions with mainBaseVariants. */
+export type MainBaseStatePerFaction = MainBaseState | [MainBaseState, MainBaseState]
+
+function buildInitialMainBaseState(faction: FactionLabel): MainBaseStatePerFaction {
+  if (!hasMainBaseVariant(faction)) {
+    return initializeMainBaseState(mainBasesLayout[faction])
+  }
+  const layout0 = mainBasesLayout[faction]
+  const layout1 = getMainBaseLayoutForIndex(faction, 1)
+  return [initializeMainBaseState(layout0), initializeMainBaseState(layout1)]
+}
+
+export const mainBasesState: Record<FactionLabel, MainBaseStatePerFaction> = Object.fromEntries(
+  (Object.keys(mainBasesLayout) as FactionLabel[]).map((faction) => [
+    faction,
+    buildInitialMainBaseState(faction),
+  ])
+) as Record<FactionLabel, MainBaseStatePerFaction>
 
 /** Slot size and spacing in Main Base grid */
 const SLOT_SIZE = 64
 const GROUP_GAP = 32 // mx-4 on each group
+const ROW_GAP = 48 // gap-12 between rows
 const CONTAINER_PADDING = 32 // p-4
 
 /**
@@ -50,4 +98,14 @@ export function getMainBaseMinWidth(layout: MainBaseLayout): number {
     maxRowWidth = Math.max(maxRowWidth, rowWidth)
   }
   return Math.max(maxRowWidth, 300) // floor at 300px for narrow layouts
+}
+
+/**
+ * Returns the minimum pixel height needed for a layout (so variant factions keep same height when switching base).
+ */
+export function getMainBaseMinHeight(layout: MainBaseLayout): number {
+  if (layout.length === 0) return CONTAINER_PADDING * 2
+  const rowsHeight = layout.length * SLOT_SIZE
+  const gapsHeight = (layout.length - 1) * ROW_GAP
+  return CONTAINER_PADDING * 2 + rowsHeight + gapsHeight
 }

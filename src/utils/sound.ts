@@ -11,8 +11,9 @@ let backgroundAudio: HTMLAudioElement | null = null
 const activeOneShotAudios = new Set<HTMLAudioElement>()
 
 function getEffectiveVolume(): number {
-  const { volume, muted } = useUIStore.getState()
-  return muted ? 0 : volume / 100
+  const { volume, muted, lightweightMode } = useUIStore.getState()
+  if (lightweightMode || muted) return 0
+  return volume / 100
 }
 
 function applyVolumeToAll(): void {
@@ -23,14 +24,19 @@ function applyVolumeToAll(): void {
   })
 }
 
-// When mute or volume changes, update all currently playing sounds immediately
-useUIStore.subscribe(applyVolumeToAll)
+// When mute, volume, or lightweight mode changes, update all sounds and pause background if lightweight
+useUIStore.subscribe((state) => {
+  applyVolumeToAll()
+  if (state.lightweightMode && backgroundAudio) backgroundAudio.pause()
+})
 
 /**
  * Start background music (loops). Call on app load or after first user interaction.
  * Returns a promise that resolves when play() succeeds or rejects if autoplay is blocked.
+ * No-op when lightweight mode is on (no decode work).
  */
 export function startBackgroundMusic(): Promise<void> {
+  if (useUIStore.getState().lightweightMode) return Promise.resolve()
   if (!backgroundAudio) {
     backgroundAudio = new Audio(BACKGROUND_PATH)
     backgroundAudio.loop = true
@@ -121,6 +127,11 @@ const MAIN_BASE_BUILDING = "main_base_building.mp3"
 
 export function playMainBaseBuildingSound(): void {
   playSound(MAIN_BASE_BUILDING)
+}
+
+/** Played when clicking the main base / 2nd base toggle (factions with two main bases). */
+export function playMainBaseSwitchSound(): void {
+  playSound(UI_MENU_OPEN)
 }
 
 /** Played when setting an operation in the Operations panel. */

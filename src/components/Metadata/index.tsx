@@ -196,6 +196,8 @@ export default function Metadata() {
   const setMetadataSocial = useMainStore((s) => s.setMetadataSocial)
   const setMetadataMedia = useMainStore((s) => s.setMetadataMedia)
   const setMetadataCommentary = useMainStore((s) => s.setMetadataCommentary)
+  const lightweightMode = useUIStore((s) => s.lightweightMode)
+  const setLightweightMode = useUIStore((s) => s.setLightweightMode)
 
   const [commentaryEditing, setCommentaryEditing] = useState(false)
   const [commentaryValue, setCommentaryValue] = useState(metadata.commentary)
@@ -297,8 +299,29 @@ export default function Metadata() {
           <h2 className="text-sm font-semibold text-zinc-200">Settings</h2>
         </div>
 
-        <VolumeControl />
+        <div className="p-3">
+        </div>
 
+        <VolumeControl />
+        <div className="p-3">
+          <button
+            type="button"
+            onClick={() => setLightweightMode(!lightweightMode)}
+            role="checkbox"
+            aria-checked={lightweightMode}
+            aria-label="Lightweight mode"
+            className={`flex items-center gap-2 w-full text-left px-2 py-1.5 -mx-1 rounded text-sm transition-colors cursor-pointer hover:bg-zinc-800 ${lightweightMode ? "bg-zinc-800 text-zinc-200" : "text-zinc-400"}`}
+          >
+            <img
+              src={lightweightMode ? getHudImagePath("settings/checkbox_true.png") : getHudImagePath("settings/checkbox_false.png")}
+              alt=""
+              width={18}
+              height={18}
+              className="shrink-0"
+            />
+            Disable animations
+          </button>
+        </div>
       </aside>
     </div>
   )

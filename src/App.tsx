@@ -13,6 +13,7 @@ import Operations from "./components/Operations"
 import BuildsSidebar from "./components/BuildsSidebar"
 import Metadata from "./components/Metadata"
 import { useMainStore } from "./store"
+import { useUIStore } from "./store/ui"
 import { decodeBuildPayload } from "./utils/mainBaseShare"
 import { startBackgroundMusic } from "./utils/sound"
 import "./utils/assetPaths"
@@ -21,6 +22,7 @@ function App() {
   const panelVisibility = useMainStore((s) => s.panelVisibility)
   const createNewBuild = useMainStore((s) => s.createNewBuild)
   const forkCurrentBuild = useMainStore((s) => s.forkCurrentBuild)
+  const lightweightMode = useUIStore((s) => s.lightweightMode)
 
   useEffect(() => {
     const payload = decodeBuildPayload(window.location.search)
@@ -44,7 +46,7 @@ function App() {
   }, [])
 
   return (
-    <div className="w-screen h-screen text-white flex flex-col overflow-hidden select-none relative">
+    <div className={`w-screen h-screen text-white flex flex-col overflow-hidden select-none relative ${lightweightMode ? "lightweight-mode" : ""}`}>
       <AnimatedBackground />
       <DitherBackground />
       <DitherOverlay />

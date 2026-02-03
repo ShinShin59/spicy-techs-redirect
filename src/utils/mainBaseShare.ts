@@ -18,6 +18,11 @@ export interface SharedBuildPayload {
   f: FactionLabel
   state: MainBaseState
   order: BuildingCoords[]
+  /** Second main base (when faction has 2 bases); omitted for single-base or legacy. */
+  state2?: MainBaseState
+  order2?: BuildingCoords[]
+  /** Which main base is selected (0 or 1) when state2/order2 are present. */
+  mainBaseIndex?: 0 | 1
   armory: (string | null)[][]
   units: (string | null)[]
   councillors: (string | null)[]

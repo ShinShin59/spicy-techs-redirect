@@ -114,7 +114,9 @@ const Units = () => {
     [unitsForFaction, selectedFaction, armoryState]
   )
   const addSlotDisabled = totalCP >= MAX_UNIT_CP || totalCP + minUnitCost > MAX_UNIT_CP
-  const cpNumberRed = totalCP < MAX_UNIT_CP && totalCP + minUnitCost > MAX_UNIT_CP
+  // Red when over limit (totalCP > 65) or when under limit but cannot add any unit without going over
+  const cpNumberRed =
+    totalCP > MAX_UNIT_CP || (totalCP < MAX_UNIT_CP && totalCP + minUnitCost > MAX_UNIT_CP)
 
   const handleSlotRightClick = (e: React.MouseEvent, slotIndex: number) => {
     e.preventDefault()

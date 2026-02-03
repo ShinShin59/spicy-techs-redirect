@@ -1,15 +1,15 @@
 /**
  * Main store: current build, saved builds list, panels, metadata. Single persist. Mutations call persistBuild().
  */
+import { useMemo } from "react"
 import { create } from "zustand"
 import { devtools, persist } from "zustand/middleware"
 import type { SharedBuildPayload } from "../utils/mainBaseShare"
-import type { MainBaseLayout, MainBaseState } from "./main-base"
-import { mainBasesLayout, mainBasesState } from "./main-base"
+import type { MainBaseLayout, MainBaseState, MainBaseStatePerFaction } from "./main-base"
+import { mainBasesState, getMainBaseLayoutForIndex, hasMainBaseVariant, initializeMainBaseState } from "./main-base"
 import {
   type FactionLabel,
   type BuildingCoords,
-  type BuildingOrderState,
   type ArmoryState,
   type UnitSlotsState,
   type CouncillorSlotsState,
@@ -21,7 +21,10 @@ import {
   type SavedBuild,
   type BuildSnapshot,
   type BuildSnapshotState,
+  type BuildingOrderStatePerFaction,
   type CurrentBuildId,
+  type MainStoreBuildingOrder,
+  MAIN_BASE_VARIANT_FACTIONS,
   MAIN_STORE_PERSIST_KEY,
   HERO_SLOT_INDEX,
   OPERATION_SLOTS_COUNT,
@@ -38,6 +41,7 @@ import {
 } from "./types"
 import {
   initialBuildingOrder,
+  initialSelectedMainBaseIndex,
   initialArmoryState,
   initialUnitSlotsState,
   initialCouncillorSlotsState,
@@ -90,10 +94,70 @@ export type {
 } from "./types"
 export { normalizeLoadedBuild } from "./initial"
 
+/** Normalize loaded mainBaseState: ensure variant factions have [state0, state1] (old saves had single state). */
+function normalizeMainBaseStateFromBuild(
+  state: Record<FactionLabel, MainBaseStatePerFaction>
+): Record<FactionLabel, MainBaseStatePerFaction> {
+  const result = { ...state }
+  for (const f of MAIN_BASE_VARIANT_FACTIONS) {
+    const v = result[f]
+    if (!Array.isArray(v) || v.length !== 2) {
+      const defaultState = mainBasesState[f] as [MainBaseState, MainBaseState]
+      result[f] = [v as MainBaseState, defaultState[1]]
+    }
+  }
+  return result
+}
+
+/** Normalize loaded buildingOrder: ensure variant factions have [order0, order1]. */
+function normalizeBuildingOrderFromBuild(
+  order: Record<FactionLabel, BuildingOrderStatePerFaction>
+): MainStoreBuildingOrder {
+  const result = { ...order }
+  for (const f of MAIN_BASE_VARIANT_FACTIONS) {
+    const v = result[f]
+    const isTupleOfArrays =
+      Array.isArray(v) && v.length === 2 && Array.isArray(v[0]) && Array.isArray(v[1])
+    if (!isTupleOfArrays) {
+      let firstOrder: BuildingCoords[]
+      if (!Array.isArray(v)) {
+        firstOrder = []
+      } else if (v.length === 2 && Array.isArray(v[0]) && Array.isArray(v[1])) {
+        firstOrder = (v as [BuildingCoords[], BuildingCoords[]])[0]
+      } else {
+        firstOrder = v as BuildingCoords[]
+      }
+      result[f] = [firstOrder, []]
+    }
+  }
+  return result as MainStoreBuildingOrder
+}
+
+/** Resolve the single main-base state for a faction (current base when tuple). */
+function getMainBaseStateSlice(
+  state: MainBaseStatePerFaction,
+  baseIndex: 0 | 1
+): MainBaseState {
+  const isTuple = Array.isArray(state) && state.length === 2
+  if (isTuple) return state[baseIndex] as MainBaseState
+  return state as MainBaseState
+}
+
+/** Resolve the single building order for a faction (current base when tuple). */
+function getBuildingOrderSlice(
+  order: BuildingOrderStatePerFaction,
+  baseIndex: 0 | 1
+): BuildingCoords[] {
+  const isTuple = Array.isArray(order) && order.length === 2
+  if (isTuple) return (order as [BuildingCoords[], BuildingCoords[]])[baseIndex]
+  return (order ?? []) as BuildingCoords[]
+}
+
 interface MainStore {
   selectedFaction: FactionLabel
-  mainBaseState: Record<FactionLabel, MainBaseState>
-  buildingOrder: BuildingOrderState
+  selectedMainBaseIndex: Record<FactionLabel, 0 | 1>
+  mainBaseState: Record<FactionLabel, MainBaseStatePerFaction>
+  buildingOrder: MainStoreBuildingOrder
   armoryState: ArmoryState
   unitSlotCount: number
   unitSlots: UnitSlotsState
@@ -110,6 +174,7 @@ interface MainStore {
   lastSavedSnapshot: BuildSnapshot
   setMainBaseCell: (rowIndex: number, groupIndex: number, cellIndex: number, buildingId: string | null) => void
   updateBuildingOrder: (newOrder: BuildingCoords[]) => void
+  setSelectedMainBaseIndex: (index: 0 | 1) => void
   setArmorySlot: (unitIndex: number, slotIndex: number, gearName: string | null) => void
   setUnitSlot: (slotIndex: number, unitId: string | null) => void
   removeUnitSlot: (slotIndex: number) => void
@@ -168,20 +233,33 @@ export function getBuildStateObject() {
 }
 
 export function getSharePayloadFromState(s: MainStore): SharedBuildPayload {
-  return {
-    f: s.selectedFaction,
-    state: s.mainBaseState[s.selectedFaction],
-    order: s.buildingOrder[s.selectedFaction] ?? [],
-    armory: s.armoryState[s.selectedFaction],
-    units: s.unitSlots[s.selectedFaction],
-    councillors: s.councillorSlots[s.selectedFaction],
-    operations: s.operationSlots[s.selectedFaction],
+  const faction = s.selectedFaction
+  const baseIndex = s.selectedMainBaseIndex[faction] ?? 0
+  const statePayload: SharedBuildPayload = {
+    f: faction,
+    state: getMainBaseStateSlice(s.mainBaseState[faction], 0),
+    order: getBuildingOrderSlice(s.buildingOrder[faction], 0),
+    armory: s.armoryState[faction],
+    units: s.unitSlots[faction],
+    councillors: s.councillorSlots[faction],
+    operations: s.operationSlots[faction],
     unitSlotCount: s.unitSlotCount,
     panelVisibility: s.panelVisibility,
     developmentsSummary: s.developmentsSummary,
     selectedDevelopments: s.selectedDevelopments,
     metadata: s.metadata,
   }
+  if (hasMainBaseVariant(faction)) {
+    const factionState = s.mainBaseState[faction]
+    const factionOrder = s.buildingOrder[faction]
+    const isTuple = Array.isArray(factionState) && factionState.length === 2
+    if (isTuple) {
+      statePayload.state2 = (factionState as [MainBaseState, MainBaseState])[1]
+      statePayload.order2 = (factionOrder as [BuildingCoords[], BuildingCoords[]])[1]
+      statePayload.mainBaseIndex = baseIndex
+    }
+  }
+  return statePayload
 }
 
 export const useMainStore = create<MainStore>()(
@@ -208,6 +286,7 @@ export const useMainStore = create<MainStore>()(
               currentBuildName: getDefaultBuildName(faction, get().savedBuilds),
             })
           },
+          selectedMainBaseIndex: initialSelectedMainBaseIndex,
           mainBaseState: mainBasesState,
           buildingOrder: initialBuildingOrder,
           armoryState: initialArmoryState,
@@ -347,42 +426,65 @@ export const useMainStore = create<MainStore>()(
             return newSlotIndex
           },
           setMainBaseCell: (rowIndex, groupIndex, cellIndex, buildingId) => {
-            const { selectedFaction, mainBaseState, buildingOrder } = get()
+            const { selectedFaction, selectedMainBaseIndex, mainBaseState, buildingOrder } = get()
+            const baseIndex = selectedMainBaseIndex[selectedFaction] ?? 0
             const factionState = mainBaseState[selectedFaction]
-            const row = factionState[rowIndex]
+            const currentState = getMainBaseStateSlice(factionState, baseIndex)
+            const row = currentState[rowIndex]
             const group = row[groupIndex]
             const newGroup = [...group]
             newGroup[cellIndex] = buildingId
             const newRow = row.map((g, i) => (i === groupIndex ? newGroup : g))
-            const newFactionState = factionState.map((r, i) => (i === rowIndex ? newRow : r))
+            const newFactionState = currentState.map((r, i) => (i === rowIndex ? newRow : r))
 
             const factionOrder = buildingOrder[selectedFaction]
-            const filteredOrder = factionOrder.filter(
+            const currentOrder = getBuildingOrderSlice(factionOrder, baseIndex)
+            const filteredOrder = currentOrder.filter(
               (coord) => !(coord.rowIndex === rowIndex && coord.groupIndex === groupIndex && coord.cellIndex === cellIndex)
             )
-            const newFactionOrder = buildingId !== null
+            const newCurrentOrder = buildingId !== null
               ? [...filteredOrder, { rowIndex, groupIndex, cellIndex }]
               : filteredOrder
 
-            set({
-              mainBaseState: {
+            const isTuple = Array.isArray(factionState) && factionState.length === 2
+            const nextMainBaseState = isTuple
+              ? {
                 ...mainBaseState,
-                [selectedFaction]: newFactionState,
-              },
-              buildingOrder: {
+                [selectedFaction]: [baseIndex === 0 ? newFactionState : factionState[0], baseIndex === 1 ? newFactionState : factionState[1]] as [MainBaseState, MainBaseState],
+              }
+              : { ...mainBaseState, [selectedFaction]: newFactionState }
+
+            const orderIsTuple = Array.isArray(factionOrder) && factionOrder.length === 2
+            const nextBuildingOrder = orderIsTuple
+              ? {
                 ...buildingOrder,
-                [selectedFaction]: newFactionOrder,
-              },
+                [selectedFaction]: [baseIndex === 0 ? newCurrentOrder : factionOrder[0], baseIndex === 1 ? newCurrentOrder : factionOrder[1]] as [BuildingCoords[], BuildingCoords[]],
+              }
+              : { ...buildingOrder, [selectedFaction]: newCurrentOrder }
+
+            set({
+              mainBaseState: nextMainBaseState,
+              buildingOrder: nextBuildingOrder,
+            })
+            persistBuild()
+          },
+          setSelectedMainBaseIndex: (index) => {
+            const { selectedFaction, selectedMainBaseIndex } = get()
+            set({
+              selectedMainBaseIndex: { ...selectedMainBaseIndex, [selectedFaction]: index },
             })
             persistBuild()
           },
           updateBuildingOrder: (newOrder) => {
-            const { selectedFaction, buildingOrder } = get()
+            const { selectedFaction, selectedMainBaseIndex, buildingOrder } = get()
+            const baseIndex = selectedMainBaseIndex[selectedFaction] ?? 0
+            const factionOrder = buildingOrder[selectedFaction]
+            const isTuple = Array.isArray(factionOrder) && factionOrder.length === 2
+            const nextOrder = isTuple
+              ? ([baseIndex === 0 ? newOrder : factionOrder[0], baseIndex === 1 ? newOrder : factionOrder[1]] as [BuildingCoords[], BuildingCoords[]])
+              : newOrder
             set({
-              buildingOrder: {
-                ...buildingOrder,
-                [selectedFaction]: newOrder,
-              },
+              buildingOrder: { ...buildingOrder, [selectedFaction]: nextOrder },
             })
             persistBuild()
           },
@@ -449,9 +551,24 @@ export const useMainStore = create<MainStore>()(
             persistBuild()
           },
           loadSharedBuild: (payload) => {
-            const { mainBaseState, buildingOrder, armoryState, unitSlots, councillorSlots, operationSlots, defaultAuthor } = get()
+            const { mainBaseState, buildingOrder, selectedMainBaseIndex, armoryState, unitSlots, councillorSlots, operationSlots, defaultAuthor } = get()
             const orderArray = Array.isArray(payload.order) ? payload.order : []
-            const stateForFaction = Array.isArray(payload.state) ? payload.state : mainBasesState[payload.f]
+            const payloadState = Array.isArray(payload.state) ? payload.state : null
+            const hasSecondBase = hasMainBaseVariant(payload.f) && payload.state2 != null && Array.isArray(payload.state2)
+            const stateForFaction: MainBaseStatePerFaction = hasMainBaseVariant(payload.f)
+              ? hasSecondBase
+                ? [payloadState as MainBaseState, payload.state2 as MainBaseState]
+                : payloadState
+                  ? [payloadState as MainBaseState, initializeMainBaseState(getMainBaseLayoutForIndex(payload.f, 1))]
+                  : mainBasesState[payload.f]
+              : (payloadState ?? (mainBasesState[payload.f] as MainBaseState))
+            const orderForFaction: BuildingOrderStatePerFaction = hasMainBaseVariant(payload.f)
+              ? hasSecondBase && Array.isArray(payload.order2)
+                ? [orderArray, payload.order2]
+                : orderArray.length > 0 || (payload.order2?.length ?? 0) > 0
+                  ? [orderArray, payload.order2 ?? []]
+                  : [[], []]
+              : orderArray
             const armoryForFaction = Array.isArray(payload.armory) ? payload.armory : createEmptyArmoryForFaction()
             let unitSlotsForFaction = Array.isArray(payload.units) ? payload.units : createEmptyUnitSlotsForFaction()
             const councillorSlotsForFaction = Array.isArray(payload.councillors)
@@ -478,7 +595,7 @@ export const useMainStore = create<MainStore>()(
             const synthetic: Partial<SavedBuild> & Pick<SavedBuild, "selectedFaction" | "mainBaseState" | "buildingOrder"> = {
               selectedFaction: payload.f,
               mainBaseState: { ...mainBaseState, [payload.f]: stateForFaction },
-              buildingOrder: { ...buildingOrder, [payload.f]: orderArray },
+              buildingOrder: { ...buildingOrder, [payload.f]: orderForFaction },
               armoryState: { ...armoryState, [payload.f]: armoryForFaction },
               unitSlots: { ...unitSlots, [payload.f]: unitSlotsForFaction },
               councillorSlots: { ...councillorSlots, [payload.f]: councillorSlotsForFaction },
@@ -490,8 +607,10 @@ export const useMainStore = create<MainStore>()(
               metadata: payload.metadata,
             }
             const norm = normalizeLoadedBuild(synthetic, defaultAuthor)
+            const sharedMainBaseIndex = payload.mainBaseIndex ?? 0
             set({
               selectedFaction: payload.f,
+              selectedMainBaseIndex: { ...selectedMainBaseIndex, [payload.f]: sharedMainBaseIndex },
               mainBaseState: synthetic.mainBaseState,
               buildingOrder: synthetic.buildingOrder,
               armoryState: norm.armoryState,
@@ -541,6 +660,7 @@ export const useMainStore = create<MainStore>()(
             const finalName = getUniqueBuildName(rawName, savedBuilds, existing?.id)
             const snapshot = getBuildSnapshot({
               selectedFaction,
+              selectedMainBaseIndex: get().selectedMainBaseIndex,
               mainBaseState,
               buildingOrder,
               armoryState,
@@ -560,6 +680,7 @@ export const useMainStore = create<MainStore>()(
                 ...existing,
                 name: finalName,
                 selectedFaction,
+                selectedMainBaseIndex: deepClone(get().selectedMainBaseIndex),
                 mainBaseState: deepClone(mainBaseState),
                 buildingOrder: deepClone(buildingOrder),
                 armoryState: deepClone(armoryState),
@@ -586,6 +707,7 @@ export const useMainStore = create<MainStore>()(
                 name: finalName,
                 createdAt: Date.now(),
                 selectedFaction,
+                selectedMainBaseIndex: deepClone(get().selectedMainBaseIndex),
                 mainBaseState: deepClone(mainBaseState),
                 buildingOrder: deepClone(buildingOrder),
                 armoryState: deepClone(armoryState),
@@ -613,15 +735,18 @@ export const useMainStore = create<MainStore>()(
             const norm = normalizeLoadedBuild(build, defaultAuthor)
             const snapshot = getBuildSnapshot({
               selectedFaction: build.selectedFaction,
+              selectedMainBaseIndex: (build as SavedBuild & { selectedMainBaseIndex?: Record<FactionLabel, 0 | 1> }).selectedMainBaseIndex ?? initialSelectedMainBaseIndex,
               mainBaseState: build.mainBaseState,
               buildingOrder: build.buildingOrder,
               ...norm,
               currentBuildName: build.name,
             })
+            const buildSelectedMainBase = (build as SavedBuild & { selectedMainBaseIndex?: Record<FactionLabel, 0 | 1> }).selectedMainBaseIndex
             set({
               selectedFaction: build.selectedFaction,
-              mainBaseState: deepClone(build.mainBaseState),
-              buildingOrder: deepClone(build.buildingOrder),
+              selectedMainBaseIndex: buildSelectedMainBase ? deepClone(buildSelectedMainBase) : initialSelectedMainBaseIndex,
+              mainBaseState: normalizeMainBaseStateFromBuild(deepClone(build.mainBaseState)),
+              buildingOrder: normalizeBuildingOrderFromBuild(deepClone(build.buildingOrder)),
               armoryState: deepClone(norm.armoryState),
               unitSlotCount: norm.unitSlotCount,
               unitSlots: deepClone(norm.unitSlots),
@@ -643,11 +768,13 @@ export const useMainStore = create<MainStore>()(
             const norm = normalizeLoadedBuild(build, defaultAuthor)
             const newName = getUniqueBuildName(build.name + " (copy)", savedBuilds)
             const newId = generateBuildId()
+            const dupSelectedMainBase = (build as SavedBuild & { selectedMainBaseIndex?: Record<FactionLabel, 0 | 1> }).selectedMainBaseIndex ?? initialSelectedMainBaseIndex
             const duplicated: SavedBuild = {
               id: newId,
               name: newName,
               createdAt: Date.now(),
               selectedFaction: build.selectedFaction,
+              selectedMainBaseIndex: deepClone(dupSelectedMainBase),
               mainBaseState: deepClone(build.mainBaseState),
               buildingOrder: deepClone(build.buildingOrder),
               armoryState: deepClone(norm.armoryState),
@@ -662,6 +789,7 @@ export const useMainStore = create<MainStore>()(
             }
             const snapshot = getBuildSnapshot({
               selectedFaction: duplicated.selectedFaction,
+              selectedMainBaseIndex: dupSelectedMainBase,
               mainBaseState: duplicated.mainBaseState,
               buildingOrder: duplicated.buildingOrder,
               ...norm,
@@ -670,6 +798,7 @@ export const useMainStore = create<MainStore>()(
             set({
               savedBuilds: [duplicated, ...savedBuilds],
               selectedFaction: duplicated.selectedFaction,
+              selectedMainBaseIndex: deepClone(dupSelectedMainBase),
               mainBaseState: deepClone(duplicated.mainBaseState),
               buildingOrder: deepClone(duplicated.buildingOrder),
               armoryState: deepClone(duplicated.armoryState),
@@ -694,6 +823,7 @@ export const useMainStore = create<MainStore>()(
               const newSaved = savedBuilds.filter((b) => b.id !== id)
               set({
                 selectedFaction: "atreides",
+                selectedMainBaseIndex: initialSelectedMainBaseIndex,
                 mainBaseState: mainBasesState,
                 buildingOrder: initialBuildingOrder,
                 armoryState: initialArmoryState,
@@ -718,6 +848,7 @@ export const useMainStore = create<MainStore>()(
             const { savedBuilds, defaultAuthor } = get()
             set({
               selectedFaction: "atreides",
+              selectedMainBaseIndex: initialSelectedMainBaseIndex,
               mainBaseState: mainBasesState,
               buildingOrder: initialBuildingOrder,
               armoryState: initialArmoryState,
@@ -737,6 +868,7 @@ export const useMainStore = create<MainStore>()(
           createNewBuild: () => {
             const { selectedFaction, savedBuilds, defaultAuthor } = get()
             set({
+              selectedMainBaseIndex: initialSelectedMainBaseIndex,
               mainBaseState: mainBasesState,
               buildingOrder: initialBuildingOrder,
               armoryState: initialArmoryState,
@@ -772,6 +904,7 @@ export const useMainStore = create<MainStore>()(
               updates.currentBuildName = trimmed
               updates.lastSavedSnapshot = getBuildSnapshot({
                 selectedFaction: g.selectedFaction,
+                selectedMainBaseIndex: g.selectedMainBaseIndex,
                 mainBaseState: g.mainBaseState,
                 buildingOrder: g.buildingOrder,
                 armoryState: g.armoryState,
@@ -800,6 +933,7 @@ export const useMainStore = create<MainStore>()(
           currentBuildName: s.currentBuildName,
           defaultAuthor: s.defaultAuthor,
           selectedFaction: s.selectedFaction,
+          selectedMainBaseIndex: s.selectedMainBaseIndex,
           mainBaseState: s.mainBaseState,
           buildingOrder: s.buildingOrder,
           armoryState: s.armoryState,
@@ -819,6 +953,7 @@ export const useMainStore = create<MainStore>()(
             p.currentBuildId != null && p.mainBaseState != null
               ? getBuildSnapshot({
                 selectedFaction: p.selectedFaction ?? current.selectedFaction,
+                selectedMainBaseIndex: p.selectedMainBaseIndex ?? current.selectedMainBaseIndex,
                 mainBaseState: p.mainBaseState ?? current.mainBaseState,
                 buildingOrder: p.buildingOrder ?? current.buildingOrder,
                 armoryState: p.armoryState ?? current.armoryState,
@@ -844,39 +979,46 @@ export const useMainStore = create<MainStore>()(
     { name: "MainStore", enabled: import.meta.env.DEV }
   ))
 
-/** Single subscription: re-renders only when selectedFaction changes. */
+/** Single subscription: re-renders when selectedFaction or selectedMainBaseIndex changes. */
 export function useCurrentMainBaseLayout(): MainBaseLayout {
-  return useMainStore((s) => mainBasesLayout[s.selectedFaction])
+  return useMainStore((s) => getMainBaseLayoutForIndex(s.selectedFaction, s.selectedMainBaseIndex[s.selectedFaction] ?? 0))
 }
 
-/** Single subscription: re-renders only when selectedFaction or that faction's mainBaseState changes. */
+/** Single subscription: re-renders when selectedFaction, selectedMainBaseIndex, or that faction's mainBaseState changes. */
 export function useCurrentMainBaseState(): MainBaseState {
-  return useMainStore((s) => s.mainBaseState[s.selectedFaction])
+  return useMainStore((s) =>
+    getMainBaseStateSlice(s.mainBaseState[s.selectedFaction], s.selectedMainBaseIndex[s.selectedFaction] ?? 0)
+  )
 }
 
-/** Returns the list of building IDs used in the current base. */
+/** Returns the list of building IDs used in the current faction's main base(s). For variant factions, merges both bases. */
 export function useUsedBuildingIds(): string[] {
-  const mainBaseState = useCurrentMainBaseState()
-  const usedIds: string[] = []
-  if (!Array.isArray(mainBaseState)) return usedIds
-
-  for (const row of mainBaseState) {
-    if (!Array.isArray(row)) continue
-    for (const group of row) {
-      if (!Array.isArray(group)) continue
-      for (const cell of group) {
-        if (cell !== null) {
-          usedIds.push(cell)
+  const state = useMainStore((s) => s.mainBaseState[s.selectedFaction])
+  return useMemo(() => {
+    const usedIds: string[] = []
+    const isTuple = Array.isArray(state) && state.length === 2
+    const toScan: MainBaseState[] = isTuple ? [state[0] as MainBaseState, state[1] as MainBaseState] : [state as MainBaseState]
+    for (const mainBaseState of toScan) {
+      if (!Array.isArray(mainBaseState)) continue
+      for (const row of mainBaseState) {
+        if (!Array.isArray(row)) continue
+        for (const group of row) {
+          if (!Array.isArray(group)) continue
+          for (const cell of group) {
+            if (cell !== null) usedIds.push(cell)
+          }
         }
       }
     }
-  }
-  return usedIds
+    return usedIds
+  }, [state])
 }
 
-/** Single subscription: building order for the current faction. */
+/** Single subscription: building order for the current faction's current base. */
 export function useCurrentBuildingOrder(): BuildingCoords[] {
-  return useMainStore((s) => s.buildingOrder[s.selectedFaction] ?? [])
+  return useMainStore((s) =>
+    getBuildingOrderSlice(s.buildingOrder[s.selectedFaction], s.selectedMainBaseIndex[s.selectedFaction] ?? 0)
+  )
 }
 
 /** Returns a building's order number (1-based) or null if not found. */
@@ -898,6 +1040,7 @@ export function useIsBuildUpToDate(): boolean {
     if (s.lastSavedSnapshot === null) return false
     const currentSnapshot = getBuildSnapshot({
       selectedFaction: s.selectedFaction,
+      selectedMainBaseIndex: s.selectedMainBaseIndex,
       mainBaseState: s.mainBaseState,
       buildingOrder: s.buildingOrder,
       armoryState: s.armoryState,

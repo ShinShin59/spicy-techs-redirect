@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { useMainStore, useIsBuildUpToDate } from "@/store"
+import { useUIStore } from "@/store/ui"
 import FactionSelector from "@/components/FactionSelector"
 import Button from "@/components/Button"
 import { playMenuToggleSound } from "@/utils/sound"
@@ -25,6 +26,7 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
   const toggleCouncillors = useMainStore((s) => s.toggleCouncillors)
   const toggleDevelopments = useMainStore((s) => s.toggleDevelopments)
   const toggleOperations = useMainStore((s) => s.toggleOperations)
+  const lightweightMode = useUIStore((s) => s.lightweightMode)
   const { copied, handleShare } = useShareButton()
 
   const factionBgVar = `var(--color-faction-${selectedFaction})` as const
@@ -39,10 +41,11 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
       isInitialMount.current = false
       return
     }
+    if (lightweightMode) return
     setTitleAnimation("title-anim-pulse-sharp")
     const t = setTimeout(() => setTitleAnimation(null), 200)
     return () => clearTimeout(t)
-  }, [selectedFaction, currentBuildId])
+  }, [selectedFaction, currentBuildId, lightweightMode])
 
   return (
     <header
@@ -167,7 +170,7 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
           className={`inline-block ${titleAnimation ?? ""}`}
           onAnimationEnd={() => setTitleAnimation(null)}
         >
-          <span className="logo-title-halo">SPICY TECHS</span>
+          <span className={lightweightMode ? "logo-title-static" : "logo-title-halo"}>SPICY TECHS</span>
         </span>
         <span
           className="block w-full max-w-[320px] h-2 shrink-0 bg-no-repeat bg-center"

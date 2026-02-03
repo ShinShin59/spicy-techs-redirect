@@ -1,8 +1,24 @@
+import { useUIStore } from "@/store/ui"
+
 const SOUNDS_PATH = "/sounds"
 
 /** Background music: single instance, looped, lower volume. */
 const BACKGROUND_PATH = "/sounds/background-noise.m4a"
 let backgroundAudio: HTMLAudioElement | null = null
+
+function getEffectiveVolume(): number {
+  const { volume, muted } = useUIStore.getState()
+  return muted ? 0 : volume / 100
+}
+
+function applyVolumeToBackgroundMusic(): void {
+  if (backgroundAudio) {
+    backgroundAudio.volume = getEffectiveVolume()
+  }
+}
+
+// Keep background music in sync when volume or mute changes
+useUIStore.subscribe(applyVolumeToBackgroundMusic)
 
 /**
  * Start background music (loops). Call on app load or after first user interaction.
@@ -12,7 +28,7 @@ export function startBackgroundMusic(): Promise<void> {
   if (!backgroundAudio) {
     backgroundAudio = new Audio(BACKGROUND_PATH)
     backgroundAudio.loop = true
-    backgroundAudio.volume = 1
+    backgroundAudio.volume = getEffectiveVolume()
   }
   return backgroundAudio.play()
 }
@@ -28,14 +44,12 @@ export function getSoundPath(name: string): string {
 /**
  * Play a single sound by path or filename.
  * Path can be full (e.g. "/sounds/Button_Spendresources.mp3") or just the filename.
+ * Uses app volume and mute from UI store.
  */
-/** Default volume (0–1). Half of full so app sounds are 2× softer. */
-const DEFAULT_VOLUME = 0.5
-
 export function playSound(pathOrName: string): void {
   const path = pathOrName.startsWith("/") ? pathOrName : getSoundPath(pathOrName)
   const audio = new Audio(path)
-  audio.volume = DEFAULT_VOLUME
+  audio.volume = getEffectiveVolume()
   audio.play().catch(() => { })
 }
 

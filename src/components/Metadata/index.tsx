@@ -1,6 +1,11 @@
 import { useState, useRef, useEffect } from "react"
 import { useMainStore } from "@/store"
+import { useUIStore } from "@/store/ui"
+import { getHudImagePath } from "@/utils/assetPaths"
+import { playSound } from "@/utils/sound"
 import PanelCorners from "@/components/PanelCorners"
+
+const VOLUME_PREVIEW_SOUND = "UI_Mainmenu_Button_open.mp3"
 
 const PersonIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-zinc-400">
@@ -86,6 +91,102 @@ function EditableField({ value, placeholder, icon, onSave }: EditableFieldProps)
         {value || placeholder}
       </span>
     </button>
+  )
+}
+
+/* SVG speaker icons (24×24), colored via currentColor */
+const VolumeMuteSvg = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="volume-icon w-6 h-6 shrink-0" aria-hidden>
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <line x1="23" y1="9" x2="17" y2="15" />
+    <line x1="17" y1="9" x2="23" y2="15" />
+  </svg>
+)
+const VolumeLowSvg = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="volume-icon w-6 h-6 shrink-0" aria-hidden>
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+  </svg>
+)
+const VolumeMediumSvg = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="volume-icon w-6 h-6 shrink-0" aria-hidden>
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+  </svg>
+)
+const VolumeHighSvg = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="volume-icon w-6 h-6 shrink-0" aria-hidden>
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+    <path d="M22.61 2.39a15 15 0 0 1 0 19.22" />
+  </svg>
+)
+
+function VolumeIcon({ volume, muted }: { volume: number; muted: boolean }) {
+  if (muted) return <VolumeMuteSvg />
+  if (volume <= 33) return <VolumeLowSvg />
+  if (volume <= 66) return <VolumeMediumSvg />
+  return <VolumeHighSvg />
+}
+
+function VolumeControl() {
+  const volume = useUIStore((s) => s.volume)
+  const muted = useUIStore((s) => s.muted)
+  const setVolume = useUIStore((s) => s.setVolume)
+  const toggleMuted = useUIStore((s) => s.toggleMuted)
+
+  return (
+    <div className="p-3">
+      <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={toggleMuted}
+          className="p-1 rounded hover:bg-zinc-800 transition-colors cursor-pointer"
+          aria-label="Toggle sound"
+        >
+          <VolumeIcon volume={volume} muted={muted} />
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setVolume(volume - 10)
+            playSound(VOLUME_PREVIEW_SOUND)
+          }}
+          className="p-0.5 shrink-0 cursor-pointer hover:opacity-80"
+          aria-label="Decrease volume"
+        >
+          <img src={getHudImagePath("settings/minus.png")} alt="" width={20} height={20} />
+        </button>
+        <input
+          type="range"
+          min={0}
+          max={100}
+          step={10}
+          value={volume}
+          onChange={(e) => {
+            const v = Number(e.target.value)
+            setVolume(v)
+            playSound(VOLUME_PREVIEW_SOUND)
+          }}
+          className="volume-slider flex-1 min-w-0"
+          style={{ "--range-percent": `${volume}%` } as React.CSSProperties}
+          aria-label="Volume"
+        />
+        <button
+          type="button"
+          onClick={() => {
+            setVolume(volume + 10)
+            playSound(VOLUME_PREVIEW_SOUND)
+          }}
+          className="p-0.5 shrink-0 cursor-pointer hover:opacity-80"
+          aria-label="Increase volume"
+        >
+          <img src={getHudImagePath("settings/plus.png")} alt="" width={20} height={20} />
+        </button>
+      </div>
+    </div>
   )
 }
 
@@ -196,13 +297,7 @@ export default function Metadata() {
           <h2 className="text-sm font-semibold text-zinc-200">Settings</h2>
         </div>
 
-
-        {/* // add slidedr volume control */}
-        <div className="p-3">
-          <h2 className="text-sm font-semibold text-zinc-200">Volume</h2>
-          <input type="range" min="0" max="100" value="50" className="w-full" />
-        </div>
-        {/* // add a  toogleable button  to toggle all sound  */}
+        <VolumeControl />
 
       </aside>
     </div>

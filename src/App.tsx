@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import AnimatedBackground from "./components/AnimatedBackground"
 import DitherBackground from "./components/DitherBackground"
+import DitherOverlay from "./components/DitherOverlay"
 import Topbar from "./components/Topbar"
 import BuildLayout from "./components/BuildLayout"
 import MainBase from "./components/MainBase"
@@ -44,6 +45,7 @@ function App() {
     <div className="w-screen h-screen text-white flex flex-col overflow-hidden select-none relative">
       <AnimatedBackground />
       <DitherBackground />
+      <DitherOverlay />
       <div className="relative z-10 flex flex-col flex-1 min-h-0">
         <Topbar onNew={createNewBuild} onFork={forkCurrentBuild} />
         <div className="flex flex-1 min-h-0 gap-3 p-3 pt-[2em]">

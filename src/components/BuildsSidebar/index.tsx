@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, memo } from "react"
 import { useMainStore, type SavedBuild, type FactionLabel } from "@/store"
 import { getFactionIconPath } from "@/utils/assetPaths"
-import { playSelectionSound } from "@/utils/sound"
+import { playSelectionSound, playSound } from "@/utils/sound"
 import PanelCorners from "@/components/PanelCorners"
 
 function getFactionRingClass(faction: FactionLabel): string {
@@ -210,6 +210,17 @@ const BuildsSidebar = () => {
     loadBuild(id)
   }
 
+  const handleDeleteBuild = (id: string) => {
+    const wasCurrent = currentBuildId === id
+    const remaining = savedBuilds.filter((b) => b.id !== id)
+    const topBuild = remaining[0]
+    deleteBuild(id)
+    if (wasCurrent && topBuild) {
+      loadBuild(topBuild.id)
+    }
+    playSound("UI_Mainmenu_Button_close.mp3")
+  }
+
   return (
     <div className="shrink-0 w-[280px] self-start flex flex-col min-h-0 max-h-[calc(100vh-2.5rem-4em-1rem)] overflow-y-auto">
       <aside
@@ -217,27 +228,27 @@ const BuildsSidebar = () => {
         aria-label="Build list"
       >
         <PanelCorners />
-      <div className="flex items-center p-3 border-b border-zinc-700 shrink-0">
-        <h2 className="text-sm font-semibold text-zinc-200">Builds</h2>
-      </div>
+        <div className="flex items-center p-3 border-b border-zinc-700 shrink-0">
+          <h2 className="text-sm font-semibold text-zinc-200">Builds</h2>
+        </div>
 
-      <div className="p-3 space-y-2">
-        {savedBuilds.length === 0 ? (
-          <p className="text-sm text-zinc-500 py-4 text-center">No saved builds</p>
-        ) : (
-          savedBuilds.map((build) => (
-            <BuildRow
-              key={build.id}
-              build={build}
-              isSelected={build.id === currentBuildId}
-              onLoad={handleLoadBuild}
-              onDuplicate={duplicateBuild}
-              onDelete={deleteBuild}
-              onRename={renameBuild}
-            />
-          ))
-        )}
-      </div>
+        <div className="p-3 space-y-2">
+          {savedBuilds.length === 0 ? (
+            <p className="text-sm text-zinc-500 py-4 text-center">No saved builds</p>
+          ) : (
+            savedBuilds.map((build) => (
+              <BuildRow
+                key={build.id}
+                build={build}
+                isSelected={build.id === currentBuildId}
+                onLoad={handleLoadBuild}
+                onDuplicate={duplicateBuild}
+                onDelete={handleDeleteBuild}
+                onRename={renameBuild}
+              />
+            ))
+          )}
+        </div>
       </aside>
     </div>
   )

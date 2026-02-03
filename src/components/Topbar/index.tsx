@@ -3,6 +3,7 @@ import { useMainStore } from "@/store"
 import FactionSelector from "@/components/FactionSelector"
 import Button from "@/components/Button"
 import { playMenuToggleSound } from "@/utils/sound"
+import { useShareButton } from "@/hooks/useShareButton"
 
 interface TopbarProps {
   onNew: () => void
@@ -22,6 +23,7 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
   const toggleCouncillors = useMainStore((s) => s.toggleCouncillors)
   const toggleDevelopments = useMainStore((s) => s.toggleDevelopments)
   const toggleOperations = useMainStore((s) => s.toggleOperations)
+  const { handleShare } = useShareButton()
 
   const factionBgVar = `var(--color-faction-${selectedFaction})` as const
   const sideBgImage = "url(/images/hud/sides_left.png), url(/images/hud/sides_right.png)"
@@ -58,6 +60,14 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
         </Button>
         <Button onClick={onFork} aria-label="Copy current build" mutedWhenUnpressed={false}>
           Copy
+        </Button>
+        <Button
+          onClick={handleShare}
+          aria-label="Share build link"
+          mutedWhenUnpressed={false}
+          className="topbar-share-btn"
+        >
+          Share
         </Button>
       </div>
       <div className="flex items-center gap-2 relative z-10">

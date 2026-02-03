@@ -47,6 +47,10 @@ body {
   /* Topbar button text */
   --color-topbar-btn: #dcc4ad;
 
+  /* Volume slider and icon (gold/beige, matches topbar) */
+  --color-volume-accent: #967e57;
+  --color-volume-accent-border: #7a6544;
+
   /* Default font everywhere – C&C Red Alert (with fallback) */
   --font-sans: "C&C Red Alert Inet", ui-sans-serif, system-ui, sans-serif;
 
@@ -77,6 +81,21 @@ body {
     }
   }
 
+}
+
+/* Dither overlay: drift via transform (reliable; tile is 1024×1024) */
+@keyframes dither-overlay-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(1024px, 1024px);
+  }
+}
+
+.dither-overlay-drift {
+  animation: dither-overlay-drift 300s linear infinite;
 }
 
 /* Logo title: halo traveling inside the letters */
@@ -253,7 +272,7 @@ a img {
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: #71717a;
+  background: #56565c;
 }
 
 *::-webkit-scrollbar-button,
@@ -269,4 +288,68 @@ a img {
 /* Units scroll area: no horizontal scrollbar */
 .units-scroll-area {
   overflow-x: hidden;
+}
+
+/* Volume slider: thicker gold/beige track, filled square thumb */
+.volume-slider {
+  --track-height: 4px;
+  --thumb-size: 14px;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: var(--thumb-size);
+  background: transparent;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-runnable-track {
+  height: var(--track-height);
+  background: linear-gradient(to right,
+      var(--color-volume-accent) 0%,
+      var(--color-volume-accent) var(--range-percent, 50%),
+      #6a6a70 var(--range-percent, 50%),
+      #5b5b5e 100%);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  margin-top: calc((var(--track-height) - var(--thumb-size)) / 2);
+  background: var(--color-zinc-700);
+  border: 3px solid var(--color-volume-accent-border);
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-track {
+  height: var(--track-height);
+  background: linear-gradient(to right,
+      var(--color-volume-accent) 0%,
+      var(--color-volume-accent) var(--range-percent, 50%),
+      #a1a1aa var(--range-percent, 50%),
+      #a1a1aa 100%);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  background: var(--color-zinc-700);
+  border: 3px solid var(--color-volume-accent-border);
+  cursor: pointer;
+}
+
+/* Volume icon SVG – color from parent (slider accent) */
+.volume-icon {
+  color: var(--color-volume-accent);
+}
+
+/* Topbar Share button – subtle blue tint, fits topbar tone */
+.topbar-share-btn {
+  color: #7eb8e8;
+}
+
+.topbar-share-btn:hover {
+  color: #9cc9f0;
+  box-shadow: 0 0 8px rgba(126, 184, 232, 0.25);
 }

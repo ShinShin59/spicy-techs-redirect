@@ -18,14 +18,22 @@ export const DEBUG_TOOLS: Record<string, DebugToolFn> = {
    * Call from console: reset()
    */
   reset() {
-    try {
-      localStorage.removeItem(MAIN_STORE_PERSIST_KEY)
-      localStorage.removeItem(UI_STORAGE_KEY)
-      window.location.reload()
-    } catch (e) {
-      console.error("[spicy-techs] reset failed:", e)
-    }
+    clearPersistedDataAndReload()
   },
+}
+
+/**
+ * Clears all persisted app data (builds, settings) from localStorage and reloads the page.
+ * Used by the "Clear data" button in settings and by the debug reset() console command.
+ */
+export function clearPersistedDataAndReload(): void {
+  try {
+    localStorage.removeItem(MAIN_STORE_PERSIST_KEY)
+    localStorage.removeItem(UI_STORAGE_KEY)
+    window.location.reload()
+  } catch (e) {
+    console.error("[spicy-techs] clear data failed:", e)
+  }
 }
 
 /** Attach all registered debug tools to window so they can be called from the console (e.g. debug(), reset()). */

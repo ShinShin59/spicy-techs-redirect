@@ -3,6 +3,7 @@ import { useMainStore } from "@/store"
 import { useUIStore } from "@/store/ui"
 import { getHudImagePath } from "@/utils/assetPaths"
 import { playSound } from "@/utils/sound"
+import { clearPersistedDataAndReload } from "@/utils/debugTools"
 import PanelCorners from "@/components/PanelCorners"
 
 const VOLUME_PREVIEW_SOUND = "UI_Mainmenu_Button_open.mp3"
@@ -323,6 +324,16 @@ export default function Metadata() {
           </button>
         </div>
       </aside>
+      <div className="flex justify-center pt-2">
+        <button
+          type="button"
+          onClick={clearPersistedDataAndReload}
+          className="text-xs text-zinc-500 hover:text-zinc-400 cursor-pointer bg-transparent border-none p-0 font-inherit"
+          aria-label="Clear all saved data and reload"
+        >
+          Clear data
+        </button>
+      </div>
     </div>
   )
 }

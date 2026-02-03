@@ -33,16 +33,22 @@ function App() {
     }
   }, [])
 
+  // Start background music only after first user interaction to avoid autoplay policy warnings
   useEffect(() => {
-    startBackgroundMusic().catch(() => {
-      const startOnInteraction = () => {
-        startBackgroundMusic().catch(() => { })
-        document.removeEventListener("click", startOnInteraction)
-        document.removeEventListener("keydown", startOnInteraction)
-      }
-      document.addEventListener("click", startOnInteraction, { once: true })
-      document.addEventListener("keydown", startOnInteraction, { once: true })
-    })
+    const startOnInteraction = () => {
+      startBackgroundMusic().catch(() => { })
+      document.removeEventListener("click", startOnInteraction)
+      document.removeEventListener("keydown", startOnInteraction)
+      document.removeEventListener("touchstart", startOnInteraction)
+    }
+    document.addEventListener("click", startOnInteraction, { once: true })
+    document.addEventListener("keydown", startOnInteraction, { once: true })
+    document.addEventListener("touchstart", startOnInteraction, { once: true })
+    return () => {
+      document.removeEventListener("click", startOnInteraction)
+      document.removeEventListener("keydown", startOnInteraction)
+      document.removeEventListener("touchstart", startOnInteraction)
+    }
   }, [])
 
   return (

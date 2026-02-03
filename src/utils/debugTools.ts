@@ -31,7 +31,7 @@ export const DEBUG_TOOLS: Record<string, DebugToolFn> = {
 /** Attach all registered debug tools to window so they can be called from the console (e.g. debug(), reset()). */
 export function installDebugTools(): void {
   if (typeof window === "undefined") return
-  const w = window as Window & Record<string, DebugToolFn | undefined>
+  const w = window as unknown as Record<string, DebugToolFn | undefined>
   for (const [name, fn] of Object.entries(DEBUG_TOOLS)) {
     w[name] = fn
   }

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import { useMainStore } from "@/store"
+import { useMainStore, useIsBuildUpToDate } from "@/store"
 import FactionSelector from "@/components/FactionSelector"
 import Button from "@/components/Button"
 import { playMenuToggleSound } from "@/utils/sound"
@@ -17,6 +17,7 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
   const isInitialMount = useRef(true)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const currentBuildId = useMainStore((s) => s.currentBuildId)
+  const isBuildUpToDate = useIsBuildUpToDate()
   const panelVisibility = useMainStore((s) => s.panelVisibility)
   const toggleMainBase = useMainStore((s) => s.toggleMainBase)
   const toggleArmory = useMainStore((s) => s.toggleArmory)
@@ -62,6 +63,9 @@ const Topbar = ({ onNew, onFork }: TopbarProps) => {
         <Button onClick={onFork} aria-label="Copy current build" mutedWhenUnpressed={false}>
           Copy
         </Button>
+        {!isBuildUpToDate && (
+          <span className="text-amber-400 text-xs font-medium" title="Unsaved changes">•</span>
+        )}
         <Button
           onClick={handleShare}
           aria-label="Share build link"

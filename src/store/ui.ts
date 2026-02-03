@@ -1,7 +1,8 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
-const UI_STORAGE_KEY = "spicy-techs-ui"
+/** Persist key for UI store (localStorage); used by debug reset. */
+export const UI_STORAGE_KEY = "spicy-techs-ui"
 
 const DEFAULT_VOLUME = 50
 

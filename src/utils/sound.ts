@@ -7,19 +7,24 @@ const SOUNDS_PATH = `${BASE}sounds`
 const BACKGROUND_PATH = `${BASE}sounds/background-noise.m4a`
 let backgroundAudio: HTMLAudioElement | null = null
 
+/** One-shot sounds created by playSound(); we update their volume when mute/volume changes. */
+const activeOneShotAudios = new Set<HTMLAudioElement>()
+
 function getEffectiveVolume(): number {
   const { volume, muted } = useUIStore.getState()
   return muted ? 0 : volume / 100
 }
 
-function applyVolumeToBackgroundMusic(): void {
-  if (backgroundAudio) {
-    backgroundAudio.volume = getEffectiveVolume()
-  }
+function applyVolumeToAll(): void {
+  const vol = getEffectiveVolume()
+  if (backgroundAudio) backgroundAudio.volume = vol
+  activeOneShotAudios.forEach((audio) => {
+    audio.volume = vol
+  })
 }
 
-// Keep background music in sync when volume or mute changes
-useUIStore.subscribe(applyVolumeToBackgroundMusic)
+// When mute or volume changes, update all currently playing sounds immediately
+useUIStore.subscribe(applyVolumeToAll)
 
 /**
  * Start background music (loops). Call on app load or after first user interaction.
@@ -47,13 +52,23 @@ export function getSoundPath(name: string): string {
 /**
  * Play a single sound by path or filename.
  * Path can be full (e.g. "/sounds/Button_Spendresources.mp3") or just the filename.
- * Uses app volume and mute from UI store.
+ * Uses app volume and mute from UI store. Volume updates (e.g. mute) apply immediately to playing instances.
  */
 export function playSound(pathOrName: string): void {
   const path = getSoundPath(pathOrName)
   const audio = new Audio(path)
+  activeOneShotAudios.add(audio)
   audio.volume = getEffectiveVolume()
-  audio.play().catch(() => { })
+  audio.addEventListener(
+    "ended",
+    () => {
+      activeOneShotAudios.delete(audio)
+    },
+    { once: true }
+  )
+  audio.play().catch(() => {
+    activeOneShotAudios.delete(audio)
+  })
 }
 
 /**

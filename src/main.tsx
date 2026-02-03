@@ -2,16 +2,10 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { getBuildStateObject } from './store'
-
-function logBuildDebug() {
-  const state = getBuildStateObject()
-  console.log("[spicy-techs] build state:", JSON.stringify(state, null, 2))
-}
+import { installDebugTools } from './utils/debugTools'
 
 if (typeof window !== "undefined") {
-  ; (window as Window & { __spicyTechsLogBuild?: () => void }).__spicyTechsLogBuild = logBuildDebug
-    ; (window as Window & { debug?: () => void }).debug = logBuildDebug
+  installDebugTools()
 }
 
 const base = import.meta.env.BASE_URL

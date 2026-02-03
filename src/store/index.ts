@@ -46,6 +46,9 @@ export const MAX_COUNCILLORS = 2
 /** Number of operation slots per faction */
 export const OPERATION_SLOTS_COUNT = 5
 
+/** Persist key for main store (localStorage); used by debug reset. */
+export const MAIN_STORE_PERSIST_KEY = "spicy-techs-main-store"
+
 /** Initial building order (empty per faction) */
 const initialBuildingOrder: BuildingOrderState = {
   harkonnen: [],
@@ -417,12 +420,14 @@ export const useMainStore = create<MainStore>()(
         set({
           selectedFaction: faction,
           unitSlotCount: DEFAULT_UNIT_SLOT_COUNT,
+          developmentsSummary: initialDevelopmentsSummary,
+          selectedDevelopments: [],
           metadata: createEmptyMetadata(g.defaultAuthor),
           currentBuildId: null,
           currentBuildName: getDefaultBuildName(faction, get().savedBuilds),
         })
-        if (typeof window !== "undefined" && (window as { __spicyTechsLogBuild?: () => void }).__spicyTechsLogBuild) {
-          (window as { __spicyTechsLogBuild: () => void }).__spicyTechsLogBuild()
+        if (typeof window !== "undefined" && (window as { debug?: () => void }).debug) {
+          (window as { debug: () => void }).debug()
         }
       },
       mainBaseState: mainBasesState,
@@ -1026,7 +1031,7 @@ export const useMainStore = create<MainStore>()(
         set(updates)
       },
     }),
-    { name: "spicy-techs-main-store" }
+    { name: MAIN_STORE_PERSIST_KEY }
   )
 )
 

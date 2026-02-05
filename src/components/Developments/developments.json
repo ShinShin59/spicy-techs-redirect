@@ -10,7 +10,7 @@
     "requires": null,
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 0
@@ -31,7 +31,7 @@
     "requires": "CompositeMaterials",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 0
@@ -52,7 +52,7 @@
     "requires": "CompositeMaterials",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 0
@@ -73,7 +73,7 @@
     "requires": "AdvancedEngineering",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 0
@@ -95,7 +95,7 @@
     "requires": "AdvancedEngineering",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 9
@@ -116,7 +116,7 @@
     "requires": "AdvancedEngineering",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 1
@@ -133,7 +133,7 @@
     "requires": "ModularParts",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 0
@@ -155,7 +155,7 @@
     "requires": "GridexPlane",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 0
@@ -172,7 +172,7 @@
     "requires": "GridexPlane",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 0
@@ -192,7 +192,7 @@
     "requires": null,
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 1
@@ -212,7 +212,7 @@
     "requires": "LocalDialectStudies",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 9
@@ -233,7 +233,7 @@
     "requires": "LocalDialectStudies",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 1
@@ -254,7 +254,7 @@
     "requires": "LocalDialectStudies",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 5
@@ -274,7 +274,7 @@
     "requires": "Paracompass",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 0
@@ -294,7 +294,7 @@
     "requires": "Paracompass",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 1
@@ -314,7 +314,7 @@
     "requires": "LocalHubs",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 0
@@ -334,7 +334,7 @@
     "requires": "SpectralImaging",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 3
@@ -354,7 +354,7 @@
     "requires": "WaterSellersContacts",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 6,
       "y": 1
@@ -374,7 +374,7 @@
     "requires": null,
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 2
@@ -395,7 +395,7 @@
     "requires": "SurvivalTraining",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 12
@@ -421,7 +421,7 @@
     "requires": "SurvivalTraining",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 2
@@ -442,7 +442,7 @@
     "requires": "SurvivalTraining",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 2
@@ -464,7 +464,7 @@
     "requires": "DefenseSystems",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 11
@@ -485,7 +485,7 @@
     "requires": "CalltoArms",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 6,
       "y": 2
@@ -507,7 +507,7 @@
     "requires": "GroundCommand",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 2
@@ -528,7 +528,7 @@
     "requires": "MilitaryThreat",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 8
@@ -545,7 +545,7 @@
     "requires": "GroundCommand",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 3
@@ -566,7 +566,7 @@
     "requires": null,
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 3
@@ -586,7 +586,7 @@
     "requires": "IntelligenceNetwork",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 3
@@ -608,7 +608,7 @@
     "requires": "IntelligenceNetwork",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 3
@@ -629,7 +629,7 @@
     "requires": "DiplomaticManoeuvers",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 1
@@ -650,7 +650,7 @@
     "requires": "DiplomaticManoeuvers",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 3
@@ -671,7 +671,7 @@
     "requires": "SpyingLogistic",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 3
@@ -691,7 +691,7 @@
     "requires": "SpyingLogistic",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 6,
       "y": 3
@@ -711,7 +711,7 @@
     "requires": "PoliticalStrength",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 4
@@ -732,7 +732,7 @@
     "requires": "StealthGear",
     "replaces": null,
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 5
@@ -750,7 +750,7 @@
     "replaces": "CompositeMaterials",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 10
@@ -773,7 +773,7 @@
     "replaces": "AdvancedEngineering",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 6
@@ -796,7 +796,7 @@
     "replaces": "VeteranCrews",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 8
@@ -814,7 +814,7 @@
     "replaces": "LocalHubs",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 2
@@ -836,7 +836,7 @@
     "replaces": "OutpostLogistics",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 7
@@ -859,7 +859,7 @@
     "replaces": "SpectralImaging",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 2
@@ -880,7 +880,7 @@
     "replaces": "CalltoArms",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 6
@@ -902,7 +902,7 @@
     "replaces": "SupportStructures",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 6
@@ -924,7 +924,7 @@
     "replaces": "IntelligenceNetwork",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 9
@@ -946,7 +946,7 @@
     "replaces": "CounterMeasures",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 4
@@ -968,7 +968,7 @@
     "replaces": "NegotiationTactics",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 5
@@ -990,7 +990,7 @@
     "replaces": "StealthGear",
     "faction": "atreides",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 10
@@ -1012,7 +1012,7 @@
     "replaces": "CompositeMaterials",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 6,
       "y": 0
@@ -1035,7 +1035,7 @@
     "replaces": "AraakisRiches",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 7
@@ -1056,7 +1056,7 @@
     "replaces": "Paracompass",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 9
@@ -1079,7 +1079,7 @@
     "replaces": "WaterSellersContacts",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 9
@@ -1101,7 +1101,7 @@
     "replaces": "WaterTrade",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 8
@@ -1123,7 +1123,7 @@
     "replaces": "HighCommand",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 7
@@ -1146,7 +1146,7 @@
     "replaces": "AirCommand",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 5
@@ -1168,7 +1168,7 @@
     "replaces": "ArmyLogistics",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 1
@@ -1191,7 +1191,7 @@
     "replaces": "DiplomaticManoeuvers",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 4
@@ -1213,7 +1213,7 @@
     "replaces": "PoliticalStrength",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 5
@@ -1236,7 +1236,7 @@
     "replaces": "StealthGear",
     "faction": "harkonnen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 5
@@ -1258,7 +1258,7 @@
     "replaces": "ModularParts",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 8
@@ -1280,7 +1280,7 @@
     "replaces": "VeteranCrews",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 4
@@ -1302,7 +1302,7 @@
     "replaces": "LocalDialectStudies",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 5
@@ -1324,7 +1324,7 @@
     "replaces": "LocalHubs",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 8
@@ -1346,7 +1346,7 @@
     "replaces": "OutpostLogistics",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 12
@@ -1369,7 +1369,7 @@
     "replaces": "DefenseSystems",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 4
@@ -1390,7 +1390,7 @@
     "replaces": "ArmyLogistics",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 4
@@ -1412,7 +1412,7 @@
     "replaces": "MilitaryThreat",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 11
@@ -1435,7 +1435,7 @@
     "replaces": "HighCommand",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 4
@@ -1458,7 +1458,7 @@
     "replaces": "IntelligenceNetwork",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 6,
       "y": 12
@@ -1480,7 +1480,7 @@
     "replaces": "CounterMeasures",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 3
@@ -1502,7 +1502,7 @@
     "replaces": "PoliticalStrength",
     "faction": "smuggler",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 7
@@ -1525,7 +1525,7 @@
     "replaces": "AdvancedEngineering",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 1
@@ -1548,7 +1548,7 @@
     "replaces": "ModularParts",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 9
@@ -1572,7 +1572,7 @@
     "replaces": "EconomicLobbying",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 12
@@ -1594,7 +1594,7 @@
     "replaces": "EnergyMarkets",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 12
@@ -1616,7 +1616,7 @@
     "replaces": "LayoftheLand",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 9
@@ -1638,7 +1638,7 @@
     "replaces": "LocalHubs",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 5
@@ -1661,7 +1661,7 @@
     "replaces": "SpectralImaging",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 9
@@ -1682,7 +1682,7 @@
     "replaces": "ArmyLogistics",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 2
@@ -1703,7 +1703,7 @@
     "replaces": "DefenseSystems",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 7
@@ -1724,7 +1724,7 @@
     "replaces": "MilitaryThreat",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 0
@@ -1747,7 +1747,7 @@
     "replaces": "AirCommand",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 4
@@ -1770,7 +1770,7 @@
     "replaces": "IntelligenceNetwork",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 5
@@ -1788,7 +1788,7 @@
     "replaces": "DiplomaticManoeuvers",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 9
@@ -1810,7 +1810,7 @@
     "replaces": "CounterMeasures",
     "faction": "fremen",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 9
@@ -1831,7 +1831,7 @@
     "replaces": "CompositeMaterials",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 6
@@ -1852,7 +1852,7 @@
     "replaces": "EconomicLobbying",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 7
@@ -1873,7 +1873,7 @@
     "replaces": "StructuredWarehouses",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 5
@@ -1891,7 +1891,7 @@
     "replaces": "LocalDialectStudies",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 6
@@ -1913,7 +1913,7 @@
     "replaces": "LayoftheLand",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 4
@@ -1935,7 +1935,7 @@
     "replaces": "LocalHubs",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 7
@@ -1957,7 +1957,7 @@
     "replaces": "Paracompass",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 4
@@ -1978,7 +1978,7 @@
     "replaces": "ArmyLogistics",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 6
@@ -1999,7 +1999,7 @@
     "replaces": "HighCommand",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 9
@@ -2021,7 +2021,7 @@
     "replaces": "IntelligenceNetwork",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 8
@@ -2044,7 +2044,7 @@
     "replaces": "DiplomaticManoeuvers",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 7
@@ -2067,7 +2067,7 @@
     "replaces": "CounterMeasures",
     "faction": "corrino",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 8
@@ -2088,7 +2088,7 @@
     "replaces": "AdvancedEngineering",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 11
@@ -2111,7 +2111,7 @@
     "replaces": "EnergyMarkets",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 6,
       "y": 11
@@ -2133,7 +2133,7 @@
     "replaces": "LocalHubs",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 9
@@ -2154,7 +2154,7 @@
     "replaces": "Paracompass",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 9
@@ -2175,7 +2175,7 @@
     "replaces": "SpectralImaging",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 10
@@ -2196,7 +2196,7 @@
     "replaces": "DefenseSystems",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 2,
       "y": 6
@@ -2218,7 +2218,7 @@
     "replaces": "CalltoArms",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 10
@@ -2241,7 +2241,7 @@
     "replaces": "MilitaryThreat",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 1,
       "y": 11
@@ -2264,7 +2264,7 @@
     "replaces": "GroundCommand",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 0,
       "y": 11
@@ -2287,7 +2287,7 @@
     "replaces": "NegotiationTactics",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 12
@@ -2308,7 +2308,7 @@
     "replaces": "SandDiplomacy",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 10
@@ -2330,7 +2330,7 @@
     "replaces": "SpyingMastery",
     "faction": "ecaz",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 3,
       "y": 11
@@ -2351,7 +2351,7 @@
     "replaces": "ModularParts",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 7
@@ -2374,7 +2374,7 @@
     "replaces": "VeteranCrews",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 7
@@ -2396,7 +2396,7 @@
     "replaces": "LocalDialectStudies",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 6,
       "y": 7
@@ -2418,7 +2418,7 @@
     "replaces": "Paracompass",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 7
@@ -2440,7 +2440,7 @@
     "replaces": "BorderDefense",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 7
@@ -2462,7 +2462,7 @@
     "replaces": "ArmyLogistics",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 7
@@ -2484,7 +2484,7 @@
     "replaces": "CalltoArms",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 4,
       "y": 8
@@ -2507,7 +2507,7 @@
     "replaces": "HighCommand",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 5,
       "y": 8
@@ -2529,7 +2529,7 @@
     "replaces": "IntelligenceNetwork",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 6,
       "y": 8
@@ -2551,7 +2551,7 @@
     "replaces": "SpyingLogistic",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 7,
       "y": 8
@@ -2574,7 +2574,7 @@
     "replaces": "NegotiationTactics",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 8,
       "y": 8
@@ -2596,7 +2596,7 @@
     "replaces": "SpyingMastery",
     "faction": "vernius",
     "gfx": {
-      "file": "UI/developments/techIcons2.png",
+      "file": "UI/developments/techIcons2.webp",
       "size": 64,
       "x": 9,
       "y": 8

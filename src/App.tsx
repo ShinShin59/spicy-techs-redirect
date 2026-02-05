@@ -16,7 +16,7 @@ import { useMainStore } from "./store"
 import { useUIStore } from "./store/ui"
 import { decodeBuildPayload } from "./utils/buildShare"
 import { startBackgroundMusic } from "./utils/sound"
-import "./utils/assetPaths"
+import { waitForPreload } from "./utils/assetPaths"
 
 function App() {
   const panelVisibility = useMainStore((s) => s.panelVisibility)
@@ -32,6 +32,18 @@ function App() {
       const url = window.location.origin + window.location.pathname
       window.history.replaceState(null, "", url)
     }
+  }, [])
+
+  // Dismiss loading screen once mounted and all images are preloaded
+  useEffect(() => {
+    waitForPreload().then(() => {
+      const el = document.getElementById("loading-screen")
+      if (!el) return
+      el.style.opacity = "0"
+      el.addEventListener("transitionend", () => el.remove(), { once: true })
+      // Fallback removal if transitionend doesn't fire
+      setTimeout(() => el.remove(), 600)
+    })
   }, [])
 
   // Start background music only after first user interaction to avoid autoplay policy warnings

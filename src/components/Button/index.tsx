@@ -22,8 +22,8 @@ const Button = ({
   const base =
     "w-28 h-9 shrink-0 px-4 py-1.5 text-sm font-normal cursor-pointer relative z-10 flex items-center justify-center transition-all duration-150 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0"
 
-  const btnRest = getHudImagePath("btn_rest.png")
-  const btnHover = getHudImagePath("btn_hover.png")
+  const btnRest = getHudImagePath("btn_rest.webp")
+  const btnHover = getHudImagePath("btn_hover.webp")
   const topbarStyle =
     variant === "topbar"
       ? ({ "--btn-rest": `url(${btnRest})`, "--btn-hover": `url(${btnHover})`, ...style } as React.CSSProperties)

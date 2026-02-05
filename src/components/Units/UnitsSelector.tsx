@@ -96,7 +96,7 @@ const UnitsSelector = ({
   )
 
   // Match Units panel: 64px slots, slot/hero bg; icon fills slot
-  const slotBgUrl = heroOnly ? getHudImagePath("background_hero.png") : null
+  const slotBgUrl = heroOnly ? getHudImagePath("background_hero.webp") : null
 
   return (
     <>
@@ -150,7 +150,7 @@ const UnitsSelector = ({
                     }
                     alt={unit.name}
                     loading="eager"
-                    decoding="sync"
+                    decoding="async"
                     className={`w-full h-full object-contain ${pulseUnitId === unit.id ? "unit-select-pulse" : ""}`}
                   />
                 </button>

@@ -103,7 +103,7 @@ const ArmoryGearSelector = ({
                     src={getGearIconPath(gear.image)}
                     alt={gear.name}
                     loading="eager"
-                    decoding="sync"
+                    decoding="async"
                     className="w-10 h-10 object-contain"
                   />
                 </button>

@@ -194,7 +194,7 @@ function VolumeControl() {
           className="p-0.5 shrink-0 cursor-pointer hover:opacity-80"
           aria-label="Decrease volume"
         >
-          <img src={getHudImagePath("settings/minus.png")} alt="" width={20} height={20} />
+          <img src={getHudImagePath("settings/minus.webp")} alt="" width={20} height={20} />
         </button>
         <input
           type="range"
@@ -220,7 +220,7 @@ function VolumeControl() {
           className="p-0.5 shrink-0 cursor-pointer hover:opacity-80"
           aria-label="Increase volume"
         >
-          <img src={getHudImagePath("settings/plus.png")} alt="" width={20} height={20} />
+          <img src={getHudImagePath("settings/plus.webp")} alt="" width={20} height={20} />
         </button>
       </div>
     </div>
@@ -350,7 +350,7 @@ export default function Metadata() {
             className={`flex items-center gap-2 w-full text-left px-2 py-1.5 -mx-1 rounded text-sm transition-colors cursor-pointer hover:bg-zinc-800 ${lightweightMode ? "bg-zinc-800 text-zinc-200" : "text-zinc-400"}`}
           >
             <img
-              src={lightweightMode ? getHudImagePath("settings/checkbox_true.png") : getHudImagePath("settings/checkbox_false.png")}
+              src={lightweightMode ? getHudImagePath("settings/checkbox_true.webp") : getHudImagePath("settings/checkbox_false.webp")}
               alt=""
               width={18}
               height={18}

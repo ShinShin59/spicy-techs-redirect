@@ -140,7 +140,7 @@ const Armory = () => {
                       role="button"
                       tabIndex={0}
                       className="w-12 h-12 relative cursor-pointer flex items-center justify-center overflow-hidden border border-zinc-700 aspect-square bg-cover bg-center hover:brightness-110"
-                      style={{ backgroundImage: `url(${getHudImagePath("slot.png")})` }}
+                      style={{ backgroundImage: `url(${getHudImagePath("slot.webp")})` }}
                       id={`armory-slot-${unitIndex}-${slotIndex}`}
                       data-panel-slot
                       onClick={(e) => handleSlotClick(e, unitIndex, slotIndex)}
@@ -170,7 +170,7 @@ const Armory = () => {
                           src={getGearIconPath(gearData.image)}
                           alt={gearData.name}
                           loading="eager"
-                          decoding="sync"
+                          decoding="async"
                           className="object-contain w-full h-full"
                         />
                       )}

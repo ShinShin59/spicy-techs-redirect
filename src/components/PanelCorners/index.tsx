@@ -1,6 +1,6 @@
 import { getHudImagePath } from "@/utils/assetPaths"
 
-const CORNER_IMAGE = getHudImagePath("corner.png")
+const CORNER_IMAGE = getHudImagePath("corner.webp")
 
 /** Base image is drawn for bottom-left; we rotate so the L vertex sits on each panel corner. */
 const CORNERS = [

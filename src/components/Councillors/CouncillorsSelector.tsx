@@ -109,7 +109,7 @@ const CouncillorsSelector = ({
                     src={getCouncillorIconPath(councillor.image)}
                     alt={councillor.name}
                     loading="eager"
-                    decoding="sync"
+                    decoding="async"
                     className="w-14 h-14 object-contain"
                   />
                 </button>

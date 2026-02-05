@@ -1,7 +1,8 @@
-import { useMemo, useState, useEffect, useRef } from "react"
-import Dither from "../Dither"
+import { useMemo, useState, useEffect, useRef, lazy, Suspense } from "react"
 import { useMainStore, type FactionLabel } from "@/store"
 import { useUIStore } from "@/store/ui"
+
+const Dither = lazy(() => import("../Dither"))
 
 /** Faction colors as [r, g, b] in 0–1 range (matches CSS --color-faction-*) */
 const FACTION_COLORS: Record<FactionLabel, [number, number, number]> = {
@@ -81,17 +82,19 @@ const DitherBackground = () => {
       }}
       aria-hidden
     >
-      <Dither
-        waveColor={waveColor}
-        waveDirection={waveDirection}
-        disableAnimation={lightweightMode}
-        enableMouseInteraction={true}
-        mouseRadius={1.}
-        colorNum={6}
-        pixelSize={2}
-        waveAmplitude={waveAmplitude}
-        waveFrequency={3}
-      />
+      <Suspense fallback={null}>
+        <Dither
+          waveColor={waveColor}
+          waveDirection={waveDirection}
+          disableAnimation={lightweightMode}
+          enableMouseInteraction={true}
+          mouseRadius={1.}
+          colorNum={6}
+          pixelSize={2}
+          waveAmplitude={waveAmplitude}
+          waveFrequency={3}
+        />
+      </Suspense>
     </div>
   )
 }

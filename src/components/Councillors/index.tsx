@@ -81,7 +81,7 @@ const Councillors = () => {
                   role="button"
                   tabIndex={0}
                   className={`${cellClass} relative cursor-pointer bg-cover bg-center ${!hasCouncillor ? "hover:brightness-110" : ""}`}
-                  style={{ backgroundImage: `url(${getHudImagePath("slot.png")})` }}
+                  style={{ backgroundImage: `url(${getHudImagePath("slot.webp")})` }}
                   id={`councillors-slot-${index}`}
                   data-panel-slot
                   onClick={handleSlotClick}
@@ -110,7 +110,7 @@ const Councillors = () => {
                       src={getCouncillorIconPath(councillorData.image)}
                       alt={councillorData.name}
                       loading="eager"
-                      decoding="sync"
+                      decoding="async"
                       className="w-16 h-16 object-contain"
                     />
                   )}

@@ -175,12 +175,12 @@ const Units = () => {
               const addSlotDisabledStyle = isAddSlot && addSlotDisabled
               const cellBgUrl =
                 isAddSlot
-                  ? getHudImagePath("slot_add.png")
+                  ? getHudImagePath("slot_add.webp")
                   : isHeroSlot
-                    ? getHudImagePath("background_hero.png")
-                    : getHudImagePath("slot.png")
+                    ? getHudImagePath("background_hero.webp")
+                    : getHudImagePath("slot.webp")
               const cellHoverUrl =
-                isAddSlot && !addSlotDisabled ? getHudImagePath("slot_add_hover.png") : !isHeroSlot && !hasUnit ? getHudImagePath("slot.png") : null
+                isAddSlot && !addSlotDisabled ? getHudImagePath("slot_add_hover.webp") : !isHeroSlot && !hasUnit ? getHudImagePath("slot.webp") : null
               const heroSlotMuted = isHeroSlotEmpty ? "opacity-70" : ""
               const canOpenSelector = (isAddSlot && !addSlotDisabled) || isHeroSlot
 
@@ -223,7 +223,7 @@ const Units = () => {
                       src={getHeroIconPath(selectedFaction, heroData.imageName)}
                       alt={heroData.name}
                       loading="eager"
-                      decoding="sync"
+                      decoding="async"
                       className="w-full h-full object-contain"
                     />
                   )}
@@ -232,7 +232,7 @@ const Units = () => {
                       src={getUnitIconPath(selectedFaction, unitData.name)}
                       alt={unitData.name}
                       loading="eager"
-                      decoding="sync"
+                      decoding="async"
                       className="w-full h-full object-contain"
                     />
                   )}

@@ -15,18 +15,18 @@ const UNIT_ICONS_PATH = `${BASE}images/units`
 const COUNCILLOR_ICONS_PATH = `${BASE}images/councillors`
 const OPERATIONS_ICONS_PATH = `${BASE}images/operations`
 
-/** Time/days icon for development cost display (from developments/time.png) */
-export const TIME_ICON_PATH = `${HUD_IMAGES_PATH}/developments/time.png`
+/** Time/days icon for development cost display (from developments/time.webp) */
+export const TIME_ICON_PATH = `${HUD_IMAGES_PATH}/developments/time.webp`
 
-/** Knowledge icon used for per-development research rate display (ressources/knowledge.png) */
-export const KNOWLEDGE_ICON_PATH = `${HUD_IMAGES_PATH}/ressources/knowledge.png`
+/** Knowledge icon used for per-development research rate display (ressources/knowledge.webp) */
+export const KNOWLEDGE_ICON_PATH = `${HUD_IMAGES_PATH}/ressources/knowledge.webp`
 
 export function getFactionIconPath(faction: FactionLabel): string {
-  return `${FACTION_ICON_PATH}/${faction}.png`
+  return `${FACTION_ICON_PATH}/${faction}.webp`
 }
 
 export function getBuildingIconPath(buildingName: string): string {
-  return `${MAINBASE_ICONS_PATH}/${buildingName.toLowerCase().replace(/ /g, "_")}.png`
+  return `${MAINBASE_ICONS_PATH}/${buildingName.toLowerCase().replace(/ /g, "_")}.webp`
 }
 
 export function getGearIconPath(imageFileName: string): string {
@@ -35,7 +35,7 @@ export function getGearIconPath(imageFileName: string): string {
 
 export function getUnitIconPath(faction: FactionLabel, unitName: string): string {
   const fileName = unitName.toLowerCase().replace(/ /g, "_")
-  return `${UNIT_ICONS_PATH}/${faction}/${fileName}.png`
+  return `${UNIT_ICONS_PATH}/${faction}/${fileName}.webp`
 }
 
 export function getCouncillorIconPath(imageFileName: string): string {
@@ -47,23 +47,49 @@ export function getOperationIconPath(_missionId: string, imageFileName?: string 
   if (imageFileName) {
     return `${OPERATIONS_ICONS_PATH}/${imageFileName}`
   }
-  return getHudImagePath("operations_icon.png")
+  return getHudImagePath("operations_icon.webp")
 }
 
-/** Set of URLs that have been preloaded */
+/** Set of URLs that have been queued for preload */
 const preloadedImages = new Set<string>()
 
-/** Preload a single image and track it */
+/** Promises for each preloaded image */
+const preloadPromises: Promise<void>[] = []
+
+/** Progress tracking */
+let _totalImages = 0
+let _loadedImages = 0
+
+/** Preload a single image, returning a promise and updating progress */
 function preloadImage(src: string): void {
   if (preloadedImages.has(src)) return
   preloadedImages.add(src)
-  const img = new Image()
-  img.src = src
+  _totalImages++
+  const p = new Promise<void>((resolve) => {
+    const img = new Image()
+    img.onload = img.onerror = () => {
+      _loadedImages++
+      // Update the loading bar if it exists in the DOM
+      const bar = document.getElementById("loading-bar-fill")
+      if (bar) {
+        const pct = _totalImages > 0 ? (_loadedImages / _totalImages) * 100 : 0
+        bar.style.width = `${pct}%`
+      }
+      resolve()
+    }
+    img.src = src
+  })
+  preloadPromises.push(p)
 }
 
 /** Check if an image URL has been preloaded */
 export function isImagePreloaded(src: string): boolean {
   return preloadedImages.has(src)
+}
+
+/** Promise that resolves when ALL preloaded images are done (loaded or errored). */
+export function waitForPreload(): Promise<void> {
+  return Promise.all(preloadPromises).then(() => {})
 }
 
 /**
@@ -76,10 +102,10 @@ export function getHudImagePath(fileName: string): string {
 }
 
 const DEVELOPMENTS_SLOT_IMAGES: Record<keyof DevelopmentsSummary, string> = {
-  economic: "slot_economic.png",
-  military: "slot_military.png",
-  green: "slot_green.png",
-  statecraft: "slot_statecraft.png",
+  economic: "slot_economic.webp",
+  military: "slot_military.webp",
+  green: "slot_green.webp",
+  statecraft: "slot_statecraft.webp",
 }
 
 export function getDevelopmentsSlotPath(category: keyof DevelopmentsSummary): string {
@@ -108,11 +134,11 @@ export function getDevelopmentPickerAssetPath(fileName: string): string {
 
 function initPreload(): void {
   // Preload HUD images (slot, background_hero, development sprite sheet, time/knowledge icons)
-  preloadImage(getHudImagePath("slot.png"))
-  preloadImage(getHudImagePath("background_hero.png"))
-  preloadImage(getHudImagePath("developments/techIcons2.png"))
-  preloadImage(getHudImagePath("developments/time.png"))
-  preloadImage(getHudImagePath("ressources/knowledge.png"))
+  preloadImage(getHudImagePath("slot.webp"))
+  preloadImage(getHudImagePath("background_hero.webp"))
+  preloadImage(getHudImagePath("developments/techIcons2.webp"))
+  preloadImage(getHudImagePath("developments/time.webp"))
+  preloadImage(getHudImagePath("ressources/knowledge.webp"))
 
   // Preload faction icons
   FACTION_LABELS.forEach((faction) => {
@@ -158,7 +184,7 @@ function initPreload(): void {
     const faction = factionToLabel[factionKey]
     if (faction && Array.isArray(heroes)) {
       heroes.forEach((hero) => {
-        preloadImage(`${UNIT_ICONS_PATH}/${faction}/${hero.imageName}.png`)
+        preloadImage(`${UNIT_ICONS_PATH}/${faction}/${hero.imageName}.webp`)
       })
     }
   })

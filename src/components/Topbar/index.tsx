@@ -31,7 +31,7 @@ const Topbar = ({ onNew, onReset, onFork }: TopbarProps) => {
   const { copied, handleShare } = useShareButton()
 
   const factionBgVar = `var(--color-faction-${selectedFaction})` as const
-  const sideBgImage = `url(${getHudImagePath("sides_left.png")}), url(${getHudImagePath("sides_right.png")})`
+  const sideBgImage = `url(${getHudImagePath("sides_left.webp")}), url(${getHudImagePath("sides_right.webp")})`
 
   useEffect(() => {
     document.fonts.load('1em "Dune Rise"').then(() => setLogoVisible(true))
@@ -185,7 +185,7 @@ const Topbar = ({ onNew, onReset, onFork }: TopbarProps) => {
         <span
           className="block w-full max-w-[320px] h-2 shrink-0 bg-no-repeat bg-center"
           style={{
-            backgroundImage: `url(${getHudImagePath("title_underline.png")})`,
+            backgroundImage: `url(${getHudImagePath("title_underline.webp")})`,
             backgroundSize: "auto 100%",
           }}
           aria-hidden

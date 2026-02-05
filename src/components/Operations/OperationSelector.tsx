@@ -103,7 +103,7 @@ const OperationSelector = ({
                 type="button"
                 onClick={() => onSelect(op.id)}
                 className="w-full h-full bg-cover bg-center border border-zinc-700 flex items-center justify-center hover:brightness-110 cursor-pointer"
-                style={{ backgroundImage: `url(${getHudImagePath("slot.png")})` }}
+                style={{ backgroundImage: `url(${getHudImagePath("slot.webp")})` }}
               >
                 <img
                   src={getOperationIconPath(op.id, op.image)}

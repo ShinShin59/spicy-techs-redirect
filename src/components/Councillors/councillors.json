@@ -9,7 +9,7 @@
         "+1 starting Agent trait",
         "Can Hasten Fake mission progress and Village building construction at the cost of Solari"
       ],
-      "image": "thufir_hawat.png"
+      "image": "thufir_hawat.webp"
     },
     {
       "id": "Yueh",
@@ -20,7 +20,7 @@
         "Produces 2 Knowledge",
         "Non-mechanical Military Units gain +15% Life and +30% Health Regen"
       ],
-      "image": "wellington_yueh.png"
+      "image": "wellington_yueh.webp"
     },
     {
       "id": "Jessica",
@@ -32,7 +32,7 @@
         "Atreides Treaties have no Authority upkeep",
         "A faction betraying Peace with Atreides loses 50 more Standing"
       ],
-      "image": "jessica.png"
+      "image": "jessica.webp"
     },
     {
       "id": "Paul",
@@ -43,7 +43,7 @@
         "Produces 2 Authority per ally Sietch",
         "When the first Sietch is revealed, its relation level is always at 30"
       ],
-      "image": "paul_atreides.png"
+      "image": "paul_atreides.webp"
     }
   ],
   "Harkonnen": [
@@ -57,7 +57,7 @@
         "On Village Oppression, gain 2 Manpower per empty building slot",
         "Gain 50 Solari upon killing Rebels"
       ],
-      "image": "cron_vatia.png"
+      "image": "cron_vatia.webp"
     },
     {
       "id": "Umman",
@@ -69,7 +69,7 @@
         "Units take 70% time to recruit",
         "Units in a region with active Harkonnen operation gain +1 Armor"
       ],
-      "image": "umman_kudu.png"
+      "image": "umman_kudu.webp"
     },
     {
       "id": "Feyd",
@@ -80,7 +80,7 @@
         "Can use Corruption on Landsraad resolutions, causing Standing loss for the elected enemy faction",
         "While at least one Village is under Oppression: +20% Influence and +100% Agent production"
       ],
-      "image": "feyd-rautha-harkonnen.png"
+      "image": "feyd-rautha-harkonnen.webp"
     },
     {
       "id": "Piter",
@@ -91,7 +91,7 @@
         "15% cheaper operation costs when sacrificing Agent",
         "Sacrificing an Agent gives 60 Solari per current Agent"
       ],
-      "image": "piter_de_vries.png"
+      "image": "piter_de_vries.webp"
     }
   ],
   "Smugglers": [
@@ -103,7 +103,7 @@
       "attributes": [
         "UW Headquarters have +1 building slots"
       ],
-      "image": "staban_tuek.png"
+      "image": "staban_tuek.webp"
     },
     {
       "id": "Lingar",
@@ -114,7 +114,7 @@
         "Produces 12 Water",
         "Unlocks WaterNetwork and WaterSeller in UW Headquarters"
       ],
-      "image": "lingar_bewt.png"
+      "image": "lingar_bewt.webp"
     },
     {
       "id": "Intelbroker",
@@ -125,7 +125,7 @@
         "Every successful trade with a faction gains 0.1 Infiltration level in that faction",
         "Faction Infiltration levels reduce 50% slower"
       ],
-      "image": "lashon_hara.png"
+      "image": "lashon_hara.webp"
     },
     {
       "id": "Operative",
@@ -136,7 +136,7 @@
         "Villages without any Smugglers regions as neighbors: sieges take 100% longer to Liberate, Annex or Pillage; +20% resource production",
         "Refund 50% of Authority capture cost when a Village is lost in any way"
       ],
-      "image": "stakkanov.png"
+      "image": "stakkanov.webp"
     }
   ],
   "Fremen": [
@@ -149,7 +149,7 @@
         "Each Village producing at least 12 Water gives: 96% Solari upkeep globally, +4 Plascrete production",
         "Villages produce 1 Water on empty building slots"
       ],
-      "image": "shimoom.png"
+      "image": "shimoom.webp"
     },
     {
       "id": "Jamis",
@@ -161,7 +161,7 @@
         "Military Units outside Fremen territory inflict +10% damage",
         "Trade Authority for Manpower in the top bar"
       ],
-      "image": "jamis.png"
+      "image": "jamis.webp"
     },
     {
       "id": "Ramallo",
@@ -173,7 +173,7 @@
         "Gain 3 Intel production per deployed Fremen Harvester",
         "Gain 0.5 Authority production per deployed Fremen Harvester"
       ],
-      "image": "mother_ramallo.png"
+      "image": "mother_ramallo.webp"
     },
     {
       "id": "Stilgar",
@@ -184,7 +184,7 @@
         "Reveal all Sietchs at the start of the game",
         "Produces 1 Authority"
       ],
-      "image": "stilgar_ben_fifrawi.png"
+      "image": "stilgar_ben_fifrawi.webp"
     }
   ],
   "Corrino": [
@@ -196,7 +196,7 @@
       "attributes": [
         "Can build +1 of every Village building"
       ],
-      "image": "princess_irulan.png"
+      "image": "princess_irulan.webp"
     },
     {
       "id": "Zum",
@@ -207,7 +207,7 @@
         "Military Units have +15% Power per faction in Peace",
         "Proposing an Imperial Mandate has no cost"
       ],
-      "image": "zum_garon.png"
+      "image": "zum_garon.webp"
     },
     {
       "id": "Mohiam",
@@ -218,7 +218,7 @@
         "Every Corrino vote placed on a resolution affected by Imperial Edict counts double",
         "Support to increase Agenda Priority counts double"
       ],
-      "image": "gaius_helen_mohiam.png"
+      "image": "gaius_helen_mohiam.webp"
     },
     {
       "id": "Fenring",
@@ -229,7 +229,7 @@
         "Can investigate Discoveries quickly everywhere, no matter how many Agents are on the field",
         "Resolving any Discovery that way progresses Agent recruitment by 1 day"
       ],
-      "image": "hasimir_fenrig.png"
+      "image": "hasimir_fenrig.webp"
     }
   ],
   "Ecaz": [
@@ -241,7 +241,7 @@
       "attributes": [
         "For each Ecaz Sanctuary on the map: +15 Solari, 60% Masterpiece construction costs"
       ],
-      "image": "sanya_ecaz.png"
+      "image": "sanya_ecaz.webp"
     },
     {
       "id": "Rivvy",
@@ -252,7 +252,7 @@
         "Military units at max level have no Solari upkeep",
         "Units spawn with +1 experience level"
       ],
-      "image": "rivvy_dinari.png"
+      "image": "rivvy_dinari.webp"
     },
     {
       "id": "Ibbo",
@@ -263,7 +263,7 @@
         "Can use Landsraad Immunity on a resolution to become ineligible",
         "Gain 2 Standing upon building a Masterpiece"
       ],
-      "image": "ibbo_vipp.png"
+      "image": "ibbo_vipp.webp"
     },
     {
       "id": "Mesa",
@@ -275,7 +275,7 @@
         "Each Masterpiece outside Ecaz territory gives effects to its Village",
         "Masterpieces are built 100% faster"
       ],
-      "image": "mesa_ecaz.png"
+      "image": "mesa_ecaz.webp"
     }
   ],
   "Vernius": [
@@ -289,7 +289,7 @@
         "Removed Main Base buildings in Ixian Core are reimbursed fully",
         "Gain 1 Knowledge per district bonus"
       ],
-      "image": "bolig_avati.png"
+      "image": "bolig_avati.webp"
     },
     {
       "id": "Bronso",
@@ -300,7 +300,7 @@
         "Villages neighboring a single Vernius region cost 80% Authority to Annex",
         "The furthest connected Neural Node generates an Airfield"
       ],
-      "image": "bronso_vernius.png"
+      "image": "bronso_vernius.webp"
     },
     {
       "id": "Cammar",
@@ -312,7 +312,7 @@
         "Immediately gain 200 Influence when entering War with another faction",
         "Receive 30 Standing when an opponent imposes War"
       ],
-      "image": "cammar_pilru.png"
+      "image": "cammar_pilru.webp"
     },
     {
       "id": "Tessia",
@@ -323,7 +323,7 @@
         "Infiltration levels required for spying missions are lowered by 1",
         "While no development is in progress, 50% of Knowledge is turned into Intel and Solari"
       ],
-      "image": "tessia_vernius.png"
+      "image": "tessia_vernius.webp"
     }
   ]
 }

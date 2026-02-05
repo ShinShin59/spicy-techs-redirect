@@ -129,9 +129,9 @@ const Operations = () => {
               const hasOperation = missionId !== null && operation !== undefined
               const enabled = isSlotEnabled(index)
               const isAddSlot = !hasOperation
-              const addBgUrl = enabled ? getHudImagePath("slot_add.png") : getHudImagePath("slot_disabled.png")
-              const addHoverUrl = enabled ? getHudImagePath("slot_add_hover.png") : null
-              const cellBgUrl = isAddSlot ? addBgUrl : getHudImagePath("slot.png")
+              const addBgUrl = enabled ? getHudImagePath("slot_add.webp") : getHudImagePath("slot_disabled.webp")
+              const addHoverUrl = enabled ? getHudImagePath("slot_add_hover.webp") : null
+              const cellBgUrl = isAddSlot ? addBgUrl : getHudImagePath("slot.webp")
               const cellHoverUrl = isAddSlot ? addHoverUrl : null
 
               return (
@@ -172,7 +172,7 @@ const Operations = () => {
                       src={getOperationIconPath(operation.id, operation.image)}
                       alt={operation.name}
                       loading="eager"
-                      decoding="sync"
+                      decoding="async"
                       className="w-full h-full object-contain p-0.5"
                     />
                   )}

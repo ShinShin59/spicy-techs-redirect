@@ -23,7 +23,7 @@ const DitherOverlay = () => {
           top: -TILE_SIZE,
           width: `calc(100% + ${TILE_SIZE * 2}px)`,
           height: `calc(100% + ${TILE_SIZE * 2}px)`,
-          backgroundImage: `url(${import.meta.env.BASE_URL}images/dither-tiling.png)`,
+          backgroundImage: `url(${import.meta.env.BASE_URL}images/dither-tiling.webp)`,
           backgroundRepeat: "repeat",
           backgroundSize: `${TILE_SIZE}px ${TILE_SIZE}px`,
           opacity: 0.05,

@@ -24,11 +24,11 @@ function getBuildingByName(name: string | null): MainBuilding | undefined {
 function getCategorySlotBgUrl(category: MainBuilding['category']): string {
   switch (category) {
     case 'Economy':
-      return getHudImagePath("slot_economic.png")
+      return getHudImagePath("slot_economic.webp")
     case 'Military':
-      return getHudImagePath("slot_military.png")
+      return getHudImagePath("slot_military.webp")
     case 'Statecraft':
-      return getHudImagePath("slot_statecraft.png")
+      return getHudImagePath("slot_statecraft.webp")
   }
 }
 
@@ -194,7 +194,7 @@ const MainBase = () => {
         <div
           id="main-base-grid"
           className={`relative w-full p-4 box-border bg-zinc-900 bg-repeat bg-center ${PANEL_BORDER_HOVER_CLASS}`}
-          style={{ backgroundImage: `url(${getHudImagePath("mb_bg_pattern.png")})` }}
+          style={{ backgroundImage: `url(${getHudImagePath("mb_bg_pattern.webp")})` }}
           {...panelRightClickHide}
         >
           <PanelCorners />
@@ -228,10 +228,10 @@ const MainBase = () => {
                         slotType === 'filled' && buildingData
                           ? getCategorySlotBgUrl(buildingData.category)
                           : slotType === 'empty_add'
-                            ? getHudImagePath("slot_add.png")
-                            : getHudImagePath("slot_disabled.png")
+                            ? getHudImagePath("slot_add.webp")
+                            : getHudImagePath("slot_disabled.webp")
                       const cellBgHoverUrl =
-                        slotType === 'empty_add' ? getHudImagePath("slot_add_hover.png") : null
+                        slotType === 'empty_add' ? getHudImagePath("slot_add_hover.webp") : null
 
                       const isDisabled = slotType === 'empty_disabled'
 

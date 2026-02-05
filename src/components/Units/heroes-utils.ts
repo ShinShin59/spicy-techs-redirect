@@ -44,5 +44,5 @@ export function isHeroId(id: string): boolean {
 
 /** Get hero icon path from faction and image name */
 export function getHeroIconPath(faction: FactionLabel, imageName: string): string {
-  return `${UNIT_ICONS_PATH}/${faction}/${imageName}.png`
+  return `${UNIT_ICONS_PATH}/${faction}/${imageName}.webp`
 }

@@ -11,12 +11,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 27,
       "y": 0
     },
-    "image": "operation_27.png",
+    "image": "operation_27.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -37,12 +37,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 21,
       "y": 0
     },
-    "image": "operation_21.png",
+    "image": "operation_21.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -63,12 +63,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 0,
       "y": 0
     },
-    "image": "operation_0.png",
+    "image": "operation_0.webp",
     "props": {
       "onlyForFactions": [
         "smuggler"
@@ -92,12 +92,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 36,
       "y": 0
     },
-    "image": "operation_36.png",
+    "image": "operation_36.webp",
     "props": {
       "onlyForFactions": [
         "ecaz"
@@ -121,12 +121,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 34,
       "y": 0
     },
-    "image": "operation_34.png",
+    "image": "operation_34.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -147,12 +147,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 30,
       "y": 0
     },
-    "image": "operation_30.png",
+    "image": "operation_30.webp",
     "props": {
       "onlyForFactions": [
         "atreides"
@@ -176,12 +176,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 40,
       "y": 0
     },
-    "image": "operation_40.png",
+    "image": "operation_40.webp",
     "props": {
       "onlyForFactions": [
         "fremen"
@@ -205,12 +205,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 25,
       "y": 0
     },
-    "image": "operation_25.png",
+    "image": "operation_25.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -231,12 +231,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 6,
       "y": 0
     },
-    "image": "operation_6.png",
+    "image": "operation_6.webp",
     "props": {
       "onlyForFactions": [
         "harkonnen"
@@ -260,12 +260,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 24,
       "y": 0
     },
-    "image": "operation_24.png",
+    "image": "operation_24.webp",
     "props": {
       "onlyForFactions": [
         "corrino"
@@ -289,12 +289,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 36,
       "y": 0
     },
-    "image": "operation_36.png",
+    "image": "operation_36.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -315,12 +315,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 41,
       "y": 0
     },
-    "image": "operation_41.png",
+    "image": "operation_41.webp",
     "props": {
       "onlyForFactions": [
         "vernius"
@@ -348,12 +348,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 29,
       "y": 0
     },
-    "image": "operation_29.png",
+    "image": "operation_29.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -378,12 +378,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 4,
       "y": 0
     },
-    "image": "operation_4.png",
+    "image": "operation_4.webp",
     "props": {
       "onlyForFactions": [
         "atreides"
@@ -411,12 +411,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 28,
       "y": 0
     },
-    "image": "operation_28.png",
+    "image": "operation_28.webp",
     "props": {
       "onlyForFactions": [
         "harkonnen"
@@ -444,12 +444,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 23,
       "y": 0
     },
-    "image": "operation_23.png",
+    "image": "operation_23.webp",
     "props": {
       "onlyForFactions": [
         "fremen"
@@ -477,12 +477,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 32,
       "y": 0
     },
-    "image": "operation_32.png",
+    "image": "operation_32.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -507,12 +507,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 15,
       "y": 0
     },
-    "image": "operation_15.png",
+    "image": "operation_15.webp",
     "props": {
       "onlyForFactions": [
         "smuggler"
@@ -540,12 +540,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 12,
       "y": 0
     },
-    "image": "operation_12.png",
+    "image": "operation_12.webp",
     "props": {
       "onlyForFactions": [
         "corrino"
@@ -573,12 +573,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 37,
       "y": 0
     },
-    "image": "operation_37.png",
+    "image": "operation_37.webp",
     "props": {
       "onlyForFactions": [
         "ecaz"
@@ -606,12 +606,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 42,
       "y": 0
     },
-    "image": "operation_42.png",
+    "image": "operation_42.webp",
     "props": {
       "onlyForFactions": [
         "vernius"
@@ -639,12 +639,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 26,
       "y": 0
     },
-    "image": "operation_26.png",
+    "image": "operation_26.webp",
     "props": {
       "onlyForFactions": [
         "harkonnen"
@@ -672,12 +672,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 20,
       "y": 0
     },
-    "image": "operation_20.png",
+    "image": "operation_20.webp",
     "props": {
       "onlyForFactions": [
         "corrino"
@@ -705,12 +705,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 43,
       "y": 0
     },
-    "image": "operation_43.png",
+    "image": "operation_43.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -735,12 +735,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 22,
       "y": 0
     },
-    "image": "operation_22.png",
+    "image": "operation_22.webp",
     "props": {
       "onlyForFactions": [
         "smuggler"
@@ -768,12 +768,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 11,
       "y": 0
     },
-    "image": "operation_11.png",
+    "image": "operation_11.webp",
     "props": {
       "onlyForFactions": [
         "fremen"
@@ -801,12 +801,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 38,
       "y": 0
     },
-    "image": "operation_38.png",
+    "image": "operation_38.webp",
     "props": {
       "onlyForFactions": [
         "ecaz"
@@ -834,12 +834,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 9,
       "y": 0
     },
-    "image": "operation_9.png",
+    "image": "operation_9.webp",
     "props": {
       "tip": {
         "cat": "Mission"
@@ -864,12 +864,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 10,
       "y": 0
     },
-    "image": "operation_10.png",
+    "image": "operation_10.webp",
     "props": {
       "onlyForFactions": [
         "atreides"
@@ -897,12 +897,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 43,
       "y": 0
     },
-    "image": "operation_43.png",
+    "image": "operation_43.webp",
     "props": {
       "onlyForFactions": [
         "vernius"
@@ -926,12 +926,12 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.png",
+      "file": "UI/spying/missionIconsBW.webp",
       "size": 114,
       "x": 19,
       "y": 0
     },
-    "image": "operation_19.png",
+    "image": "operation_19.webp",
     "props": {
       "onlyForFactions": [
         "smuggler"

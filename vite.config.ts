@@ -20,6 +20,13 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three', '@react-three/fiber', '@react-three/postprocessing', 'postprocessing'],
+        },
+      },
+    },
   },
   css: {
     devSourcemap: true,

@@ -19,7 +19,7 @@ import PanelCorners from "@/components/PanelCorners"
 import OrderBadge from "@/components/OrderBadge"
 import developmentsData from "./developments.json"
 
-const CROSS_IMAGE = getDevelopmentPickerAssetPath("cross_section.png")
+const CROSS_IMAGE = getDevelopmentPickerAssetPath("cross_section.webp")
 
 /** Single source of truth for development node scale (px). All layout dimensions are derived from this. */
 const DEV_SCALE = 56
@@ -73,25 +73,25 @@ const FRAME_PREFIX: Record<DevelopmentDomain, string> = {
 
 /** Background image per quadrant (4 grid). */
 const QUADRANT_BG_FILES: Record<DevelopmentDomain, string> = {
-  economic: "bg__economic.png",
-  military: "bg__military.png",
-  statecraft: "bg__statecraft.png",
-  green: "bg__expansion.png",
+  economic: "bg__economic.webp",
+  military: "bg__military.webp",
+  statecraft: "bg__statecraft.webp",
+  green: "bg__expansion.webp",
 }
 
-const DEV_SELECTED_CIRCLE_IMAGE = getDevelopmentPickerAssetPath("selectedCircle.png")
+const DEV_SELECTED_CIRCLE_IMAGE = getDevelopmentPickerAssetPath("selectedCircle.webp")
 /** Pattern used as background on selected developments (blended with domain color). */
-const SELECTED_PATTERN_IMAGE = getDevelopmentPickerAssetPath("completed_pattern.png")
+const SELECTED_PATTERN_IMAGE = getDevelopmentPickerAssetPath("completed_pattern.webp")
 
 /** Flag image filename per faction (faction-exclusive techs). */
 const FACTION_FLAG_FILES: Record<FactionLabel, string> = {
-  atreides: "flag__atreides.png",
-  corrino: "flag__corrino.png",
-  ecaz: "flag__ecaz.png",
-  smuggler: "flag__smuggler.png",
-  vernius: "flag__vernius.png",
-  fremen: "flag_fremen.png",
-  harkonnen: "flag_harkonnen.png",
+  atreides: "flag__atreides.webp",
+  corrino: "flag__corrino.webp",
+  ecaz: "flag__ecaz.webp",
+  smuggler: "flag__smuggler.webp",
+  vernius: "flag__vernius.webp",
+  fremen: "flag_fremen.webp",
+  harkonnen: "flag_harkonnen.webp",
 }
 
 const allDevelopments = developmentsData as DevelopmentEntry[]
@@ -572,7 +572,7 @@ function Quadrant({
   }
 
   const getFrameImage = (domain: DevelopmentDomain, selected: boolean) =>
-    getDevelopmentPickerAssetPath(`frame_${FRAME_PREFIX[domain]}_${selected}.png`)
+    getDevelopmentPickerAssetPath(`frame_${FRAME_PREFIX[domain]}_${selected}.webp`)
 
   const quadrantBg = getDevelopmentPickerAssetPath(QUADRANT_BG_FILES[domain])
 

@@ -102,7 +102,7 @@ const Developments = () => {
             {currentKnowledgeValue}
           </span>
           <img
-            src={getHudImagePath("ressources/knowledge.png")}
+            src={getHudImagePath("ressources/knowledge.webp")}
             alt=""
             className="w-4 h-4 shrink-0"
             aria-hidden

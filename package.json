@@ -9,7 +9,10 @@
     "build:developments": "node scripts/build-developments.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -39,6 +42,11 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
+    "vitest": "^4.0.18",
+    "@vitest/ui": "^4.0.18",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "jsdom": "^25.0.1",
     "husky": "^9.1.7"
   }
 }

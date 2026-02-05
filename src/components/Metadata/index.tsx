@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, useCallback } from "react"
 import { useMainStore } from "@/store"
 import { useUIStore } from "@/store/ui"
 import { getHudImagePath } from "@/utils/assetPaths"
 import { playSound } from "@/utils/sound"
-import { clearPersistedDataAndReload } from "@/utils/debugTools"
+import { clearPersistedDataAndReload, runDebug } from "@/utils/debugTools"
 import PanelCorners from "@/components/PanelCorners"
 
 const VOLUME_PREVIEW_SOUND = "UI_Mainmenu_Button_open.mp3"
@@ -28,6 +28,42 @@ const MediaIcon = () => (
     <polygon points="9 8 15 12 9 16 9 8" />
   </svg>
 )
+
+function DebugButton() {
+  const [copied, setCopied] = useState(false)
+  const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
+    }
+  }, [])
+
+  const handleDebug = useCallback(async () => {
+    try {
+      await runDebug()
+    } catch {
+      // Ignore clipboard errors
+    }
+    if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
+    setCopied(true)
+    copyTimeoutRef.current = setTimeout(() => {
+      setCopied(false)
+      copyTimeoutRef.current = null
+    }, 800)
+  }, [])
+
+  return (
+    <button
+      type="button"
+      onClick={handleDebug}
+      className="text-xs text-zinc-500 hover:text-zinc-400 cursor-pointer bg-transparent border-none p-0 font-inherit"
+      aria-label="Copy debug report to clipboard and log to console"
+    >
+      {copied ? "Copied" : "Debug"}
+    </button>
+  )
+}
 
 interface EditableFieldProps {
   value: string
@@ -324,7 +360,7 @@ export default function Metadata() {
           </button>
         </div>
       </aside>
-      <div className="flex justify-center pt-2">
+      <div className="flex justify-center items-center pt-2 gap-1">
         <button
           type="button"
           onClick={clearPersistedDataAndReload}
@@ -333,6 +369,8 @@ export default function Metadata() {
         >
           Clear data
         </button>
+        <span className="text-xs text-zinc-500">|</span>
+        <DebugButton />
       </div>
     </div>
   )

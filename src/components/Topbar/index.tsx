@@ -67,8 +67,8 @@ const Topbar = ({ onNew, onReset, onFork }: TopbarProps) => {
         <Button onClick={onReset} aria-label="Reset current build" mutedWhenUnpressed={false}>
           Reset
         </Button>
-        <Button onClick={onFork} aria-label="Copy current build" mutedWhenUnpressed={false}>
-          Copy
+        <Button onClick={onFork} aria-label="Duplicate current build" mutedWhenUnpressed={false}>
+          Duplicate
         </Button>
         {!isBuildUpToDate && (
           <span className="text-amber-400 text-xs font-medium" title="Unsaved changes">•</span>

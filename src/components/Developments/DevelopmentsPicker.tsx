@@ -7,6 +7,8 @@ import DevelopmentDetailTooltip, {
   type DevelopmentDomain,
 } from "./DevelopmentDetailTooltip"
 import { costToResearchNext } from "@/utils/techCost"
+import { getKnowledgeBreakdownForDev, type KnowledgeContext } from "@/utils/knowledge"
+import KnowledgeBadge from "@/components/KnowledgeBadge"
 import PanelCorners from "@/components/PanelCorners"
 import OrderBadge from "@/components/OrderBadge"
 import developmentsData from "./developments.json"
@@ -131,6 +133,11 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
   const selectedDevelopments = useMainStore((s) => s.selectedDevelopments)
   const setSelectedDevelopments = useMainStore((s) => s.setSelectedDevelopments)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const mainBaseState = useMainStore((s) => s.mainBaseState)
+  const developmentsKnowledge = useMainStore((s) => s.developmentsKnowledge)
+  const setDevelopmentKnowledge = useMainStore((s) => s.setDevelopmentKnowledge)
+  const knowledgeBase = useMainStore((s) => s.knowledgeBase)
+  const setKnowledgeBase = useMainStore((s) => s.setKnowledgeBase)
 
   const [hoverTooltip, setHoverTooltip] = useState<{
     development: DevelopmentEntry
@@ -256,6 +263,14 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
 
   if (!open) return null
 
+  const knowledgeContext: KnowledgeContext = {
+    selectedFaction,
+    mainBaseState,
+    selectedDevelopments,
+    developmentsKnowledge,
+    knowledgeBase,
+  }
+
   return (
     <>
       <div className="fixed inset-0 z-40 bg-black/70" aria-hidden />
@@ -278,6 +293,9 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
               onSelect={handleSelect}
               onDeselect={handleDeselect}
               onHover={setHoverTooltip}
+              knowledgeContext={knowledgeContext}
+              setDevelopmentKnowledge={setDevelopmentKnowledge}
+              setKnowledgeBase={setKnowledgeBase}
             />
             <Quadrant
               domain="military"
@@ -290,6 +308,9 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
               onSelect={handleSelect}
               onDeselect={handleDeselect}
               onHover={setHoverTooltip}
+              knowledgeContext={knowledgeContext}
+              setDevelopmentKnowledge={setDevelopmentKnowledge}
+              setKnowledgeBase={setKnowledgeBase}
             />
           </div>
           <div className="flex gap-6">
@@ -304,6 +325,9 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
               onSelect={handleSelect}
               onDeselect={handleDeselect}
               onHover={setHoverTooltip}
+              knowledgeContext={knowledgeContext}
+              setDevelopmentKnowledge={setDevelopmentKnowledge}
+              setKnowledgeBase={setKnowledgeBase}
             />
             <Quadrant
               domain="green"
@@ -316,6 +340,9 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
               onSelect={handleSelect}
               onDeselect={handleDeselect}
               onHover={setHoverTooltip}
+              knowledgeContext={knowledgeContext}
+              setDevelopmentKnowledge={setDevelopmentKnowledge}
+              setKnowledgeBase={setKnowledgeBase}
             />
           </div>
         </div>
@@ -325,6 +352,11 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
           development={hoverTooltip.development}
           followCursor={{ x: hoverTooltip.x, y: hoverTooltip.y }}
           {...getCostForTooltip(hoverTooltip.development)}
+          knowledgeBreakdown={getKnowledgeBreakdownForDev(
+            hoverTooltip.development.id,
+            hoverTooltip.development.domain,
+            knowledgeContext
+          )}
         />
       )}
     </>
@@ -342,6 +374,9 @@ interface QuadrantProps {
   onSelect: (d: DevelopmentEntry) => void
   onDeselect: (d: DevelopmentEntry) => void
   onHover: React.Dispatch<React.SetStateAction<{ development: DevelopmentEntry; x: number; y: number } | null>>
+  knowledgeContext: KnowledgeContext
+  setDevelopmentKnowledge: (id: string, value: number) => void
+  setKnowledgeBase: (value: number) => void
 }
 
 function Quadrant({
@@ -355,6 +390,9 @@ function Quadrant({
   onSelect,
   onDeselect,
   onHover,
+  knowledgeContext,
+  setDevelopmentKnowledge: _setDevelopmentKnowledge,
+  setKnowledgeBase,
 }: QuadrantProps) {
   const maxX = useMemo(
     () => (developments.length ? Math.max(...developments.map((d) => d.gridX)) : 0),
@@ -416,10 +454,14 @@ function Quadrant({
           const orderNumber = getOrderNumber(d.id)
           const spriteStyle = getDevelopmentSpriteStyle(d.gfx)
           const frameImage = getFrameImage(d.domain, state === "selected")
+          const knowledgeBreakdown =
+            state === "selected"
+              ? getKnowledgeBreakdownForDev(d.id, d.domain, knowledgeContext)
+              : null
           return (
             <div
               key={d.id}
-              className={`relative ${getNodeClasses(d, state)}`}
+              className={`relative group ${getNodeClasses(d, state)}`}
               style={{
                 gridColumn: d.gridX + 1,
                 gridRow: d.gridY + 1,
@@ -548,6 +590,25 @@ function Quadrant({
               {/* Order badge: shared with Main Base (OrderBadge display-only, compact in picker) */}
               {orderNumber !== null && <OrderBadge orderNumber={orderNumber} compact />}
               {state === "selected" && orderNumber === null && <OrderBadge compact>✓</OrderBadge>}
+              {/* Knowledge badge: top-left; on last selected dev, +/- adjusts global knowledgeBase (updates days in all tooltips) */}
+              {state === "selected" && knowledgeBreakdown && (
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <KnowledgeBadge
+                    value={knowledgeBreakdown.effective}
+                    breakdown={knowledgeBreakdown}
+                    onIncrement={
+                      d.id === lastSelectedId
+                        ? () => setKnowledgeBase(knowledgeBreakdown.effective + 1)
+                        : undefined
+                    }
+                    onDecrement={
+                      d.id === lastSelectedId
+                        ? () => setKnowledgeBase(knowledgeBreakdown.effective - 1)
+                        : undefined
+                    }
+                  />
+                </div>
+              )}
               <span
                 className={`text-center text-xs pb-1 w-4/5 leading-tight ${state === "selected" ? "text-white" : "text-zinc-200"}`}
               >

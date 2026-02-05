@@ -24,6 +24,7 @@ import {
   type BuildingOrderStatePerFaction,
   type CurrentBuildId,
   type MainStoreBuildingOrder,
+  type DevelopmentsKnowledge,
   FACTION_LABELS,
   MAIN_BASE_VARIANT_FACTIONS,
   MAIN_STORE_PERSIST_KEY,
@@ -51,6 +52,9 @@ import {
   initialDevelopmentsSummary,
   createEmptyMetadata,
   normalizeLoadedBuild,
+  DEFAULT_KNOWLEDGE_BASE,
+  MIN_KNOWLEDGE_BASE,
+  MAX_KNOWLEDGE_BASE,
   createEmptyArmoryForFaction,
   createEmptyUnitSlotsForFaction,
   createEmptyCouncillorSlotsForFaction,
@@ -87,6 +91,7 @@ export type {
   PanelVisibility,
   DevelopmentsSummary,
   SelectedDevelopments,
+  DevelopmentsKnowledge,
   BuildMetadata,
   SavedBuild,
   BuildSnapshot,
@@ -196,6 +201,10 @@ interface MainStore {
   panelVisibility: PanelVisibility
   developmentsSummary: DevelopmentsSummary
   selectedDevelopments: SelectedDevelopments
+  /** Per-development Knowledge/day mapping for this build. */
+  developmentsKnowledge: DevelopmentsKnowledge
+  /** Global Knowledge/day (5–50) used for all development time tooltips. */
+  knowledgeBase: number
   metadata: BuildMetadata
   defaultAuthor: string
   currentBuildName: string
@@ -234,6 +243,12 @@ interface MainStore {
   createNewBuild: () => void
   forkCurrentBuild: () => void
   switchFaction: (faction: FactionLabel) => void
+  /** Set or update the Knowledge/day override for a specific development. */
+  setDevelopmentKnowledge: (id: string, value: number) => void
+  /** Clear the Knowledge/day override for a specific development. */
+  clearDevelopmentKnowledge: (id: string) => void
+  /** Set global Knowledge/day (5–50) used for development time tooltips. */
+  setKnowledgeBase: (value: number) => void
 }
 
 function generateBuildId(): string {
@@ -257,6 +272,8 @@ export function getBuildStateObject() {
     panelVisibility: s.panelVisibility,
     developmentsSummary: s.developmentsSummary,
     selectedDevelopments: s.selectedDevelopments,
+    developmentsKnowledge: s.developmentsKnowledge,
+    knowledgeBase: s.knowledgeBase,
     metadata: s.metadata,
     currentBuildName: s.currentBuildName,
   }
@@ -278,6 +295,8 @@ export function getSharePayloadFromState(s: MainStore): SharedBuildPayload {
     developmentsSummary: s.developmentsSummary,
     selectedDevelopments: s.selectedDevelopments,
     metadata: s.metadata,
+    developmentsKnowledge: s.developmentsKnowledge,
+    knowledgeBase: s.knowledgeBase,
   }
   if (hasMainBaseVariant(faction)) {
     const factionState = s.mainBaseState[faction]
@@ -327,6 +346,8 @@ export const useMainStore = create<MainStore>()(
           panelVisibility: initialPanelVisibility,
           developmentsSummary: initialDevelopmentsSummary,
           selectedDevelopments: [],
+          developmentsKnowledge: {},
+          knowledgeBase: DEFAULT_KNOWLEDGE_BASE,
           metadata: createEmptyMetadata(),
           defaultAuthor: DEFAULT_AUTHOR,
           currentBuildName: INITIAL_BUILD_NAME,
@@ -365,6 +386,30 @@ export const useMainStore = create<MainStore>()(
           },
           setSelectedDevelopments: (ids, summary) => {
             set({ selectedDevelopments: ids, developmentsSummary: summary })
+            persistBuild()
+          },
+          setDevelopmentKnowledge: (id, value) => {
+            const clamped = Math.max(5, Math.min(50, Math.round(value)))
+            set((state) => ({
+              developmentsKnowledge: {
+                ...state.developmentsKnowledge,
+                [id]: clamped,
+              },
+            }))
+            persistBuild()
+          },
+          clearDevelopmentKnowledge: (id) => {
+            set((state) => {
+              if (!(id in state.developmentsKnowledge)) return state
+              const next: DevelopmentsKnowledge = { ...state.developmentsKnowledge }
+              delete next[id]
+              return { developmentsKnowledge: next }
+            })
+            persistBuild()
+          },
+          setKnowledgeBase: (value) => {
+            const clamped = Math.max(MIN_KNOWLEDGE_BASE, Math.min(MAX_KNOWLEDGE_BASE, Math.round(value)))
+            set({ knowledgeBase: clamped })
             persistBuild()
           },
           reorderDevelopment: (id, direction) => {
@@ -642,6 +687,8 @@ export const useMainStore = create<MainStore>()(
               panelVisibility: payload.panelVisibility,
               developmentsSummary: payload.developmentsSummary,
               selectedDevelopments: payload.selectedDevelopments,
+              developmentsKnowledge: payload.developmentsKnowledge,
+              knowledgeBase: payload.knowledgeBase,
               metadata: payload.metadata,
             }
             const norm = normalizeLoadedBuild(synthetic, defaultAuthor)
@@ -659,6 +706,8 @@ export const useMainStore = create<MainStore>()(
               panelVisibility: norm.panelVisibility,
               developmentsSummary: norm.developmentsSummary,
               selectedDevelopments: norm.selectedDevelopments,
+              developmentsKnowledge: norm.developmentsKnowledge,
+              knowledgeBase: norm.knowledgeBase,
               metadata: norm.metadata,
               currentBuildName: "Shared build",
               currentBuildId: null,
@@ -683,6 +732,8 @@ export const useMainStore = create<MainStore>()(
               operationSlots,
               panelVisibility,
               developmentsSummary,
+              developmentsKnowledge,
+              knowledgeBase,
               metadata,
               savedBuilds,
               currentBuildName,
@@ -709,6 +760,8 @@ export const useMainStore = create<MainStore>()(
               panelVisibility,
               developmentsSummary,
               selectedDevelopments: get().selectedDevelopments,
+              developmentsKnowledge,
+              knowledgeBase,
               metadata,
               currentBuildName: finalName,
             })
@@ -729,6 +782,8 @@ export const useMainStore = create<MainStore>()(
                 panelVisibility: deepClone(panelVisibility),
                 developmentsSummary: deepClone(developmentsSummary),
                 selectedDevelopments: [...get().selectedDevelopments],
+                developmentsKnowledge: deepClone(developmentsKnowledge),
+                knowledgeBase,
                 metadata: deepClone(metadata),
                 // Keep original createdAt - don't update on save
               }
@@ -756,6 +811,8 @@ export const useMainStore = create<MainStore>()(
                 panelVisibility: deepClone(panelVisibility),
                 developmentsSummary: deepClone(developmentsSummary),
                 selectedDevelopments: [...get().selectedDevelopments],
+                developmentsKnowledge: deepClone(developmentsKnowledge),
+                knowledgeBase,
                 metadata: deepClone(metadata),
               }
               set({
@@ -793,6 +850,8 @@ export const useMainStore = create<MainStore>()(
               panelVisibility: norm.panelVisibility,
               developmentsSummary: deepClone(norm.developmentsSummary),
               selectedDevelopments: norm.selectedDevelopments,
+              developmentsKnowledge: deepClone(norm.developmentsKnowledge),
+              knowledgeBase: norm.knowledgeBase,
               metadata: deepClone(norm.metadata),
               currentBuildName: build.name,
               currentBuildId: id,
@@ -823,6 +882,8 @@ export const useMainStore = create<MainStore>()(
               panelVisibility: norm.panelVisibility,
               developmentsSummary: deepClone(norm.developmentsSummary),
               selectedDevelopments: norm.selectedDevelopments,
+              developmentsKnowledge: deepClone(norm.developmentsKnowledge),
+              knowledgeBase: norm.knowledgeBase,
               metadata: deepClone(norm.metadata),
             }
             const snapshot = getBuildSnapshot({
@@ -847,6 +908,8 @@ export const useMainStore = create<MainStore>()(
               panelVisibility: duplicated.panelVisibility,
               developmentsSummary: deepClone(duplicated.developmentsSummary),
               selectedDevelopments: duplicated.selectedDevelopments ?? [],
+              developmentsKnowledge: deepClone(norm.developmentsKnowledge),
+              knowledgeBase: norm.knowledgeBase,
               metadata: deepClone(duplicated.metadata),
               currentBuildName: duplicated.name,
               currentBuildId: newId,
@@ -872,6 +935,8 @@ export const useMainStore = create<MainStore>()(
                 panelVisibility: initialPanelVisibility,
                 developmentsSummary: initialDevelopmentsSummary,
                 selectedDevelopments: [],
+                developmentsKnowledge: {},
+                knowledgeBase: DEFAULT_KNOWLEDGE_BASE,
                 metadata: createEmptyMetadata(defaultAuthor),
                 currentBuildName: getDefaultBuildName("atreides", newSaved),
                 currentBuildId: null,
@@ -897,6 +962,8 @@ export const useMainStore = create<MainStore>()(
               panelVisibility: initialPanelVisibility,
               developmentsSummary: initialDevelopmentsSummary,
               selectedDevelopments: [],
+              developmentsKnowledge: {},
+              knowledgeBase: DEFAULT_KNOWLEDGE_BASE,
               metadata: createEmptyMetadata(defaultAuthor),
               currentBuildName: getDefaultBuildName("atreides", savedBuilds),
               currentBuildId: null,
@@ -917,6 +984,8 @@ export const useMainStore = create<MainStore>()(
               panelVisibility: initialPanelVisibility,
               developmentsSummary: initialDevelopmentsSummary,
               selectedDevelopments: [],
+              developmentsKnowledge: {},
+              knowledgeBase: DEFAULT_KNOWLEDGE_BASE,
               metadata: createEmptyMetadata(defaultAuthor),
               currentBuildName: getDefaultBuildName(selectedFaction, savedBuilds),
               currentBuildId: null,
@@ -953,6 +1022,8 @@ export const useMainStore = create<MainStore>()(
                 panelVisibility: g.panelVisibility,
                 developmentsSummary: g.developmentsSummary,
                 selectedDevelopments: g.selectedDevelopments,
+                developmentsKnowledge: g.developmentsKnowledge,
+                knowledgeBase: g.knowledgeBase,
                 metadata: g.metadata,
                 currentBuildName: trimmed,
               })
@@ -991,6 +1062,8 @@ export const useMainStore = create<MainStore>()(
             panelVisibility: s.panelVisibility,
             developmentsSummary: s.developmentsSummary,
             selectedDevelopments: s.selectedDevelopments,
+            developmentsKnowledge: s.developmentsKnowledge,
+            knowledgeBase: s.knowledgeBase,
             metadata: s.metadata,
           }
         },
@@ -1016,6 +1089,8 @@ export const useMainStore = create<MainStore>()(
               merged.panelVisibility = norm.panelVisibility
               merged.developmentsSummary = deepClone(norm.developmentsSummary)
               merged.selectedDevelopments = norm.selectedDevelopments
+              merged.developmentsKnowledge = deepClone(norm.developmentsKnowledge)
+              merged.knowledgeBase = norm.knowledgeBase
               merged.metadata = deepClone(norm.metadata)
               merged.lastSavedSnapshot = getBuildSnapshot({
                 selectedFaction: build.selectedFaction,
@@ -1041,6 +1116,8 @@ export const useMainStore = create<MainStore>()(
           if (p.panelVisibility != null) merged.panelVisibility = p.panelVisibility
           if (p.developmentsSummary != null) merged.developmentsSummary = p.developmentsSummary
           if (p.selectedDevelopments != null) merged.selectedDevelopments = p.selectedDevelopments
+          if (p.developmentsKnowledge != null) merged.developmentsKnowledge = p.developmentsKnowledge
+          if (p.knowledgeBase != null) merged.knowledgeBase = p.knowledgeBase
           if (p.metadata != null) merged.metadata = p.metadata
           merged.lastSavedSnapshot =
             p.currentBuildId != null && p.mainBaseState != null
@@ -1057,6 +1134,8 @@ export const useMainStore = create<MainStore>()(
                 panelVisibility: p.panelVisibility ?? current.panelVisibility,
                 developmentsSummary: p.developmentsSummary ?? current.developmentsSummary,
                 selectedDevelopments: p.selectedDevelopments ?? current.selectedDevelopments,
+                developmentsKnowledge: p.developmentsKnowledge ?? current.developmentsKnowledge,
+                knowledgeBase: p.knowledgeBase ?? current.knowledgeBase,
                 metadata: p.metadata ?? current.metadata,
                 currentBuildName: p.currentBuildName ?? current.currentBuildName,
               } as BuildSnapshotState)
@@ -1145,6 +1224,8 @@ export function useIsBuildUpToDate(): boolean {
       panelVisibility: s.panelVisibility,
       developmentsSummary: s.developmentsSummary,
       selectedDevelopments: s.selectedDevelopments,
+      developmentsKnowledge: s.developmentsKnowledge,
+      knowledgeBase: s.knowledgeBase,
       metadata: s.metadata,
       currentBuildName: s.currentBuildName,
     })

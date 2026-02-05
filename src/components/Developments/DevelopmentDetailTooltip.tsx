@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom"
 import TooltipWrapper from "@/components/shared/TooltipWrapper"
 import { TIME_ICON_PATH } from "@/utils/assetPaths"
+import type { KnowledgeModifierBreakdown } from "@/utils/knowledge"
 
 export type DevelopmentDomain = "economic" | "military" | "statecraft" | "green"
 
@@ -46,6 +47,8 @@ export interface DevelopmentDetailTooltipProps {
   anchorRect?: { left: number; top: number; width: number; height: number }
   /** Research cost in Knowledge (current build order or "if researched next"). When set, shows ~days. */
   costKnowledge?: number
+  /** Optional Knowledge/day breakdown for this development. */
+  knowledgeBreakdown?: KnowledgeModifierBreakdown
 }
 
 type Segment = { type: "bracket" | "value" | "normal"; text: string }
@@ -137,15 +140,16 @@ const tooltipContentClass =
 interface TooltipContentProps {
   development: DevelopmentEntry
   costKnowledge?: number
+  knowledgeBreakdown?: KnowledgeModifierBreakdown
 }
 
-function TooltipContent({ development, costKnowledge }: TooltipContentProps) {
+function TooltipContent({ development, costKnowledge, knowledgeBreakdown }: TooltipContentProps) {
   const categoryLabel = DOMAIN_LABELS[development.domain]
   const colorClass = domainColor[development.domain]
+  const knowledgePerDay =
+    knowledgeBreakdown?.effective ?? DEFAULT_KNOWLEDGE_PER_DAY
   const costDays =
-    costKnowledge != null
-      ? Math.round(costKnowledge / DEFAULT_KNOWLEDGE_PER_DAY)
-      : undefined
+    costKnowledge != null ? Math.round(costKnowledge / knowledgePerDay) : undefined
   return (
     <>
       <div className="px-3 py-2 border-b border-zinc-700/80 bg-zinc-800/90">
@@ -163,6 +167,11 @@ function TooltipContent({ development, costKnowledge }: TooltipContentProps) {
             </div>
           )}
         </div>
+        {knowledgeBreakdown && (
+          <div className="mt-0.5 text-[10px] text-zinc-400">
+            ~{Math.round(knowledgePerDay)} Knowledge / day
+          </div>
+        )}
         <div className={`text-xs ${colorClass}`}>{categoryLabel}</div>
       </div>
       {development.attributes && development.attributes.length > 0 ? (
@@ -190,8 +199,9 @@ export default function DevelopmentDetailTooltip({
   followCursor,
   anchorRect,
   costKnowledge,
+  knowledgeBreakdown,
 }: DevelopmentDetailTooltipProps) {
-  const costProps = { costKnowledge }
+  const costProps = { costKnowledge, knowledgeBreakdown }
   if (followCursor) {
     return createPortal(
       <div

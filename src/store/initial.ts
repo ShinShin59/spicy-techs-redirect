@@ -15,6 +15,7 @@ import type {
   BuildMetadata,
   NormalizedBuildFields,
   SavedBuild,
+  DevelopmentsKnowledge,
 } from "./types"
 import {
   FACTION_LABELS,
@@ -41,6 +42,11 @@ export const initialDevelopmentsSummary: DevelopmentsSummary = {
   green: 0,
   statecraft: 0,
 }
+
+/** Default and bounds for global Knowledge/day used in development time tooltips. */
+export const DEFAULT_KNOWLEDGE_BASE = 5
+export const MIN_KNOWLEDGE_BASE = 5
+export const MAX_KNOWLEDGE_BASE = 50
 
 export const initialBuildingOrder: Record<FactionLabel, BuildingOrderStatePerFaction> = Object.fromEntries(
   (FACTION_LABELS as readonly FactionLabel[]).map((f) => [
@@ -153,6 +159,13 @@ export function normalizeLoadedBuild(
   const developmentsSummary =
     (build as SavedBuild & { developmentsSummary?: DevelopmentsSummary }).developmentsSummary ??
     initialDevelopmentsSummary
+  const developmentsKnowledge: DevelopmentsKnowledge =
+    (build as SavedBuild & { developmentsKnowledge?: DevelopmentsKnowledge }).developmentsKnowledge ?? {}
+  const rawKnowledgeBase = (build as SavedBuild & { knowledgeBase?: number }).knowledgeBase
+  const knowledgeBase =
+    typeof rawKnowledgeBase === "number"
+      ? Math.max(MIN_KNOWLEDGE_BASE, Math.min(MAX_KNOWLEDGE_BASE, Math.round(rawKnowledgeBase)))
+      : DEFAULT_KNOWLEDGE_BASE
   return {
     unitSlotCount: typeof build.unitSlotCount === "number" ? build.unitSlotCount : DEFAULT_UNIT_SLOT_COUNT,
     armoryState: build.armoryState || initialArmoryState,
@@ -162,6 +175,8 @@ export function normalizeLoadedBuild(
     panelVisibility: normalizePanelVisibility(build.panelVisibility),
     developmentsSummary,
     selectedDevelopments: Array.isArray(build.selectedDevelopments) ? [...build.selectedDevelopments] : [],
+    developmentsKnowledge,
+    knowledgeBase,
     metadata: normalizeMetadata(build.metadata, defaultAuthor),
   }
 }

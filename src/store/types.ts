@@ -56,6 +56,9 @@ export interface DevelopmentsSummary {
 
 export type SelectedDevelopments = string[]
 
+/** Per-development research rate in Knowledge/day, keyed by development id. */
+export type DevelopmentsKnowledge = Record<string, number>
+
 export interface BuildMetadata {
   author: string
   social: string
@@ -88,6 +91,10 @@ export interface SavedBuild {
   panelVisibility: PanelVisibility
   developmentsSummary: DevelopmentsSummary
   selectedDevelopments?: SelectedDevelopments
+  /** Optional per-development Knowledge/day mapping (absent for older saves). */
+  developmentsKnowledge?: DevelopmentsKnowledge
+  /** Optional global Knowledge/day (5–50) used for all development time tooltips (absent for older saves). */
+  knowledgeBase?: number
   metadata: BuildMetadata
 }
 
@@ -103,6 +110,8 @@ export interface NormalizedBuildFields {
   panelVisibility: PanelVisibility
   developmentsSummary: DevelopmentsSummary
   selectedDevelopments: SelectedDevelopments
+  developmentsKnowledge: DevelopmentsKnowledge
+  knowledgeBase: number
   metadata: BuildMetadata
 }
 
@@ -119,6 +128,8 @@ export type BuildSnapshotState = {
   panelVisibility: PanelVisibility
   developmentsSummary: DevelopmentsSummary
   selectedDevelopments: SelectedDevelopments
+  developmentsKnowledge: DevelopmentsKnowledge
+  knowledgeBase: number
   metadata: BuildMetadata
   currentBuildName: string
 }
@@ -137,6 +148,8 @@ export function getBuildSnapshot(state: BuildSnapshotState): string {
     panelVisibility: state.panelVisibility,
     developmentsSummary: state.developmentsSummary,
     selectedDevelopments: state.selectedDevelopments,
+    developmentsKnowledge: state.developmentsKnowledge,
+    knowledgeBase: state.knowledgeBase,
     metadata: state.metadata,
     currentBuildName: state.currentBuildName,
   })

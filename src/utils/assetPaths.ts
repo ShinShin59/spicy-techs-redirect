@@ -15,8 +15,11 @@ const UNIT_ICONS_PATH = `${BASE}images/units`
 const COUNCILLOR_ICONS_PATH = `${BASE}images/councillors`
 const OPERATIONS_ICONS_PATH = `${BASE}images/operations`
 
-/** Time/days icon for development cost display */
-export const TIME_ICON_PATH = `${BASE}images/time-icon.png`
+/** Time/days icon for development cost display (from developments/time.png) */
+export const TIME_ICON_PATH = `${HUD_IMAGES_PATH}/developments/time.png`
+
+/** Knowledge icon used for per-development research rate display (ressources/knowledge.png) */
+export const KNOWLEDGE_ICON_PATH = `${HUD_IMAGES_PATH}/ressources/knowledge.png`
 
 export function getFactionIconPath(faction: FactionLabel): string {
   return `${FACTION_ICON_PATH}/${faction}.png`
@@ -104,10 +107,12 @@ export function getDevelopmentPickerAssetPath(fileName: string): string {
 }
 
 function initPreload(): void {
-  // Preload HUD images (slot, background_hero, development sprite sheet)
+  // Preload HUD images (slot, background_hero, development sprite sheet, time/knowledge icons)
   preloadImage(getHudImagePath("slot.png"))
   preloadImage(getHudImagePath("background_hero.png"))
   preloadImage(getHudImagePath("developments/techIcons2.png"))
+  preloadImage(getHudImagePath("developments/time.png"))
+  preloadImage(getHudImagePath("ressources/knowledge.png"))
 
   // Preload faction icons
   FACTION_LABELS.forEach((faction) => {

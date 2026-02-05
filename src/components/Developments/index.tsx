@@ -2,8 +2,8 @@ import { useMemo, useState } from "react"
 import { useMainStore } from "@/store"
 import { getDevelopmentsSlotPath } from "@/utils/assetPaths"
 import { playDevelopmentsOpenSound, playDevelopmentsCloseSound } from "@/utils/sound"
-import { totalCostOfOrder, costToDays, DEFAULT_KNOWLEDGE_PER_DAY, formatDaysAsMonthsAndDays } from "@/utils/techCost"
-import type { DevWithTier } from "@/utils/techCost"
+import { totalCostOfOrder, formatDaysAsMonthsAndDays } from "@/utils/techCost"
+import { totalDaysOfOrder, type DevWithTierAndDomain } from "@/utils/knowledge"
 import PanelCorners from "@/components/PanelCorners"
 import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
 import { usePanelHideOnRightClick } from "@/hooks/usePanelHideOnRightClick"
@@ -21,13 +21,19 @@ const GRID_ORDER: (keyof import("@/store").DevelopmentsSummary)[] = [
   "green",
 ]
 
-const idToDev = new Map<string, DevWithTier>(
-  (developmentsData as { id: string; tier: number }[]).map((d) => [d.id, d])
+const idToDev = new Map<string, DevWithTierAndDomain>(
+  (developmentsData as { id: string; tier: number; domain: "economic" | "military" | "statecraft" | "green" }[]).map(
+    (d) => [d.id, d]
+  )
 )
 
 const Developments = () => {
   const developmentsSummary = useMainStore((s) => s.developmentsSummary)
   const selectedDevelopments = useMainStore((s) => s.selectedDevelopments)
+  const selectedFaction = useMainStore((s) => s.selectedFaction)
+  const mainBaseState = useMainStore((s) => s.mainBaseState)
+  const developmentsKnowledge = useMainStore((s) => s.developmentsKnowledge)
+  const knowledgeBase = useMainStore((s) => s.knowledgeBase)
   const [pickerOpen, setPickerOpen] = useState(false)
   const toggleDevelopments = useMainStore((s) => s.toggleDevelopments)
   const developmentsOpen = useMainStore((s) => s.panelVisibility.developmentsOpen)
@@ -36,9 +42,17 @@ const Developments = () => {
   const totalCostAndDays = useMemo(() => {
     if (selectedDevelopments.length === 0) return null
     const cost = totalCostOfOrder(selectedDevelopments, idToDev)
-    const days = Math.round(costToDays(cost, DEFAULT_KNOWLEDGE_PER_DAY))
+    const days = Math.round(
+      totalDaysOfOrder(selectedDevelopments, idToDev, {
+        selectedFaction,
+        mainBaseState,
+        selectedDevelopments,
+        developmentsKnowledge,
+        knowledgeBase,
+      })
+    )
     return { cost, days }
-  }, [selectedDevelopments])
+  }, [selectedDevelopments, selectedFaction, mainBaseState, developmentsKnowledge, knowledgeBase])
 
   return (
     <div className="flex flex-col">

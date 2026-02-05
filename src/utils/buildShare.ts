@@ -8,6 +8,7 @@ import type {
   PanelVisibility,
   DevelopmentsSummary,
   BuildMetadata,
+  DevelopmentsKnowledge,
 } from "../store"
 import type { MainBaseState } from "../store/main-base"
 
@@ -32,6 +33,10 @@ export interface SharedBuildPayload {
   developmentsSummary: DevelopmentsSummary
   selectedDevelopments: string[]
   metadata: BuildMetadata
+  /** Optional per-development Knowledge/day mapping for this shared build. */
+  developmentsKnowledge?: DevelopmentsKnowledge
+  /** Optional global Knowledge/day (5–50) for development time tooltips. */
+  knowledgeBase?: number
 }
 
 export function encodeBuildPayload(payload: SharedBuildPayload): string {

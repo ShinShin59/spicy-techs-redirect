@@ -10,6 +10,7 @@
 import { readFileSync, writeFileSync } from "fs"
 import { join, dirname } from "path"
 import { fileURLToPath } from "url"
+import { buildLookups, resolveAttribute } from "./cdb-resolver.js"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, "..")
@@ -38,6 +39,8 @@ function main() {
   const outJson = join(ROOT, "src/components/Developments/developments.json")
 
   const cdb = JSON.parse(readFileSync(cdbPath, "utf-8"))
+  const lookups = buildLookups(cdb)
+
   const devSheet = (cdb.sheets || []).find((s) => s.name === "development")
   if (!devSheet) throw new Error("Missing development sheet in CDB")
 
@@ -59,7 +62,7 @@ function main() {
 
     const gfx = d.gfx
       ? {
-        file: d.gfx.file,
+        file: (d.gfx.file || "").replace(/\.png$/i, ".webp"),
         size: d.gfx.size,
         x: d.gfx.x,
         y: d.gfx.y,
@@ -67,8 +70,13 @@ function main() {
       : undefined
 
     const attributes = (d.attributes || [])
-      .map((a) => a.desc)
-      .filter(Boolean)
+      .map((a) => resolveAttribute(a, lookups))
+      .filter((a) => {
+        // Filter out empty strings and objects with empty desc
+        if (typeof a === "string") return a.length > 0
+        if (typeof a === "object" && a !== null) return a.desc && a.desc.length > 0
+        return false
+      })
 
     entries.push({
       id,

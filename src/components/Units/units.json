@@ -4,82 +4,61 @@
       "id": "A_Trooper",
       "name": "Trooper",
       "desc": "Troopers are fierce melee fighters. They become stronger when supported by specialized units.",
-      "cpCost": 5,
-      "stats": { "health": 500, "power": 14, "armor": 6 },
-      "attributes": [
-        "Gains +3 Power when supported by specialized ally units"
-      ],
       "equipment": [
         "FrontLineTactics",
         "OffensiveMindset",
         "ParryingArmguards",
-        "PranaBinduInitiation"
-      ]
+        "PranaBindu"
+      ],
+      "flags": 0
     },
     {
       "id": "A_Soldier",
       "name": "Ranger",
       "desc": "Armed with medium-range projectile weapons, rangers are best used alongside defensive units that can protect them.",
-      "cpCost": 4,
-      "stats": { "health": 400, "power": 17, "armor": 0, "range": 35 },
-      "attributes": [
-        "Suppressive Fire: targets suffer Suppressed (attacks deal 90% damage)"
-      ],
       "equipment": [
         "CrossfireTactics",
         "SniperRifles",
         "AutomaticWeapons",
         "WarMemoir"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "A_Demo",
       "name": "Heavy Weapon Squad",
       "desc": "Equipped with rocket launchers, these specialists can easily breach enemy defenses and open the way for other units.",
-      "cpCost": 4,
-      "stats": { "health": 400, "power": 23, "armor": 0, "range": 35 },
-      "attributes": [
-        "Disruption: damaged targets suffer -2 Armor"
-      ],
       "equipment": [
         "DistractingFlashes",
         "HeavyLoads",
         "WhistlingAmmo",
         "WarMemoir"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "A_Drone",
       "name": "Support Drone",
       "desc": "This heavy, remote-controlled drone is well suited for combat, but its primary purpose is to provide field support to nearby units.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 14, "armor": 4, "range": 25 },
-      "attributes": [
-        "Life Pods: up to 2 non-mechanical ally units at long range are saved inside the drone instead of dying",
-        "A nearby Support Drone helps nearby units with Life recovery"
-      ],
       "equipment": [
         "KrakenProtocols",
         "SupportingField",
         "EvasionBooster",
         "OptmizedBedArrangement"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "A_Elite",
       "name": "Warden",
       "desc": "The Wardens are the Atreides' elite section. Equipped with heavy-duty armor, shields and swords, they are ready to give their lives to defend their allies.",
-      "cpCost": 5,
-      "stats": { "health": 500, "power": 16, "armor": 8 },
-      "attributes": [
-        "Bulwark: ally Military Units at short range gain +2 Armor"
-      ],
       "equipment": [
         "CoverTactics",
         "LastStandProtocols",
         "ParryingArmguards",
-        "PranaBinduInitiation"
-      ]
+        "PranaBindu"
+      ],
+      "flags": 0
     }
   ],
   "Harkonnen": [
@@ -87,82 +66,61 @@
       "id": "H_Trooper",
       "name": "Trooper",
       "desc": "These rank and file troops are widely used by the Harkonnens, with little regard for their survival as long as they can further their goals.",
-      "cpCost": 4,
-      "stats": { "health": 400, "power": 15, "armor": 4 },
-      "attributes": [
-        "Berserkers: +30% attack speed when missing health"
-      ],
       "equipment": [
         "ScarringArmor",
         "MorbidClimax",
         "FixupKit",
         "RedFluid"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "H_Demo",
       "name": "Gunner",
       "desc": "These Harkonnen specialists use demolition charges and various explosives to stun and disorient their targets, reducing their efficiency.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 16, "armor": 0, "range": 35 },
-      "attributes": [
-        "Pain Focus: Power increases when missing health",
-        "Damaged targets suffer Maimed (-50% Health Regen)"
-      ],
       "equipment": [
         "BloodThinner",
         "HeavyLoads",
         "BirdSlayer",
         "RedFluid"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "H_Soldier",
       "name": "Cerberus",
       "desc": "A special section of Harkonnen fanatics, trained from birth to value success at all costs over survival.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 11, "armor": 0 },
-      "attributes": [
-        "Sadistic: non-mechanical targets suffer Blood Loss (lose Life when moving)"
-      ],
       "equipment": [
         "ElaccaInjector",
         "AssassinArmors",
         "EndocrineArouser",
         "RedFluid"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "H_Drone",
       "name": "Combat Probe",
       "desc": "This lightweight, remote-controlled flying device is outfitted with small-caliber guns to assist other units in combat. Thanks to its small stature and reduced noise, it has the ability to stay concealed from a distance.",
-      "cpCost": 1,
-      "stats": { "health": 100, "power": 10, "armor": 0, "range": 25 },
-      "attributes": [
-        "Fight Analysis: enemy units at medium range suffer -2 Armor (Weakness Revealed)"
-      ],
       "equipment": [
         "TortureTools",
         "MountedExplosives",
         "OpticCamouflage",
         "VirtualBlackBox"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "H_Elite",
       "name": "Executioner",
       "desc": "These hulking killing machines, clad in heavy armor and equipped with ever-regenerating shields, feel seemingly impossible to take down, although they are not fully invulnerable.",
-      "cpCost": 5,
-      "stats": { "health": 500, "power": 15, "armor": 5 },
-      "attributes": [
-        "Bloodthirsty: any unit death at short range grants +1 Power (stacking)"
-      ],
       "equipment": [
         "HibernationBreastplate",
         "ParryingArmguards",
         "MeatArmor",
         "RedFluid"
-      ]
+      ],
+      "flags": 0
     }
   ],
   "Fremen": [
@@ -170,85 +128,77 @@
       "id": "F_Trooper",
       "name": "Warrior",
       "desc": "These Fremen fighters are adept at maintaining a high efficiency in the harsh, arid environments of Arrakis. Dune is their homeworld, and they will always defend it.",
-      "cpCost": 4,
-      "stats": { "health": 400, "power": 15, "armor": 4 },
-      "attributes": [
-        "Elusive Motion: +1 Armor per enemy targeting this unit (up to 3 stacks)"
-      ],
       "equipment": [
         "DryTraining",
         "SandCover",
         "ConfusingTactics",
         "ShelterMaps"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "F_Demo",
       "name": "Skirmisher",
       "desc": "This demolition squad specializes in destroying enemy vehicles.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 5, "armor": 0, "range": 25 },
-      "attributes": [
-        "Fremen Oppression: +20% damage per enemy unit in the damage radius"
-      ],
       "equipment": [
         "CamouflageFabric",
         "ScatterGrenades",
         "AntiPersonalShrapnels",
         "LoudBang"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "F_Sneak",
       "name": "Infiltrator",
       "desc": "Stealthy units specializing in melee combat, able to exploit weaknesses in the enemies' armor and striking where it hurts most.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 11, "armor": 0 },
-      "attributes": [
-        "Sand Cloak: -30% damage received from ranged attacks",
-        "First attack inflicts +40 bonus damage and applies Weakness (+20% damage received)"
-      ],
       "equipment": [
         "CamouflageFabric",
         "ElectronicScrambler",
         "ChasingStance",
         "FocusedMind"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "F_Special",
       "name": "Mobile Turret",
       "desc": "Fremen had to adapt their strategies to fight increasingly armored invaders. A small team wielding stolen offworld artillery can wreak havoc into enemies' air units, while remaining discret and fast enough to evade the retribution.",
-      "cpCost": 4,
-      "stats": { "health": 400, "power": 18, "armor": 0, "range": 35 },
-      "attributes": [
-        "Mobile Battery: can set up into Anti-Air Turret mode",
-        "Can only attack flying units when deployed, cannot move when deployed"
-      ],
       "equipment": [
         "FoldingFrame",
         "AmbushCamouflage",
         "ShadowScan",
         "PreLoadedWeapons"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "F_Elite",
       "name": "Fedaykin",
       "desc": "The elite Fremen warriors are completely fearless and dreaded by all. No unit is better fitted for skirmishes in the desert, even when grossly outnumbered.",
-      "cpCost": 5,
-      "stats": { "health": 400, "power": 22, "armor": 5 },
-      "attributes": [
-        "Heavy Hitter: damages all enemy units in front",
-        "Ignores half of enemy Armor",
-        "Against the Odds: +10% Power and +1 Armor per stack when fighting (up to 5 stacks)"
-      ],
       "equipment": [
         "MakersEffigy",
         "DevastatingStrikes",
         "ConfusingTactics",
         "SelfSufficiency"
-      ]
+      ],
+      "flags": 0
+    },
+    {
+      "id": "F_Frigate",
+      "name": "Altar",
+      "desc": "Made from odds and end of many ships, this aeronef can be customized to meet the needs of its makers.",
+      "equipment": [
+        "AdditionalCannons_Altar",
+        "ListeningDevices_Altar",
+        "HeavyArmor_Altar",
+        "WindTraps_Altar",
+        "AdditionalSails_Altar",
+        "ReconStations_Altar",
+        "SandCloud_Altar",
+        "FreedomSymbol_Altar"
+      ],
+      "flags": 2097664
     }
   ],
   "Smugglers": [
@@ -256,82 +206,61 @@
       "id": "S_Trooper",
       "name": "Scavenger",
       "desc": "Scavengers will offer their services to the highest bidder. This doesn't mean they are devoid of all ethics, but it certainly means that their loyalty has a cost and no strings attached.",
-      "cpCost": 4,
-      "stats": { "health": 400, "power": 15, "armor": 2 },
-      "attributes": [
-        "Scavengers: after first enemy death at medium range, gain +3 Armor until end of combat"
-      ],
       "equipment": [
         "ChasingStance",
         "GnarlyRecyclers",
         "HeavyArmor",
         "DismantlingTools"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "S_Demo",
       "name": "Wrecker",
       "desc": "Plunderers who specialize in the use of drugs and chemical weapons, not only damaging enemy units, but also spoiling their supplies and poisoning their food.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 8, "armor": 0, "range": 25 },
-      "attributes": [
-        "Chemical Weapons: damaged units suffer Poisoned (-20% Speed)"
-      ],
       "equipment": [
         "ConcentratedToxins",
         "Bazookas",
         "TraumaticRepeater",
         "StingingGaz"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "S_Sneak",
       "name": "Sniper",
       "desc": "These lightweight units know when to strike. Their specialty is ambushing units stranded in the desert and already in a bad spot.",
-      "cpCost": 3,
-      "stats": { "health": 250, "power": 21, "armor": 0, "range": 50 },
-      "attributes": [
-        "Elimination Shots: first attack in combat has 200% Power"
-      ],
       "equipment": [
         "PropellingAmmo",
         "RecursiveLense",
         "BarrelCleaner",
         "WhistlingAmmo"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "S_Drone",
       "name": "Scavenging Drone",
       "desc": "These remote-controlled utility machines will help gather lost equipment on the battlefield, and turn them into useful weapons.",
-      "cpCost": 5,
-      "stats": { "health": 500, "power": 16, "armor": 5, "range": 25 },
-      "attributes": [
-        "Loot Distributor: enemy unit death at medium range grants Loot to this drone",
-        "Sell Loot at Smuggler Village for 75 Solari each (outside combat)"
-      ],
       "equipment": [
         "ShieldingStraightener",
         "ShockDampener",
         "OpticCamouflage",
         "MotivationalCashbox"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "S_Elite",
       "name": "Free Company",
       "desc": "Highly trained warriors and assassins, using stealth to strike when one least expects them.",
-      "cpCost": 5,
-      "stats": { "health": 500, "power": 14, "armor": 2 },
-      "attributes": [
-        "Easy Target: when target has 3 Armor or less, gain +50% Power"
-      ],
       "equipment": [
         "RunningSandshoes",
         "AssassinArmors",
         "DualGuns",
         "DismantlingTools"
-      ]
+      ],
+      "flags": 0
     }
   ],
   "Corrino": [
@@ -339,85 +268,61 @@
       "id": "C_Trooper",
       "name": "Conscript Swordman",
       "desc": "Conscripts are fierce fighters. They become stronger when supported by specialized units.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 13, "armor": 3 },
-      "attributes": [
-        "Protection Support: gain +1 Armor per ally Conscript at short range (up to 2 stacks)",
-        "Allies at short range gain +1 Armor"
-      ],
       "equipment": [
         "SmallFormation",
         "SupportingTactics",
         "LiveReformation",
         "ParryingArmguards"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "C_Soldier",
       "name": "Conscript Rifleman",
       "desc": "Conscripts are fierce fighters. They become stronger when supported by specialized units.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 14, "armor": 0, "range": 35 },
-      "attributes": [
-        "Targeting Support: gain +1 Power per ally Conscript Rifleman at short range (up to 2 stacks)"
-      ],
       "equipment": [
         "SmallFormation",
         "SupportingTactics",
         "LiveReformation",
         "WhistlingAmmo"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "C_Special",
       "name": "Incinerator",
       "desc": "These shock troops are equipped with a device that throws burning napalm. This terrible weapon brings agonizing death to its target and awful nightmares to those who see it in action.",
-      "cpCost": 5,
-      "stats": { "health": 400, "power": 7, "armor": 1, "range": 25 },
-      "attributes": [
-        "Flamethrowers: damaged units accrue Burned stacks, +1% damage received per stack until end of combat"
-      ],
       "equipment": [
         "WideNozzle",
         "ExoticCompounds",
         "PhosphorusMix",
         "TerrifyingMask"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "C_Drone",
       "name": "Artillery Drone",
       "desc": "Once stabilized, these remote-controlled mobile artilleries rain deafening shells on even well-defended positions. Make sure to keep the enemy away from them, as they are quite vulnerable at close range.",
-      "cpCost": 5,
-      "stats": { "health": 400, "power": 40, "armor": 2, "range": 80, "minRange": 20 },
-      "attributes": [
-        "Siege Engine: needs to be deployed to attack",
-        "Cannot fire within short range",
-        "Attracts Sandworms when deployed on sand"
-      ],
       "equipment": [
         "LongCannons",
         "HeavyLoads",
         "IncendiaryAmmo",
         "WhistlingAmmo"
-      ]
+      ],
+      "flags": 16384
     },
     {
       "id": "C_Elite",
       "name": "Sardaukar",
       "desc": "Elite troops of the Empire, the Sardaukar are widely considered the best fighters in the universe.",
-      "cpCost": 5,
-      "stats": { "health": 250, "power": 25, "armor": 2 },
-      "attributes": [
-        "Executioner: 5% execution threshold (instant kill when target below threshold)",
-        "+2% execution threshold per ally unit at medium range (up to 20 stacks)"
-      ],
       "equipment": [
         "FrighteningReputation",
         "ParryingArmguards",
         "SardaukarCleaver",
         "BattlefieldFrenzy"
-      ]
+      ],
+      "flags": 0
     }
   ],
   "Ecaz": [
@@ -425,82 +330,61 @@
       "id": "E_Trooper",
       "name": "Squire",
       "desc": "The squires have sworn to serve Ecazi nobility. They are used to taking the biggest blows from enemy forces, and focus on softening defences for stronger units to steal the show.",
-      "cpCost": 4,
-      "stats": { "health": 450, "power": 10, "armor": 7 },
-      "attributes": [
-        "Vanguard: +1 Armor per enemy targeting this unit (up to 5 stacks)"
-      ],
       "equipment": [
         "FrontLineTactics",
         "KnightlyProtector",
         "SoberingMedication",
         "PricklySpear"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "E_Soldier",
       "name": "Musketeer",
       "desc": "[Ecaz-longname] employs a lot of professional hunters, to keep the large game population of their home planet in check, feed the court, and provide diversion. During war times, they are often hired to chase a very different quarry.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 21, "armor": 0, "range": 35 },
-      "attributes": [
-        "Keen Eye: +1 Power per ally Musketeer at short range (up to 5 stacks)"
-      ],
       "equipment": [
         "ShadowScan",
         "HeavyLoads",
         "BarrelCleaner",
         "BirdSlayer"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "E_Special",
       "name": "Fencer",
       "desc": "Fencers trained all day, every day to be the best duelist in the universe. On the battlefield, they often take the heat off of their lesser peers.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 11, "armor": 1 },
-      "attributes": [
-        "Deadly Dance: when alone vs target, target takes +50% damage from units not targeting them",
-        "+150% attack speed when alone"
-      ],
       "equipment": [
         "JumpingBoot",
         "PersonalMantlet",
         "ParryingArmguards",
         "ChasingStance"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "E_Drone",
       "name": "War Banner",
       "desc": "A good banner is not just a piece of fabric. It's an embodiement of everything one fights for. As long as the War Banner stands, [Ecaz-longname]'s unique blend of style and honor shall be felt by all on the battlefield.",
-      "cpCost": 3,
-      "stats": { "health": 300, "power": 16, "armor": 3, "range": 25 },
-      "attributes": [
-        "Inspiring Sight: Ecaz non-mechanical units at medium range gain +20% damage"
-      ],
       "equipment": [
         "DistractingLights",
         "MarchingColors",
         "PropagandaMachine",
         "BigBanner"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "E_Elite",
       "name": "Knight",
       "desc": "Ecazi nobility prides itself on its bravery and martial prowess. It is customary for young nobles to follow the path of the knight, to demonstrate in the fray that they indeed possess such qualities.",
-      "cpCost": 5,
-      "stats": { "health": 250, "power": 25, "armor": 2 },
-      "attributes": [
-        "Nobility: +1 Armor per other Ecaz non-mechanical unit at short range (up to 10 stacks)"
-      ],
       "equipment": [
         "VowOfBravery",
         "VowOfFervor",
         "VowOfHeroism",
         "VowOfHonor"
-      ]
+      ],
+      "flags": 0
     }
   ],
   "Vernius": [
@@ -508,83 +392,61 @@
       "id": "V_Trooper",
       "name": "Fighting Mek",
       "desc": "Self-learning combat drones using a shifting repertoire of deadly moves. First designed to train the Ixian nobility in close combat, the fighting meks have been increasingly integrated into Vernius military forces.",
-      "cpCost": 4,
-      "stats": { "health": 400, "power": 13, "armor": 5 },
-      "attributes": [
-        "Adaptive Armament: +3 Power while Tethered to Harvester"
-      ],
       "equipment": [
         "MaterialPreProcessor",
         "HeavyShielding",
         "AnatomicalScanner",
         "SmartLens"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "V_Soldier",
       "name": "Suboid Soldier",
       "desc": "Suboids are a race of humans genetically designed for manual labor. They are diligent and methodical, but lack any capacity for imagination and creativity. They can occasionally participate in warfare when the need arises.",
-      "cpCost": 2,
-      "stats": { "health": 200, "power": 8, "armor": 0 },
-      "attributes": [
-        "Worker's Solidarity: +5% damage per Suboid Soldier at short range (up to 5 stacks)"
-      ],
       "equipment": [
         "TinkeringGear",
         "DIYKit",
         "FocusedMind",
         "DismantlingTools"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "V_Special",
       "name": "Railgun Drone",
       "desc": "Railgun Drones fire a projectile accelerated with an electromagnetic coil. These high-tech weapons can reach marginally better projectile speeds than regular firearms, if the cannon is long enough.",
-      "cpCost": 4,
-      "stats": { "health": 320, "power": 23, "armor": 1, "range": 35 },
-      "attributes": [
-        "Trajectory Computing: +15 Range and attacks at long range when Tethered"
-      ],
       "equipment": [
         "PropellingAmmo",
         "WarmMagnets",
         "WhistlingAmmo",
         "SmartLens"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "V_Drone",
       "name": "Resonance Drone",
       "desc": "The Resonance Drone induces a self-repeating electrical feedback loop in its Holtzman Coil, charging nearby Faraday cages with a powerful electrostatic effect. This stratagem has been used by Ixian armies for centuries.",
-      "cpCost": 5,
-      "stats": { "health": 400, "power": 14, "armor": 4, "range": 25 },
-      "attributes": [
-        "Holtzman Coil: ally drones at medium range gain Electrostatic",
-        "Enemy infantry at melee range lose 4 Life per second"
-      ],
       "equipment": [
         "DisruptiveField",
         "FeedbackGate",
         "SmartArmor",
         "RepeaterNode"
-      ]
+      ],
+      "flags": 0
     },
     {
       "id": "V_Elite",
       "name": "Fight-Engineer",
       "desc": "Fight-Engineers are a caste of Ixian specialists constantly trying to improve the programming of fighting drones. They often appear on the front, where they can provide emergency repairs or take direct control of the drone army.",
-      "cpCost": 4,
-      "stats": { "health": 400, "power": 16, "armor": 2, "range": 25 },
-      "attributes": [
-        "Fight-Engineer: Vernius drones gain buffs based on this unit's Experience level",
-        "Can toggle Install to repair/upgrade drones"
-      ],
       "equipment": [
         "WorkShelter",
         "ShadowScan",
         "MultiParts",
         "MemoryImplant"
-      ]
+      ],
+      "flags": 0
     }
   ]
 }

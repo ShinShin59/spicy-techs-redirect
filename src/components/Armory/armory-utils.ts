@@ -8,7 +8,6 @@ export interface GearItem {
   unit: string[]
   faction: string[]
   attributes: (string | { desc: string; target_effects_list: string[] })[]
-  target_effects?: string[]
   image: string
   /** When set, this gear overrides the unit's CP cost to this value when equipped. */
   unitCpCost?: number

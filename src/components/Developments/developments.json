@@ -16,8 +16,8 @@
       "y": 0
     },
     "attributes": [
-      "::s_value:: [Plascrete] production",
-      "Unlocks the [::target::] [!Village] [!Building_Village]"
+      "+10 [Plascrete] production",
+      "Unlocks the [Maintenance Center]"
     ]
   },
   {
@@ -37,8 +37,8 @@
       "y": 0
     },
     "attributes": [
-      "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]",
-      "Unlocks the [::target::] [Treaty]"
+      "Unlocks the [Mason Guild]",
+      "Unlocks the [Trade Agreement] [Treaty]"
     ]
   },
   {
@@ -58,8 +58,8 @@
       "y": 0
     },
     "attributes": [
-      "Unlocks the [::target::] [!Village] [!Building_Village]",
-      "Unlocks the [Main_HarvesterWorks] [!Building_MB] in [$my(mainbase)]"
+      "Unlocks the [Spice Silos]",
+      "Unlocks the [Harvester Works]"
     ]
   },
   {
@@ -79,9 +79,9 @@
       "y": 0
     },
     "attributes": [
-      "[::target::]s produce ::s_value:: [::target2::]",
-      "[::target::]s produce ::s_value:: [::target2::]",
-      "::s_percent_value:: resource production in villages with [FuelCellFactory]"
+      "[Fuel cell Factory]s produce +10 [Solari]",
+      "[Fuel cell Factory]s produce +5 [Water]",
+      "+10% resource production in villages with [Fuel cell Factory]"
     ]
   },
   {
@@ -101,8 +101,8 @@
       "y": 9
     },
     "attributes": [
-      "::s_value:: [Solari] production per controlled [SpecialRegion]",
-      "::s_percent_value:: total [Solari] production per controlled [SpecialRegion]"
+      "+10 [Solari] production per controlled [Special Region]",
+      "+2% total [Solari] production per controlled [Special Region]"
     ]
   },
   {
@@ -140,8 +140,8 @@
     },
     "attributes": [
       "See next period's [Spice] exchange rate in the Spice Report",
-      "Unlocks the [Main_ChoamBranch] [!Building_MB] in [$my(mainbase)]",
-      "::s_value:: [Agent] slot in [IChoam]"
+      "Unlocks the [CHOAM branch]",
+      "+1 [Agent] slot in [CHOAM]"
     ]
   },
   {
@@ -178,7 +178,7 @@
       "y": 0
     },
     "attributes": [
-      "::s_percent:: [Spice] production"
+      "+20% [Spice] production"
     ]
   },
   {
@@ -198,7 +198,7 @@
       "y": 1
     },
     "attributes": [
-      "Controlled [!Village]s produce ::s_value:: [Water]"
+      "Controlled produce +1 [Water]"
     ]
   },
   {
@@ -218,8 +218,8 @@
       "y": 9
     },
     "attributes": [
-      "::s_value:: [Knowledge] per controlled [!Village]",
-      "Unlocks the [::target::] [Treaty]"
+      "+0.5 [Knowledge] per controlled",
+      "Unlocks the [Research Agreement] [Treaty]"
     ]
   },
   {
@@ -239,8 +239,8 @@
       "y": 1
     },
     "attributes": [
-      "::percent:: [!Village] [!Building_Village]s construction costs",
-      "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]"
+      "-15% construction costs",
+      "Unlocks the [Investment Office]"
     ]
   },
   {
@@ -260,7 +260,7 @@
       "y": 5
     },
     "attributes": [
-      "::s_percent_value:: [Authority] from [Agent]s on a [Field_Infiltration] slot"
+      "+20% [Authority] from [Agent]s on a [Arrakis Information] slot"
     ]
   },
   {
@@ -280,7 +280,7 @@
       "y": 0
     },
     "attributes": [
-      "Unlocks the [CraftsWorkshop] [!Village] [!Building_Village]"
+      "Unlocks the [Crafts Workshop]"
     ]
   },
   {
@@ -300,7 +300,7 @@
       "y": 1
     },
     "attributes": [
-      "::s_value:: [Agent] slot in [IField]"
+      "+1 [Agent] slot in [Arrakis]"
     ]
   },
   {
@@ -320,7 +320,7 @@
       "y": 0
     },
     "attributes": [
-      "::s_percent:: [Airfield] [!Upkeep]"
+      "-50% [Airfield]"
     ]
   },
   {
@@ -340,7 +340,7 @@
       "y": 3
     },
     "attributes": [
-      "::s_value:: [MissileBattery] limit"
+      "+1 [Missile Battery] limit"
     ]
   },
   {
@@ -360,7 +360,7 @@
       "y": 1
     },
     "attributes": [
-      "::s_percent_value:: resource production in [SpecialRegion]s"
+      "+30% resource production in [Special Region]s"
     ]
   },
   {
@@ -381,7 +381,7 @@
     },
     "attributes": [
       "Unlocks the Armory to customize units' equipment",
-      "Unlocks the [MilitaryBase] [!Village] [!Building_Village]"
+      "Unlocks the [Military Base]"
     ]
   },
   {
@@ -401,13 +401,13 @@
       "y": 12
     },
     "attributes": [
-      "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]",
-      "Unlocks the [A_Drone] unit",
-      "Unlocks the [H_Drone] unit",
-      "Unlocks the [F_Special] unit",
-      "Unlocks the [C_Drone] unit",
-      "Unlocks the [E_Drone] unit",
-      "Unlocks the [V_Drone] unit"
+      "Unlocks the [Fusion Plant]",
+      "Unlocks the [Support Drone] unit",
+      "Unlocks the [Combat Probe] unit",
+      "Unlocks the [Mobile Turret] unit",
+      "Unlocks the [Artillery Drone] unit",
+      "Unlocks the [War Banner] unit",
+      "Unlocks the [Resonance Drone] unit"
     ]
   },
   {
@@ -427,7 +427,7 @@
       "y": 2
     },
     "attributes": [
-      "::s_value:: [Water]",
+      "+10 [Water]",
       "Unlock the second gear slot in the Armory"
     ]
   },
@@ -448,9 +448,9 @@
       "y": 2
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "::s_percent_value:: [Manpower] production",
-      "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+      "+5 [Command Point]",
+      "+20% [Manpower] production",
+      "Unlocks the [Command Post]"
     ]
   },
   {
@@ -470,8 +470,8 @@
       "y": 11
     },
     "attributes": [
-      "::s_percent:: [FuelCell]",
-      "::s_value:: mechanical units [::target::] [!Requirement]"
+      "+30% [Fuel Cell]",
+      "-1 mechanical units [Fuel Cell]"
     ]
   },
   {
@@ -491,9 +491,9 @@
       "y": 2
     },
     "attributes": [
-      "::s_value:: [TrainingSlot]",
-      "Unlocks the [Main_MilitaryAcademy] [!Building_MB] in [$my(mainbase)]",
-      "::s_value:: [Agent] slot in [ISpaceGuild]"
+      "+2 [Training Slot]",
+      "Unlocks the [Military Academy]",
+      "+1 [Agent] slot in [Spacing Guild]"
     ]
   },
   {
@@ -513,8 +513,8 @@
       "y": 2
     },
     "attributes": [
-      "Military units deal ::s_percent_value:: damage against Main Bases",
-      "Military Units gives ::value:: [Solari] per damage inflicted on a Main Base"
+      "Military units deal +50% damage against Main Bases",
+      "Military Units gives 0.10 [Solari] per damage inflicted on a Main Base"
     ]
   },
   {
@@ -551,8 +551,8 @@
       "y": 3
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "::target_effects:: if no other factions use more [CommandPoint]"
+      "+10 [Command Point]",
+      "+20% [Authority] production if no other factions use more [Command Point]"
     ]
   },
   {
@@ -572,7 +572,7 @@
       "y": 3
     },
     "attributes": [
-      "Getting the chosen result on at least one resolution grants ::value:: [Standing] every Council"
+      "Getting the chosen result on at least one resolution grants 10 [Landsraad Standing] every Council"
     ]
   },
   {
@@ -592,9 +592,9 @@
       "y": 3
     },
     "attributes": [
-      "[MinorHouses] deliver a [MinorHousesDonation] near [$my(MainBase)] after every Council",
-      "Unlocks the [::target::] [Treaty]",
-      "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]"
+      "[Houses Minor] deliver a [House Gift] near after every Council",
+      "Unlocks the [Political Agreement] [Treaty]",
+      "Unlocks the [Landsraad Quarters]"
     ]
   },
   {
@@ -615,7 +615,7 @@
     },
     "attributes": [
       "Allows the training of [Assassin]s",
-      "Unlocks the [Main_IntelAgency] [!Building_MB] in [$my(mainbase)]"
+      "Unlocks the [Intelligence Agency]"
     ]
   },
   {
@@ -635,8 +635,8 @@
       "y": 1
     },
     "attributes": [
-      "After every Council, receive <good>1</good> [LandsraadSoldiers_Dev] per ::value:: [Influence] spent, up to ::value(Dev_CounterMeasures_MaxUnitSpawn)::",
-      "::s_value:: [Agent] slot in [!CounterIntel]"
+      "After every Council, receive 1 [Landsraad Guard] per 100 [Influence] spent, up to 3",
+      "+1 [Agent] slot"
     ]
   },
   {
@@ -656,8 +656,8 @@
       "y": 3
     },
     "attributes": [
-      "::target_effects:: per [Agent] assigned to a [Landsraad_Infiltration] slot",
-      "::s_value:: [Agent] slot in [ILandsraad]"
+      "+50 max [Influence] per [Agent] assigned to a [Landsraad Information] slot",
+      "+1 [Agent] slot in [Landsraad]"
     ]
   },
   {
@@ -677,7 +677,7 @@
       "y": 3
     },
     "attributes": [
-      "::percent:: [Assassin] recruitment costs"
+      "-50% [Assassin] recruitment costs"
     ]
   },
   {
@@ -697,7 +697,7 @@
       "y": 3
     },
     "attributes": [
-      "::percent_value:: of an operation's [::target2::] cost is refund when launched in the territory of a faction in [War]"
+      "20% of an operation's [Intel] cost is refund when launched in the territory of a faction in [War]"
     ]
   },
   {
@@ -717,8 +717,8 @@
       "y": 4
     },
     "attributes": [
-      "Selling [CHOAMShare]s grants ::value:: [Influence] per share",
-      "Ignore CHOAM selling cooldown and max [Influence] during the [LandsraadCouncil]"
+      "Selling [CHOAM Share]s grants 1 [Influence] per share",
+      "Ignore CHOAM selling cooldown and max [Influence] during the [Landsraad Council]"
     ]
   },
   {
@@ -756,9 +756,9 @@
       "y": 10
     },
     "attributes": [
-      "::s_value:: [Plascrete] production",
-      "Unlocks the [::target::] [!Village] [!Building_Village]",
-      "Unlocks the [::target::] [!Village] [!Building_Village]"
+      "+5 [Plascrete] production",
+      "Unlocks the [Maintenance Center]",
+      "Unlocks the [Investment Office]"
     ]
   },
   {
@@ -779,9 +779,9 @@
       "y": 6
     },
     "attributes": [
-      "Allow constructing multiple [!Village] [!Building_Village]s simultaneously",
-      "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]",
-      "Unlocks the [::target::] [Treaty]"
+      "Allow constructing multiple simultaneously",
+      "Unlocks the [Mason Guild]",
+      "Unlocks the [Trade Agreement] [Treaty]"
     ]
   },
   {
@@ -820,8 +820,8 @@
       "y": 2
     },
     "attributes": [
-      "::percent:: [Airfield] construction costs",
-      "::s_percent:: [Airfield] [!Upkeep]"
+      "-70% [Airfield] construction costs",
+      "-70% [Airfield]"
     ]
   },
   {
@@ -842,9 +842,9 @@
       "y": 7
     },
     "attributes": [
-      "::s_percent:: [Authority] and [Influence] cost to use [PeacefullyAnnex]",
-      "Unlocks the [AtreidesFremenEmbassy] [!Village] [!Building_Village]",
-      "::s_value:: [Agent] slot in [IField]"
+      "-20% [Authority] and [Influence] cost to use [Peacefully Annex]",
+      "Unlocks the [Concord Chamber]",
+      "+1 [Agent] slot in [Arrakis]"
     ]
   },
   {
@@ -865,7 +865,7 @@
       "y": 2
     },
     "attributes": [
-      "::target_effects:: by Military Units inside [$my(faction)-adjective] borders"
+      "? by Military Units inside borders"
     ]
   },
   {
@@ -886,8 +886,8 @@
       "y": 6
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+      "+5 [Command Point]",
+      "Unlocks the [Command Post]"
     ]
   },
   {
@@ -908,8 +908,8 @@
       "y": 6
     },
     "attributes": [
-      "Non-mechanical units get <good>+1%</good> max [Life] per ::value:: [Standing]",
-      "Units Liberating or Annexing a [!Village] from a faction with less [Standing] heal ::percent_value:: of [Life] for free"
+      "Non-mechanical units get +1% max [Health] per 20 [Landsraad Standing]",
+      "Units Liberating or Annexing a from a faction with less [Landsraad Standing] heal 50% of [Health] for free"
     ]
   },
   {
@@ -930,8 +930,8 @@
       "y": 9
     },
     "attributes": [
-      "::s_value:: [Standing] per [ILandsraad] level, on Council opening",
-      "::s_value:: [Influence] production"
+      "+5 [Landsraad Standing] per [Landsraad] level, on Council opening",
+      "+2 [Influence] production"
     ]
   },
   {
@@ -952,8 +952,8 @@
       "y": 4
     },
     "attributes": [
-      "When another faction betrays a [Peace] with [Atreides-longname], receive ::value:: free [::target::]",
-      "Unlocks the [Main_CouncilChamber] [!Building_MB] in [$my(mainbase)]"
+      "When another faction betrays a [Peace] with House Atreides, receive 4 free [Landsraad Guard]",
+      "Unlocks the [Council Chamber]"
     ]
   },
   {
@@ -974,8 +974,8 @@
       "y": 5
     },
     "attributes": [
-      "::s_value:: [Influence] and [Intel] production per [Agent] assigned to [!CounterIntel]",
-      "::s_value:: [Agent] slot in [!CounterIntel]"
+      "+1 [Influence] and [Intel] production per [Agent] assigned to",
+      "+1 [Agent] slot"
     ]
   },
   {
@@ -996,8 +996,8 @@
       "y": 10
     },
     "attributes": [
-      "[Agent]s assigned on [IChoam], [ILandsraad], or [ISpaceGuild] slots produce ::s_percent_value:: of their associated resources",
-      "[Agent] traits present only once on an [!Infiltration] field apply their effects twice"
+      "[Agent]s assigned on [CHOAM], [Landsraad], or [Spacing Guild] slots produce +50% of their associated resources",
+      "[Agent] traits present only once on an field apply their effects twice"
     ]
   },
   {
@@ -1018,9 +1018,9 @@
       "y": 0
     },
     "attributes": [
-      "::s_value:: [Plascrete] production",
-      "::s_value:: [Manpower] production",
-      "Unlocks the [::target::] [!Village] [!Building_Village]"
+      "+5 [Plascrete] production",
+      "+3 [Manpower] production",
+      "Unlocks the [Maintenance Center]"
     ]
   },
   {
@@ -1041,7 +1041,7 @@
       "y": 7
     },
     "attributes": [
-      "Unlocks the [OppressionHeadquarter] [!Village] [!Building_Village]"
+      "Unlocks the [Office of Order]"
     ]
   },
   {
@@ -1063,8 +1063,8 @@
     },
     "attributes": [
       "Pillaging a village does not increase its annexation cost",
-      "::target_effects:: pillaged [!Village]s",
-      "::percent:: [Authority] cost to [Annex] again a [!Village] owned by [Harkonnen-shortname] in the past"
+      "? pillaged",
+      "-50% [Authority] cost to [Annex] again a owned by House Harkonnen in the past"
     ]
   },
   {
@@ -1085,8 +1085,8 @@
       "y": 9
     },
     "attributes": [
-      "Pillaging a [Sietch] for the first time gives ::value:: [Authority] and immediately reveals another [Sietch]",
-      "A successful[Pillage] resupply ::s_percent_value:: of max [Supply] of units in the occupation circle"
+      "Pillaging a [Sietch] for the first time gives 100 [Authority] and immediately reveals another [Sietch]",
+      "A successful[Pillage] resupply +25% of max [Supply] of units in the occupation circle"
     ]
   },
   {
@@ -1107,8 +1107,8 @@
       "y": 8
     },
     "attributes": [
-      "Oppressed [SpecialRegion]s grant ::target_effects::",
-      "Unlocks the [CraftsWorkshop] [!Village] [!Building_Village]"
+      "Oppressed [Special Region]s grant +1 [Authority] production",
+      "Unlocks the [Crafts Workshop]"
     ]
   },
   {
@@ -1129,8 +1129,8 @@
       "y": 7
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "Every time a unit dies, ally Military Units that are fighting nearby receive  ::target_effects:: (x::target_stacking_limit:: max)",
+      "+10 [Command Point]",
+      "Every time a unit dies, ally Military Units that are fighting nearby receive +1% attack speed (x50 max)",
       "Unlock the second gear slot in the Armory"
     ]
   },
@@ -1152,8 +1152,8 @@
       "y": 5
     },
     "attributes": [
-      "::percent:: [H_Drone] and [H_Ship] recruitment costs",
-      "::percent:: [H_Drone] and [H_Ship] training time"
+      "-30% [Combat Probe] and [Harpy] recruitment costs",
+      "-30% [Combat Probe] and [Harpy] training time"
     ]
   },
   {
@@ -1174,9 +1174,9 @@
       "y": 1
     },
     "attributes": [
-      "::s_value:: [Water]",
-      "::s_percent_value:: damage against [Militia] and [Rebels]",
-      "Gains ::value:: [Manpower] upon killing [Militia] and [Rebels]"
+      "+10 [Water]",
+      "+50% damage against [Militia] and [Rebel]",
+      "Gains 5 [Manpower] upon killing [Militia] and [Rebel]"
     ]
   },
   {
@@ -1197,8 +1197,8 @@
       "y": 4
     },
     "attributes": [
-      "Using an operation on a faction in [War] grants ::percent_value:: of its [Solari] cost as [Influence]",
-      "Unlocks the [::target::] [Treaty]"
+      "Using an operation on a faction in [War] grants 25% of its [Solari] cost as [Influence]",
+      "Unlocks the [Political Agreement] [Treaty]"
     ]
   },
   {
@@ -1219,9 +1219,9 @@
       "y": 5
     },
     "attributes": [
-      "[Agent]s assigned on a [Landsraad_Infiltration] slot produce ::s_value:: [Intel]",
-      "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]",
-      "::s_value:: [Agent] slot in [ILandsraad]"
+      "[Agent]s assigned on a [Landsraad Information] slot produce +2 [Intel]",
+      "Unlocks the [Landsraad Quarters]",
+      "+1 [Agent] slot in [Landsraad]"
     ]
   },
   {
@@ -1242,8 +1242,8 @@
       "y": 5
     },
     "attributes": [
-      "Oppressed [!Village]s grant ::target_effects::",
-      "Unlocks the [Main_InterrogationCenter] [!Building_MB] in [$my(mainbase)]"
+      "Oppressed grant +1 [Intel] production",
+      "Unlocks the [Interrogation Center]"
     ]
   },
   {
@@ -1264,8 +1264,8 @@
       "y": 8
     },
     "attributes": [
-      "Unlocks the [SmugglingCenter] [!Village] [!Building_Village]",
-      "Unlocks the [Main_HarvesterWorks] [!Building_MB] in [$my(mainbase)]"
+      "Unlocks the [Trafficking Station]",
+      "Unlocks the [Harvester Works]"
     ]
   },
   {
@@ -1286,7 +1286,7 @@
       "y": 4
     },
     "attributes": [
-      "[UWHeadquarters]s produce ::percent_value:: of their [!Village]'s [Spice] production",
+      "[Underworld Headquarters]s produce 20% of their 's [Spice] production",
       "Unlocks Contraband Supply special events"
     ]
   },
@@ -1308,8 +1308,8 @@
       "y": 5
     },
     "attributes": [
-      "::percent:: [UWHeadquarters] installation cost",
-      "::s_value:: [Water] per [UWHeadquarters]"
+      "-15% [Underworld Headquarters] installation cost",
+      "+0.5 [Water] per [Underworld Headquarters]"
     ]
   },
   {
@@ -1330,8 +1330,8 @@
       "y": 8
     },
     "attributes": [
-      "[Smugglers-adjective] [!Village]s produce ::s_value:: [Solari] per [UWHeadquarters] in adjacent regions",
-      "Unlocks the [Main_BlackMarketBranch] [!Building_MB] in [$my(mainbase)]"
+      "Smugglers produce +5 [Solari] per [Underworld Headquarters] in adjacent regions",
+      "Unlocks the [Black Market Branch]"
     ]
   },
   {
@@ -1352,9 +1352,9 @@
       "y": 12
     },
     "attributes": [
-      "Ignore the cost penalty to [Annex] pillaged [!Village]s",
-      "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]",
-      "::s_value:: [Agent] slot in [IField]"
+      "Ignore the cost penalty to [Annex] pillaged",
+      "Unlocks the [Investment Office]",
+      "+1 [Agent] slot in [Arrakis]"
     ]
   },
   {
@@ -1375,7 +1375,7 @@
       "y": 4
     },
     "attributes": [
-      "Unlocks the [S_Drone] unit"
+      "Unlocks the [Scavenging Drone] unit"
     ]
   },
   {
@@ -1396,8 +1396,13 @@
       "y": 4
     },
     "attributes": [
-      "::s_value:: [Water]",
-      "At night, Military Units gain: ::target_effects_list::"
+      "+15 [Water]",
+      {
+        "desc": "At night, Military Units gain:",
+        "target_effects_list": [
+          "+20% [Speed] outside combat"
+        ]
+      }
     ]
   },
   {
@@ -1418,9 +1423,9 @@
       "y": 11
     },
     "attributes": [
-      "Non-mechanical units in the same region as at least ::value:: [S_Drone] consume ::target_effects::",
+      "Non-mechanical units in the same region as at least 1 [Scavenging Drone] consume -30% [Solari] upkeep",
       "Unlock the second gear slot in the Armory",
-      "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]"
+      "Unlocks the [Fusion Plant]"
     ]
   },
   {
@@ -1441,9 +1446,9 @@
       "y": 4
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "On completing a siege, units in the occupation circle gain ::target_effects:: for 1 day",
-      "When at least ::value:: sieges are under way against the same faction, ::target_effects::"
+      "+10 [Command Point]",
+      "On completing a siege, units in the occupation circle gain ? for 1 day",
+      "When at least 2 sieges are under way against the same faction, [Pillage]s progress 100% faster"
     ]
   },
   {
@@ -1464,8 +1469,8 @@
       "y": 12
     },
     "attributes": [
-      "::s_percent:: [UWHeadquarters] installation costs within territories of factions in [Peace]",
-      "::value:: [Influence] and [Intel] production per faction hosting at least one [UWHeadquarters]"
+      "-20% [Underworld Headquarters] installation costs within territories of factions in [Peace]",
+      "1 [Influence] and [Intel] production per faction hosting at least one [Underworld Headquarters]"
     ]
   },
   {
@@ -1486,8 +1491,8 @@
       "y": 3
     },
     "attributes": [
-      "Receive ::value:: free [Mercenaries] after any resolution choice marked by a [Bounty] passes",
-      "::s_value:: [Agent] slot in [!CounterIntel]"
+      "Receive 4 free [Mercenary] after any resolution choice marked by a [Bounty] passes",
+      "+1 [Agent] slot"
     ]
   },
   {
@@ -1508,9 +1513,9 @@
       "y": 7
     },
     "attributes": [
-      "::s_value:: [::target::] upon successfully paying the [GuildFees]",
-      "Resolutions marked by a [Bounty] receives 1 more vote from the [MinorHouses] per ::value:: [Standing]",
-      "::s_value:: [Agent] slot in [ILandsraad]"
+      "+15 [Landsraad Standing] upon successfully paying the [Guild Fees]",
+      "Resolutions marked by a [Bounty] receives 1 more vote from the [Houses Minor] per 4 [Landsraad Standing]",
+      "+1 [Agent] slot in [Landsraad]"
     ]
   },
   {
@@ -1531,9 +1536,9 @@
       "y": 1
     },
     "attributes": [
-      "::s_value:: [Solari] production per existing neutral or [Fremen] [!Village]",
-      "::s_value:: [Solari] when liberating a [!Village]",
-      "Unlocks the [::target::] [Treaty]"
+      "+0.5 [Solari] production per existing neutral or [Fremen]",
+      "+500 [Solari] when liberating a",
+      "Unlocks the [Trade Agreement] [Treaty]"
     ]
   },
   {
@@ -1554,10 +1559,10 @@
       "y": 9
     },
     "attributes": [
-      "Reveals the position of all [SpiceArea]s",
-      "Deployed [F_Harvester]s regain [Life] and [Supply]",
-      "When they pack up, [F_Harvester]s leave combat immediately and have [Sneak_Trait] for ::value:: day",
-      "Unlocks the [::target::] [!Village] [!Building_Village]"
+      "Reveals the position of all [Spice Field]s",
+      "Deployed [Harvesting Team]s regain [Health] and [Supply]",
+      "When they pack up, [Harvesting Team]s leave combat immediately and have [Sneak] for 1 day",
+      "Unlocks the [Spice Silos]"
     ]
   },
   {
@@ -1578,8 +1583,8 @@
       "y": 12
     },
     "attributes": [
-      "::s_percent_value:: [Solari] production per ally [Sietch]",
-      "Unlocks the [Main_Bazaar] [!Building_MB] in [$my(mainbase)]"
+      "+1% [Solari] production per ally [Sietch]",
+      "Unlocks the [Bazaar]"
     ]
   },
   {
@@ -1600,8 +1605,8 @@
       "y": 12
     },
     "attributes": [
-      "[::target::]s produce ::s_value:: [::target2::]",
-      "[::target::]s produce ::s_value:: [::target2::]"
+      "[Ceremonial Caves]s produce +10 [Solari]",
+      "[Ceremonial Caves]s produce +1 [Knowledge]"
     ]
   },
   {
@@ -1622,8 +1627,11 @@
       "y": 9
     },
     "attributes": [
-      "Controlled [DeepDesert]s grant neighboring [!Village]s: ::target_effects_list::",
-      "Unlocks the [::target::] [!Village] [!Building_Village]"
+      {
+        "desc": "Controlled [Deep desert]s grant neighboring :",
+        "target_effects_list": []
+      },
+      "Unlocks the [Investment Office]"
     ]
   },
   {
@@ -1644,9 +1652,9 @@
       "y": 5
     },
     "attributes": [
-      "[::target::]s produce ::target_effects2::",
-      "Unlocks the [::target::] [Treaty]",
-      "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+      "[Windtrap]s produce +0.1 [Knowledge] per level of wind strength in the Region",
+      "Unlocks the [Research Agreement] [Treaty]",
+      "Unlocks the [Mason Guild]"
     ]
   },
   {
@@ -1667,7 +1675,7 @@
       "y": 9
     },
     "attributes": [
-      "Ally units in [Fremen] territory and near allied [Sietch]s have [Sneak_Trait]"
+      "Ally units in [Fremen] territory and near allied [Sietch]s have [Sneak]"
     ]
   },
   {
@@ -1688,7 +1696,7 @@
       "y": 2
     },
     "attributes": [
-      "Unlocks the [F_Special] unit"
+      "Unlocks the [Mobile Turret] unit"
     ]
   },
   {
@@ -1709,7 +1717,7 @@
       "y": 7
     },
     "attributes": [
-      "::s_value:: [Water]"
+      "+10 [Water]"
     ]
   },
   {
@@ -1730,8 +1738,8 @@
       "y": 0
     },
     "attributes": [
-      "During the liberation of an enemy [!Village], neighboring allied [Sietch]s send a supporting raid",
-      "Allied [!Sietch]s get ::target_effects::",
+      "During the liberation of an enemy , neighboring allied [Sietch]s send a supporting raid",
+      "Allied get +50% [Militia] [Health]",
       "Unlock the second gear slot in the Armory"
     ]
   },
@@ -1753,9 +1761,9 @@
       "y": 4
     },
     "attributes": [
-      "Wormriding is ::s_percent_value:: faster",
+      "Wormriding is +100% faster",
       "Wormriding cannot be seen",
-      "On exiting wormriding, units inflict ::s_value:: damage on first attack and gain [Sneak_Trait] for a day"
+      "On exiting wormriding, units inflict +10 damage on first attack and gain [Sneak] for a day"
     ]
   },
   {
@@ -1794,8 +1802,8 @@
       "y": 9
     },
     "attributes": [
-      "Unlocks the [::target::] [Treaty]",
-      "Unlocks the [Main_Temple] [!Building_MB] in [$my(mainbase)]"
+      "Unlocks the [Political Agreement] [Treaty]",
+      "Unlocks the [Al-Gaib Temple]"
     ]
   },
   {
@@ -1816,7 +1824,7 @@
       "y": 9
     },
     "attributes": [
-      "::s_value:: [Agent] slot in [!CounterIntel]"
+      "+1 [Agent] slot"
     ]
   },
   {
@@ -1837,7 +1845,7 @@
       "y": 6
     },
     "attributes": [
-      "::s_value:: [Plascrete] production"
+      "+15 [Plascrete] production"
     ]
   },
   {
@@ -1858,7 +1866,7 @@
       "y": 7
     },
     "attributes": [
-      "Ally [!Village]s neighboring [ImpBase] get: ::target_effects::"
+      "Ally neighboring [Imperial Base] get: +10 [Solari] production, -30% [Major Building] [Solari] upkeeps"
     ]
   },
   {
@@ -1897,8 +1905,8 @@
       "y": 6
     },
     "attributes": [
-      "::percent:: construction costs in [ImpBase]",
-      "::target_effects::"
+      "-10% construction costs in [Imperial Base]",
+      "House Corrino neighboring [Imperial Base] get: +3 [Water], -10% construction cost"
     ]
   },
   {
@@ -1919,8 +1927,8 @@
       "y": 4
     },
     "attributes": [
-      "::s_value:: [Knowledge] per completed district",
-      "Unlocks the [::target::] [Treaty]"
+      "+1 [Knowledge] per completed district",
+      "Unlocks the [Research Agreement] [Treaty]"
     ]
   },
   {
@@ -1941,8 +1949,8 @@
       "y": 7
     },
     "attributes": [
-      "::target_effects::",
-      "Unlocks the [InvestmentOffice] [!Village] [!Building_Village]"
+      "Effects are applied 1 more time in ally neighboring s",
+      "Unlocks the [Investment Office]"
     ]
   },
   {
@@ -1963,7 +1971,7 @@
       "y": 4
     },
     "attributes": [
-      "Unlocks the [Main_Monument] [!Building_MB] in [$my(mainbase)]"
+      "Unlocks the [Emperor Monument]"
     ]
   },
   {
@@ -2005,8 +2013,8 @@
       "y": 9
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "::target_effects:: for Military Units in regions where [Corrino-shortname] has a numerical superiority"
+      "+10 [Command Point]",
+      "? for Military Units in regions where House Corrino has a numerical superiority"
     ]
   },
   {
@@ -2027,9 +2035,9 @@
       "y": 8
     },
     "attributes": [
-      "Proposing a [::target::] has no cost if no [Peace] is active",
-      "Gain ::value:: [::target::] on Council opening if at least one [Peace] is active",
-      "Unlocks the [Main_LandsraadQuarters] [!Building_MB] in [$my(mainbase)]"
+      "Proposing a [Non-aggression Pact] has no cost if no [Peace] is active",
+      "Gain 5 [Landsraad Standing] on Council opening if at least one [Peace] is active",
+      "Unlocks the [Landsraad Quarters]"
     ]
   },
   {
@@ -2050,9 +2058,9 @@
       "y": 7
     },
     "attributes": [
-      "::s_value:: [Influence] production per [Agent]s assigned on a faction in [Peace]",
-      "::s_value:: [Intel] production per [Agent]s assigned on a faction in [War]",
-      "Unlocks the [::target::] [Treaty]"
+      "+2 [Influence] production per [Agent]s assigned on a faction in [Peace]",
+      "+2 [Intel] production per [Agent]s assigned on a faction in [War]",
+      "Unlocks the [Political Agreement] [Treaty]"
     ]
   },
   {
@@ -2073,7 +2081,7 @@
       "y": 8
     },
     "attributes": [
-      "::s_percent:: Military Units cost while victim of a treason"
+      "-50% Military Units cost while victim of a treason"
     ]
   },
   {
@@ -2094,9 +2102,9 @@
       "y": 11
     },
     "attributes": [
-      "Gain ::value:: [Solari] upon building a [!Masterpiece]",
-      "::s_percent:: cost to add a [!Building_Village] slot",
-      "Unlocks the [Main_MasonGuild] [!Building_MB] in [$my(mainbase)]"
+      "Gain 80 [Solari] upon building a",
+      "-50% cost to add a slot",
+      "Unlocks the [Mason Guild]"
     ]
   },
   {
@@ -2117,8 +2125,14 @@
       "y": 11
     },
     "attributes": [
-      "Each [!Ecaz_Sanctuary] provides ::target_effects_list::",
-      "Unlocks the [::target::] [Treaty]"
+      {
+        "desc": "Each provides",
+        "target_effects_list": [
+          "+10 [Solari] production",
+          "+5 [Water]"
+        ]
+      },
+      "Unlocks the [Trade Agreement] [Treaty]"
     ]
   },
   {
@@ -2139,7 +2153,7 @@
       "y": 9
     },
     "attributes": [
-      "Other factions lose ::value:: [::target::] when killing an [Ecaz-adjective] [Militia]"
+      "Other factions lose 5 [Influence] when killing an House Ecaz [Militia]"
     ]
   },
   {
@@ -2160,7 +2174,7 @@
       "y": 9
     },
     "attributes": [
-      "Unlocks the [Main_MuseumOfUnboundArts] [!Building_Village]"
+      "Unlocks the [Museum of Unbound Arts]"
     ]
   },
   {
@@ -2181,7 +2195,12 @@
       "y": 10
     },
     "attributes": [
-      "[!Village]s at a distance of ::value:: regions from the [::target::] gain: ::target_effects_list2::"
+      {
+        "desc": "at a distance of 2 regions from the [?] gain:",
+        "target_effects_list": [
+          "-40% [Authority] cost to"
+        ]
+      }
     ]
   },
   {
@@ -2202,8 +2221,8 @@
       "y": 6
     },
     "attributes": [
-      "Unlocks the [E_Drone] unit",
-      "::target_effects2:: by [Ecaz-adjective] units in a large area around the [TEcazChampion]"
+      "Unlocks the [War Banner] unit",
+      "? by House Ecaz units in a large area around the [Ecaz Champion]"
     ]
   },
   {
@@ -2224,9 +2243,14 @@
       "y": 10
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "Can choose to pay ::s_percent_value(PerfectedRecruitment_CostFactor):: of the price to recruit units in ::s_percent(PerfectedRecruitment_TimeFactor):: of the time, giving them permanently: ::target_effects_list::",
-      "Unlocks the [Main_MilitaryAcademy] [!Building_MB] in [$my(mainbase)]"
+      "+5 [Command Point]",
+      {
+        "desc": "Can choose to pay +100% of the price to recruit units in +50% of the time, giving them permanently:",
+        "target_effects_list": [
+          "+20% [Health]"
+        ]
+      },
+      "Unlocks the [Military Academy]"
     ]
   },
   {
@@ -2247,9 +2271,9 @@
       "y": 11
     },
     "attributes": [
-      "[E_Drone]s produce ::value:: [Manpower]",
-      "Non-mechanical units in the same region as at least ::value:: [E_Drone] ::target_effects::",
-      "Unlocks the [Main_FusionPlant] [!Building_MB] in [$my(mainbase)]"
+      "[War Banner]s produce 2 [Manpower]",
+      "Non-mechanical units in the same region as at least 1 [War Banner] regenerate [Health] 100% faster",
+      "Unlocks the [Fusion Plant]"
     ]
   },
   {
@@ -2270,9 +2294,9 @@
       "y": 11
     },
     "attributes": [
-      "When a [TEcazChampion] dies, get ::target_effects:: for ::value:: days",
-      "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]",
-      "::s_value:: [Agent] slot in [ISpaceGuild]"
+      "When a [Ecaz Champion] dies, get ? for 10 days",
+      "Unlocks the [Command Post]",
+      "+1 [Agent] slot in [Spacing Guild]"
     ]
   },
   {
@@ -2293,7 +2317,7 @@
       "y": 12
     },
     "attributes": [
-      "[Infiltration] levels rise and fall ::percent:: faster"
+      "[Information] levels rise and fall +50% faster"
     ]
   },
   {
@@ -2314,8 +2338,8 @@
       "y": 10
     },
     "attributes": [
-      "Gain ::value:: [Influence] upon building a [!Masterpiece]",
-      "Any Charter currently claimed by [Ecaz-longname] cannot be proposed to vote"
+      "Gain 8 [Influence] upon building a",
+      "Any Charter currently claimed by House Ecaz cannot be proposed to vote"
     ]
   },
   {
@@ -2336,7 +2360,7 @@
       "y": 11
     },
     "attributes": [
-      "When out of [::target::], [::target2::] is used in its stead for mission preparation, assassination upkeep and [Assassin] recruitment"
+      "When out of [Intel], [Influence] is used in its stead for mission preparation, assassination upkeep and [Assassin] recruitment"
     ]
   },
   {
@@ -2357,9 +2381,9 @@
       "y": 7
     },
     "attributes": [
-      "Can spend up to 2 [FuelCell] in [$my(harvester)]s to increase their production",
-      "Unlocks the [::target::] [!Village] [!Building_Village]",
-      "Unlocks the [Main_SpiceLaboratory] [!Building_MB] in [$my(mainbase)]"
+      "Can spend up to 2 [Fuel Cell] s to increase their production",
+      "Unlocks the [Spice Silos]",
+      "Unlocks the [Spice Laboratory]"
     ]
   },
   {
@@ -2380,8 +2404,8 @@
       "y": 7
     },
     "attributes": [
-      "Can spend up to 4 [FuelCell]s in [$my(harvester)]s to increase their production",
-      "::s_percent_value:: [Spice] production per [Knowledge]"
+      "Can spend up to 4 [Fuel Cell]s s to increase their production",
+      "+1% [Spice] production per [Knowledge]"
     ]
   },
   {
@@ -2402,8 +2426,8 @@
       "y": 7
     },
     "attributes": [
-      "The Nodal Network can optionaly connect to [NeuralNode]s across a [DeepDesert]",
-      "Each node on the longest path of the Nodal Network gives <good>+0.5</good> [Knowledge] and <good>+2%</good> [Authority] production"
+      "The Nodal Network can optionaly connect to [Neural Node]s across a [Deep desert]",
+      "Each node on the longest path of the Nodal Network gives +0.5 [Knowledge] and +2% [Authority] production"
     ]
   },
   {
@@ -2424,8 +2448,8 @@
       "y": 7
     },
     "attributes": [
-      "Enemy factions pay ::s_percent_value:: [Authority] to [Annex] a [!Village] neighboring at least <good>2</good> regions connected to the Nodal Network",
-      "Unlocks the [Main_NeuralCore] [!Building_MB] in [$my(mainbase)]"
+      "Enemy factions pay +30% [Authority] to [Annex] a neighboring at least 2 regions connected to the Nodal Network",
+      "Unlocks the [Neural Core]"
     ]
   },
   {
@@ -2446,8 +2470,13 @@
       "y": 7
     },
     "attributes": [
-      "Connected [NeuralNode]s automatically attack enemy units within your territory",
-      "[!Village]s connected to the Nodal Network gain: ::target_effects_list::"
+      "Connected [Neural Node]s automatically attack enemy units within your territory",
+      {
+        "desc": "connected to the Nodal Network gain:",
+        "target_effects_list": [
+          "+2 free extra [Automated Militia]"
+        ]
+      }
     ]
   },
   {
@@ -2468,7 +2497,7 @@
       "y": 7
     },
     "attributes": [
-      "When out of [FuelCell]s, [Water] is used in its stead",
+      "When out of [Fuel Cell]s, [Water] is used in its stead",
       "Unlock the second gear slot in the Armory"
     ]
   },
@@ -2490,9 +2519,9 @@
       "y": 8
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "[Agent]s assigned on a [SpaceGuild_Infiltration] slot produce ::value:: [FuelCell]",
-      "Unlocks the [Main_Command] [!Building_MB] in [$my(mainbase)]"
+      "+5 [Command Point]",
+      "[Agent]s assigned on a [Spacing Guild Information] slot produce 2 [Fuel Cell]",
+      "Unlocks the [Command Post]"
     ]
   },
   {
@@ -2513,8 +2542,8 @@
       "y": 8
     },
     "attributes": [
-      "::s_value:: [CommandPoint]",
-      "::s_percent_value:: recruitment and regeneration speed of all units per [Knowledge]"
+      "+10 [Command Point]",
+      "+1% recruitment and regeneration speed of all units per [Knowledge]"
     ]
   },
   {
@@ -2535,8 +2564,8 @@
       "y": 8
     },
     "attributes": [
-      "Gain ::value:: [Standing] on Council opening per active [Peace]",
-      "::s_value:: [Knowledge] per active [Peace]"
+      "Gain 5 [Landsraad Standing] on Council opening per active [Peace]",
+      "+2 [Knowledge] per active [Peace]"
     ]
   },
   {
@@ -2557,9 +2586,9 @@
       "y": 8
     },
     "attributes": [
-      "Unlock [DataAnalysisUnit] [Agent]s and get ::value:: for free",
-      "Unlocks the [HarmlessGadget] [Treaty]",
-      "Unlocks the [Main_IntelAgency] [!Building_MB] in [$my(mainbase)]"
+      "Unlock [Data Analysis Unit] [Agent]s and get 1 for free",
+      "Unlocks the [Harmless Gadget] [Treaty]",
+      "Unlocks the [Intelligence Agency]"
     ]
   },
   {
@@ -2580,8 +2609,8 @@
       "y": 8
     },
     "attributes": [
-      "::s_value:: [Knowledge] per [!Infiltration] field with at least ::value:: [DataAnalysisUnit]",
-      "[!Infiltration] increases by ::value:: level in factions that have accepted a [HarmlessGadget]"
+      "+1 [Knowledge] field with at least 1 [Data Analysis Unit]",
+      "increases by 1 level in factions that have accepted a [Harmless Gadget]"
     ]
   },
   {
@@ -2602,8 +2631,14 @@
       "y": 8
     },
     "attributes": [
-      "[InfiltrationCells] neighboring a connected [NeuralNode] produce ::s_value:: [Knowledge]",
-      "Each [Statecraft] [!Building_Village] in the [!Village] of such a cell also gives: ::target_effects_list::",
+      "[Infiltration Cells] neighboring a connected [Neural Node] produce +2 [Knowledge]",
+      {
+        "desc": "Each [Statecraft] in the of such a cell also gives:",
+        "target_effects_list": [
+          "+5 [Solari] production",
+          "+1 [Intel] production"
+        ]
+      },
       "Allows the training of [Assassin]s"
     ]
   }

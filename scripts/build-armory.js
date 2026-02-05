@@ -7,6 +7,7 @@
 import { readFileSync, readdirSync, writeFileSync } from "fs"
 import { join, dirname } from "path"
 import { fileURLToPath } from "url"
+import { buildLookups, resolveAttribute } from "./cdb-resolver.js"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, "..")
@@ -60,21 +61,18 @@ const EXCLUDED_IMAGES = [
 const EXCLUDED_PATTERNS = [/^output_\d+\.png$/]
 
 function imageToEquipmentId(filename) {
+  // Try lookup with original filename first, then with .png variant for legacy map entries
+  const pngVariant = filename.replace(/\.webp$/i, ".png")
   if (IMAGE_TO_EQUIPMENT[filename]) return IMAGE_TO_EQUIPMENT[filename]
-  if (EXCLUDED_IMAGES.includes(filename)) return null
-  if (EXCLUDED_PATTERNS.some((p) => p.test(filename))) return null
+  if (IMAGE_TO_EQUIPMENT[pngVariant]) return IMAGE_TO_EQUIPMENT[pngVariant]
+  if (EXCLUDED_IMAGES.includes(filename) || EXCLUDED_IMAGES.includes(pngVariant)) return null
+  if (EXCLUDED_PATTERNS.some((p) => p.test(filename) || p.test(pngVariant))) return null
 
-  const base = filename.replace(/\.png$/i, "")
+  const base = filename.replace(/\.(png|webp)$/i, "")
   const pascal = base
     .replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ""))
     .replace(/^(.)/, (_, c) => c.toUpperCase())
   return pascal || null
-}
-
-function snakeToPascal(str) {
-  return str
-    .replace(/[-_\s]+(.)?/g, (_, c) => (c ? c.toUpperCase() : ""))
-    .replace(/^(.)/, (_, c) => c.toUpperCase())
 }
 
 function main() {
@@ -86,6 +84,7 @@ function main() {
 
   const cdb = JSON.parse(readFileSync(cdbPath, "utf-8"))
   const sheets = cdb.sheets || []
+  const lookups = buildLookups(cdb)
 
   const equipmentSheet = sheets.find((s) => s.name === "equipment")
   const traitSheet = sheets.find((s) => s.name === "trait")
@@ -112,7 +111,7 @@ function main() {
     })
   }
 
-  // Build unit name → faction mapping and equipment → units mapping
+  // Build unit name -> faction mapping and equipment -> units mapping
   const unitNameToFaction = new Map()
   const equipmentToUnits = new Map()
   const unitsByFaction = {}
@@ -149,16 +148,6 @@ function main() {
     }
   }
 
-  function getTargetEffectsList(traitId) {
-    const trait = traits.get(traitId)
-    if (!trait) return []
-    const descs = []
-    for (const attr of trait.attributes || []) {
-      if (attr.desc) descs.push(attr.desc)
-    }
-    return descs
-  }
-
   function buildAttributesForEquipment(equipment) {
     const result = []
     for (const traitRef of equipment.traits || []) {
@@ -166,23 +155,19 @@ function main() {
       if (!trait) continue
       for (const attr of trait.attributes || []) {
         if (!attr.desc) continue
-        if (attr.desc.includes("::target_effects_list::")) {
-          const targetTrait = attr.target?.trait
-          const list = targetTrait ? getTargetEffectsList(targetTrait) : []
-          result.push({ desc: attr.desc, target_effects_list: list })
-        } else if (attr.desc.includes("::target_effects_list2::")) {
-          const targetTrait = attr.target2?.trait
-          const list = targetTrait ? getTargetEffectsList(targetTrait) : []
-          result.push({ desc: attr.desc, target_effects_list: list })
-        } else {
-          result.push(attr.desc)
-        }
+        // Use shared resolver for all attributes
+        const resolved = resolveAttribute(attr, lookups)
+        if (resolved) result.push(resolved)
       }
     }
-    return result
+    return result.filter((a) => {
+      if (typeof a === "string") return a.length > 0
+      if (typeof a === "object" && a !== null) return a.desc && a.desc.length > 0
+      return false
+    })
   }
 
-  const images = readdirSync(gearDir).filter((f) => f.endsWith(".png"))
+  const images = readdirSync(gearDir).filter((f) => f.endsWith(".png") || f.endsWith(".webp"))
   const armoryEntries = []
   const imagesWithoutEquipment = []
   const equipmentIdsWithImages = new Set()

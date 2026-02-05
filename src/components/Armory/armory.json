@@ -8,10 +8,20 @@
       "Vernius"
     ],
     "attributes": [
-      "No [Solari] [!Upkeep]"
+      "No [Solari]"
     ],
-    "image": "DIY_kit.webp",
-    "id": "DIYKit"
+    "image": "DIY_kit.webp"
+  },
+  {
+    "name": "Sky Facade",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [],
+    "image": "additional_cannons.webp"
   },
   {
     "name": "Ambush Camouflage",
@@ -23,17 +33,25 @@
     ],
     "attributes": [
       {
-        "desc": "While deployed, gain: ::target_effects_list::",
+        "desc": "While deployed, gain:",
         "target_effects_list": [
           "Cannot be seen outside of combat",
           "Do not lose [Supply]",
           "Do not attract [Sandworm]s",
-          "The target suffers ::target_effects:: for ::target_duration:: days when attacking undetected"
+          "The target suffers ? for 30 days when attacking undetected"
         ]
       }
     ],
-    "image": "ambush_camouflage.webp",
-    "id": "AmbushCamouflage"
+    "image": "ambush_camouflage.webp"
+  },
+  {
+    "name": "Analysis Visor",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "? for each ally Conscript nearby (x5 max)"
+    ],
+    "image": "analysis_visor.webp"
   },
   {
     "name": "Anatomical Scanner",
@@ -44,8 +62,7 @@
       "Vernius"
     ],
     "attributes": [],
-    "image": "anatomical_scanner.webp",
-    "id": "AnatomicalScanner"
+    "image": "anatomical_scanner.webp"
   },
   {
     "name": "Anti-personnel Shrapnels",
@@ -56,8 +73,7 @@
       "Locals"
     ],
     "attributes": [],
-    "image": "anti-personal_shrapnels.webp",
-    "id": "AntiPersonalShrapnels"
+    "image": "anti-personal_shrapnels.webp"
   },
   {
     "name": "Stealth Gear",
@@ -70,8 +86,14 @@
       "Smugglers"
     ],
     "attributes": [],
-    "image": "assassin_armors.webp",
-    "id": "AssassinArmors"
+    "image": "assassin_armors.webp"
+  },
+  {
+    "name": "Assassin Gear",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "assassin_gear.webp"
   },
   {
     "name": "Automatic Weapons",
@@ -82,11 +104,10 @@
       "Atreides"
     ],
     "attributes": [
-      "::s_percent:: attack speed",
-      "::s_percent:: [Power]"
+      "+50% attack speed",
+      "-30% [Power]"
     ],
-    "image": "automatic_weapons.webp",
-    "id": "AutomaticWeapons"
+    "image": "automatic_weapons.webp"
   },
   {
     "name": "Barrel Cleaner",
@@ -99,10 +120,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "At full [Life], the first attack has ::s_percent_value:: [Power]"
+      "At full [Health], the first attack has +100% [Power]"
     ],
-    "image": "barrel_cleaner.webp",
-    "id": "BarrelCleaner"
+    "image": "barrel_cleaner.webp"
   },
   {
     "name": "Battlefield Frenzy",
@@ -110,13 +130,12 @@
       "Sardaukar"
     ],
     "faction": [
-      "Corrino"
+      "NoFaction"
     ],
     "attributes": [
-      "::s_percent_value:: attack speed per allied unit at [Medium_Range]"
+      "+1% attack speed per allied unit at [Medium Range]"
     ],
-    "image": "battlefield_frenzy.webp",
-    "id": "BattlefieldFrenzy"
+    "image": "battlefield_frenzy.webp"
   },
   {
     "name": "Bazooka",
@@ -127,8 +146,23 @@
       "Smugglers"
     ],
     "attributes": [],
-    "image": "bazookas.webp",
-    "id": "Bazookas"
+    "image": "bazookas.webp"
+  },
+  {
+    "name": "Better Ammunitions",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "+10 [Solari]"
+    ],
+    "image": "better_ammunitions.webp"
+  },
+  {
+    "name": "Better Protections",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "better_protections.webp"
   },
   {
     "name": "Big Banner",
@@ -139,11 +173,10 @@
       "Ecaz"
     ],
     "attributes": [
-      "::s_value:: [Life]",
-      "Increase range of effects to [Long_Range]"
+      "+100 [Health]",
+      "Increase range of effects to [Long Range]"
     ],
-    "image": "big banner.webp",
-    "id": "BigBanner"
+    "image": "big banner.webp"
   },
   {
     "name": "Bird Slayer",
@@ -156,8 +189,7 @@
       "Ecaz"
     ],
     "attributes": [],
-    "image": "bird_slayer.webp",
-    "id": "BirdSlayer"
+    "image": "bird_slayer.webp"
   },
   {
     "name": "Blood Thinner",
@@ -168,11 +200,22 @@
       "Harkonnen"
     ],
     "attributes": [
-      "Lose [Life] above ::percent_value:: at the start of combat",
-      "Regain [Life] lost that way at the end of combat"
+      "Lose [Health] above 75% at the start of combat",
+      "Regain [Health] lost that way at the end of combat"
     ],
-    "image": "blood_thinner.webp",
-    "id": "BloodThinner"
+    "image": "blood_thinner.webp"
+  },
+  {
+    "name": "Caffeine Pills",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      {
+        "desc": "Outside combat, gain:",
+        "target_effects_list": []
+      }
+    ],
+    "image": "caffeine_pills.webp"
   },
   {
     "name": "Camouflage Fabric",
@@ -187,8 +230,7 @@
     "attributes": [
       "Cannot be seen outside of combat"
     ],
-    "image": "camouflage_fabric.webp",
-    "id": "CamouflageFabric"
+    "image": "camouflage_fabric.webp"
   },
   {
     "name": "Chasing Stance",
@@ -203,10 +245,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "Current target suffer ::target_effects:: (x::target_stacking_limit:: max)"
+      "Current target suffer ? (x1 max)"
     ],
-    "image": "chasing_stance.webp",
-    "id": "ChasingStance"
+    "image": "chasing_stance.webp"
   },
   {
     "name": "Concentrated Toxins",
@@ -217,8 +258,7 @@
       "Smugglers"
     ],
     "attributes": [],
-    "image": "concentrated_toxins.webp",
-    "id": "ConcentratedToxins"
+    "image": "concentrated_toxins.webp"
   },
   {
     "name": "Confusing Tactics",
@@ -227,14 +267,13 @@
       "Fedaykin"
     ],
     "faction": [
-      "Fremen",
+      "NoFaction",
       "Locals"
     ],
     "attributes": [
-      "::target_effects:: per enemy units at [Melee_Effect] (x::target_stacking_limit:: max)"
+      "? per enemy units at [Melee Effect] (x3 max)"
     ],
-    "image": "confusing_tactics.webp",
-    "id": "ConfusingTactics"
+    "image": "confusing_tactics.webp"
   },
   {
     "name": "Cover Tactics",
@@ -246,12 +285,11 @@
     ],
     "attributes": [
       {
-        "desc": "While in combat, ally units with no target at [Short_Range] gain (x::target_stacking_limit:: max): ::target_effects_list::",
+        "desc": "While in combat, ally units with no target at [Short Range] gain (x1 max):",
         "target_effects_list": []
       }
     ],
-    "image": "cover_tactics.webp",
-    "id": "CoverTactics"
+    "image": "cover_tactics.webp"
   },
   {
     "name": "Crossfire Tactics",
@@ -262,10 +300,9 @@
       "Atreides"
     ],
     "attributes": [
-      "Ally Military Units attacking the same target deal ::s_percent_value:: damage (x::target_stacking_limit:: max)"
+      "Ally Military Units attacking the same target deal +10% damage (x1 max)"
     ],
-    "image": "crossfire_tactics.webp",
-    "id": "CrossfireTactics"
+    "image": "crossfire_tactics.webp"
   },
   {
     "name": "Devastating Strikes",
@@ -276,40 +313,9 @@
       "Locals"
     ],
     "attributes": [
-      "::s_percent_value:: damage per enemy unit hit by the attack"
+      "+10% damage per enemy unit hit by the attack"
     ],
-    "image": "devastating_strikes.webp",
-    "id": "DevastatingStrikes"
-  },
-  {
-    "name": "Mounted Explosives",
-    "unit": [
-      "Combat Probe"
-    ],
-    "faction": [
-      "Harkonnen"
-    ],
-    "attributes": [
-      "Upon death, deal high damage at [close range]",
-      "requires ::+2:: [FuelCell]"
-    ],
-    "image": "mounted_explosives.webp",
-    "id": "MountedExplosives"
-  },
-  {
-    "name": "Torture Tools",
-    "unit": [
-      "Combat Probe"
-    ],
-    "faction": [
-      "Harkonnen"
-    ],
-    "attributes": [
-      "attacks in melee",
-      "ignore half of the target's [Armor]"
-    ],
-    "image": "torture_tools.webp",
-    "id": "TortureTools"
+    "image": "devastating_strikes.webp"
   },
   {
     "name": "Dismantling Tools",
@@ -325,8 +331,19 @@
     "attributes": [
       "Ignores half of mechanical units and building [Armor]"
     ],
-    "image": "dismantling_tools.webp",
-    "id": "DismantlingTools"
+    "image": "dismantling_tools.webp"
+  },
+  {
+    "name": "Disruptive Ammunition",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      {
+        "desc": "The target is [Disruptive Ammunition] (x2 max):",
+        "target_effects_list": []
+      }
+    ],
+    "image": "disruptive_ammunition.webp"
   },
   {
     "name": "Fractal Frequencies",
@@ -337,12 +354,20 @@
       "Vernius"
     ],
     "attributes": [
-      "The [V_Drone_Buff] deals ::s_percent_value:: damage",
-      "Enemy units in the [V_Drone_Debuff] have ::target_effects::",
-      "Requires ::s_value:: [FuelCell]"
+      "The [V Drone] deals +50% damage",
+      "Enemy units in the [V Drone] have The [V Drone] deals +50% damage",
+      "Requires +2 [Fuel Cell]"
     ],
-    "image": "disruptive_field.webp",
-    "id": "DisruptiveField"
+    "image": "disruptive_field.webp"
+  },
+  {
+    "name": "Distortion Umbrella",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Gives ? to allied unit at [Melee Effect]"
+    ],
+    "image": "distorsion_umbrella.webp"
   },
   {
     "name": "Distracting Flashes",
@@ -353,10 +378,9 @@
       "Atreides"
     ],
     "attributes": [
-      "Gives ::target_effects:: to allied units at [Melee_Effect]"
+      "Gives ? to allied units at [Melee Effect]"
     ],
-    "image": "distracting_flashes.webp",
-    "id": "DistractingFlashes"
+    "image": "distracting_flashes.webp"
   },
   {
     "name": "Distracting Lights",
@@ -367,10 +391,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "Enemy units targeting this unit receive ::s_percent_value:: damage"
+      "Enemy units targeting this unit receive +20% damage"
     ],
-    "image": "distracting_lights.webp",
-    "id": "DistractingLights"
+    "image": "distracting_lights.webp"
   },
   {
     "name": "Dry Training",
@@ -378,13 +401,12 @@
       "Warrior"
     ],
     "faction": [
-      "Fremen"
+      "NoFaction"
     ],
     "attributes": [
-      "::s_value:: [Life] per [Water]"
+      "+1 [Health] per [Water]"
     ],
-    "image": "dry_training.webp",
-    "id": "DryTraining"
+    "image": "dry_training.webp"
   },
   {
     "name": "Dual Guns",
@@ -395,12 +417,18 @@
       "Smugglers"
     ],
     "attributes": [
-      "Attacks at [Medium_Range]",
-      "Gains [Ranged_Trait]",
-      "::target_effects:: while engaged in melee"
+      "Attacks at [Medium Range]",
+      "Gains [Ranged]",
+      "? while engaged in melee"
     ],
-    "image": "dual_gun.webp",
-    "id": "DualGuns"
+    "image": "dual_gun.webp"
+  },
+  {
+    "name": "Dual Swords",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "dual_swords.webp"
   },
   {
     "name": "Elacca Injector",
@@ -411,11 +439,10 @@
       "Harkonnen"
     ],
     "attributes": [
-      "Split into ::value:: [H_Elite_2] upon death",
-      "::s_value:: [Life]"
+      "Split into 2 [Unchained Cerberus] upon death",
+      "-150 [Health]"
     ],
-    "image": "elacca_injector.webp",
-    "id": "ElaccaInjector"
+    "image": "elacca_injector.webp"
   },
   {
     "name": "Electronic Scrambler",
@@ -427,12 +454,11 @@
     ],
     "attributes": [
       {
-        "desc": "Once per combat, a mechanical target is [TElectronicScrambler_Debuff] until the end of combat (x::target_stacking_limit:: max): ::target_effects_list::",
+        "desc": "Once per combat, a mechanical target is [Electronic Scrambler] until the end of combat (x1 max):",
         "target_effects_list": []
       }
     ],
-    "image": "electronic_scrambler.webp",
-    "id": "ElectronicScrambler"
+    "image": "electronic_scrambler.webp"
   },
   {
     "name": "Endocrine Arouser",
@@ -443,23 +469,14 @@
       "Harkonnen"
     ],
     "attributes": [],
-    "image": "endocrine_arouser.webp",
-    "id": "EndocrineArouser"
+    "image": "endocrine_arouser.webp"
   },
   {
-    "name": "Long cannons",
-    "unit": [
-      "Artillery Drone"
-    ],
-    "faction": [
-      "Corrino"
-    ],
-    "attributes": [
-      "[+20%] max attack range",
-      "[+30%] min attack range"
-    ],
-    "image": "long_cannons.webp",
-    "id": "LongCannons"
+    "name": "Enhanced Weapons",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "enhanced_weapons.webp"
   },
   {
     "name": "Evasion Booster",
@@ -470,8 +487,7 @@
       "Atreides"
     ],
     "attributes": [],
-    "image": "evasion_booster.webp",
-    "id": "EvasionBooster"
+    "image": "evasion_booster.webp"
   },
   {
     "name": "Exotic Compounds",
@@ -482,10 +498,25 @@
       "Corrino"
     ],
     "attributes": [
-      "Units damaged by <good>2</good> or more [!C_Special]s accrue [Burned_Trait] ::percent_value:: faster"
+      "Units damaged by 2 or more accrue [Burned] 50% faster"
     ],
-    "image": "exotic_compounds.webp",
-    "id": "ExoticCompounds"
+    "image": "exotic_compounds.webp"
+  },
+  {
+    "name": "Experimental Combustible",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Ignores half of the enemy armor"
+    ],
+    "image": "experimental_combustible.webp"
+  },
+  {
+    "name": "Experimental Weapons",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "experimental_weapon.webp"
   },
   {
     "name": "Feedback Gate",
@@ -496,10 +527,9 @@
       "Vernius"
     ],
     "attributes": [
-      "::target_effects:: per ally drone at [Medium_Range] (x::target_stacking_limit:: max)"
+      "? per ally drone at [Medium Range] (x10 max)"
     ],
-    "image": "feedback_gate.webp",
-    "id": "FeedbackGate"
+    "image": "feedback_gate.webp"
   },
   {
     "name": "Fix-up Kit",
@@ -510,11 +540,10 @@
       "Harkonnen"
     ],
     "attributes": [
-      "Heal ::percent_value:: [Life] at the start of combat",
-      "Lose [Life] healed this way at the end of combat"
+      "Heal 30% [Health] at the start of combat",
+      "Lose [Health] healed this way at the end of combat"
     ],
-    "image": "fix-up_kit.webp",
-    "id": "FixupKit"
+    "image": "fix-up_kit.webp"
   },
   {
     "name": "Focused Mind",
@@ -527,8 +556,7 @@
       "Vernius"
     ],
     "attributes": [],
-    "image": "focused_mind.webp",
-    "id": "FocusedMind"
+    "image": "focused_mind.webp"
   },
   {
     "name": "Folding Frame",
@@ -539,10 +567,23 @@
       "Fremen"
     ],
     "attributes": [
-      "::s_percent:: time to deploy and undeploy the turret"
+      "-75% time to deploy and undeploy the turret"
     ],
-    "image": "folding_frame.webp",
-    "id": "FoldingFrame"
+    "image": "folding_frame.webp"
+  },
+  {
+    "name": "Food Additives",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "food_additives.webp"
+  },
+  {
+    "name": "Fremen Assault Gear",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "fremen_assault_gear.webp"
   },
   {
     "name": "Frightening Reputation",
@@ -550,13 +591,12 @@
       "Sardaukar"
     ],
     "faction": [
-      "Corrino"
+      "NoFaction"
     ],
     "attributes": [
-      "Every execution gives ::value:: [Influence]"
+      "Every execution gives 5 [Influence]"
     ],
-    "image": "frightening_reputation.webp",
-    "id": "FrighteningReputation"
+    "image": "frightening_reputation.webp"
   },
   {
     "name": "Front Line Tactics",
@@ -569,10 +609,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "Gives ::target_effects:: to allied unit at [Melee_Effect]"
+      "Gives ? to allied unit at [Melee Effect]"
     ],
-    "image": "front_line_tactics.webp",
-    "id": "FrontLineTactics"
+    "image": "front_line_tactics.webp"
   },
   {
     "name": "Gnarly Recyclers",
@@ -583,8 +622,7 @@
       "Smugglers"
     ],
     "attributes": [],
-    "image": "gnarly_recyclers.webp",
-    "id": "GnarlyRecyclers"
+    "image": "gnarly_recyclers.webp"
   },
   {
     "name": "Heavy Armor",
@@ -595,8 +633,20 @@
       "Smugglers"
     ],
     "attributes": [],
-    "image": "heavy_armor.webp",
-    "id": "HeavyArmor"
+    "image": "heavy_armor.webp"
+  },
+  {
+    "name": "Makeshift Workshop",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Regenerates outside of combat"
+    ],
+    "image": "heavy_armor_altar.webp"
   },
   {
     "name": "Heavy Loads",
@@ -613,8 +663,7 @@
       "Ecaz"
     ],
     "attributes": [],
-    "image": "heavy_loads.webp",
-    "id": "HeavyLoads"
+    "image": "heavy_loads.webp"
   },
   {
     "name": "Heavy Shielding",
@@ -625,10 +674,9 @@
       "Vernius"
     ],
     "attributes": [
-      "Requires ::s_value:: [FuelCell]"
+      "Requires +2 [Fuel Cell]"
     ],
-    "image": "heavy_shielding.webp",
-    "id": "HeavyShielding"
+    "image": "heavy_shielding.webp"
   },
   {
     "name": "Hibernation Breastplate",
@@ -640,12 +688,38 @@
     ],
     "attributes": [
       {
-        "desc": "While he has no stack of [H_Elite_Buff], the [!H_Elite] gains: ::target_effects_list2::",
+        "desc": "While he has no stack of [H Elite], the gains:",
         "target_effects_list": []
       }
     ],
-    "image": "hibernation_breastplate.webp",
-    "id": "HibernationBreastplate"
+    "image": "hibernation_breastplate.webp"
+  },
+  {
+    "name": "Hunter's Eyes",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Can detect units with [Camouflage] in [Long Range]"
+    ],
+    "image": "hunters_eyes.webp"
+  },
+  {
+    "name": "Improved Alloy",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "+10 [Solari]"
+    ],
+    "image": "improved_alloy.webp"
+  },
+  {
+    "name": "Improved Medicines",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Nearby ally non-mechanical units gain +5% [Health] regeneration per day"
+    ],
+    "image": "improved_medicine.webp"
   },
   {
     "name": "Incendiary Ammo",
@@ -656,10 +730,9 @@
       "Corrino"
     ],
     "attributes": [
-      "Dealing damage to an enemy unit applies ::value:: [Burned_Trait] stacks until the end of combat"
+      "Dealing damage to an enemy unit applies 2 [Burned] stacks until the end of combat"
     ],
-    "image": "incendiary_ammo.webp",
-    "id": "IncendiaryAmmo"
+    "image": "incendiary_ammo.webp"
   },
   {
     "name": "Jumping Boot",
@@ -670,10 +743,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "::target_effects:: for ::target_duration_seconds:: seconds after the target died"
+      "? for 2 seconds after the target died"
     ],
-    "image": "jumping_boot.webp",
-    "id": "JumpingBoot"
+    "image": "jumping_boot.webp"
   },
   {
     "name": "Knightly Protector",
@@ -684,10 +756,25 @@
       "Ecaz"
     ],
     "attributes": [
-      "Get ::target_effects:: if at least ::value:: [E_Elite] is at [Short_Range]"
+      "Get ? if at least 1 [Knight] is at [Short Range]"
     ],
-    "image": "knightly_protector.webp",
-    "id": "KnightlyProtector"
+    "image": "knightly_protector.webp"
+  },
+  {
+    "name": "Kraken Protocols",
+    "unit": [
+      "Support Drone"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      {
+        "desc": "For each unit carried by the , it gets:",
+        "target_effects_list": []
+      }
+    ],
+    "image": "kraken_protocols.webp"
   },
   {
     "name": "Last Stand Protocols",
@@ -699,15 +786,47 @@
     ],
     "attributes": [
       {
-        "desc": "Allows using the [LastStandProtocols] ability: ::target_effects_list::",
+        "desc": "Allows using the [Last Stand Protocols] ability:",
         "target_effects_list": [
           "Ignore allied buffs",
           "Cannot be turned off while engaged in melee"
         ]
       }
     ],
-    "image": "last_stand_protocls.webp",
-    "id": "LastStandProtocols"
+    "image": "last_stand_protocls.webp"
+  },
+  {
+    "name": "Light Alloy",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "-50% Military Unit [Solari]"
+    ],
+    "image": "light_alloys.webp"
+  },
+  {
+    "name": "Light Armor",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Lose [?]",
+      "Lose [?]"
+    ],
+    "image": "light_armor.webp"
+  },
+  {
+    "name": "Wreck Harness",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Killing enemy flying units at [Long Range] gives +200% [Spaceship Part]",
+      "Other ally Military Units at [Melee Strict] gain Increases the amount of [Spaceship Part] gained on kills by 200% (x? max)"
+    ],
+    "image": "listening_devices.webp"
   },
   {
     "name": "Live Reformation",
@@ -719,10 +838,27 @@
       "Corrino"
     ],
     "attributes": [
-      "When [Life] is above 50%, transfer ::percent_value:: [Life] per day to a unit of the same kind with less [Life] at [Melee_Effect]"
+      "When [Health] is above 50%, transfer 50% [Health] per day to a unit of the same kind with less [Health] at [Melee Effect]"
     ],
-    "image": "live_reformation.webp",
-    "id": "LiveReformation"
+    "image": "live_reformation.webp"
+  },
+  {
+    "name": "Long Cannons",
+    "unit": [
+      "Artillery Drone"
+    ],
+    "faction": [
+      "Corrino"
+    ],
+    "attributes": [],
+    "image": "long_cannons.webp"
+  },
+  {
+    "name": "Long Rifle",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "long_rifles.webp"
   },
   {
     "name": "Loud Bang",
@@ -733,10 +869,9 @@
       "Locals"
     ],
     "attributes": [
-      "Damaged units deal ::s_percent:: damage"
+      "Damaged units deal -10% damage"
     ],
-    "image": "loud_bang.webp",
-    "id": "LoudBang"
+    "image": "loud_bang.webp"
   },
   {
     "name": "Maker's Effigy",
@@ -747,8 +882,7 @@
       "Locals"
     ],
     "attributes": [],
-    "image": "maker's_effigy.webp",
-    "id": "MakersEffigy"
+    "image": "maker's_effigy.webp"
   },
   {
     "name": "Marching Colors",
@@ -759,11 +893,10 @@
       "Ecaz"
     ],
     "attributes": [
-      "::s_percent_value:: [Speed] outside combat",
-      "[Ecaz-adjective] non-mechanical units at [Medium_Range] get ::target_effects::"
+      "+20% [Speed] outside combat",
+      "House Ecaz non-mechanical units at [Medium Range] get +20% [Speed] outside combat"
     ],
-    "image": "marching_colors.webp",
-    "id": "MarchingColors"
+    "image": "marching_colors.webp"
   },
   {
     "name": "Material Pre-processor",
@@ -774,11 +907,10 @@
       "Vernius"
     ],
     "attributes": [
-      "For each point of [Armor] the target has, get ::s_percent:: [Power]",
-      "For each point of [Armor] the target has, get ::s_percent:: attack speed"
+      "For each point of [Armor] the target has, get +5% [Power]",
+      "For each point of [Armor] the target has, get -5% attack speed"
     ],
-    "image": "material_pre-processor.webp",
-    "id": "MaterialPreProcessor"
+    "image": "material_pre-processor.webp"
   },
   {
     "name": "Meat Armor",
@@ -789,29 +921,17 @@
       "Harkonnen"
     ],
     "attributes": [
-      "On reaching no [Life], lose one stack of [H_Elite_Buff] and regain ::value:: [Life] instead of dying",
-      "::s_value:: [Life]"
+      "On reaching no [Health], lose one stack of [H Elite] and regain 40 [Health] instead of dying",
+      "-150 [Health]"
     ],
-    "image": "meat_armor.webp",
-    "id": "MeatArmor"
+    "image": "meat_armor.webp"
   },
   {
-    "name": "Multi Parts",
-    "unit": [
-      "Fight-Engineer"
-    ],
-    "faction": [
-      "Vernius"
-    ],
-    "attributes": [
-      "Ally's mechanical units at [Medium_Range] get ::target_effects::"
-    ],
-    "target_effects": [
-      "::-20%:: [Solari Upkeep]",
-      "::-20%:: [Regeneration costs]"
-    ],
-    "image": "multi_parts.webp",
-    "id": "MultiParts"
+    "name": "Medkits",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "medkits.webp"
   },
   {
     "name": "Memory Implant",
@@ -822,8 +942,7 @@
       "Vernius"
     ],
     "attributes": [],
-    "image": "memory_implant.webp",
-    "id": "MemoryImplant"
+    "image": "memory_implant.webp"
   },
   {
     "name": "Morbid Climax",
@@ -834,10 +953,9 @@
       "Harkonnen"
     ],
     "attributes": [
-      "In combat, keeps fighting for <good>::target_duration_seconds::</good> seconds after reaching no [Life], then dies"
+      "In combat, keeps fighting for 5 seconds after reaching no [Health], then dies"
     ],
-    "image": "morbid_climax.webp",
-    "id": "MorbidClimax"
+    "image": "morbid_climax.webp"
   },
   {
     "name": "Motivational Cashbox",
@@ -848,10 +966,42 @@
       "Smugglers"
     ],
     "attributes": [
-      "When receiving [S_Drone_Buff], every ally unit at [Medium_Range] get ::target_effects2:: for ::value:: days (x::target_stacking_limit2:: max)"
+      "When receiving [S Drone], every ally unit at [Medium Range] get ? for 0.50 days (x10 max)"
     ],
-    "image": "motivational_cashbox.webp",
-    "id": "MotivationalCashbox"
+    "image": "motivational_cashbox.webp"
+  },
+  {
+    "name": "Mounted Explosives",
+    "unit": [
+      "Combat Probe"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "Upon death, deals high damage in a [Melee Effect]",
+      "Requires +2 [Fuel Cell]"
+    ],
+    "image": "mounted_explosives.webp"
+  },
+  {
+    "name": "Multi-purpose Parts",
+    "unit": [
+      "Fight-Engineer"
+    ],
+    "faction": [
+      "Vernius"
+    ],
+    "attributes": [
+      {
+        "desc": "Ally mechanical units at [Medium Range] get:",
+        "target_effects_list": [
+          "-20% [Solari]",
+          "-20% regeneration costs"
+        ]
+      }
+    ],
+    "image": "multi_parts.webp"
   },
   {
     "name": "Offensive Mindset",
@@ -862,8 +1012,7 @@
       "Harkonnen"
     ],
     "attributes": [],
-    "image": "offensive_mindset.webp",
-    "id": "OffensiveMindset"
+    "image": "offensive_mindset.webp"
   },
   {
     "name": "Optic Camouflage",
@@ -876,10 +1025,9 @@
       "Smugglers"
     ],
     "attributes": [
-      "Requires ::s_value:: [FuelCell]"
+      "Requires +1 [Fuel Cell]"
     ],
-    "image": "optic_camouflage.webp",
-    "id": "OpticCamouflage"
+    "image": "optic_camouflage.webp"
   },
   {
     "name": "Optimized Bed Arrangement",
@@ -890,57 +1038,17 @@
       "Atreides"
     ],
     "attributes": [
-      "::s_value:: [CarryCapacity]",
-      "Requires ::s_value:: [::target::]"
+      "+1 [Carry Capacity]",
+      "Requires +2 [Fuel Cell]"
     ],
-    "image": "optmized_bed_arrangement.webp",
-    "id": "OptmizedBedArrangement"
+    "image": "optmized_bed_arrangement.webp"
   },
   {
-    "name": "Prana Bindu Initiation",
-    "unit": [
-      "Trooper"
-    ],
-    "faction": [
-      "Atreides"
-    ],
-    "attributes": [
-      "Experience levels grants an additional ::5%:: [Max Health]"
-    ],
-    "image": "prana_bindu_initiation.webp",
-    "id": "PranaBinduInitiation"
-  },
-  {
-    "name": "War Memoir",
-    "unit": [
-      "Ranger"
-    ],
-    "faction": [
-      "Atreides"
-    ],
-    "attributes": [
-      "Experience levels grants an additional ::5%:: [Power]"
-    ],
-    "image": "war_memoir.webp",
-    "id": "WarMemoir"
-  },
-  {
-    "name": "Kraken Protocols",
-    "unit": [
-      "Support Drone"
-    ],
-    "faction": [
-      "Atreides"
-    ],
-    "attributes": [
-      "For each unit carried by the [!A_Drone], it gets ::target_effects::"
-    ],
-    "target_effects": [
-      "::-1:: [Power]",
-      "::+2:: [Armor]"
-    ],
-    "image": "kraken_protocols.webp",
-    "id": "KrakenProtocols"
+    "name": "Padded Shielding",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "padded_shielding.webp"
   },
   {
     "name": "Parrying Armguards",
@@ -956,11 +1064,11 @@
       "Harkonnen",
       "Atreides",
       "Corrino",
+      "NoFaction",
       "Ecaz"
     ],
     "attributes": [],
-    "image": "parrying_armguards.webp",
-    "id": "ParryingArmguards"
+    "image": "parrying_armguards.webp"
   },
   {
     "name": "Personal Mantlet",
@@ -971,10 +1079,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "::target_effects:: until first attack dealt in combat"
+      "? until first attack dealt in combat"
     ],
-    "image": "personal_mantlet.webp",
-    "id": "PersonalMantlet"
+    "image": "personal_mantlet.webp"
   },
   {
     "name": "Phosphorus Mix",
@@ -985,8 +1092,7 @@
       "Corrino"
     ],
     "attributes": [],
-    "image": "phosphorus_mix.webp",
-    "id": "PhosphorusMix"
+    "image": "phosphorus_mix.webp"
   },
   {
     "name": "Pre-Loaded Weapons",
@@ -997,10 +1103,22 @@
       "Fremen"
     ],
     "attributes": [
-      "::s_percent_value:: [Power] when attacking undetected"
+      "+100% [Power] when attacking undetected"
     ],
-    "image": "pre-loaded_weapons.webp",
-    "id": "PreLoadedWeapons"
+    "image": "pre-loaded_weapons.webp"
+  },
+  {
+    "name": "Pre-Loaded Weapons",
+    "unit": [
+      "Mobile Turret"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "+100% [Power] when attacking undetected"
+    ],
+    "image": "preloaded_veapon.webp"
   },
   {
     "name": "Prickly Spear",
@@ -1011,10 +1129,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "Target deals ::target_effects::"
+      "Target deals -20% damage, except against [Squire]"
     ],
-    "image": "prickly_spear.webp",
-    "id": "PricklySpear"
+    "image": "prickly_spear.webp"
   },
   {
     "name": "Propaganda Machine",
@@ -1025,10 +1142,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "Enemy units at [Medium_Range] inflict ::target_effects:: (x::target_stacking_limit:: max)"
+      "Enemy units at [Medium Range] inflict -10% damage (x1 max)"
     ],
-    "image": "propaganda_machine.webp",
-    "id": "PropagandaMachine"
+    "image": "propaganda_machine.webp"
   },
   {
     "name": "Propelling Ammo",
@@ -1041,10 +1157,23 @@
       "Vernius"
     ],
     "attributes": [
-      "Gain [Power] depending on distance from target, up to ::s_value:: [Power] at [Long_Range]"
+      "Gain [Power] depending on distance from target, up to +5 [Power] at [Long Range]"
     ],
-    "image": "propelling_ammo.webp",
-    "id": "PropellingAmmo"
+    "image": "propelling_ammo.webp"
+  },
+  {
+    "name": "Recon Stations",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Increases vision range",
+      "Detect [Sneak] unit in a [Very Long Range]"
+    ],
+    "image": "recon_stations.webp"
   },
   {
     "name": "Recursive Lens",
@@ -1055,8 +1184,7 @@
       "Smugglers"
     ],
     "attributes": [],
-    "image": "recursive_lense.webp",
-    "id": "RecursiveLense"
+    "image": "recursive_lense.webp"
   },
   {
     "name": "Red Fluid",
@@ -1070,10 +1198,9 @@
       "Harkonnen"
     ],
     "attributes": [
-      "::target_effects::, while in combat"
+      "-50 [Health] per day, while in combat"
     ],
-    "image": "red_fluid.webp",
-    "id": "RedFluid"
+    "image": "red_fluid.webp"
   },
   {
     "name": "Repeater Node",
@@ -1085,10 +1212,9 @@
     ],
     "attributes": [
       "Always [Tethered]",
-      "Ally mechanical units at [Medium_Range] are [Tethered]"
+      "Ally mechanical units at [Medium Range] are [Tethered]"
     ],
-    "image": "repeater_node.webp",
-    "id": "RepeaterNode"
+    "image": "repeater_node.webp"
   },
   {
     "name": "Running Sandshoes",
@@ -1100,12 +1226,11 @@
     ],
     "attributes": [
       {
-        "desc": "Allows using the [Haste] ability: ::target_effects_list::",
+        "desc": "Allows using the [Haste] ability:",
         "target_effects_list": []
       }
     ],
-    "image": "running_sandshoes.webp",
-    "id": "RunningSandshoes"
+    "image": "running_sandshoes.webp"
   },
   {
     "name": "Sand Cover",
@@ -1113,11 +1238,10 @@
       "Warrior"
     ],
     "faction": [
-      "Fremen"
+      "NoFaction"
     ],
     "attributes": [],
-    "image": "sand_cover.webp",
-    "id": "SandCover"
+    "image": "sand_cover.webp"
   },
   {
     "name": "Sardaukar's Cleaver",
@@ -1125,13 +1249,12 @@
       "Sardaukar"
     ],
     "faction": [
-      "Corrino"
+      "NoFaction"
     ],
     "attributes": [
-      "Raises the execution threshold by ::percent_value:: as if there were <good>5</good> more units around the [!C_Elite]"
+      "Raises the execution threshold by 10% as if there were 5 more units around the"
     ],
-    "image": "sardaukar_cleaver.webp",
-    "id": "SardaukarCleaver"
+    "image": "sardaukar_cleaver.webp"
   },
   {
     "name": "Scarring Armor",
@@ -1142,8 +1265,7 @@
       "Harkonnen"
     ],
     "attributes": [],
-    "image": "scarring_armor.webp",
-    "id": "ScarringArmor"
+    "image": "scarring_armor.webp"
   },
   {
     "name": "Scatter Grenades",
@@ -1154,8 +1276,7 @@
       "Locals"
     ],
     "attributes": [],
-    "image": "scatter_grenades.webp",
-    "id": "ScatterGrenades"
+    "image": "scatter_grenades.webp"
   },
   {
     "name": "Self-sufficiency",
@@ -1166,10 +1287,9 @@
       "Locals"
     ],
     "attributes": [
-      "Requires ::s_value:: [CommandPoint]"
+      "Requires +1 [Command Point]"
     ],
-    "image": "self_sufficiency.webp",
-    "id": "SelfSufficiency"
+    "image": "self_sufficiency.webp"
   },
   {
     "name": "Shadow Scan",
@@ -1184,10 +1304,25 @@
       "Vernius"
     ],
     "attributes": [
-      "Can detect [Sneak_Trait] units at [Long_Range]"
+      "Can detect [Sneak] units at [Long Range]"
     ],
-    "image": "shadow_scan.webp",
-    "id": "ShadowScan"
+    "image": "shadow_scan.webp"
+  },
+  {
+    "name": "Sharpened Tools",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Ignores half of the enemy armor"
+    ],
+    "image": "sharpen_tools.webp"
+  },
+  {
+    "name": "Sharpened Blade",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "sharpened_blade.webp"
   },
   {
     "name": "Shelter Maps",
@@ -1195,11 +1330,10 @@
       "Warrior"
     ],
     "faction": [
-      "Fremen"
+      "NoFaction"
     ],
     "attributes": [],
-    "image": "shelter_maps.webp",
-    "id": "ShelterMaps"
+    "image": "shelter_maps.webp"
   },
   {
     "name": "Shielding Straightener",
@@ -1211,16 +1345,15 @@
     ],
     "attributes": [
       {
-        "desc": "Allows to use the [MakeshiftProtection] ability: ::target_effects_list::",
+        "desc": "Allows to use the [Makeshift Protection] ability:",
         "target_effects_list": [
-          "Ally ground Military Units in [Medium_Range] gain ::target_effects:: (x::target_stacking_limit:: max)",
-          "Consumes ::value:: stacks of [S_Drone_Buff] per day",
+          "Ally ground Military Units in [Medium Range] gain ? (x1 max)",
+          "Consumes 4 stacks of [S Drone] per day",
           "Can be turned off"
         ]
       }
     ],
-    "image": "shielding_straightener.webp",
-    "id": "ShieldingStraightener"
+    "image": "shielding_straightener.webp"
   },
   {
     "name": "Shock Dampener",
@@ -1231,10 +1364,34 @@
       "Smugglers"
     ],
     "attributes": [
-      "Gain ::value:: [Intel] when delivering [S_Drone_Buff] to a [!Village]"
+      "Gain 5 [Intel] when delivering [S Drone] to a"
     ],
-    "image": "shock_dampener.webp",
-    "id": "ShockDampener"
+    "image": "shock_dampener.webp"
+  },
+  {
+    "name": "Shrapnel Ammunitions",
+    "unit": [],
+    "faction": [],
+    "attributes": [],
+    "image": "shrapnel_ammunition.webp"
+  },
+  {
+    "name": "Seismic Ammo",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Requires +1 [Fuel Cell]"
+    ],
+    "image": "sismic_ammo.webp"
+  },
+  {
+    "name": "Skirmish Gear",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "Enemy units engaged in combat suffer ?"
+    ],
+    "image": "skirmish_gear.webp"
   },
   {
     "name": "Small Formation",
@@ -1246,11 +1403,9 @@
       "Corrino"
     ],
     "attributes": [
-      "Requires ::s_value:: [CommandPoint]"
+      "Requires -1 [Command Point]"
     ],
-    "image": "small_formation.webp",
-    "id": "SmallFormation",
-    "unitCpCost": 2
+    "image": "small_formation.webp"
   },
   {
     "name": "Deep Signals",
@@ -1261,10 +1416,9 @@
       "Vernius"
     ],
     "attributes": [
-      "Ally mechanical units at [Medium_Range] inflict ::target_effects:: (x::target_stacking_limit:: max)"
+      "Ally mechanical units at [Medium Range] inflict +10% damage (x1 max)"
     ],
-    "image": "smart_armor.webp",
-    "id": "SmartArmor"
+    "image": "smart_armor.webp"
   },
   {
     "name": "Learning Transistors",
@@ -1276,10 +1430,9 @@
       "Vernius"
     ],
     "attributes": [
-      "::target_effects:: in combat"
+      "+0.5 [Knowledge] while [Tethered] in combat"
     ],
-    "image": "smart_lens.webp",
-    "id": "SmartLens"
+    "image": "smart_lens.webp"
   },
   {
     "name": "Long Rifle",
@@ -1290,8 +1443,7 @@
       "Atreides"
     ],
     "attributes": [],
-    "image": "sniper_rifles.webp",
-    "id": "SniperRifles"
+    "image": "sniper_rifles.webp"
   },
   {
     "name": "Sobering Medication",
@@ -1302,10 +1454,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "::percent_value:: of damage bonuses are turned into damage reduction"
+      "50% of damage bonuses are turned into damage reduction"
     ],
-    "image": "sobering_medication.webp",
-    "id": "SoberingMedication"
+    "image": "sobering_medication.webp"
   },
   {
     "name": "Stinging Gas",
@@ -1316,10 +1467,23 @@
       "Smugglers"
     ],
     "attributes": [
-      "Damaged enemy units receive ::s_percent_value:: damage from all sources (x::target_stacking_limit:: max)"
+      "Damaged enemy units receive +10% damage from all sources (x1 max)"
     ],
-    "image": "stinging_gaz.webp",
-    "id": "StingingGaz"
+    "image": "stinging_gaz.webp"
+  },
+  {
+    "name": "Storm Sails",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Ignores damage from [Sandstorm]s",
+      "+50% [Speed] in a [Sandstorm]"
+    ],
+    "image": "storm_sails.webp"
   },
   {
     "name": "Supporting Field",
@@ -1331,12 +1495,11 @@
     ],
     "attributes": [
       {
-        "desc": "As long as the [!A_Drone] is not full, non-mechanical [Atreides-shortname] base units at [Long_Range] gain (x::target_stacking_limit:: max): ::target_effects_list::",
+        "desc": "As long as the is not full, non-mechanical House Atreides base units at [Long Range] gain (x1 max):",
         "target_effects_list": []
       }
     ],
-    "image": "supporting_field.webp",
-    "id": "SupportingField"
+    "image": "supporting_field.webp"
   },
   {
     "name": "Supporting Tactics",
@@ -1348,10 +1511,45 @@
       "Corrino"
     ],
     "attributes": [
-      "Gives ::target_effects:: to non-Conscript allied units at [Short_Range]"
+      "Gives ? to non-Conscript allied units at [Short Range]"
     ],
-    "image": "supporting_tactics.webp",
-    "id": "SupportingTactics"
+    "image": "supporting_tactics.webp"
+  },
+  {
+    "name": "Suppressive Coordination",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      {
+        "desc": "The target is [Suppressive Coordination] (x1 max):",
+        "target_effects_list": [
+          "+2 maximum stacks of [A Soldier]"
+        ]
+      }
+    ],
+    "image": "suppressive_coordination.webp"
+  },
+  {
+    "name": "Symbol of Freedom",
+    "unit": [
+      "Altar"
+    ],
+    "faction": [
+      "Fremen"
+    ],
+    "attributes": [
+      "Gain 50 [Authority] when liberating a in the region"
+    ],
+    "image": "symbol_of_freedom.webp"
+  },
+  {
+    "name": "Tempered Sword",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "+20 [Solari]"
+    ],
+    "image": "tempered_sword.webp"
   },
   {
     "name": "Terrifying Mask",
@@ -1362,10 +1560,9 @@
       "Corrino"
     ],
     "attributes": [
-      "Enemy units deal ::percent_value:: less damage to [!C_Special]s per [Burned_Trait] stack"
+      "Enemy units deal 1% less damage to per [Burned] stack"
     ],
-    "image": "terrifying_mask.webp",
-    "id": "TerrifyingMask"
+    "image": "terrifying_mask.webp"
   },
   {
     "name": "Tinkering Gear",
@@ -1376,10 +1573,23 @@
       "Vernius"
     ],
     "attributes": [
-      "Ally drones at [Short_Range] get ::target_effects:: (x::target_stacking_limit:: max)"
+      "Ally drones at [Short Range] get ? (x1 max)"
     ],
-    "image": "tinkering_gear.webp",
-    "id": "TinkeringGear"
+    "image": "tinkering_gear.webp"
+  },
+  {
+    "name": "Torture Tools",
+    "unit": [
+      "Combat Probe"
+    ],
+    "faction": [
+      "Harkonnen"
+    ],
+    "attributes": [
+      "Attacks in melee",
+      "Ignores half of the enemy [Armor]"
+    ],
+    "image": "torture_tools.webp"
   },
   {
     "name": "Traumatic Repeater",
@@ -1390,10 +1600,9 @@
       "Smugglers"
     ],
     "attributes": [
-      "Damaged units suffer ::target_effects:: (x::target_stacking_limit:: max)"
+      "Damaged units suffer ? (x1 max)"
     ],
-    "image": "traumatic_repeater.webp",
-    "id": "TraumaticRepeater"
+    "image": "traumatic_repeater.webp"
   },
   {
     "name": "Virtual Black Box",
@@ -1404,10 +1613,9 @@
       "Harkonnen"
     ],
     "attributes": [
-      "Upon death, gain ::value:: [Intel]"
+      "Upon death, gain 10 [Intel]"
     ],
-    "image": "virtual_black_box.webp",
-    "id": "VirtualBlackBox"
+    "image": "virtual_black_box.webp"
   },
   {
     "name": "Vow of Bravery",
@@ -1420,8 +1628,7 @@
     "attributes": [
       "Ignores half of the enemy armor"
     ],
-    "image": "vow_of_bravery.webp",
-    "id": "VowOfBravery"
+    "image": "vow_of_bravery.webp"
   },
   {
     "name": "Vow of Fervor",
@@ -1432,10 +1639,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "::s_value:: [Life]"
+      "-100 [Health]"
     ],
-    "image": "vow_of_fervor.webp",
-    "id": "VowOfFervor"
+    "image": "vow_of_fervor.webp"
   },
   {
     "name": "Vow of Heroism",
@@ -1446,10 +1652,9 @@
       "Ecaz"
     ],
     "attributes": [
-      "Requires ::s_value:: [CommandPoint]"
+      "Requires +3 [Command Point]"
     ],
-    "image": "vow_of_heroism.webp",
-    "id": "VowOfHeroism"
+    "image": "vow_of_heroism.webp"
   },
   {
     "name": "Vow of Honor",
@@ -1460,10 +1665,23 @@
       "Ecaz"
     ],
     "attributes": [
-      "[Squires] at [Short_Range] gain ::target_effects2::"
+      "[Squire]s at [Short Range] gain ?"
     ],
-    "image": "vow_of_honor.webp",
-    "id": "VowOfHonor"
+    "image": "vow_of_honor.webp"
+  },
+  {
+    "name": "War Memoirs",
+    "unit": [
+      "Ranger",
+      "Heavy Weapon Squad"
+    ],
+    "faction": [
+      "Atreides"
+    ],
+    "attributes": [
+      "[Experience] levels grant an additional ?"
+    ],
+    "image": "war_memoir.webp"
   },
   {
     "name": "Strong Magnets",
@@ -1474,10 +1692,18 @@
       "Vernius"
     ],
     "attributes": [
-      "Requires ::s_value:: [FuelCell]"
+      "Requires +2 [Fuel Cell]"
     ],
-    "image": "warm_magnets.webp",
-    "id": "WarmMagnets"
+    "image": "warm_magnets.webp"
+  },
+  {
+    "name": "Weaponized Configuration",
+    "unit": [],
+    "faction": [],
+    "attributes": [
+      "-2 [Carry Capacity]"
+    ],
+    "image": "weaponized_configuration.webp"
   },
   {
     "name": "Whistling Ammo",
@@ -1495,8 +1721,7 @@
       "Vernius"
     ],
     "attributes": [],
-    "image": "whistling_ammo.webp",
-    "id": "WhistlingAmmo"
+    "image": "whistling_ammo.webp"
   },
   {
     "name": "Wide Nozzle",
@@ -1507,8 +1732,7 @@
       "Corrino"
     ],
     "attributes": [],
-    "image": "wide_nozzle.webp",
-    "id": "WideNozzle"
+    "image": "wide_nozzle.webp"
   },
   {
     "name": "Work Shelter",
@@ -1519,9 +1743,8 @@
       "Vernius"
     ],
     "attributes": [
-      "Gain ::target_effects:: while the repair station is deployed"
+      "Gain ? while the repair station is deployed"
     ],
-    "image": "work_shelter.webp",
-    "id": "WorkShelter"
+    "image": "work_shelter.webp"
   }
 ]

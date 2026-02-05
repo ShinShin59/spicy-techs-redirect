@@ -13,6 +13,22 @@ permissions:
   id-token: write
 
 jobs:
+  discord-notify:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Notify Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          # toJSON() safely escapes the commit message for JSON (quotes, newlines, etc.)
+          PAYLOAD: ${{ format('{{"embeds":[{{"title":"New spicy update !","description":{0},"color":5814783,"footer":{{"text":"{1} • {2}"}}}}]}}', toJSON(github.event.head_commit.message), github.actor, github.repository) }}
+        run: |
+          if [ -n "$DISCORD_WEBHOOK" ]; then
+            curl -sS -X POST "$DISCORD_WEBHOOK" \
+              -H "Content-Type: application/json" \
+              -d "$PAYLOAD"
+          fi
+
   build:
     runs-on: ubuntu-latest
     steps:

@@ -11,13 +11,7 @@ import { PANEL_BORDER_HOVER_CLASS } from "@/components/shared/panelBorderHover"
 import {
   getUnitsForFaction,
   getGearByName,
-  getGearOptionsForUnit,
-  type GearItem,
-  type UnitData,
 } from "./armory-utils"
-
-// Re-export for external use
-export { getUnitsForFaction, getGearByName, getGearOptionsForUnit, type GearItem, type UnitData }
 
 interface SelectedSlot {
   unitIndex: number

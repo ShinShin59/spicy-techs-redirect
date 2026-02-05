@@ -3,8 +3,8 @@
     "name": "Administrative Hall",
     "desc": "The city hall centralizes the administrative formalities and acts as a nexus for your civic and political power.",
     "attributes": [
-      "+10 [Solari] production in [Villages]",
-      "+20% [Authority] production"
+      "+3 [Solari] production in [Villages]",
+      "+30% [Authority] production"
     ],
     "category": "Economy"
   },
@@ -13,16 +13,27 @@
     "desc": "A complex but streamlined system of used water collection gathers the precious fluids to several recycling stations called \"clear nodes\", and then reinjects it as clean water into the system.",
     "attributes": [
       "+10 [Water]",
-      "+10 5 per [target]"
+      "+1 [water] per [Dew Collector]"
     ],
-    "category": "Economy"
+    "category": "Economy",
+    "excludeFromFaction": "fremen"
+  },
+  {
+    "name": "Recycling Vats",
+    "desc": "A complex but streamlined system of used water collection gathers the precious fluids to several recycling stations called \"clear nodes\", and then reinjects it as clean water into the system.",
+    "attributes": [
+      "+10 [Water]",
+      "+1 [Water] per [Wind Trap]"
+    ],
+    "category": "Economy",
+    "onlyForFaction": "fremen"
   },
   {
     "name": "CHOAM branch",
     "desc": "Hosting a CHOAM branch is not mandatory in any way, but a wise leader will quickly find it quite advantageous, as it is sure to give them an edge in their economic endeavors.",
     "attributes": [
-      "Special effects when the base exchange rate is at least 10",
-      "+10 max [Spice]"
+      "::+0.8 [Spice] exchange rate when the base exchange rate is at least [2.2]",
+      "::+3000:: max [Spice]"
     ],
     "category": "Economy"
   },
@@ -30,8 +41,8 @@
     "name": "Harvester Works",
     "desc": "This structure trains technical harvesting crews and gives them tools to improve their work. Specialists of spice collection help optimize the process from start to finish.",
     "attributes": [
-      "+20% [harvester]s gathering rate per [Economy] [Buildings] in their [Village]",
-      "10% [harvester] [crew] cost"
+      "+5% [harvester]s gathering rate per [Economy] [Buildings] in their [Village]",
+      "-50% [harvester] [crew] cost"
     ],
     "category": "Economy",
     "excludeFromFaction": "vernius"
@@ -59,7 +70,7 @@
     "name": "Recruitment Center",
     "desc": "This structure streamlines the process of enrollment for military units as well as make recruitment easier, ultimately bringing in more manpower to your forces.",
     "attributes": [
-      "+20% [Manpower] production",
+      "+30% [Manpower] production",
       "+300 max [Manpower]"
     ],
     "category": "Military"
@@ -68,8 +79,8 @@
     "name": "Barracks",
     "desc": "Allows your military forces to recover and organize more effectively by giving them a place to fall back to and store their equipment.",
     "attributes": [
-      "+20% [Life] to Military Units",
-      "+20% [Experience] gains for Military Units"
+      "+10% [Life] to Military Units",
+      "+30% [Experience] gains for Military Units"
     ],
     "category": "Military"
   },
@@ -77,7 +88,8 @@
     "name": "Fusion Plant",
     "desc": "While the usage of atomic weapons is forbidden by the Great Convention, civilian nuclear physics is widely used by the Great House for cheap efficient energy production. What they do with that energy is nobody's business.",
     "attributes": [
-      "+10 [FuelCell]"
+      "+10 [FuelCell]",
+      "-50% [mechanical] units training time"
     ],
     "category": "Military"
   },
@@ -86,7 +98,7 @@
     "desc": "The Academy is a huge complex equipped with all the modern arsenal. Multiple classes of cadets can take courses in parallel and the concentration of pedagogical knowledge insures a constant stream of new soldiers.",
     "attributes": [
       "+2 [TrainingSlot]",
-      "Units regenerate [Life] +10% faster"
+      "Units regenerate [Life] +30% faster"
     ],
     "category": "Military"
   },
@@ -95,7 +107,7 @@
     "desc": "Optimizes logistics for your armies and improves communication down the chain of command, ultimately making your forces more efficient and dangerous.",
     "attributes": [
       "+10 [Command Points]",
-      "-10% Military Unit [Solari] [Upkeep]"
+      "-30% Military Unit [Solari] [Upkeep]"
     ],
     "category": "Military"
   },
@@ -113,7 +125,9 @@
     "name": "Embassy",
     "desc": "An important node of your power, where diplomats and other powerful people exchange information or work on political agreements.",
     "attributes": [
-      "+10 [influence] production"
+      "+15% [influence] production",
+      "+10 [landstraad standing] on [Council] opening",
+      "Having at least one [Treaty] contracted with another faction grants a production bonus of 10% in its associated resource"
     ],
     "excludeFromFaction": "fremen",
     "category": "Statecraft"
@@ -123,7 +137,7 @@
     "desc": "You can find a little bit of everything in a busy Bazaar, making any neighborhood more vibrant and dynamic.",
     "attributes": [
       "+10 [Solari] per active trade with a [Sietch]",
-      "+10 [Water] per active trade with a [Sietch]",
+      "+2 [Water] per active trade with a [Sietch]",
       "Can only be built in [main base]"
     ],
     "onlyForFaction": "fremen",
@@ -132,7 +146,10 @@
   {
     "name": "Al-Gaib Temple",
     "desc": "The temple draws the faithful, strengthening their will to serve for the good of the Fremen.",
-    "attributes": [],
+    "attributes": [
+      "Each allied Sietch grants +50 max [Influence]",
+      "+40% received resources when trading with Sietch"
+    ],
     "onlyForFaction": "fremen",
     "category": "Statecraft"
   },
@@ -148,7 +165,10 @@
   {
     "name": "Intelligence Agency",
     "desc": "The battle for information is best fought with the proper structures, and this agency contains everything you need to conduct proper espionage and counter-intelligence missions.",
-    "attributes": [],
+    "attributes": [
+      "Gain +2 additional [operation] slots",
+      "+200% [Agent] recruitment speed"
+    ],
     "category": "Statecraft"
   },
   {

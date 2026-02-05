@@ -13,12 +13,9 @@ const BuildNameEditable = () => {
   const setCurrentBuildName = useMainStore((s) => s.setCurrentBuildName)
   const saveCurrentBuild = useMainStore((s) => s.saveCurrentBuild)
   const [editing, setEditing] = useState(false)
-  const [value, setValue] = useState(currentBuildName)
+  // Use currentBuildName directly when not editing, local state only when editing
+  const [editValue, setEditValue] = useState("")
   const inputRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    if (!editing) setValue(currentBuildName)
-  }, [currentBuildName, editing])
 
   useEffect(() => {
     if (editing && inputRef.current) {
@@ -28,17 +25,22 @@ const BuildNameEditable = () => {
   }, [editing])
 
   const handleSubmit = () => {
-    setCurrentBuildName(value)
+    const trimmedValue = editValue.trim() || undefined
+    setCurrentBuildName(trimmedValue || currentBuildName)
     setEditing(false)
-    saveCurrentBuild(value.trim() || undefined)
+    saveCurrentBuild(trimmedValue)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") handleSubmit()
     if (e.key === "Escape") {
-      setValue(currentBuildName)
       setEditing(false)
     }
+  }
+
+  const handleStartEditing = () => {
+    setEditValue(currentBuildName)
+    setEditing(true)
   }
 
   if (editing) {
@@ -47,8 +49,8 @@ const BuildNameEditable = () => {
         <input
           ref={inputRef}
           type="text"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={editValue}
+          onChange={(e) => setEditValue(e.target.value)}
           onBlur={handleSubmit}
           onKeyDown={handleKeyDown}
           className="bg-zinc-800 text-white border border-zinc-600  px-2 py-1 text-sm min-w-[100px] max-w-[180px] focus:outline-none focus:ring-2 focus:ring-accent"
@@ -62,8 +64,8 @@ const BuildNameEditable = () => {
     <div
       role="button"
       tabIndex={0}
-      onClick={() => setEditing(true)}
-      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setEditing(true)}
+      onClick={handleStartEditing}
+      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleStartEditing()}
       className="flex items-center gap-1.5 group cursor-pointer min-w-0  px-1 py-0.5 -m-0.5 hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-inset"
       aria-label="Rename build"
     >

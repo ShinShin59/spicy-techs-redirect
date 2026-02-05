@@ -156,6 +156,9 @@ export function formatValue(val, type) {
 /**
  * Collect descriptions from a trait's attributes (for ::target_effects::).
  * Recursively resolves placeholders within those descriptions.
+ * If desc is missing, tries to generate from val/target data.
+ * Note: When generating from trait attributes, we don't recursively resolve traits
+ * to prevent infinite loops.
  */
 export function getTraitEffectDescs(traitId, lookups, attr) {
   const trait = lookups.traits.get(traitId)
@@ -164,6 +167,13 @@ export function getTraitEffectDescs(traitId, lookups, attr) {
   for (const a of trait.attributes || []) {
     if (a.desc) {
       descs.push(resolveDesc(a.desc, a, lookups))
+    } else {
+      // Try to generate description from trait attribute data
+      // Don't allow recursive trait resolution to prevent infinite loops
+      const generated = generateDescFromData(a, lookups, false)
+      if (generated) {
+        descs.push(generated)
+      }
     }
   }
   return descs
@@ -316,12 +326,77 @@ export function resolveDesc(desc, attr, lookups) {
 }
 
 /**
+ * Generate a description from attribute data when desc is missing.
+ * Tries to resolve trait references or generate from val/target data.
+ * @param {boolean} allowTraitResolution - if false, skip trait resolution to prevent recursion
+ */
+function generateDescFromData(attr, lookups, allowTraitResolution = true) {
+  // If there's a trait reference, try to resolve it (but only if allowed to prevent recursion)
+  if (allowTraitResolution && attr.target?.trait) {
+    const traitId = attr.target.trait
+    const descs = getTraitEffectDescs(traitId, lookups, attr)
+    if (descs.length > 0) {
+      return descs.join(", ")
+    }
+  }
+  
+  // If there's a val and target, try to generate a basic description
+  if (attr.val != null && attr.target) {
+    const targetName = resolveTargetName(attr.target, lookups)
+    if (targetName) {
+      // Format based on val type
+      if (typeof attr.val === "number") {
+        if (attr.val > 0 && attr.val < 1) {
+          // Percentage
+          const pct = Math.round(attr.val * 100)
+          return `+${pct}% ${targetName}`
+        } else if (attr.val >= 1) {
+          return `+${attr.val} ${targetName}`
+        } else {
+          return `${attr.val} ${targetName}`
+        }
+      }
+    }
+  }
+  
+  // If there's just a val, format it
+  if (attr.val != null) {
+    if (typeof attr.val === "number") {
+      if (attr.val > 0 && attr.val < 1) {
+        // Small decimal, likely a percentage multiplier
+        const pct = Math.round(attr.val * 100)
+        return `+${pct}%`
+      } else if (attr.val >= 1) {
+        return `+${attr.val}`
+      } else {
+        return String(attr.val)
+      }
+    }
+    return String(attr.val)
+  }
+  
+  return null
+}
+
+/**
  * Resolve ::target_effects_list:: / ::target_effects_list2:: in a desc,
  * returning { desc, target_effects_list } for structured rendering.
  * If no list placeholder, returns just the resolved string.
+ * If desc is empty, tries to generate one from trait references or data.
  */
 export function resolveAttribute(attr, lookups) {
-  const desc = attr?.desc || ""
+  let desc = attr?.desc || ""
+  
+  // If desc is empty/null but we have data, try to generate a description
+  if (!desc || desc.trim() === "") {
+    const generated = generateDescFromData(attr, lookups)
+    if (generated) {
+      desc = generated
+    } else {
+      // Still empty after generation attempt - skip this attribute
+      return null
+    }
+  }
 
   if (desc.includes("::target_effects_list::")) {
     const traitId = attr.target?.trait

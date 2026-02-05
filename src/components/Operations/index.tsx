@@ -139,7 +139,7 @@ const Operations = () => {
                   key={`op-${index}`}
                   role={enabled ? "button" : undefined}
                   tabIndex={enabled ? 0 : undefined}
-                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative bg-cover bg-center border border-zinc-700 ${cellHoverUrl ? "hover:bg-[image:var(--op-slot-hover)]" : ""} ${isAddSlot && !enabled ? "opacity-70 brightness-[0.5] cursor-not-allowed" : "cursor-pointer hover:brightness-110"}`}
+                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative bg-cover bg-center border border-zinc-700 ${cellHoverUrl ? "hover:bg-(image:--op-slot-hover)" : ""} ${isAddSlot && !enabled ? "opacity-70 brightness-[0.5] cursor-not-allowed" : "cursor-pointer hover:brightness-110"}`}
                   style={{ ...slotStyle, backgroundImage: `url(${cellBgUrl})`, ...(cellHoverUrl ? { ["--op-slot-hover" as string]: `url(${cellHoverUrl})` } : {}) }}
                   data-panel-slot
                   title={isAddSlot ? (enabled ? "Add operation" : "Requires Intelligence Agency") : operation?.name}

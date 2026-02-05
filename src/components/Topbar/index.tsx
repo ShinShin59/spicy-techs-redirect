@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import { useMainStore, useIsBuildUpToDate } from "@/store"
+import { useMainStore } from "@/store"
 import { useUIStore } from "@/store/ui"
 import FactionSelector from "@/components/FactionSelector"
 import Button from "@/components/Button"
@@ -19,7 +19,6 @@ const Topbar = ({ onNew, onReset, onFork }: TopbarProps) => {
   const isInitialMount = useRef(true)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const currentBuildId = useMainStore((s) => s.currentBuildId)
-  const isBuildUpToDate = useIsBuildUpToDate()
   const panelVisibility = useMainStore((s) => s.panelVisibility)
   const toggleMainBase = useMainStore((s) => s.toggleMainBase)
   const toggleArmory = useMainStore((s) => s.toggleArmory)
@@ -70,9 +69,6 @@ const Topbar = ({ onNew, onReset, onFork }: TopbarProps) => {
         <Button onClick={onFork} aria-label="Duplicate current build" mutedWhenUnpressed={false}>
           Duplicate
         </Button>
-        {!isBuildUpToDate && (
-          <span className="text-amber-400 text-xs font-medium" title="Unsaved changes">•</span>
-        )}
         <Button
           onClick={handleShare}
           aria-label="Share build link"

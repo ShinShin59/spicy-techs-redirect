@@ -27,6 +27,8 @@ interface MainBaseBuildingsSelectorProps {
   usedBuildingNames: string[]
   /** Position d'ancrage pour le popup */
   anchorPosition: AnchorPosition
+  /** Current main base index (0 or 1) */
+  selectedMainBaseIndex: 0 | 1
 }
 
 const CATEGORIES = ['Economy', 'Military', 'Statecraft'] as const
@@ -49,6 +51,7 @@ const MainBaseBuildingsSelector = ({
   onSelect,
   usedBuildingNames,
   anchorPosition,
+  selectedMainBaseIndex,
 }: MainBaseBuildingsSelectorProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
@@ -68,15 +71,21 @@ const MainBaseBuildingsSelector = ({
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [onClose])
 
-  // Memoize available buildings (only changes when faction changes)
+  // Memoize available buildings (only changes when faction or base index changes)
   const availableBuildings = useMemo(() => {
     return mainBuildings.filter((building) => {
-      return (
-        building.excludeFromFaction !== selectedFaction &&
-        (!building.onlyForFaction || building.onlyForFaction === selectedFaction)
-      )
+      // Standard faction filtering
+      if (building.excludeFromFaction === selectedFaction) return false
+      if (building.onlyForFaction && building.onlyForFaction !== selectedFaction) return false
+      
+      // Bazaar cannot be built in sietch (main base #2 for Fremen)
+      if (building.name === "Bazaar" && selectedFaction === "fremen" && selectedMainBaseIndex === 1) {
+        return false
+      }
+      
+      return true
     })
-  }, [selectedFaction])
+  }, [selectedFaction, selectedMainBaseIndex])
 
   // Memoize grouping by category
   const buildingsByCategory = useMemo(() => {

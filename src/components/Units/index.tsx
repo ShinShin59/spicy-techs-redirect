@@ -189,7 +189,7 @@ const Units = () => {
                   key={`unit-${index}`}
                   role={canOpenSelector ? "button" : undefined}
                   tabIndex={canOpenSelector ? 0 : undefined}
-                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative bg-cover bg-center border border-zinc-700 ${cellHoverUrl ? "hover:bg-[image:var(--unit-slot-hover)]" : ""} ${addSlotDisabledStyle ? "opacity-70 brightness-[0.5] cursor-not-allowed" : canOpenSelector ? "cursor-pointer hover:brightness-110" : ""} ${heroSlotMuted}`}
+                  className={`flex items-center justify-center overflow-hidden text-white text-xs font-medium relative bg-cover bg-center border border-zinc-700 ${cellHoverUrl ? "hover:bg-(image:--unit-slot-hover)" : ""} ${addSlotDisabledStyle ? "opacity-70 brightness-[0.5] cursor-not-allowed" : canOpenSelector ? "cursor-pointer hover:brightness-110" : ""} ${heroSlotMuted}`}
                   style={{ ...slotStyle, backgroundImage: `url(${cellBgUrl})`, ...(cellHoverUrl ? { ["--unit-slot-hover" as string]: `url(${cellHoverUrl})` } : {}) }}
                   id={`units-slot-${index}`}
                   data-panel-slot

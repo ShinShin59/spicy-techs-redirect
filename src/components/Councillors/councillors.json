@@ -6,7 +6,7 @@
       "description": "Thufir is an elderly Mentat - a human computer - and House Atreides' Master of Assassins. Renowned in the Landsraad for being both outstandingly cunning and honorable, Thufir is also a mentor in the art of war and political instruction.",
       "category": "Economy",
       "attributes": [
-        "+1 starting Agent trait",
+        "+1 starting [agent] trait",
         "Can Hasten Fake mission progress and Village building construction at the cost of Solari"
       ],
       "image": "thufir_hawat.webp"
@@ -78,7 +78,7 @@
       "category": "Statecraft",
       "attributes": [
         "Can use Corruption on Landsraad resolutions, causing Standing loss for the elected enemy faction",
-        "While at least one Village is under Oppression: +20% Influence and +100% Agent production"
+        "While at least one Village is under Oppression: +20% Influence and +100% [agent] production"
       ],
       "image": "feyd-rautha-harkonnen.webp"
     },
@@ -88,8 +88,8 @@
       "description": "Piter is a twisted Mentat; that is a human computer, but bred on planet Tleilax with much less ethical constraints in mind than their regular counterparts.",
       "category": "Expansion",
       "attributes": [
-        "15% cheaper operation costs when sacrificing Agent",
-        "Sacrificing an Agent gives 60 Solari per current Agent"
+        "15% cheaper operation costs when sacrificing [agent]",
+        "Sacrificing an [agent] gives 60 Solari per current [agent]"
       ],
       "image": "piter_de_vries.webp"
     }
@@ -212,7 +212,7 @@
     {
       "id": "Mohiam",
       "name": "Gaius Helen Mohiam",
-      "description": "Reverend Mother Gaius Helen Mohiam is both a powerful agent of the Bene Gesserit, and the personal Truthsayer of Shaddam IV. She is fully loyal to the Sisterhood and would do anything for their breeding plan to succeed.",
+      "description": "Reverend Mother Gaius Helen Mohiam is both a powerful [agent] of the Bene Gesserit, and the personal Truthsayer of Shaddam IV. She is fully loyal to the Sisterhood and would do anything for their breeding plan to succeed.",
       "category": "Statecraft",
       "attributes": [
         "Every Corrino vote placed on a resolution affected by Imperial Edict counts double",
@@ -227,7 +227,7 @@
       "category": "Expansion",
       "attributes": [
         "Can investigate Discoveries quickly everywhere, no matter how many Agents are on the field",
-        "Resolving any Discovery that way progresses Agent recruitment by 1 day"
+        "Resolving any Discovery that way progresses [agent] recruitment by 1 day"
       ],
       "image": "hasimir_fenrig.webp"
     }

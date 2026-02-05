@@ -241,7 +241,7 @@ const MainBase = () => {
                           role="button"
                           tabIndex={isDisabled ? -1 : 0}
                           aria-disabled={isDisabled ? true : undefined}
-                          className={`relative w-[64px] h-[64px] flex items-center justify-center overflow-hidden border border-zinc-700 bg-cover bg-center ${cellBgHoverUrl && !isDisabled ? "hover:bg-[image:var(--slot-hover)]" : ""} ${isDisabled ? 'pointer-events-none' : 'cursor-pointer'}`}
+                          className={`relative w-[64px] h-[64px] flex items-center justify-center overflow-hidden border border-zinc-700 bg-cover bg-center ${cellBgHoverUrl && !isDisabled ? "hover:bg-(image:--slot-hover)" : ""} ${isDisabled ? 'pointer-events-none' : 'cursor-pointer'}`}
                           style={{
                             backgroundImage: `url(${cellBgUrl})`,
                             ...(cellBgHoverUrl && !isDisabled ? { ["--slot-hover" as string]: `url(${cellBgHoverUrl})` } : {}),
@@ -328,6 +328,7 @@ const MainBase = () => {
                 onSelect={handleSelectBuilding}
                 usedBuildingNames={usedBuildingIds}
                 anchorPosition={anchorPosition}
+                selectedMainBaseIndex={selectedMainBaseIndex}
               />
             )}
           </div>

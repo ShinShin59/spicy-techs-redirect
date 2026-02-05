@@ -1323,33 +1323,6 @@ export function getBuildingOrderNumber(
   return index >= 0 ? index + 1 : null
 }
 
-/** Whether the current build is up to date with the last save (single subscription). */
-export function useIsBuildUpToDate(): boolean {
-  return useMainStore((s) => {
-    if (s.lastSavedSnapshot === null) return false
-    const currentSnapshot = getBuildSnapshot({
-      selectedFaction: s.selectedFaction,
-      selectedMainBaseIndex: s.selectedMainBaseIndex,
-      mainBaseState: s.mainBaseState,
-      buildingOrder: s.buildingOrder,
-      armoryState: s.armoryState,
-      unitSlotCount: s.unitSlotCount,
-      unitSlots: s.unitSlots,
-      councillorSlots: s.councillorSlots,
-      operationSlots: s.operationSlots,
-      panelVisibility: s.panelVisibility,
-      developmentsSummary: s.developmentsSummary,
-      selectedDevelopments: s.selectedDevelopments,
-      developmentsKnowledge: s.developmentsKnowledge,
-      knowledgeBase: s.knowledgeBase,
-      buildingDates: s.buildingDates,
-      metadata: s.metadata,
-      currentBuildName: s.currentBuildName,
-    })
-    return currentSnapshot === s.lastSavedSnapshot
-  })
-}
-
 /** Single subscription: whether the current faction base has at least one building. */
 export function useIsBuildEmpty(): boolean {
   return useMainStore((s) => isFactionBaseEmpty(s.mainBaseState, s.selectedFaction))

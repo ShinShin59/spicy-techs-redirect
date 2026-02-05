@@ -347,7 +347,7 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
         <PanelCorners />
         <button
           type="button"
-          className={`${RESET_BUTTON_CLASS} z-20 !opacity-0 transition-opacity group-hover/modal:!opacity-75 hover:!opacity-100`}
+          className={`${RESET_BUTTON_CLASS} z-20 opacity-0! transition-opacity group-hover/modal:opacity-75! hover:opacity-100!`}
           onClick={(e) => {
             e.stopPropagation()
             handleResetAll()
@@ -587,7 +587,7 @@ function Quadrant({
     <div className="group/quadrant relative w-max min-w-0 min-h-[140px] overflow-auto bg-zinc-900/80 pl-5 pr-8 pt-5 pb-5 border border-transparent rounded-lg">
       <button
         type="button"
-        className={`${RESET_BUTTON_CLASS} z-20 !opacity-0 transition-opacity group-hover/quadrant:!opacity-75 hover:!opacity-100`}
+        className={`${RESET_BUTTON_CLASS} z-20 opacity-0! transition-opacity group-hover/quadrant:opacity-75! hover:opacity-100!`}
         onClick={(e) => {
           e.stopPropagation()
           onResetDomain()

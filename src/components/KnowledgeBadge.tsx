@@ -27,6 +27,8 @@ export default function KnowledgeBadge({
   onDecrement,
   children,
 }: KnowledgeBadgeProps) {
+  // _breakdown is reserved for future use
+  void _breakdown
   const interactive = onIncrement != null && onDecrement != null
   const content = children ?? Math.round(value)
   const baseClass = `${BADGE_BASE_CLASS} ${interactive ? BADGE_INTERACTIVE_CLASS : BADGE_STATIC_CLASS

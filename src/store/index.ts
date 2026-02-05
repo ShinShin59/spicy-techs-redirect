@@ -612,7 +612,9 @@ export const useMainStore = create<MainStore>()(
               const isTuple = Array.isArray(factionDates) && factionDates.length === 2
               if (isTuple) {
                 const [d0, d1] = factionDates as [Record<string, number>, Record<string, number>]
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const { [key]: _, ...rest0 } = d0
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const { [key]: __, ...rest1 } = d1
                 nextBuildingDates = {
                   ...buildingDates,
@@ -620,6 +622,7 @@ export const useMainStore = create<MainStore>()(
                 }
               } else {
                 const d = (factionDates as Record<string, number>) ?? {}
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const { [key]: ___, ...rest } = d
                 nextBuildingDates = { ...buildingDates, [selectedFaction]: rest }
               }
@@ -1249,6 +1252,8 @@ export const useMainStore = create<MainStore>()(
         },
         migrate: (persisted, _version) => {
           // Future: bump version when schema changes and transform here, e.g. if (_version < 2) return migrateV1toV2(persisted)
+          // _version is reserved for future migration logic
+          void _version
           return persisted as MainStore
         },
       }

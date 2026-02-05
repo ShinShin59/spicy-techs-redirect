@@ -95,6 +95,7 @@ const Units = () => {
   }
 
   // Total CP uses effective cost (gear overrides like Small Formation reduce cost)
+  // eslint-disable-next-line react-hooks/preserve-manual-memoization
   const totalCP = useMemo(
     () =>
       unitSlots.reduce((sum, unitId) => {

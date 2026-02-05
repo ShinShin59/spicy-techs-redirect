@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, useRef, lazy, Suspense } from "react"
+import { useState, useEffect, useRef, lazy, Suspense } from "react"
 import { useMainStore, type FactionLabel } from "@/store"
 import { useUIStore } from "@/store/ui"
 
@@ -36,16 +36,21 @@ const DitherBackground = () => {
   const animStartRef = useRef<number | null>(null)
   const rafRef = useRef<number>(0)
 
-  const baseDirection = useMemo((): [number, number] => {
+  // Initialize baseDirection with useState to avoid calling Math.random() during render
+  const [baseDirection] = useState<[number, number]>(() => {
     const angle = Math.random() * Math.PI * 2
     return [Math.cos(angle) * WAVE_SPEED, Math.sin(angle) * WAVE_SPEED]
-  }, [selectedFaction])
+  })
 
   useEffect(() => {
-    setSpeedMult(BOOST_SPEED_MULT)
-    setAmplitudeMult(BOOST_AMPLITUDE_MULT)
-    setOpacityMult(BOOST_OPACITY_MULT)
-    animStartRef.current = null
+    // Initialize animation values and start animation loop
+    // Use requestAnimationFrame to ensure state updates happen in sync with animation frame
+    const initRafId = requestAnimationFrame(() => {
+      setSpeedMult(BOOST_SPEED_MULT)
+      setAmplitudeMult(BOOST_AMPLITUDE_MULT)
+      setOpacityMult(BOOST_OPACITY_MULT)
+      animStartRef.current = null
+    })
 
     const tick = (now: number) => {
       if (animStartRef.current === null) animStartRef.current = now
@@ -62,7 +67,10 @@ const DitherBackground = () => {
       }
     }
     rafRef.current = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(rafRef.current)
+    return () => {
+      cancelAnimationFrame(initRafId)
+      cancelAnimationFrame(rafRef.current)
+    }
   }, [selectedFaction])
 
   const waveDirection: [number, number] = [

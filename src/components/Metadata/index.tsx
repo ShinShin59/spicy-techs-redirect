@@ -237,12 +237,14 @@ export default function Metadata() {
   const setLightweightMode = useUIStore((s) => s.setLightweightMode)
 
   const [commentaryEditing, setCommentaryEditing] = useState(false)
-  const [commentaryValue, setCommentaryValue] = useState(metadata.commentary)
+  // Use metadata.commentary directly when not editing, local state only when editing
+  const [commentaryValue, setCommentaryValue] = useState("")
   const textareaRef = useRef<HTMLTextAreaElement>(null)
-
-  useEffect(() => {
+  
+  const handleStartCommentaryEditing = () => {
     setCommentaryValue(metadata.commentary)
-  }, [metadata.commentary])
+    setCommentaryEditing(true)
+  }
 
   const adjustTextareaHeight = () => {
     if (textareaRef.current) {
@@ -311,7 +313,6 @@ export default function Metadata() {
                     e.preventDefault()
                     handleCommentarySubmit()
                   } else if (e.key === "Escape") {
-                    setCommentaryValue(metadata.commentary)
                     setCommentaryEditing(false)
                   }
                 }}
@@ -321,7 +322,7 @@ export default function Metadata() {
             ) : (
               <button
                 type="button"
-                onClick={() => setCommentaryEditing(true)}
+                onClick={handleStartCommentaryEditing}
                 className="w-full text-left hover:bg-zinc-800 px-1 py-1 -mx-1 transition-colors min-h-12 cursor-pointer"
               >
                 <span className={`text-sm whitespace-pre-wrap wrap-break-word ${metadata.commentary ? "text-zinc-200" : "text-zinc-500 italic"}`}>

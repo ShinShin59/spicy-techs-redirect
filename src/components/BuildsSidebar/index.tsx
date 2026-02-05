@@ -65,12 +65,14 @@ interface BuildRowProps {
 
 const BuildRow = memo(function BuildRow({ build, isSelected, onLoad, onDuplicate, onDelete, onRename }: BuildRowProps) {
   const [renaming, setRenaming] = useState(false)
-  const [editValue, setEditValue] = useState(build.name)
+  // Use build.name directly when not renaming, local state only when renaming
+  const [editValue, setEditValue] = useState("")
   const inputRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
+  
+  const handleStartRenaming = () => {
     setEditValue(build.name)
-  }, [build.name])
+    setRenaming(true)
+  }
 
   useEffect(() => {
     if (renaming && inputRef.current) {
@@ -115,7 +117,6 @@ const BuildRow = memo(function BuildRow({ build, isSelected, onLoad, onDuplicate
           onKeyDown={(e) => {
             if (e.key === "Enter") handleRenameSubmit()
             if (e.key === "Escape") {
-              setEditValue(build.name)
               setRenaming(false)
             }
           }}
@@ -159,7 +160,7 @@ const BuildRow = memo(function BuildRow({ build, isSelected, onLoad, onDuplicate
           data-pencil
           onClick={(e) => {
             e.stopPropagation()
-            setRenaming(true)
+            handleStartRenaming()
           }}
           aria-label="Rename"
           className="p-1 hover:bg-zinc-700 rounded transition-colors cursor-pointer"

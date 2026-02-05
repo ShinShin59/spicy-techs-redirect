@@ -16,6 +16,7 @@ vi.mock('@/store', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/store')>()
   return {
     ...actual,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     useMainStore: (selector: any) => mockUseMainStore(selector),
   }
 })
@@ -24,6 +25,7 @@ describe('MainBaseBuildingsSelector - Bazaar Restriction', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     // Default mock: return 'fremen' for selectedFaction selector
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mockUseMainStore.mockImplementation((selector: any) => {
       const selectorStr = selector.toString()
       if (selectorStr.includes('selectedFaction')) {
@@ -75,6 +77,7 @@ describe('MainBaseBuildingsSelector - Bazaar Restriction', () => {
 
   it('should not interfere with other faction restrictions', () => {
     // Mock store to return Atreides faction
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     mockUseMainStore.mockImplementation((selector: any) => {
       const selectorStr = selector.toString()
       if (selectorStr.includes('selectedFaction')) {

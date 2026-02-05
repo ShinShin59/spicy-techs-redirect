@@ -20,7 +20,9 @@ Object.defineProperty(window, 'localStorage', {
 })
 
 // Mock window.location
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 delete (window as any).location
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 ;(window as any).location = {
   origin: 'http://localhost:3000',
   pathname: '/spicy-techs/',
@@ -30,7 +32,9 @@ delete (window as any).location
 
 // Mock crypto.randomUUID if not available
 if (typeof crypto === 'undefined' || !crypto.randomUUID) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ;(globalThis as any).crypto = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...((globalThis as any).crypto || {}),
     randomUUID: () => {
       return `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`

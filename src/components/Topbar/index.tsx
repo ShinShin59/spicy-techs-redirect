@@ -42,9 +42,15 @@ const Topbar = ({ onNew, onReset, onFork }: TopbarProps) => {
       return
     }
     if (lightweightMode) return
-    setTitleAnimation("title-anim-pulse-sharp")
-    const t = setTimeout(() => setTitleAnimation(null), 200)
-    return () => clearTimeout(t)
+    // Trigger animation after render using requestAnimationFrame (more appropriate for animations)
+    const rafId = requestAnimationFrame(() => {
+      setTitleAnimation("title-anim-pulse-sharp")
+    })
+    const timeoutId = setTimeout(() => setTitleAnimation(null), 200)
+    return () => {
+      cancelAnimationFrame(rafId)
+      clearTimeout(timeoutId)
+    }
   }, [selectedFaction, currentBuildId, lightweightMode])
 
   return (

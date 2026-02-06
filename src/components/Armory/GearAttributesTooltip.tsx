@@ -46,11 +46,6 @@ export default function GearAttributesTooltip({
         <div className="text-zinc-100 font-semibold text-sm uppercase tracking-wide">
           {gear.name}
         </div>
-        {gear.unit.length > 0 && (
-          <div className="text-zinc-400 text-xs mt-0.5">
-            {gear.unit.join(", ")}
-          </div>
-        )}
       </div>
 
       {/* Attributes */}

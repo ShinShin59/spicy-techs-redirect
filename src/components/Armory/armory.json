@@ -899,7 +899,8 @@
   {
     "name": "Prana Bindu Initiation",
     "unit": [
-      "Trooper"
+      "Trooper",
+      "Warden"
     ],
     "faction": [
       "Atreides"
@@ -908,7 +909,7 @@
       "Experience levels grants an additional ::5%:: [Max Health]"
     ],
     "image": "prana_bindu_initiation.webp",
-    "id": "PranaBinduInitiation"
+    "id": "PranaBindu"
   },
   {
     "name": "War Memoir",

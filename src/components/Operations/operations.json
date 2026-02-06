@@ -25,10 +25,10 @@
     "name": "Probe Setup",
     "desc": "Knowledge is power, they say. It's even more true on Arrakis, where ignorance can be lethal.",
     "attributes": [
-      "Grants region reveal po is",
-      "Grants village additional production make visible",
-      "Reveals all informations and units in the region",
-      "Advances detection of any Sietch in the region"
+      "Reveal [points of interest] in the region",
+      "Reveal [Villages] production",
+      "Reveals all [informations] and [units] in the region",
+      "Advances detection of any [Sietch] in the region"
     ]
   },
   {
@@ -58,12 +58,11 @@
     "desc": "The most effective defensive weapons do not matter if your enemy cannot use them.",
     "attributes": [
       {
-        "desc": "[Missile Battery]s and Main Base suffer:",
+        "desc": "[Missile Batterys] and [Main Base] suffer:",
         "target_effects_list": [
-          "-0.3 Power"
+          "-30% [Power]"
         ]
-      },
-      "-0.3 Power"
+      }
     ]
   },
   {
@@ -161,7 +160,7 @@
         "desc": "Ally non-mechanical units receive:",
         "target_effects_list": [
           "Gain +80 [Supply] daily",
-          "Grants supply protected"
+          "Grants [Supply] protected"
         ]
       }
     ]
@@ -195,7 +194,7 @@
     "name": "Support Intelligence",
     "desc": "Coordinating analysts at the office and soldiers on the field allows for a better reaction to threats, which saves many lives.",
     "attributes": [
-      "Gives [Support Intelligence Stack] to instigator and allies per launched operation on the zone"
+      "[Units] gains -5% [damage] received by [operations] in the region"
     ]
   },
   {
@@ -260,9 +259,7 @@
     "desc": "Corpses usually have many valuables on them. It'd be a shame to leave them to the desert.",
     "attributes": [
       "Gain 25% of the maximum [Health] of Military Units that die in the region as [Solari]",
-      "+20% pillage gain",
-      "Converts 25% of the max [Health] of any dying Military Units into [Solari]s",
-      "+20% resources from pillaging a"
+      "+20% [pillage] gain"
     ]
   },
   {
@@ -432,9 +429,7 @@
     "desc": "Fremen place thumpers in peculiar places to attract and enrage sandworms on their enemies' paths and out of theirs.",
     "attributes": [
       "A [Sandworm] has been called in this region",
-      "Neighboring Region are protected from [Sandworm] attacks",
-      "Call a [Sandworm] in this Region",
-      "Protect neighboring Region from [Sandworm] attacks"
+      "Neighboring Region are protected from [Sandworm] attacks"
     ]
   },
   {
@@ -471,8 +466,7 @@
     "desc": "Empathy, patience, and attention for cultural differences lead to a great deal of success in getting the locals' favors.",
     "attributes": [
       "Disband all rebellions and raids",
-      "+200% relation gain and resources received from trade with [Sietch]",
-      "+200% resources received"
+      "+200% increased relation gain and resources received from trade with [Sietch]"
     ]
   },
   {
@@ -508,7 +502,6 @@
     "name": "Sleeper Agent",
     "desc": "With care and meticulousness, it's possible to plant a sleeper agent in every army squad that will betray them on command.",
     "attributes": [
-      "Any non-temporary non-mechanical units has a 50% chance to spawn a [Sleeper Agent] upon death in combat",
       "Any non-temporary non-mechanical units has a 50% chance to spawn a [Sleeper Agent] upon death in combat"
     ]
   },
@@ -1026,7 +1019,7 @@
     "name": "Cease Fire",
     "desc": "Sometimes a ceasefire is the stepping stone to a durable peace. More often, it is only a stalling scheme.",
     "attributes": [
-      "Grants no fight"
+      "Interrupts and prevents battles in target Region for 2 days."
     ]
   },
   {

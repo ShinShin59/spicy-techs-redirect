@@ -1,0 +1,6 @@
+Armory Extraction Log - 2026-02-06T10:30:07.163Z
+============================================================
+
+Total entries: 140
+Unresolved placeholders: 0
+Empty target_effects_list: 0

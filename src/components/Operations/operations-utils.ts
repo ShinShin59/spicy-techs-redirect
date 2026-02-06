@@ -10,6 +10,7 @@ export interface OperationItem {
   props?: { onlyForFactions?: string[]; tip?: unknown }
   name: string
   desc: string
+  attributes?: (string | { desc: string; target_effects_list: string[] })[]
 }
 
 const operations = operationsData as OperationItem[]

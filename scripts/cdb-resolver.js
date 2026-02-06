@@ -166,12 +166,16 @@ export function getTraitEffectDescs(traitId, lookups, attr) {
   const descs = []
   for (const a of trait.attributes || []) {
     if (a.desc) {
-      descs.push(resolveDesc(a.desc, a, lookups))
+      const resolved = resolveDesc(a.desc, a, lookups)
+      // Only add non-empty resolved descriptions
+      if (resolved && resolved.trim() && resolved !== "?") {
+        descs.push(resolved)
+      }
     } else {
       // Try to generate description from trait attribute data
       // Don't allow recursive trait resolution to prevent infinite loops
       const generated = generateDescFromData(a, lookups, false)
-      if (generated) {
+      if (generated && generated.trim() && generated !== "?") {
         descs.push(generated)
       }
     }
@@ -322,6 +326,16 @@ export function resolveDesc(desc, attr, lookups) {
   // 13. Clean up extra whitespace from stripping
   result = result.replace(/\s{2,}/g, " ").trim()
 
+  // 14. Final cleanup: Remove any remaining ::placeholder:: patterns that weren't caught
+  // This ensures no unresolved placeholders remain in the output
+  result = result.replace(/::[^:]+::/g, "?")
+
+  // 15. Clean up any double question marks or question marks with spaces
+  result = result.replace(/\?\s*\?/g, "?")
+  result = result.replace(/\s+\?/g, "?")
+  result = result.replace(/\?\s+/g, "?")
+  result = result.replace(/\s{2,}/g, " ").trim()
+
   return result
 }
 
@@ -330,6 +344,42 @@ export function resolveDesc(desc, attr, lookups) {
  * Tries to resolve trait references or generate from val/target data.
  * @param {boolean} allowTraitResolution - if false, skip trait resolution to prevent recursion
  */
+/**
+ * Extract stat name from a ref string (e.g., "Unit_AttackRange_ARatio" -> "attack range")
+ */
+function extractStatNameFromRef(ref) {
+  if (!ref || typeof ref !== "string") return null
+  
+  // Remove common prefixes and suffixes
+  let cleaned = ref
+    .replace(/^(Unit_|Entity_|Army_)/, "")  // Remove prefixes
+    .replace(/_ARatio$/, "")                 // Remove _ARatio suffix
+    .replace(/_Ratio$/, "")                  // Remove _Ratio suffix
+    .replace(/_Flat$/, "")                   // Remove _Flat suffix
+    .replace(/_Bonus$/, "")                  // Remove _Bonus suffix
+  
+  // Common stat name mappings
+  const statMappings = {
+    "AttackRange": "attack range",
+    "AttackSpeed": "attack speed",
+    "Power": "Power",
+    "Life": "Life",
+    "Armor": "Armor",
+    "Speed": "Speed",
+    "DamageVsNonMechanical": "damage vs non-mechanical",
+    "FirstAttackPower": "first attack power",
+    "Cloaked": "camouflage",
+    "Replace": "", // Skip replace operations
+  }
+  
+  if (statMappings[cleaned]) {
+    return statMappings[cleaned]
+  }
+  
+  // Fallback: prettify the cleaned ref
+  return prettifyId(cleaned).toLowerCase()
+}
+
 function generateDescFromData(attr, lookups, allowTraitResolution = true) {
   // If there's a trait reference, try to resolve it (but only if allowed to prevent recursion)
   if (allowTraitResolution && attr.target?.trait) {
@@ -340,39 +390,151 @@ function generateDescFromData(attr, lookups, allowTraitResolution = true) {
     }
   }
   
+  // Check if we have a ref field that can give us the stat name
+  let statName = null
+  if (attr.ref) {
+    statName = extractStatNameFromRef(attr.ref)
+  }
+  
   // If there's a val and target, try to generate a basic description
   if (attr.val != null && attr.target) {
-    const targetName = resolveTargetName(attr.target, lookups)
+    let targetName = resolveTargetName(attr.target, lookups)
+    
+    // resolveTargetName should already prettify, but if it returned null or empty,
+    // try to extract directly from target fields
+    if (!targetName || targetName.trim() === "") {
+      // Check resource field (often contains stat names like AttackSpeed, Power, etc.)
+      if (attr.target.resource) {
+        targetName = prettifyId(attr.target.resource)
+      }
+      // Check unit field
+      else if (attr.target.unit) {
+        targetName = prettifyId(attr.target.unit)
+      }
+      // Check structure field
+      else if (attr.target.structure) {
+        targetName = prettifyId(attr.target.structure)
+      }
+      // Check ability field
+      else if (attr.target.ability) {
+        targetName = prettifyId(attr.target.ability)
+      }
+      // Check range field
+      else if (attr.target.range) {
+        targetName = prettifyId(attr.target.range)
+      }
+      // Check domain field
+      else if (attr.target.domain) {
+        targetName = prettifyId(attr.target.domain)
+      }
+    }
+    
+    // If we still don't have a target name but have a stat name from ref, use that
+    if ((!targetName || targetName.trim() === "") && statName) {
+      targetName = statName
+    }
+    
     if (targetName) {
       // Format based on val type
       if (typeof attr.val === "number") {
-        if (attr.val > 0 && attr.val < 1) {
-          // Percentage
+        if (attr.val > 1) {
+          // Multiplier: 1.4 -> +40%
+          const pct = Math.round((attr.val - 1) * 100)
+          return `${pct >= 0 ? "+" : ""}${pct}% ${targetName}`
+        } else if (attr.val > 0 && attr.val < 1) {
+          // Direct percentage: 0.4 -> +40%
           const pct = Math.round(attr.val * 100)
           return `+${pct}% ${targetName}`
         } else if (attr.val >= 1) {
           return `+${attr.val} ${targetName}`
+        } else if (attr.val < 0) {
+          return `${attr.val} ${targetName}`
         } else {
           return `${attr.val} ${targetName}`
+        }
+      }
+    } else {
+      // Target exists but no name - try to use target type
+      if (attr.target.range) {
+        const rangeName = prettifyId(attr.target.range)
+        if (attr.val != null && typeof attr.val === "number") {
+          if (attr.val > 1) {
+            const pct = Math.round((attr.val - 1) * 100)
+            return `${pct >= 0 ? "+" : ""}${pct}% at [${rangeName}]`
+          } else if (attr.val > 0 && attr.val < 1) {
+            const pct = Math.round(attr.val * 100)
+            return `+${pct}% at [${rangeName}]`
+          }
+          return `+${attr.val} at [${rangeName}]`
         }
       }
     }
   }
   
-  // If there's just a val, format it
+  // If there's just a val, try to use stat name from ref if available
+  if (attr.val != null && statName) {
+    if (typeof attr.val === "number") {
+      if (attr.val > 1) {
+        // Multiplier: 1.4 -> +40%
+        const pct = Math.round((attr.val - 1) * 100)
+        return `${pct >= 0 ? "+" : ""}${pct}% ${statName}`
+      } else if (attr.val > 0 && attr.val < 1) {
+        // Direct percentage: 0.4 -> +40%
+        const pct = Math.round(attr.val * 100)
+        return `+${pct}% ${statName}`
+      } else if (attr.val >= 1) {
+        return `+${attr.val} ${statName}`
+      } else if (attr.val < 0) {
+        return `${attr.val} ${statName}`
+      } else {
+        return `+${attr.val} ${statName}`
+      }
+    }
+    return `${attr.val} ${statName}`
+  }
+
+  // Handle attributes that represent states/abilities (ref without val)
+  if (statName && attr.val == null) {
+    // These are typically boolean states that are granted
+    return `Grants ${statName}`
+  }
+
+  // If there's just a val without any target context, format it
+  // (This is a fallback - ideally we should have target info)
   if (attr.val != null) {
     if (typeof attr.val === "number") {
-      if (attr.val > 0 && attr.val < 1) {
-        // Small decimal, likely a percentage multiplier
+      if (attr.val > 1) {
+        // Multiplier: 1.4 -> +40%
+        const pct = Math.round((attr.val - 1) * 100)
+        return `${pct >= 0 ? "+" : ""}${pct}%`
+      } else if (attr.val > 0 && attr.val < 1) {
+        // Direct percentage: 0.4 -> +40%
         const pct = Math.round(attr.val * 100)
         return `+${pct}%`
       } else if (attr.val >= 1) {
         return `+${attr.val}`
-      } else {
+      } else if (attr.val < 0) {
         return String(attr.val)
+      } else {
+        return `+${attr.val}`
       }
     }
     return String(attr.val)
+  }
+  
+  // Check if there's a target2 with val2
+  if (attr.val2 != null && attr.target2) {
+    const targetName = resolveTargetName(attr.target2, lookups)
+    if (targetName) {
+      if (typeof attr.val2 === "number") {
+        if (attr.val2 > 0 && attr.val2 < 1) {
+          const pct = Math.round((attr.val2 - 1) * 100)
+          return `${pct >= 0 ? "+" : ""}${pct}% ${targetName}`
+        } else if (attr.val2 >= 1) {
+          return `+${attr.val2} ${targetName}`
+        }
+      }
+    }
   }
   
   return null
@@ -400,14 +562,46 @@ export function resolveAttribute(attr, lookups) {
 
   if (desc.includes("::target_effects_list::")) {
     const traitId = attr.target?.trait
-    const list = traitId ? getTraitEffectDescs(traitId, lookups, attr) : []
+    let list = []
+    if (traitId) {
+      list = getTraitEffectDescs(traitId, lookups, attr)
+      // If list is empty but trait exists, try to get at least something
+      if (list.length === 0) {
+        const trait = lookups.traits.get(traitId)
+        if (trait && trait.attributes && trait.attributes.length > 0) {
+          // Try to generate descriptions even if they don't have desc fields
+          for (const a of trait.attributes) {
+            const generated = generateDescFromData(a, lookups, false)
+            if (generated && generated.trim() && generated !== "?") {
+              list.push(generated)
+            }
+          }
+        }
+      }
+    }
     const resolvedDesc = resolveDesc(desc.replace(/::target_effects_list::/g, "").trim(), attr, lookups)
     return { desc: resolvedDesc, target_effects_list: list }
   }
 
   if (desc.includes("::target_effects_list2::")) {
     const traitId = attr.target2?.trait
-    const list = traitId ? getTraitEffectDescs(traitId, lookups, attr) : []
+    let list = []
+    if (traitId) {
+      list = getTraitEffectDescs(traitId, lookups, attr)
+      // If list is empty but trait exists, try to get at least something
+      if (list.length === 0) {
+        const trait = lookups.traits.get(traitId)
+        if (trait && trait.attributes && trait.attributes.length > 0) {
+          // Try to generate descriptions even if they don't have desc fields
+          for (const a of trait.attributes) {
+            const generated = generateDescFromData(a, lookups, false)
+            if (generated && generated.trim() && generated !== "?") {
+              list.push(generated)
+            }
+          }
+        }
+      }
+    }
     const resolvedDesc = resolveDesc(desc.replace(/::target_effects_list2::/g, "").trim(), attr, lookups)
     return { desc: resolvedDesc, target_effects_list: list }
   }

@@ -32,7 +32,7 @@ const Operations = () => {
   const [selectedSlotIndex, setSelectedSlotIndex] = useState<number | null>(null)
   const [anchorPosition, setAnchorPosition] = useState<AnchorPosition | null>(null)
   const [hoverTooltip, setHoverTooltip, showTooltip] = usePanelTooltip<{
-    operation: { name: string; desc?: string; cost: { res: string; qty: number }[] }
+    operation: { name: string; desc?: string; cost: { res: string; qty: number }[]; attributes?: (string | { desc: string; target_effects_list: string[] })[] }
     anchorRect: { left: number; top: number; width: number; height: number }
   }>(selectedSlotIndex !== null)
 
@@ -154,6 +154,7 @@ const Operations = () => {
                             name: operation.name,
                             desc: operation.desc,
                             cost: operation.cost ?? [],
+                            attributes: operation.attributes,
                           },
                           anchorRect: {
                             left: rect.left,

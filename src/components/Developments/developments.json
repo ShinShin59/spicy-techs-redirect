@@ -37,7 +37,7 @@
       "y": 0
     },
     "attributes": [
-      "Each Village produces +2% resources per Building constructed",
+      "+2% outpost prod per building",
       "Unlocks the [Mason Guild]",
       "Unlocks the [Trade Agreement] [Treaty]"
     ]
@@ -59,7 +59,7 @@
       "y": 0
     },
     "attributes": [
-      "+1 Maximum Crew in Harvesters",
+      "+1 crew points max",
       "Unlocks the [Spice Silos]",
       "Unlocks the [Harvester Works]"
     ]
@@ -166,8 +166,8 @@
       "y": 0
     },
     "attributes": [
-      "-15% [CHOAM Share] buying price",
-      "+0.1 Spice exchange rate per 5% [CHOAM Share]"
+      "+85% c market share buy price m ratio",
+      "+10% choam solari rate per shares"
     ]
   },
   {
@@ -187,7 +187,7 @@
       "y": 0
     },
     "attributes": [
-      "+2 Maximum Crew in Harvesters",
+      "+100% crew points max",
       "+20% [Spice] production"
     ]
   },
@@ -208,8 +208,8 @@
       "y": 1
     },
     "attributes": [
-      "-15% [Authority] cost to [Annex] a [!Village]",
-      "+1 [Water] per controlled [!Village]"
+      "+85% faction outpost cost m ratio",
+      "Controlled produce +1 [Water]"
     ]
   },
   {
@@ -273,7 +273,8 @@
       "y": 5
     },
     "attributes": [
-      "+20% [Authority] from [agents] on a [Arrakis Information] slot"
+      "+20% [Authority] from [Agent]s on a [Arrakis Information] slot",
+      "+70% outpost reconned sietch same zone annex cost m ratio"
     ]
   },
   {
@@ -293,7 +294,7 @@
       "y": 0
     },
     "attributes": [
-      "+100% resources received from trading with an allied [Sietch]",
+      "+1 sietch allied trade res gain",
       "Unlocks the [Crafts Workshop]"
     ]
   },
@@ -314,7 +315,8 @@
       "y": 1
     },
     "attributes": [
-      "+1 [Agent] slot in [IField]"
+      "+70% outpost number cost m ratio",
+      "+1 [Agent] slot in [Arrakis]"
     ]
   },
   {
@@ -334,9 +336,9 @@
       "y": 0
     },
     "attributes": [
-      "+1 Militia Slot",
-      "+150 Militia Health",
-      "-50% [Airfield] [!Upkeep]"
+      "+1 militia slot",
+      "+14900% militia life",
+      "-50% [Airfield]"
     ]
   },
   {
@@ -357,7 +359,7 @@
     },
     "attributes": [
       "+1 [Missile Battery] limit",
-      "+1 Militia Slot"
+      "+1 militia armor"
     ]
   },
   {
@@ -379,7 +381,7 @@
     "attributes": [
       "+30% resource production in [Special Region]s",
       "+30% Crafts Workshop",
-      "0"
+      "0 outpost special region no cost penalty"
     ]
   },
   {
@@ -553,9 +555,9 @@
       "y": 8
     },
     "attributes": [
-      "+20% mechanical units Health",
-      "+50% mechanical units regeneration speed",
-      "-30% mechanical units regeneration costs"
+      "+20% mechanical life",
+      "+50% mechanical safe regen m ratio",
+      "+70% mechanical safe regen cost m ratio"
     ]
   },
   {
@@ -596,7 +598,8 @@
       "y": 3
     },
     "attributes": [
-      "Getting the chosen result on at least one resolution grants 10 [Landsraad Standing] every Council"
+      "Getting the chosen result on at least one resolution grants 10 [Landsraad Standing] every Council",
+      "+1 Agent"
     ]
   },
   {
@@ -639,6 +642,7 @@
     },
     "attributes": [
       "Allows the training of [Assassin]s",
+      "+100% Agent",
       "Unlocks the [Intelligence Agency]"
     ]
   },
@@ -702,7 +706,7 @@
     },
     "attributes": [
       "-50% [Assassin] recruitment costs",
-      "Allows the training of [Assassin]s"
+      "+1 faction extra infiltration cell"
     ]
   },
   {
@@ -723,7 +727,7 @@
     },
     "attributes": [
       "20% of an operation's [Intel] cost is refund when launched in the territory of a faction in [War]",
-      "Enemies have -50% chance to detect missions"
+      "+50% mission enemy detection chance m ratio"
     ]
   },
   {
@@ -743,9 +747,9 @@
       "y": 4
     },
     "attributes": [
-      "-20% [CHOAM Share] selling price",
-      "Selling [CHOAM Share]s grants 1 [Influence] per [share]",
-      "Ignore [CHOAM] selling cooldown and max [Influence] during the [Landsraad Council]"
+      "+20% c market share sell price m ratio",
+      "Selling [CHOAM Share]s grants 1 [Influence] per share",
+      "Ignore CHOAM selling cooldown and max [Influence] during the [Landsraad Council]"
     ]
   },
   {
@@ -765,8 +769,8 @@
       "y": 5
     },
     "attributes": [
-      "-50% impact from number of [agents] on the time to recruit a new one",
-      "+5 max agents"
+      "+50% agent recruit speed per agent penalty m ratio",
+      "+400% agt max"
     ]
   },
   {
@@ -833,7 +837,7 @@
       "y": 8
     },
     "attributes": [
-      "+2 Maximum Crew in Harvesters",
+      "+100% crew points max",
       "+15% gathering rate"
     ]
   },
@@ -856,8 +860,8 @@
     },
     "attributes": [
       "-70% [Airfield] construction costs",
-      "-70% [Airfield] [!Upkeep]",
-      "+1 Militia slot"
+      "-70% [Airfield]",
+      "+1 shuttle move speed"
     ]
   },
   {
@@ -903,8 +907,8 @@
       "y": 2
     },
     "attributes": [
-      "-15% damage received by Military units inside [Atreides-adjective] borders",
-      "+80% Militia Health"
+      "+85% damage received m ratio by Military Units inside borders",
+      "+80% militia life"
     ]
   },
   {
@@ -926,6 +930,7 @@
     },
     "attributes": [
       "+5 [Command Point]",
+      "+70% infantry safe regen cost m ratio",
       "Unlocks the [Command Post]"
     ]
   },
@@ -948,7 +953,7 @@
     },
     "attributes": [
       "Non-mechanical units get +1% max [Health] per 20 [Landsraad Standing]",
-      "+20 Landsraad Standing",
+      "+1900% Landsraad Standing",
       "Units Liberating or Annexing a from a faction with less [Landsraad Standing] heal 50% of [Health] for free",
       "+50% Annex"
     ]
@@ -1039,7 +1044,7 @@
       "y": 10
     },
     "attributes": [
-      "[agents] assigned on [CHOAM], [Landsraad], or [Spacing Guild] slots produce +50% of their associated resources",
+      "[Agent]s assigned on [CHOAM], [Landsraad], or [Spacing Guild] slots produce +50% of their associated resources",
       "[Agent] traits present only once on an field apply their effects twice",
       "+50% CHOAM",
       "+50% Landsraad",
@@ -1087,7 +1092,7 @@
       "y": 7
     },
     "attributes": [
-      "+1 Militia Slot",
+      "+1 militia slot",
       "Unlocks the [Office of Order]"
     ]
   },
@@ -1110,7 +1115,7 @@
     },
     "attributes": [
       "Pillaging a village does not increase its annexation cost",
-      "-0.1 pillaged",
+      "-0.1 outpost pillaged cost a percent pillaged",
       "-50% [Authority] cost to [Annex] again a owned by House Harkonnen in the past"
     ]
   },
@@ -1225,7 +1230,10 @@
     "attributes": [
       "+10 [Water]",
       "+50% damage against [Militia] and [Rebel]",
-      "Gains 5 [Manpower] upon killing [Militia] and [Rebel]"
+      "+50% damage vs rebel",
+      "Gains 5 [Manpower] upon killing [Militia] and [Rebel]",
+      "+400% Manpower",
+      "Grants t unit gain t trait2"
     ]
   },
   {
@@ -1268,7 +1276,7 @@
       "y": 5
     },
     "attributes": [
-      "[agents] assigned on a [Landsraad Information] slot produce +2 [Intel]",
+      "[Agent]s assigned on a [Landsraad Information] slot produce +2 [Intel]",
       "Unlocks the [Landsraad Quarters]",
       "+1 [Agent] slot in [Landsraad]"
     ]
@@ -1313,7 +1321,7 @@
       "y": 8
     },
     "attributes": [
-      "+1 Maximum Crew in Harvesters",
+      "+1 crew points max",
       "Unlocks the [Trafficking Station]",
       "Unlocks the [Harvester Works]"
     ]
@@ -1336,8 +1344,8 @@
       "y": 4
     },
     "attributes": [
-      "+2 Maximum Crew in Harvesters",
-      "[Underworld Headquarters]s produce 20% of their [!Village]'s [Spice] production",
+      "+100% crew points max",
+      "[Underworld Headquarters]s produce 20% of their 's [Spice] production",
       "Unlocks Contraband Supply special events"
     ]
   },
@@ -1426,7 +1434,7 @@
       "y": 4
     },
     "attributes": [
-      "+30% resources from pillaging villages and sietches",
+      "+30% pillage gain",
       "Unlocks the [Scavenging Drone] unit"
     ]
   },
@@ -1452,7 +1460,7 @@
       {
         "desc": "At night, Military Units gain:",
         "target_effects_list": [
-          "+20%",
+          "+20% damage",
           "+20% [Speed] outside combat"
         ]
       }
@@ -1500,7 +1508,7 @@
     },
     "attributes": [
       "+10 [Command Point]",
-      "On completing a siege, units in the occupation circle gain +20% for 1 day",
+      "On completing a siege, units in the occupation circle gain +20% Speed for 1 day",
       "When at least 2 sieges are under way against the same faction, +50% Pillage, [Pillage]s progress 100% faster"
     ]
   },
@@ -1524,7 +1532,9 @@
     "attributes": [
       "-20% [Underworld Headquarters] installation costs within territories of factions in [Peace]",
       "+80% Authority",
-      "1 [Influence] and [Intel] production per faction hosting at least one [Underworld Headquarters]"
+      "1 [Influence] and [Intel] production per faction hosting at least one [Underworld Headquarters]",
+      "+1 Intel",
+      "+1 Agent"
     ]
   },
   {
@@ -1617,6 +1627,10 @@
       "Reveals the position of all [Spice Field]s",
       "Deployed [Harvesting Team]s regain [Health] and [Supply]",
       "When they pack up, [Harvesting Team]s leave combat immediately and have [Sneak] for 1 day",
+      "Grants on t ability start gain t trait",
+      "Grants on t ability start gain t trait",
+      "Grants on t ability start remove t trait",
+      "Grants on t ability start remove t trait",
       "Unlocks the [Spice Silos]"
     ]
   },
@@ -1639,7 +1653,7 @@
     },
     "attributes": [
       "+1% [Solari] production per ally [Sietch]",
-      "+10% resource production in the region of an ally [Sietch] and its neighbors",
+      "+10% res prod",
       "Unlocks the [Bazaar]"
     ]
   },
@@ -1684,12 +1698,12 @@
     },
     "attributes": [
       "+20% [Authority] production",
-      "Neighboring gain: +2, +20%",
+      "Neighboring gain: +100% village trait stack, +20% militia power",
       {
         "desc": "Controlled [Deep desert]s grant neighboring :",
         "target_effects_list": [
-          "+2",
-          "+20%"
+          "+100% village trait stack",
+          "+20% militia power"
         ]
       },
       "Unlocks the [Investment Office]"
@@ -1736,9 +1750,10 @@
       "y": 9
     },
     "attributes": [
+      "+1 militia slot",
+      "+4900% militia life per adjacent neutral village",
       "Ally units in [Fremen] territory and near allied [Sietch]s have [Sneak]",
-      "[Fremen] units also gain stealth near Allied [Sietch]s",
-      "+50 Militia Health per neutral neighboring [!Village]"
+      "Grants camouflage"
     ]
   },
   {
@@ -1759,6 +1774,7 @@
       "y": 2
     },
     "attributes": [
+      "+80% damage received from air units m ratio",
       "Unlocks the [Mobile Turret] unit"
     ]
   },
@@ -1781,7 +1797,7 @@
     },
     "attributes": [
       "+10 [Water]",
-      "+20% [Speed] outside combat"
+      "+20% Speed"
     ]
   },
   {
@@ -1827,7 +1843,7 @@
     "attributes": [
       "Wormriding is +100% faster",
       "Wormriding cannot be seen",
-      "+10, Cannot be seen outside of combat",
+      "+900% first attack damage, Cannot be seen outside of combat, Grants first attack remove t trait",
       "On exiting wormriding, units inflict +10 damage on first attack and gain [Sneak] for a day"
     ]
   },
@@ -1848,7 +1864,9 @@
       "x": 7,
       "y": 5
     },
-    "attributes": []
+    "attributes": [
+      "+1 Agent"
+    ]
   },
   {
     "id": "SandDiplomats",
@@ -1891,8 +1909,8 @@
       "y": 9
     },
     "attributes": [
-      "+5% max agents",
-      "+1 [Agent] slot in [!CounterIntel]"
+      "+5% enemy mission detection chance",
+      "+1 [Agent] slot"
     ]
   },
   {
@@ -1914,7 +1932,7 @@
     },
     "attributes": [
       "+15 [Plascrete] production",
-      "Buildings have +1000 Health"
+      "+99900% building life"
     ]
   },
   {
@@ -1956,7 +1974,7 @@
       "y": 5
     },
     "attributes": [
-      "Each 1% of [CHOAM Shares] grants: +0.5% Military Unit Power +1% chance to detect an enemy operation"
+      "+1% Power, +1% enemy mission detection chance"
     ]
   },
   {
@@ -2021,7 +2039,7 @@
       "y": 7
     },
     "attributes": [
-      "[Effects] are applied 1 more time in ally neighboring villages",
+      "Effects are applied 1 more time in ally neighboring s",
       "Unlocks the [Investment Office]"
     ]
   },
@@ -2065,6 +2083,8 @@
       "y": 6
     },
     "attributes": [
+      "Grants can use airfield faction at peace",
+      "Grants supply no drain truce region",
       "Unlock the second gear slot in the Armory"
     ]
   },
@@ -2087,7 +2107,7 @@
     },
     "attributes": [
       "+10 [Command Point]",
-      "+80% for Military Units in regions where House Corrino has a numerical superiority"
+      "+80% damage received m ratio for Military Units in regions where House Corrino has a numerical superiority"
     ]
   },
   {
@@ -2131,8 +2151,8 @@
       "y": 7
     },
     "attributes": [
-      "+2 [Influence] production per [agents] assigned on a faction in [Peace]",
-      "+2 [Intel] production per [agents] assigned on a faction in [War]",
+      "+2 [Influence] production per [Agent]s assigned on a faction in [Peace]",
+      "+2 [Intel] production per [Agent]s assigned on a faction in [War]",
       "Unlocks the [Political Agreement] [Treaty]"
     ]
   },
@@ -2227,7 +2247,7 @@
       "y": 9
     },
     "attributes": [
-      "+1 Militia slot",
+      "+1 militia slot",
       "Other factions lose 5 [Influence] when killing an House Ecaz [Militia]"
     ]
   },
@@ -2249,7 +2269,8 @@
       "y": 9
     },
     "attributes": [
-      "Masterpieces increase relation with [Sietch]s in the same region",
+      "+100% faction sietches in zone with masterpiece gain relations per day",
+      "Grants custom property",
       "Unlocks the [Museum of Unbound Arts]"
     ]
   },
@@ -2275,8 +2296,8 @@
         "desc": "at a distance of 2 regions from the [?] gain:",
         "target_effects_list": [
           "-40% [Authority] cost to",
-          "+50%",
-          "+50%"
+          "+50% militia power",
+          "+50% militia life"
         ]
       }
     ]
@@ -2300,7 +2321,7 @@
     },
     "attributes": [
       "Unlocks the [War Banner] unit",
-      "+90% by House Ecaz units in a large area around the [Ecaz Champion]"
+      "+90% damage received m ratio by House Ecaz units in a large area around the [Ecaz Champion]"
     ]
   },
   {
@@ -2326,12 +2347,13 @@
         "desc": "Can choose to pay +100% of the price to recruit units in +50% of the time, giving them permanently:",
         "target_effects_list": [
           "+20% [Health]",
-          "+1.2",
-          "+5%",
-          "+2",
-          "+2"
+          "+20% power m ratio",
+          "+5% scale",
+          "+100% infantry safe regen cost m ratio",
+          "+100% mechanical safe regen cost m ratio"
         ]
       },
+      "Grants allow perfected recruitment",
       "Unlocks the [Military Academy]"
     ]
   },
@@ -2376,8 +2398,8 @@
       "y": 11
     },
     "attributes": [
-      "+1.2, +1.2, +2, +5%, Every unit from another faction killed gives +100 until the Champion dies",
-      "When a [Ecaz Champion] dies, get +50% for 10 days",
+      "+20% life m ratio, +20% power m ratio, +100% Armor, Grants execute immune, Grants ecaz champion, +5% scale, Every unit from another faction killed gives +9900% t hegemony prod until the Champion dies",
+      "When a [Ecaz Champion] dies, get +50% import speed for 10 days",
       "Unlocks the [Command Post]",
       "+1 [Agent] slot in [Spacing Guild]"
     ]
@@ -2401,8 +2423,8 @@
     },
     "attributes": [
       "[Information] levels rise and fall +50% faster",
-      "+1 max Infiltration Cells in each faction's territory",
-      "[agents] on fields at max Information level produce +50% of every resources"
+      "+50% infiltration decrease speed m ratio",
+      "+50% agt max infiltration slot all prod"
     ]
   },
   {
@@ -2445,7 +2467,10 @@
       "y": 11
     },
     "attributes": [
-      "When out of [Intel], [Influence] is used in its stead for mission preparation, assassination upkeep and [Assassin] recruitment"
+      "When out of [Intel], [Influence] is used in its stead for mission preparation, assassination upkeep and [Assassin] recruitment",
+      "Grants assassination upkeep missing t res use t res2",
+      "Grants t unit cost missing res use t res2",
+      "+1 faction extra infiltration cell"
     ]
   },
   {
@@ -2468,7 +2493,8 @@
     "attributes": [
       "Can spend up to 2 [Fuel Cell] s to increase their production",
       "Unlocks the [Spice Silos]",
-      "Unlocks the [Spice Laboratory]"
+      "Unlocks the [Spice Laboratory]",
+      "Grants unlock t ability"
     ]
   },
   {
@@ -2607,7 +2633,7 @@
     },
     "attributes": [
       "+5 [Command Point]",
-      "[agents] assigned on a [Spacing Guild Information] slot produce 2 [Fuel Cell]",
+      "[Agent]s assigned on a [Spacing Guild Information] slot produce 2 [Fuel Cell]",
       "Unlocks the [Command Post]"
     ]
   },
@@ -2675,7 +2701,8 @@
       "y": 8
     },
     "attributes": [
-      "Unlock [Data Analysis Unit] [agents] and get 1 for free",
+      "Unlock [Data Analysis Unit] [Agent]s and get 1 for free",
+      "+1 agt atb res prod, Grants agt atb no infiltration increase, Grants agt atb no count, Grants agt atb no capture, Grants agt atb no dismiss, Grants agt atb no sietch assign, Grants agt atb only chosen trait",
       "Unlocks the [Harmless Gadget] [Treaty]",
       "Unlocks the [Intelligence Agency]"
     ]
@@ -2721,7 +2748,7 @@
     },
     "attributes": [
       "[Infiltration Cells] neighboring a connected [Neural Node] produce +2 [Knowledge]",
-      "+5 Solari",
+      "+400% Solari",
       "+1 Intel",
       {
         "desc": "Each [Statecraft] in the of such a cell also gives:",

@@ -11,7 +11,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 27,
       "y": 0
@@ -23,7 +23,13 @@
       }
     },
     "name": "Probe Setup",
-    "desc": "Knowledge is power, they say. It's even more true on Arrakis, where ignorance can be lethal."
+    "desc": "Knowledge is power, they say. It's even more true on Arrakis, where ignorance can be lethal.",
+    "attributes": [
+      "Grants region reveal po is",
+      "Grants village additional production make visible",
+      "Reveals all informations and units in the region",
+      "Advances detection of any Sietch in the region"
+    ]
   },
   {
     "id": "MGearSabotage",
@@ -37,7 +43,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 21,
       "y": 0
@@ -49,7 +55,16 @@
       }
     },
     "name": "Defense Sabotage",
-    "desc": "The most effective defensive weapons do not matter if your enemy cannot use them."
+    "desc": "The most effective defensive weapons do not matter if your enemy cannot use them.",
+    "attributes": [
+      {
+        "desc": "[Missile Battery]s and Main Base suffer:",
+        "target_effects_list": [
+          "-0.3 Power"
+        ]
+      },
+      "-0.3 Power"
+    ]
   },
   {
     "id": "MPoisonReserves",
@@ -63,7 +78,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 0,
       "y": 0
@@ -78,7 +93,10 @@
       }
     },
     "name": "Poison the Reserves",
-    "desc": "Tainted rations will not only make you physically sick but will infect even your trust and confidence in your teammates."
+    "desc": "Tainted rations will not only make you physically sick but will infect even your trust and confidence in your teammates.",
+    "attributes": [
+      "Grants losing supply gain t trait, Grants losing supply gain t trait, Units losing supply suffer: +80% speed m ratio, -0.05 health decay per day"
+    ]
   },
   {
     "id": "MEpicQuest",
@@ -92,7 +110,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 36,
       "y": 0
@@ -107,7 +125,11 @@
       }
     },
     "name": "Epic Quest",
-    "desc": "A personal mission given to a proud soldier is the best motivation in the world."
+    "desc": "A personal mission given to a proud soldier is the best motivation in the world.",
+    "attributes": [
+      "+100% damage m ratio",
+      "Attacks of the Military Unit with the most [Power] in the region deal +100% damage"
+    ]
   },
   {
     "id": "MSupplyDrop",
@@ -121,7 +143,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 34,
       "y": 0
@@ -133,7 +155,16 @@
       }
     },
     "name": "Supply Drop",
-    "desc": "An army without supply will not last long in the desert."
+    "desc": "An army without supply will not last long in the desert.",
+    "attributes": [
+      {
+        "desc": "Ally non-mechanical units receive:",
+        "target_effects_list": [
+          "Gain +80 [Supply] daily",
+          "Grants supply protected"
+        ]
+      }
+    ]
   },
   {
     "id": "MSupportIntelligence",
@@ -147,7 +178,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 30,
       "y": 0
@@ -162,7 +193,10 @@
       }
     },
     "name": "Support Intelligence",
-    "desc": "Coordinating analysts at the office and soldiers on the field allows for a better reaction to threats, which saves many lives."
+    "desc": "Coordinating analysts at the office and soldiers on the field allows for a better reaction to threats, which saves many lives.",
+    "attributes": [
+      "Gives [Support Intelligence Stack] to instigator and allies per launched operation on the zone"
+    ]
   },
   {
     "id": "MSandCloak",
@@ -176,7 +210,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 40,
       "y": 0
@@ -191,7 +225,13 @@
       }
     },
     "name": "Hiding Tracks",
-    "desc": "By choosing when to strike, Fremen can disarm the invaders of their strongest tools."
+    "desc": "By choosing when to strike, Fremen can disarm the invaders of their strongest tools.",
+    "attributes": [
+      "Ally units in the region and its neighbors get [Sneak]",
+      "Enemy units in the region and its neighbors suffer -0.1 Speed",
+      "Ally units in the region and its neighbors get [Sneak]",
+      "Enemy units in the region and its neighbors suffer -0.1 Speed"
+    ]
   },
   {
     "id": "MScavengerTeam",
@@ -205,7 +245,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 25,
       "y": 0
@@ -217,7 +257,13 @@
       }
     },
     "name": "Scavenger Team",
-    "desc": "Corpses usually have many valuables on them. It'd be a shame to leave them to the desert."
+    "desc": "Corpses usually have many valuables on them. It'd be a shame to leave them to the desert.",
+    "attributes": [
+      "Gain 25% of the maximum [Health] of Military Units that die in the region as [Solari]",
+      "+20% pillage gain",
+      "Converts 25% of the max [Health] of any dying Military Units into [Solari]s",
+      "+20% resources from pillaging a"
+    ]
   },
   {
     "id": "MCombatDrugs",
@@ -231,7 +277,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 6,
       "y": 0
@@ -246,7 +292,18 @@
       }
     },
     "name": "Combat Drugs",
-    "desc": "Some drugs and chemical compounds can significantly enhance combat efficiency at the cost of a reduced lifespan."
+    "desc": "Some drugs and chemical compounds can significantly enhance combat efficiency at the cost of a reduced lifespan.",
+    "attributes": [
+      {
+        "desc": "Ally non-mechanical units gain:",
+        "target_effects_list": [
+          "-0.1 health decay per day",
+          "+10% [Speed]",
+          "+30% damage",
+          "0 health regen m ratio"
+        ]
+      }
+    ]
   },
   {
     "id": "MConsolidation",
@@ -260,7 +317,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 24,
       "y": 0
@@ -275,7 +332,12 @@
       }
     },
     "name": "Consolidation",
-    "desc": "The constant redeployment of the Imperial army on various fronts of the Imperium has made them incredibly resistant. Through unusual formations and well-timed restocking, they can enhance this ability even further."
+    "desc": "The constant redeployment of the Imperial army on various fronts of the Imperium has made them incredibly resistant. Through unusual formations and well-timed restocking, they can enhance this ability even further.",
+    "attributes": [
+      "+2 [Armor] to mechanical units and structures",
+      "+100% building armor",
+      "+100% main base armor"
+    ]
   },
   {
     "id": "MLeaveOrder",
@@ -289,7 +351,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 36,
       "y": 0
@@ -301,7 +363,10 @@
       }
     },
     "name": "Leave Order",
-    "desc": "The Landsraad cannot force you to remove your troops, but it can fine you for not complying."
+    "desc": "The Landsraad cannot force you to remove your troops, but it can fine you for not complying.",
+    "attributes": [
+      "Lose 100 [Solari] per unit in the Region at the end of the operation"
+    ]
   },
   {
     "id": "MAmbientConnection",
@@ -315,7 +380,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 41,
       "y": 0
@@ -330,7 +395,11 @@
       }
     },
     "name": "Ambient Connection",
-    "desc": "Drones can connect to the Nodal Network through natural static electricity, but preparation should be made and a temporary relay installed."
+    "desc": "Drones can connect to the Nodal Network through natural static electricity, but preparation should be made and a temporary relay installed.",
+    "attributes": [
+      "Ally mechanical units are [Tethered] remotely",
+      "Ally mechanical units are [Tethered] remotely"
+    ]
   },
   {
     "id": "MDecoyThumper",
@@ -348,7 +417,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 29,
       "y": 0
@@ -360,7 +429,13 @@
       }
     },
     "name": "Decoy Thumper",
-    "desc": "Fremen place thumpers in peculiar places to attract and enrage sandworms on their enemies' paths and out of theirs."
+    "desc": "Fremen place thumpers in peculiar places to attract and enrage sandworms on their enemies' paths and out of theirs.",
+    "attributes": [
+      "A [Sandworm] has been called in this region",
+      "Neighboring Region are protected from [Sandworm] attacks",
+      "Call a [Sandworm] in this Region",
+      "Protect neighboring Region from [Sandworm] attacks"
+    ]
   },
   {
     "id": "MArrakisDiplomacy",
@@ -378,7 +453,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 4,
       "y": 0
@@ -393,7 +468,12 @@
       }
     },
     "name": "Arrakis Diplomacy",
-    "desc": "Empathy, patience, and attention for cultural differences lead to a great deal of success in getting the locals' favors."
+    "desc": "Empathy, patience, and attention for cultural differences lead to a great deal of success in getting the locals' favors.",
+    "attributes": [
+      "Disband all rebellions and raids",
+      "+200% relation gain and resources received from trade with [Sietch]",
+      "+200% resources received"
+    ]
   },
   {
     "id": "MSleeperAgents",
@@ -411,7 +491,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 28,
       "y": 0
@@ -426,7 +506,11 @@
       }
     },
     "name": "Sleeper Agent",
-    "desc": "With care and meticulousness, it's possible to plant a sleeper agent in every army squad that will betray them on command."
+    "desc": "With care and meticulousness, it's possible to plant a sleeper agent in every army squad that will betray them on command.",
+    "attributes": [
+      "Any non-temporary non-mechanical units has a 50% chance to spawn a [Sleeper Agent] upon death in combat",
+      "Any non-temporary non-mechanical units has a 50% chance to spawn a [Sleeper Agent] upon death in combat"
+    ]
   },
   {
     "id": "MHiddenThumpers",
@@ -444,7 +528,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 23,
       "y": 0
@@ -459,7 +543,11 @@
       }
     },
     "name": "Hidden Thumpers",
-    "desc": "Fremen are masters at using Shai-Hulud for transport. A secret technique lets them influence the movement of sandworms on the whole planet, facilitating wormriding."
+    "desc": "Fremen are masters at using Shai-Hulud for transport. A secret technique lets them influence the movement of sandworms on the whole planet, facilitating wormriding.",
+    "attributes": [
+      "Grants wormriding no cost",
+      "Military units in the region gain [?]"
+    ]
   },
   {
     "id": "MEMPBomb",
@@ -477,7 +565,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 32,
       "y": 0
@@ -489,7 +577,18 @@
       }
     },
     "name": "EMP Bomb",
-    "desc": "An electromagnetic pulse that will deactivated all electronics, making drones useless for a little while."
+    "desc": "An electromagnetic pulse that will deactivated all electronics, making drones useless for a little while.",
+    "attributes": [
+      {
+        "desc": "Mechanical units, [Missile Battery]s and Main Bases suffer:",
+        "target_effects_list": [
+          "-0.5 attack speed",
+          "-0.2 Speed"
+        ]
+      },
+      "Grants t building gain t trait2",
+      "-0.5 attack speed ranged"
+    ]
   },
   {
     "id": "MSmugglingOperation",
@@ -507,7 +606,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 15,
       "y": 0
@@ -522,7 +621,10 @@
       }
     },
     "name": "Extraction Network",
-    "desc": "Leaving combat to fight another day is not cowardice; it is tactical acumen."
+    "desc": "Leaving combat to fight another day is not cowardice; it is tactical acumen.",
+    "attributes": [
+      "Every unit around the Region's is extracted to [Sietch Tuek] instantly for the duration"
+    ]
   },
   {
     "id": "MInterdictionZone",
@@ -540,7 +642,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 12,
       "y": 0
@@ -555,7 +657,11 @@
       }
     },
     "name": "Interdiction Zone",
-    "desc": "To be effective, a no-fly zone has to be enforced by a mix of political and legal means, as well as military support often given from space."
+    "desc": "To be effective, a no-fly zone has to be enforced by a mix of political and legal means, as well as military support often given from space.",
+    "attributes": [
+      "Grants carryall stopped",
+      "[Airfield] cannot be used"
+    ]
   },
   {
     "id": "MLivePerformance",
@@ -573,7 +679,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 37,
       "y": 0
@@ -588,7 +694,12 @@
       }
     },
     "name": "Live Performance",
-    "desc": "A good show provokes admiration, but a bad one invites mockery."
+    "desc": "A good show provokes admiration, but a bad one invites mockery.",
+    "attributes": [
+      "Gain 5 [Influence] upon killing enemy units",
+      "Lose 5 [Influence] upon units dying or leaving the Region",
+      "+400% Influence"
+    ]
   },
   {
     "id": "MEmpiricalData",
@@ -606,7 +717,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 42,
       "y": 0
@@ -621,7 +732,11 @@
       }
     },
     "name": "Empirical Data",
-    "desc": "Progress is a constant back and forth between theoretical breakthrough and practical issues. Collecting data from real life fights on the surface of Arrakis informs current researches."
+    "desc": "Progress is a constant back and forth between theoretical breakthrough and practical issues. Collecting data from real life fights on the surface of Arrakis informs current researches.",
+    "attributes": [
+      "+1 [Knowledge]",
+      "+1 [Knowledge] per units of any faction in combat in the region"
+    ]
   },
   {
     "id": "MToxicVapors",
@@ -639,7 +754,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 26,
       "y": 0
@@ -654,7 +769,16 @@
       }
     },
     "name": "Toxic Vapors",
-    "desc": "Chemical weapons are an easy way to get rid of military resistance if you are not too concerned with ethical considerations."
+    "desc": "Chemical weapons are an easy way to get rid of military resistance if you are not too concerned with ethical considerations.",
+    "attributes": [
+      {
+        "desc": "Any non-mechanical unit suffers:",
+        "target_effects_list": [
+          "No health regeneration",
+          "-0.3 health decay per day"
+        ]
+      }
+    ]
   },
   {
     "id": "MOrbitalStrike",
@@ -672,7 +796,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 20,
       "y": 0
@@ -687,7 +811,11 @@
       }
     },
     "name": "Orbital Strike",
-    "desc": "The Emperor always keeps a few ships in low orbit. They are ready to strike at any time, as long as they get the right coordinates."
+    "desc": "The Emperor always keeps a few ships in low orbit. They are ready to strike at any time, as long as they get the right coordinates.",
+    "attributes": [
+      "Missiles strike from orbit targetting all ground enemy units, , and Main Bases, dealing heavy damage at the area of impact to ally and enemies units.",
+      "+1 C_MissileShip"
+    ]
   },
   {
     "id": "MAdministrativeBurden",
@@ -705,7 +833,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 43,
       "y": 0
@@ -717,7 +845,11 @@
       }
     },
     "name": "Administrative Burden",
-    "desc": "By liberal use of red tape and obfuscation, a colonial administration can be almost completely immobilised, at least for a while."
+    "desc": "By liberal use of red tape and obfuscation, a colonial administration can be almost completely immobilised, at least for a while.",
+    "attributes": [
+      "Target faction Military Units are trained at -60% speed",
+      "Target Main Base constructs at -60% speed"
+    ]
   },
   {
     "id": "MCommunicationJamming",
@@ -735,7 +867,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 22,
       "y": 0
@@ -750,7 +882,10 @@
       }
     },
     "name": "Communication Jamming",
-    "desc": "Controlling the flow of information in battle is often the way to victory."
+    "desc": "Controlling the flow of information in battle is often the way to victory.",
+    "attributes": [
+      "Grants operation block"
+    ]
   },
   {
     "id": "MAwakePeople",
@@ -768,7 +903,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 11,
       "y": 0
@@ -783,7 +918,10 @@
       }
     },
     "name": "Awake the People",
-    "desc": "Carefully placed instigators and targeted propaganda are enough to turn docile workers into violent dissidents."
+    "desc": "Carefully placed instigators and targeted propaganda are enough to turn docile workers into violent dissidents.",
+    "attributes": [
+      "Start a rebellion in the village"
+    ]
   },
   {
     "id": "MElaccaFog",
@@ -801,7 +939,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 38,
       "y": 0
@@ -816,7 +954,10 @@
       }
     },
     "name": "Elacca Fog",
-    "desc": "The Elacca drug from Ecaz forests is used in gladiator shows to inhibit self-preservation. During war time, it can be deployed as a thick fog to get the same effect. "
+    "desc": "The Elacca drug from Ecaz forests is used in gladiator shows to inhibit self-preservation. During war time, it can be deployed as a thick fog to get the same effect. ",
+    "attributes": [
+      "Grants human in combat uncontrollable"
+    ]
   },
   {
     "id": "MDefenseSabotage",
@@ -834,7 +975,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 9,
       "y": 0
@@ -846,7 +987,11 @@
       }
     },
     "name": "Defense Breaches",
-    "desc": "Even the best fortress has weaknesses. With a little bit of planning, it's easy to exploit them and fully disorganize the defenders."
+    "desc": "Even the best fortress has weaknesses. With a little bit of planning, it's easy to exploit them and fully disorganize the defenders.",
+    "attributes": [
+      "+50% damage received by the target Main Base",
+      "-3 [Armor] to target Main Base"
+    ]
   },
   {
     "id": "MCeaseFire",
@@ -864,7 +1009,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 10,
       "y": 0
@@ -879,7 +1024,10 @@
       }
     },
     "name": "Cease Fire",
-    "desc": "Sometimes a ceasefire is the stepping stone to a durable peace. More often, it is only a stalling scheme."
+    "desc": "Sometimes a ceasefire is the stepping stone to a durable peace. More often, it is only a stalling scheme.",
+    "attributes": [
+      "Grants no fight"
+    ]
   },
   {
     "id": "MHiddenBackdoor",
@@ -897,7 +1045,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 43,
       "y": 0
@@ -912,7 +1060,10 @@
       }
     },
     "name": "Hidden Backdoor",
-    "desc": "A tiny security default, hidden deep within the mechanical engineering of any machine built by the House, can be activated at any moment to take control. There shall be no witness to such an event left alive, for it would ruin Ix reputation."
+    "desc": "A tiny security default, hidden deep within the mechanical engineering of any machine built by the House, can be activated at any moment to take control. There shall be no witness to such an event left alive, for it would ruin Ix reputation.",
+    "attributes": [
+      "Enemy mechanical units cannot be controlled and attack their allies"
+    ]
   },
   {
     "id": "MSupplyCaches",
@@ -926,7 +1077,7 @@
       }
     ],
     "gfx": {
-      "file": "UI/spying/missionIconsBW.webp",
+      "file": "UI/spying/missionIconsBW.png",
       "size": 114,
       "x": 19,
       "y": 0
@@ -938,6 +1089,15 @@
       ]
     },
     "name": "Supply Caches",
-    "desc": "There are only few ways to get what you need in the middle of the desert. The easiest one is to have it ready and set up in the right place, long in advance."
+    "desc": "There are only few ways to get what you need in the middle of the desert. The easiest one is to have it ready and set up in the right place, long in advance.",
+    "attributes": [
+      {
+        "desc": "Military Units receive:",
+        "target_effects_list": [
+          "+5% Power",
+          "-25% upkeep"
+        ]
+      }
+    ]
   }
 ]

@@ -48,6 +48,8 @@ const IMAGE_TO_EQUIPMENT = {
   "experimental_combustible.png": "ExperimentalCombustibles",
   "experimental_weapon.png": "ExperimentalWeapons",
   "shrapnel_ammunition.png": "ShrapnelAmmunitions",
+  "prana_bindu_initiation.png": "PranaBindu",
+  "prana_bindu_initiation.webp": "PranaBindu",
 }
 
 // Excluded images (generic/placeholder)
@@ -78,9 +80,10 @@ function imageToEquipmentId(filename) {
 function main() {
   const cdbPath = join(ROOT, "res/assets/data.cdb")
   const gearDir = join(ROOT, "public/images/gear")
-  const outJson = join(ROOT, "src/components/Armory/armory.json")
+  const outJson = join(ROOT, "src/components/Armory/armory-new.json")
   const outNotes = join(ROOT, "src/components/Armory/armory-mapping-notes.md")
   const outUnits = join(ROOT, "src/components/Units/units.json")
+  const outLog = join(ROOT, "src/components/Armory/armory-extraction-log.txt")
 
   const cdb = JSON.parse(readFileSync(cdbPath, "utf-8"))
   const sheets = cdb.sheets || []
@@ -148,16 +151,50 @@ function main() {
     }
   }
 
+  const unresolvedPlaceholders = []
+  const emptyTargetEffectsLists = []
+  const equipmentWithoutAttributes = []
+  const attributesWithoutLabels = []
+
   function buildAttributesForEquipment(equipment) {
     const result = []
     for (const traitRef of equipment.traits || []) {
       const trait = traits.get(traitRef)
       if (!trait) continue
       for (const attr of trait.attributes || []) {
-        if (!attr.desc) continue
+        // Don't skip attributes without desc - resolveAttribute can generate descriptions from data
         // Use shared resolver for all attributes
         const resolved = resolveAttribute(attr, lookups)
-        if (resolved) result.push(resolved)
+        if (resolved) {
+          // Check for unresolved placeholders
+          const resolvedStr = typeof resolved === "string" ? resolved : resolved.desc
+          if (resolvedStr && /::[^:]+::/.test(resolvedStr)) {
+            unresolvedPlaceholders.push({
+              equipment: equipment.id,
+              attribute: resolvedStr,
+            })
+          }
+          // Check for attributes that are just percentages/values without labels (like "+40%")
+          if (typeof resolved === "string" && /^[+-]?\d+%?$/.test(resolved.trim())) {
+            // This is just a value without context - log it for debugging
+            attributesWithoutLabels.push({
+              equipment: equipment.id,
+              attribute: resolved,
+              originalAttr: JSON.stringify(attr),
+            })
+          }
+          // Check for empty target_effects_list when placeholder was present
+          if (typeof resolved === "object" && resolved.target_effects_list) {
+            const originalDesc = attr.desc || ""
+            if (originalDesc.includes("::target_effects_list") && resolved.target_effects_list.length === 0) {
+              emptyTargetEffectsLists.push({
+                equipment: equipment.id,
+                desc: resolved.desc,
+              })
+            }
+          }
+          result.push(resolved)
+        }
       }
     }
     return result.filter((a) => {
@@ -187,6 +224,16 @@ function main() {
     const units = [...new Set(equipmentToUnits.get(equipmentId) || [])]
     const attributes = buildAttributesForEquipment(equipment)
 
+    // Track equipment with no attributes for debugging
+    if (attributes.length === 0 && equipment.traits && equipment.traits.length > 0) {
+      equipmentWithoutAttributes.push({
+        id: equipmentId,
+        name: equipment.name,
+        traitCount: equipment.traits.length,
+        traits: equipment.traits,
+      })
+    }
+
     // Get factions from units that use this equipment
     const factions = [
       ...new Set(
@@ -200,12 +247,41 @@ function main() {
       faction: factions,
       attributes,
       image: img,
+      id: equipmentId,
     })
   }
 
   const equipmentWithoutImages = [...equipments.keys()].filter(
     (id) => !equipmentIdsWithImages.has(id)
   )
+
+  // Post-process: Ensure PranaBindu is included for Trooper and Warden Atreides
+  // (This equipment exists in CDB but may not have been extracted properly)
+  const pranaBinduEquipment = equipments.get("PranaBindu")
+  if (pranaBinduEquipment && !equipmentIdsWithImages.has("PranaBindu")) {
+    const pranaBinduUnits = [...new Set(equipmentToUnits.get("PranaBindu") || [])]
+    const pranaBinduAttributes = buildAttributesForEquipment(pranaBinduEquipment)
+    const pranaBinduFactions = [
+      ...new Set(
+        pranaBinduUnits.map((u) => unitNameToFaction.get(u)).filter(Boolean)
+      ),
+    ]
+    
+    // Find image file
+    const pranaBinduImage = images.find((img) => 
+      img.toLowerCase().includes("prana_bindu") || 
+      img.toLowerCase().includes("prana_bindu_initiation")
+    ) || "prana_bindu_initiation.webp"
+    
+    armoryEntries.push({
+      name: pranaBinduEquipment.name,
+      unit: pranaBinduUnits,
+      faction: pranaBinduFactions,
+      attributes: pranaBinduAttributes,
+      image: pranaBinduImage,
+      id: "PranaBindu",
+    })
+  }
 
   writeFileSync(outJson, JSON.stringify(armoryEntries, null, 2), "utf-8")
 
@@ -226,9 +302,67 @@ ${equipmentWithoutImages.length > 0 ? equipmentWithoutImages.map((i) => `- ${i}`
 - Armory entries: ${armoryEntries.length}
 - Images without equipment: ${imagesWithoutEquipment.length}
 - Equipment without image: ${equipmentWithoutImages.length}
+- Unresolved placeholders: ${unresolvedPlaceholders.length}
+- Empty target_effects_list: ${emptyTargetEffectsLists.length}
+- Equipment without attributes (has traits): ${equipmentWithoutAttributes.length}
+- Attributes without labels: ${attributesWithoutLabels.length}
 `
 
   writeFileSync(outNotes, notes, "utf-8")
+
+  // Write extraction log
+  const logLines = [
+    `Armory Extraction Log - ${new Date().toISOString()}`,
+    "=".repeat(60),
+    "",
+    `Total entries: ${armoryEntries.length}`,
+    `Unresolved placeholders: ${unresolvedPlaceholders.length}`,
+    `Empty target_effects_list: ${emptyTargetEffectsLists.length}`,
+    "",
+  ]
+
+  if (unresolvedPlaceholders.length > 0) {
+    logLines.push("## Unresolved Placeholders")
+    logLines.push("")
+    unresolvedPlaceholders.forEach(({ equipment, attribute }) => {
+      logLines.push(`Equipment: ${equipment}`)
+      logLines.push(`  Attribute: ${attribute}`)
+      logLines.push("")
+    })
+  }
+
+  if (emptyTargetEffectsLists.length > 0) {
+    logLines.push("## Empty target_effects_list (when placeholder was present)")
+    logLines.push("")
+    emptyTargetEffectsLists.forEach(({ equipment, desc }) => {
+      logLines.push(`Equipment: ${equipment}`)
+      logLines.push(`  Description: ${desc}`)
+      logLines.push("")
+    })
+  }
+
+  if (equipmentWithoutAttributes.length > 0) {
+    logLines.push("## Equipment with traits but no extracted attributes")
+    logLines.push("")
+    equipmentWithoutAttributes.forEach(({ id, name, traitCount, traits }) => {
+      logLines.push(`Equipment: ${id} (${name})`)
+      logLines.push(`  Traits: ${traitCount} (${traits.join(", ")})`)
+      logLines.push("")
+    })
+  }
+
+  if (attributesWithoutLabels.length > 0) {
+    logLines.push("## Attributes without labels (just values like '+40%')")
+    logLines.push("")
+    attributesWithoutLabels.forEach(({ equipment, attribute, originalAttr }) => {
+      logLines.push(`Equipment: ${equipment}`)
+      logLines.push(`  Attribute: ${attribute}`)
+      logLines.push(`  Original data: ${originalAttr}`)
+      logLines.push("")
+    })
+  }
+
+  writeFileSync(outLog, logLines.join("\n"), "utf-8")
 
   // Write units.json grouped by faction
   writeFileSync(outUnits, JSON.stringify(unitsByFaction, null, 2), "utf-8")
@@ -238,8 +372,21 @@ ${equipmentWithoutImages.length > 0 ? equipmentWithoutImages.map((i) => `- ${i}`
     0
   )
 
-  console.log(`Written ${armoryEntries.length} entries to armory.json`)
+  console.log(`Written ${armoryEntries.length} entries to armory-new.json`)
   console.log(`Written armory-mapping-notes.md`)
+  console.log(`Written extraction log to armory-extraction-log.txt`)
+  if (unresolvedPlaceholders.length > 0) {
+    console.warn(`⚠️  Warning: ${unresolvedPlaceholders.length} unresolved placeholders found`)
+  }
+  if (emptyTargetEffectsLists.length > 0) {
+    console.warn(`⚠️  Warning: ${emptyTargetEffectsLists.length} empty target_effects_list found`)
+  }
+  if (equipmentWithoutAttributes.length > 0) {
+    console.warn(`⚠️  Warning: ${equipmentWithoutAttributes.length} equipment items have traits but no extracted attributes`)
+  }
+  if (attributesWithoutLabels.length > 0) {
+    console.warn(`⚠️  Warning: ${attributesWithoutLabels.length} attributes are missing labels (check log for details)`)
+  }
   console.log(
     `Written units.json with ${totalUnits} units across ${Object.keys(unitsByFaction).length} factions`
   )

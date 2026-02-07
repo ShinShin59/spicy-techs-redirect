@@ -29,6 +29,7 @@ const Armory = () => {
   const isMobile = useIsMobile()
   const isPortrait = useIsPortrait()
   const isLandscape = isMobile && !isPortrait
+  const isMobilePortrait = isMobile && isPortrait
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const armoryState = useCurrentArmoryState()
   const setArmorySlot = useMainStore((s) => s.setArmorySlot)
@@ -106,28 +107,30 @@ const Armory = () => {
 
   return (
     <>
-      <div className={`relative group flex flex-col ${isLandscape ? "h-auto mt-6" : "h-full min-h-0"}`}>
+      <div className={`relative group flex flex-col ${isLandscape ? "h-auto mt-6" : isMobilePortrait ? "h-auto" : "h-full min-h-0"}`}>
         {/* Title at top, outside panel, aligned right */}
         <h2 className={`text-xs font-mono font-bold text-white/70 uppercase m-0 ${isLandscape ? "text-right" : "text-left"}`}>
           Armory
         </h2>
 
         {/* Panel (slots only) + unit names to the right, aligned with middle of each gear row */}
-        <div className={`flex gap-2 ${isLandscape ? "flex-col overflow-x-auto flex-none" : "flex-1 min-h-0 items-stretch"}`}>
+        <div className={`flex gap-2 ${isLandscape ? "flex-col overflow-x-auto flex-none" : isMobilePortrait ? "flex-none" : "flex-1 min-h-0 items-stretch"}`}>
           <div
             id="armory-grid"
-            className={`relative bg-zinc-900 flex flex-col box-border overflow-x-hidden min-w-0 ${PANEL_BORDER_HOVER_CLASS} ${isLandscape ? "p-2 shrink-0" : "flex-1 min-h-0 overflow-y-auto p-4"}`}
+            className={`relative bg-zinc-900 flex flex-col box-border overflow-x-hidden min-w-0 ${PANEL_BORDER_HOVER_CLASS} ${isLandscape ? "p-2 shrink-0" : isMobilePortrait ? "flex-none p-4" : "flex-1 min-h-0 overflow-y-auto p-4"}`}
             {...panelRightClickHide}
           >
             <PanelCorners />
             <div
-              className={`gap-1 w-fit ${isLandscape ? "flex flex-row gap-3 flex-none" : "flex-1 min-h-0 grid"}`}
+              className={`gap-1 w-fit ${isLandscape ? "flex flex-row gap-3 flex-none" : isMobilePortrait ? "grid flex-none" : "flex-1 min-h-0 grid"}`}
               style={isLandscape
                 ? undefined
-                : {
-                    gridTemplateColumns: "auto auto",
-                    gridTemplateRows: `repeat(${UNITS_PER_FACTION}, minmax(0, 1fr))`,
-                  }}
+                : isMobilePortrait
+                  ? { gridTemplateColumns: "auto auto" }
+                  : {
+                      gridTemplateColumns: "auto auto",
+                      gridTemplateRows: `repeat(${UNITS_PER_FACTION}, minmax(0, 1fr))`,
+                    }}
             >
               {isLandscape ? (
                 units.slice(0, UNITS_PER_FACTION).map((unit, unitIndex) => (

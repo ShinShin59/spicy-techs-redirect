@@ -37,7 +37,7 @@ function buildingActiveAt(buildDate: number | undefined, referenceDay: number | 
 }
 
 /** Development domain (tech tree quadrant) */
-export type DevelopmentDomain = "economic" | "military" | "statecraft" | "green"
+export type DevelopmentDomain = "economic" | "military" | "statecraft" | "expansion"
 
 type MainBuildingCategory = "Economy" | "Military" | "Statecraft"
 
@@ -84,8 +84,8 @@ const CATEGORY_BONUS_AMPLIFIERS: {
   building: string
   multiplier: number
 }[] = [
-  { faction: "corrino", building: "Emperor Monument", multiplier: 2 },
-]
+    { faction: "corrino", building: "Emperor Monument", multiplier: 2 },
+  ]
 
 const LAY_OF_THE_LAND_ID = "LayoftheLand"
 
@@ -256,10 +256,10 @@ function getCategoryKnowledgePercentModifiersFromBuildings(
         const contributesToDomain = overrideDomains
           ? overrideDomains.includes(domain)
           : (() => {
-              const category = buildingNameToCategory.get(buildingName)
-              if (!category) return false
-              return CATEGORY_TO_DOMAIN[category] === domain
-            })()
+            const category = buildingNameToCategory.get(buildingName)
+            if (!category) return false
+            return CATEGORY_TO_DOMAIN[category] === domain
+          })()
 
         if (contributesToDomain) {
           result.push({ label: buildingName, percent: effectivePercent })
@@ -382,8 +382,8 @@ export function computeCurrentKnowledgeValue(
   const previousDevComputedRate =
     previousDev != null
       ? getKnowledgeBreakdownForDev(previousDevId!, previousDev.domain, ctx, {
-          referenceDay: previousDevReferenceDay,
-        }).computedWithoutOverride
+        referenceDay: previousDevReferenceDay,
+      }).computedWithoutOverride
       : undefined
   const breakdown = getKnowledgeBreakdownForDev(lastId, lastDev.domain, ctx, {
     previousDevId,
@@ -470,8 +470,8 @@ export function totalDaysOfOrder(
     const previousDevComputedRate =
       previousDev != null
         ? getKnowledgeBreakdownForDev(previousDevId!, previousDev.domain, ctx, {
-            referenceDay: totalDays,
-          }).computedWithoutOverride
+          referenceDay: totalDays,
+        }).computedWithoutOverride
         : undefined
     const alreadyResearched = orderedIds.slice(0, i)
     const costKnowledge = costToResearchNext(dev, alreadyResearched, idToDev)

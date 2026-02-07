@@ -3,6 +3,7 @@ import { useMainStore } from "@/store"
 import { getOperationIconPath, getHudImagePath } from "@/utils/assetPaths"
 import { getOperationsForFaction, type OperationItem } from "./operations-utils"
 import OperationTooltip from "./OperationTooltip"
+import { useIsMobile } from "@/hooks/useMediaQuery"
 
 interface AnchorPosition {
   x: number
@@ -19,6 +20,7 @@ interface OperationSelectorProps {
 
 // Same slot size as panel (Operations index)
 const SLOT_PX = 48
+const SLOT_PX_MOBILE = 40
 const SLOT_GAP_PX = 8
 const GRID_COLS = 4
 const PADDING_PX = 12
@@ -30,6 +32,7 @@ const OperationSelector = ({
   usedOperationIds = [],
 }: OperationSelectorProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const [hoverTooltip, setHoverTooltip] = useState<{
     operation: OperationItem
@@ -53,38 +56,58 @@ const OperationSelector = ({
   }, [selectedFaction, usedOperationIds])
 
   const popupStyle = useMemo<React.CSSProperties>(
-    () => ({
-      position: "fixed",
-      left: anchorPosition.x,
-      bottom: window.innerHeight - anchorPosition.y,
-    }),
-    [anchorPosition.x, anchorPosition.y]
+    () => {
+      if (isMobile) {
+        return {
+          position: "fixed",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          maxWidth: "calc(100vw - 2rem)",
+          maxHeight: "calc(100vh - 4rem)",
+        }
+      }
+      return {
+        position: "fixed",
+        left: anchorPosition.x,
+        bottom: window.innerHeight - anchorPosition.y,
+      }
+    },
+    [anchorPosition.x, anchorPosition.y, isMobile]
   )
 
   const gridWidth =
     GRID_COLS * SLOT_PX + (GRID_COLS - 1) * SLOT_GAP_PX + PADDING_PX * 2
+  const slotPx = isMobile ? SLOT_PX_MOBILE : SLOT_PX
 
   return (
     <>
       <div
         ref={modalRef}
         className="z-50 bg-zinc-900 border border-zinc-700 flex flex-col overflow-auto"
-        style={{ ...popupStyle, maxHeight: "70vh" }}
+        style={{
+          ...popupStyle,
+          ...(isMobile ? {} : { maxHeight: "70vh" }),
+        }}
       >
         <div
-          className="grid p-3"
-          style={{
-            width: gridWidth,
-            gridTemplateColumns: `repeat(${GRID_COLS}, ${SLOT_PX}px)`,
-            gridAutoRows: `${SLOT_PX}px`,
-            gap: SLOT_GAP_PX,
-          }}
+          className={isMobile ? "flex flex-row flex-wrap justify-center gap-2 p-3" : "grid p-3"}
+          style={
+            isMobile
+              ? undefined
+              : {
+                  width: gridWidth,
+                  gridTemplateColumns: `repeat(${GRID_COLS}, ${SLOT_PX}px)`,
+                  gridAutoRows: `${SLOT_PX}px`,
+                  gap: SLOT_GAP_PX,
+                }
+          }
         >
           {availableOperations.map((op) => (
             <div
               key={op.id}
               className="shrink-0"
-              style={{ width: SLOT_PX, height: SLOT_PX }}
+              style={{ width: slotPx, height: slotPx }}
               onMouseEnter={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect()
                 setHoverTooltip({

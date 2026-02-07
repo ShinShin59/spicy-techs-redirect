@@ -3,6 +3,7 @@ import { getHudImagePath } from "@/utils/assetPaths"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "topbar"
+  size?: "sm" | "compact"
   pressed?: boolean
   mutedWhenUnpressed?: boolean
   primary?: boolean
@@ -11,6 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button = ({
   variant = "topbar",
+  size,
   pressed = false,
   mutedWhenUnpressed = false,
   primary = false,
@@ -19,8 +21,14 @@ const Button = ({
   style,
   ...props
 }: ButtonProps) => {
+  const sizeClasses =
+    size === "sm"
+      ? "w-16 h-7 shrink-0 px-2 py-1 text-xs"
+      : size === "compact"
+        ? "w-24 h-8 shrink-0 px-3 py-1 text-sm"
+        : "w-28 h-9 shrink-0 px-4 py-1.5 text-sm"
   const base =
-    "w-28 h-9 shrink-0 px-4 py-1.5 text-sm font-normal cursor-pointer relative z-10 flex items-center justify-center transition-all duration-150 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0"
+    `${sizeClasses} font-normal cursor-pointer relative z-10 flex items-center justify-center transition-all duration-150 outline-none focus:outline-none focus-visible:outline-none ring-0 focus:ring-0 focus-visible:ring-0`
 
   const btnRest = getHudImagePath("btn_rest.webp")
   const btnHover = getHudImagePath("btn_hover.webp")

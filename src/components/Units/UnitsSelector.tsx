@@ -9,6 +9,7 @@ import {
   type HeroData,
 } from "./heroes-utils"
 import UnitTooltip from "./UnitTooltip"
+import { useIsMobile } from "@/hooks/useMediaQuery"
 
 interface AnchorPosition {
   x: number
@@ -35,6 +36,7 @@ const UnitsSelector = ({
   remainingCP,
 }: UnitsSelectorProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const armoryState = useCurrentArmoryState()
   const [pulseUnitId, setPulseUnitId] = useState<string | null>(null)
@@ -83,16 +85,28 @@ const UnitsSelector = ({
     [selectedFaction, heroOnly]
   )
 
-  // Position: anchorBelow => popup top at y (opens below); else popup bottom at y (opens above)
+  // Position: mobile => centered; else anchorBelow => popup top at y (opens below); else popup bottom at y (opens above)
   const popupStyle = useMemo<React.CSSProperties>(
-    () => ({
-      position: "fixed",
-      left: anchorPosition.x,
-      ...(anchorBelow
-        ? { top: anchorPosition.y }
-        : { bottom: window.innerHeight - anchorPosition.y }),
-    }),
-    [anchorPosition.x, anchorPosition.y, anchorBelow]
+    () => {
+      if (isMobile) {
+        return {
+          position: "fixed",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          maxWidth: "calc(100vw - 2rem)",
+          maxHeight: "calc(100vh - 4rem)",
+        }
+      }
+      return {
+        position: "fixed",
+        left: anchorPosition.x,
+        ...(anchorBelow
+          ? { top: anchorPosition.y }
+          : { bottom: window.innerHeight - anchorPosition.y }),
+      }
+    },
+    [anchorPosition.x, anchorPosition.y, anchorBelow, isMobile]
   )
 
   // Match Units panel: 64px slots, slot/hero bg; icon fills slot
@@ -103,12 +117,12 @@ const UnitsSelector = ({
       {/* Modal content */}
       <div
         ref={modalRef}
-        className="z-50 bg-zinc-900 border border-zinc-700 flex flex-col p-2"
+        className={`z-50 bg-zinc-900 border border-zinc-700 flex flex-col p-2 ${isMobile ? "overflow-auto" : ""}`}
         style={popupStyle}
       >
 
         {/* Units/Heroes grid - same slot style and size as Units panel */}
-        <div className="flex gap-2 flex-wrap">
+        <div className={`flex gap-2 flex-wrap ${isMobile ? "justify-center" : ""}`}>
           {units.map((unit) => {
             const effectiveCost = !heroOnly ? getEffectiveUnitCpCost(selectedFaction, unit.id, armoryState) : 0
             const overBudget = remainingCP != null && effectiveCost > remainingCP
@@ -136,7 +150,7 @@ const UnitsSelector = ({
                   type="button"
                   onClick={() => handleUnitClick(unit.id, disabled)}
                   disabled={disabled}
-                  className={`flex items-center w-16 h-16 justify-center bg-cover bg-center ${slotBgUrl ? "" : ""} ${disabled
+                  className={`flex items-center ${isMobile ? "w-12 h-12" : "w-16 h-16"} justify-center bg-cover bg-center ${slotBgUrl ? "" : ""} ${disabled
                     ? "opacity-50 cursor-not-allowed grayscale"
                     : "hover:brightness-110 cursor-pointer"
                     }`}

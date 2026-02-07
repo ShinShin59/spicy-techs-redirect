@@ -50,7 +50,7 @@ export interface PanelVisibility {
 export interface DevelopmentsSummary {
   economic: number
   military: number
-  green: number
+  expansion: number
   statecraft: number
 }
 

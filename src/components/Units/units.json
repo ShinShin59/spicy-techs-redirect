@@ -10,7 +10,8 @@
         "ParryingArmguards",
         "PranaBindu"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     },
     {
       "id": "A_Soldier",
@@ -22,7 +23,8 @@
         "AutomaticWeapons",
         "WarMemoir"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "A_Demo",
@@ -34,7 +36,8 @@
         "WhistlingAmmo",
         "WarMemoir"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "A_Drone",
@@ -46,7 +49,8 @@
         "EvasionBooster",
         "OptmizedBedArrangement"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "A_Elite",
@@ -58,7 +62,8 @@
         "ParryingArmguards",
         "PranaBindu"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     }
   ],
   "Harkonnen": [
@@ -72,7 +77,8 @@
         "FixupKit",
         "RedFluid"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "H_Demo",
@@ -84,7 +90,8 @@
         "BirdSlayer",
         "RedFluid"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "H_Soldier",
@@ -96,7 +103,8 @@
         "EndocrineArouser",
         "RedFluid"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "H_Drone",
@@ -108,7 +116,8 @@
         "OpticCamouflage",
         "VirtualBlackBox"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 1
     },
     {
       "id": "H_Elite",
@@ -120,7 +129,8 @@
         "MeatArmor",
         "RedFluid"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     }
   ],
   "Fremen": [
@@ -134,7 +144,8 @@
         "ConfusingTactics",
         "ShelterMaps"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "F_Demo",
@@ -146,7 +157,8 @@
         "AntiPersonalShrapnels",
         "LoudBang"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "F_Sneak",
@@ -158,7 +170,8 @@
         "ChasingStance",
         "FocusedMind"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "F_Special",
@@ -170,7 +183,8 @@
         "ShadowScan",
         "PreLoadedWeapons"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "F_Elite",
@@ -182,7 +196,8 @@
         "ConfusingTactics",
         "SelfSufficiency"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     },
     {
       "id": "F_Frigate",
@@ -198,7 +213,8 @@
         "SandCloud_Altar",
         "FreedomSymbol_Altar"
       ],
-      "flags": 2097664
+      "flags": 2097664,
+      "cpCost": 3
     }
   ],
   "Smugglers": [
@@ -212,7 +228,8 @@
         "HeavyArmor",
         "DismantlingTools"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "S_Demo",
@@ -224,7 +241,8 @@
         "TraumaticRepeater",
         "StingingGaz"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "S_Sneak",
@@ -236,7 +254,8 @@
         "BarrelCleaner",
         "WhistlingAmmo"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "S_Drone",
@@ -248,7 +267,8 @@
         "OpticCamouflage",
         "MotivationalCashbox"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     },
     {
       "id": "S_Elite",
@@ -260,7 +280,8 @@
         "DualGuns",
         "DismantlingTools"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     }
   ],
   "Corrino": [
@@ -274,7 +295,8 @@
         "LiveReformation",
         "ParryingArmguards"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "C_Soldier",
@@ -286,7 +308,8 @@
         "LiveReformation",
         "WhistlingAmmo"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "C_Special",
@@ -298,7 +321,8 @@
         "PhosphorusMix",
         "TerrifyingMask"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     },
     {
       "id": "C_Drone",
@@ -310,7 +334,8 @@
         "IncendiaryAmmo",
         "WhistlingAmmo"
       ],
-      "flags": 16384
+      "flags": 16384,
+      "cpCost": 5
     },
     {
       "id": "C_Elite",
@@ -322,7 +347,8 @@
         "SardaukarCleaver",
         "BattlefieldFrenzy"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     }
   ],
   "Ecaz": [
@@ -336,7 +362,8 @@
         "SoberingMedication",
         "PricklySpear"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "E_Soldier",
@@ -348,7 +375,8 @@
         "BarrelCleaner",
         "BirdSlayer"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "E_Special",
@@ -360,7 +388,8 @@
         "ParryingArmguards",
         "ChasingStance"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "E_Drone",
@@ -372,7 +401,8 @@
         "PropagandaMachine",
         "BigBanner"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 3
     },
     {
       "id": "E_Elite",
@@ -384,7 +414,8 @@
         "VowOfHeroism",
         "VowOfHonor"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     }
   ],
   "Vernius": [
@@ -398,7 +429,8 @@
         "AnatomicalScanner",
         "SmartLens"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "V_Soldier",
@@ -410,7 +442,8 @@
         "FocusedMind",
         "DismantlingTools"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 2
     },
     {
       "id": "V_Special",
@@ -422,7 +455,8 @@
         "WhistlingAmmo",
         "SmartLens"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     },
     {
       "id": "V_Drone",
@@ -434,7 +468,8 @@
         "SmartArmor",
         "RepeaterNode"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 5
     },
     {
       "id": "V_Elite",
@@ -446,7 +481,8 @@
         "MultiParts",
         "MemoryImplant"
       ],
-      "flags": 0
+      "flags": 0,
+      "cpCost": 4
     }
   ]
 }

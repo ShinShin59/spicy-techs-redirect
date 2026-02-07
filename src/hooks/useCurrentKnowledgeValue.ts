@@ -3,7 +3,7 @@ import { computeCurrentKnowledgeValue, type DevWithTierAndDomain } from "@/utils
 import developmentsData from "@/components/Developments/developments.json"
 
 const idToDev = new Map<string, DevWithTierAndDomain>(
-  (developmentsData as { id: string; tier: number; domain: "economic" | "military" | "statecraft" | "green" }[]).map(
+  (developmentsData as { id: string; tier: number; domain: "economic" | "military" | "statecraft" | "expansion" }[]).map(
     (d) => [d.id, d]
   )
 )

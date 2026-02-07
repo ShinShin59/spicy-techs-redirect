@@ -39,7 +39,7 @@ export const initialPanelVisibility: PanelVisibility = {
 export const initialDevelopmentsSummary: DevelopmentsSummary = {
   economic: 0,
   military: 0,
-  green: 0,
+  expansion: 0,
   statecraft: 0,
 }
 

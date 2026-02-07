@@ -20,7 +20,7 @@ describe('Comprehensive Working Tests', () => {
     useMainStore.setState({
       selectedFaction: 'atreides',
       selectedDevelopments: [],
-      developmentsSummary: { economic: 0, military: 0, green: 0, statecraft: 0 },
+      developmentsSummary: { economic: 0, military: 0, expansion: 0, statecraft: 0 },
       unitSlots: {
         atreides: [null, null],
         harkonnen: [null, null],
@@ -57,7 +57,7 @@ describe('Comprehensive Working Tests', () => {
       store.setSelectedDevelopments(['test-dev-1', 'test-dev-2'], {
         economic: 2,
         military: 0,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       })
 
@@ -73,7 +73,7 @@ describe('Comprehensive Working Tests', () => {
       store.setSelectedDevelopments(['test-dev'], {
         economic: 1,
         military: 0,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       })
 
@@ -184,7 +184,7 @@ describe('Comprehensive Working Tests', () => {
       store.setSelectedDevelopments(['test-dev'], {
         economic: 1,
         military: 0,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       })
       store.setUnitSlot(2, 'Test Unit')
@@ -214,7 +214,7 @@ describe('Comprehensive Working Tests', () => {
       store.setSelectedDevelopments(['atreides-dev'], {
         economic: 1,
         military: 0,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       })
 
@@ -227,7 +227,7 @@ describe('Comprehensive Working Tests', () => {
       store.setSelectedDevelopments(['harkonnen-dev'], {
         economic: 0,
         military: 1,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       })
 
@@ -330,7 +330,7 @@ describe('Comprehensive Working Tests', () => {
         developmentsSummary: {
           economic: 0,
           military: 0,
-          green: 0,
+          expansion: 0,
           statecraft: 0,
         },
         selectedDevelopments: [],

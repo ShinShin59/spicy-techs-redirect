@@ -98,6 +98,25 @@ body {
   animation: dither-overlay-drift 300s linear infinite;
 }
 
+@keyframes toast-fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-toast-fade-in {
+  animation: toast-fade-in-out 2.6s ease-out forwards;
+}
+
 /* Logo title: halo traveling inside the letters */
 @keyframes logo-halo {
   0% {
@@ -268,6 +287,31 @@ a img {
   animation: none;
 }
 
+/* prefers-reduced-motion: respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  .dither-overlay-drift,
+  .logo-title-halo,
+  .animate-gradient-shift {
+    animation: none;
+  }
+}
+
+/* Touch: remove 300ms tap delay on interactive elements */
+button,
+a,
+[role="button"],
+select,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  touch-action: manipulation;
+}
+
+/* Optional: prevent overscroll bounce on mobile */
+body {
+  overscroll-behavior-y: contain;
+}
+
 /* Global minimal gray scrollbar – track + thumb only, no arrows */
 * {
   scrollbar-width: thin;
@@ -375,4 +419,24 @@ a img {
 .topbar-share-btn:hover {
   color: #9cc9f0;
   box-shadow: 0 0 8px rgba(126, 184, 232, 0.25);
+}
+
+/* Drawer: slide-in overlay (animation disabled) */
+.drawer-backdrop {
+  transition: none;
+}
+.drawer-panel {
+  transition: none;
+}
+.drawer-panel-left {
+  transform: translateX(-100%);
+}
+.drawer-panel-left.open {
+  transform: translateX(0);
+}
+.drawer-panel-right {
+  transform: translateX(100%);
+}
+.drawer-panel-right.open {
+  transform: translateX(0);
 }

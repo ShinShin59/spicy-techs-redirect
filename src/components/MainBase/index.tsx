@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { useCurrentMainBaseLayout, useCurrentMainBaseState, useMainStore, useUsedBuildingIds, useCurrentBuildingOrder, useCurrentBuildingDates, getBuildingOrderNumber, buildingDateKey, type BuildingCoords } from "../../store"
+import { useIsMobile } from "@/hooks/useMediaQuery"
 import { hasMainBaseVariant, mainBaseVariants } from "@/store/main-base"
 import MainBaseBuildingsSelector, { type MainBuilding } from "./MainBaseBuildingsSelector"
 import { getBuildingIconPath, getHudImagePath, TIME_ICON_PATH } from "@/utils/assetPaths"
@@ -46,6 +47,7 @@ interface AnchorPosition {
 }
 
 const MainBase = () => {
+  const isMobile = useIsMobile()
   const layout = useCurrentMainBaseLayout()
   const mainBaseState = useCurrentMainBaseState()
   const selectedFaction = useMainStore((s) => s.selectedFaction)
@@ -193,18 +195,18 @@ const MainBase = () => {
         )}
         <div
           id="main-base-grid"
-          className={`relative w-full p-4 box-border bg-zinc-900 bg-repeat bg-center ${PANEL_BORDER_HOVER_CLASS}`}
+          className={`relative box-border bg-zinc-900 bg-repeat bg-center ${PANEL_BORDER_HOVER_CLASS} ${isMobile ? "w-fit max-w-full mx-auto p-2" : "w-full p-4"}`}
           style={{ backgroundImage: `url(${getHudImagePath("mb_bg_pattern.webp")})` }}
           {...panelRightClickHide}
         >
           <PanelCorners />
-          <div className="relative flex flex-col justify-center items-center gap-12">
+          <div className={`relative flex flex-col justify-center items-center ${isMobile ? "gap-4" : "gap-12"}`}>
             {layout.map((row, rowIndex) => (
               <div key={rowIndex} className="flex" id={`main-base-row-${rowIndex}`}>
                 {row.map((building, groupIndex) => (
                   <div
                     key={groupIndex}
-                    className="flex mx-4"
+                    className={isMobile ? "flex mx-2" : "flex mx-4"}
                     id={`main-base-building-block-${groupIndex}`}
                   >
                     {Array.from({ length: building }).map((_, cellIndex) => {
@@ -241,7 +243,7 @@ const MainBase = () => {
                           role="button"
                           tabIndex={isDisabled ? -1 : 0}
                           aria-disabled={isDisabled ? true : undefined}
-                          className={`relative w-[64px] h-[64px] flex items-center justify-center overflow-hidden border border-zinc-700 bg-cover bg-center ${cellBgHoverUrl && !isDisabled ? "hover:bg-(image:--slot-hover)" : ""} ${isDisabled ? 'pointer-events-none' : 'cursor-pointer'}`}
+                          className={`relative flex items-center justify-center overflow-hidden border border-zinc-700 bg-cover bg-center ${cellBgHoverUrl && !isDisabled ? "hover:bg-(image:--slot-hover)" : ""} ${isDisabled ? 'pointer-events-none' : 'cursor-pointer'} ${isMobile ? "w-12 h-12" : "w-[64px] h-[64px]"}`}
                           style={{
                             backgroundImage: `url(${cellBgUrl})`,
                             ...(cellBgHoverUrl && !isDisabled ? { ["--slot-hover" as string]: `url(${cellBgHoverUrl})` } : {}),
@@ -275,12 +277,12 @@ const MainBase = () => {
                               <img
                                 src={getBuildingIconPath(buildingData.name)}
                                 alt={buildingData.name}
-                                className="w-12 h-12"
+                                className={isMobile ? "w-9 h-9" : "w-12 h-12"}
                               />
                               <button
                                 type="button"
                                 data-date-picker-trigger
-                                className="absolute top-0.5 left-0.5 z-10 w-4 h-4 flex items-center justify-center bg-black/50 hover:bg-black/70 transition-colors"
+                                className={`absolute z-10 flex items-center justify-center bg-black/50 hover:bg-black/70 transition-colors ${isMobile ? "top-0.5 left-0.5 w-3 h-3" : "top-0.5 left-0.5 w-4 h-4"}`}
                                 onClick={(e) => {
                                   e.stopPropagation()
                                   playMenuToggleSound(true)
@@ -297,7 +299,7 @@ const MainBase = () => {
                                 <img
                                   src={TIME_ICON_PATH}
                                   alt=""
-                                  className="w-3 h-3 object-contain"
+                                  className={isMobile ? "w-2 h-2 object-contain" : "w-3 h-3 object-contain"}
                                 />
                               </button>
                             </>
@@ -305,6 +307,7 @@ const MainBase = () => {
                           {orderNumber !== null && (
                             <OrderBadge
                               orderNumber={orderNumber}
+                              compact={isMobile}
                               onIncrement={() => {
                                 const coords: BuildingCoords = { rowIndex, groupIndex, cellIndex }
                                 updateBuildingOrder(incrementOrder(buildingOrder, coords, buildingIsEqual))

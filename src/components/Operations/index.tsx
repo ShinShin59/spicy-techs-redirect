@@ -19,7 +19,12 @@ interface AnchorPosition {
   y: number
 }
 
-const Operations = () => {
+interface OperationsProps {
+  /** "row" = horizontal (default), "column" = vertical (mobile group 4) */
+  variant?: "row" | "column"
+}
+
+const Operations = ({ variant = "row" }: OperationsProps) => {
   const operationSlots = useCurrentOperationSlots()
   const usedBuildingIds = useUsedBuildingIds()
   const setOperationSlot = useMainStore((s) => s.setOperationSlot)
@@ -118,10 +123,18 @@ const Operations = () => {
           <div
             ref={gridRef}
             className="grid"
-            style={{
-              gridTemplateColumns: `repeat(${OPERATION_SLOTS_COUNT}, ${SLOT_PX}px)`,
-              gap: `${SLOT_GAP_PX}px`,
-            }}
+            style={
+              variant === "column"
+                ? {
+                    gridTemplateRows: `repeat(${OPERATION_SLOTS_COUNT}, ${SLOT_PX}px)`,
+                    gridTemplateColumns: "1fr",
+                    gap: `${SLOT_GAP_PX}px`,
+                  }
+                : {
+                    gridTemplateColumns: `repeat(${OPERATION_SLOTS_COUNT}, ${SLOT_PX}px)`,
+                    gap: `${SLOT_GAP_PX}px`,
+                  }
+            }
           >
             {Array.from({ length: OPERATION_SLOTS_COUNT }).map((_, index) => {
               const missionId = operationSlots[index] ?? null

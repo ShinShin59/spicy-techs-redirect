@@ -70,9 +70,10 @@ interface EditableFieldProps {
   placeholder: string
   icon: React.ReactNode
   onSave: (value: string) => void
+  compact?: boolean
 }
 
-function EditableField({ value, placeholder, icon, onSave }: EditableFieldProps) {
+function EditableField({ value, placeholder, icon, onSave, compact = false }: EditableFieldProps) {
   const [editing, setEditing] = useState(false)
   const [editValue, setEditValue] = useState(value)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -111,7 +112,7 @@ function EditableField({ value, placeholder, icon, onSave }: EditableFieldProps)
             }
           }}
           placeholder={placeholder}
-          className="flex-1 min-w-0 h-7 bg-zinc-700 text-white border border-zinc-600 px-2 text-sm focus:outline-none focus:ring-1 focus:ring-accent"
+          className={`flex-1 min-w-0 bg-zinc-700 text-white border border-zinc-600 px-2 focus:outline-none focus:ring-1 focus:ring-accent ${compact ? "h-6 text-xs" : "h-7 text-sm"}`}
         />
       </div>
     )
@@ -121,10 +122,10 @@ function EditableField({ value, placeholder, icon, onSave }: EditableFieldProps)
     <button
       type="button"
       onClick={() => setEditing(true)}
-      className="flex items-center gap-2 w-full text-left group hover:bg-zinc-800 px-1 py-0.5 -mx-1 transition-colors cursor-pointer"
+      className={`flex items-center gap-2 w-full text-left group hover:bg-zinc-800 px-1 py-0.5 -mx-1 transition-colors cursor-pointer ${compact ? "gap-1" : ""}`}
     >
-      {icon}
-      <span className={`text-sm truncate ${value ? "text-zinc-200" : "text-zinc-500 italic"}`}>
+      <span className={compact ? "shrink-0 scale-75 origin-left" : "shrink-0"}>{icon}</span>
+      <span className={`truncate ${compact ? "text-xs" : "text-sm"} ${value ? "text-zinc-200" : "text-zinc-500 italic"}`}>
         {value || placeholder}
       </span>
     </button>
@@ -168,15 +169,15 @@ function VolumeIcon({ volume, muted }: { volume: number; muted: boolean }) {
   return <VolumeHighSvg />
 }
 
-function VolumeControl() {
+function VolumeControl({ inDrawer = false }: { inDrawer?: boolean }) {
   const volume = useUIStore((s) => s.volume)
   const muted = useUIStore((s) => s.muted)
   const setVolume = useUIStore((s) => s.setVolume)
   const toggleMuted = useUIStore((s) => s.toggleMuted)
 
   return (
-    <div className="p-3">
-      <div className="flex items-center gap-2">
+    <div className={inDrawer ? "p-1.5" : "p-3"}>
+      <div className={`flex items-center gap-2 ${inDrawer ? "gap-1" : ""}`}>
         <button
           type="button"
           onClick={toggleMuted}
@@ -194,7 +195,7 @@ function VolumeControl() {
           className="p-0.5 shrink-0 cursor-pointer hover:opacity-80"
           aria-label="Decrease volume"
         >
-          <img src={getHudImagePath("settings/minus.webp")} alt="" width={20} height={20} />
+          <img src={getHudImagePath("settings/minus.webp")} alt="" width={inDrawer ? 16 : 20} height={inDrawer ? 16 : 20} />
         </button>
         <input
           type="range"
@@ -220,14 +221,18 @@ function VolumeControl() {
           className="p-0.5 shrink-0 cursor-pointer hover:opacity-80"
           aria-label="Increase volume"
         >
-          <img src={getHudImagePath("settings/plus.webp")} alt="" width={20} height={20} />
+          <img src={getHudImagePath("settings/plus.webp")} alt="" width={inDrawer ? 16 : 20} height={inDrawer ? 16 : 20} />
         </button>
       </div>
     </div>
   )
 }
 
-export default function Metadata() {
+interface MetadataProps {
+  inDrawer?: boolean
+}
+
+export default function Metadata({ inDrawer = false }: MetadataProps) {
   const metadata = useMainStore((s) => s.metadata)
   const setMetadataAuthor = useMainStore((s) => s.setMetadataAuthor)
   const setMetadataSocial = useMainStore((s) => s.setMetadataSocial)
@@ -266,22 +271,23 @@ export default function Metadata() {
   }
 
   return (
-    <div className="shrink-0 w-[280px] flex flex-col min-h-0 max-h-[calc(100vh-2.5rem-4em-1rem)] overflow-y-auto">
+    <div className={`flex flex-col min-h-0 ${inDrawer ? "w-full shrink-0 overflow-hidden" : "shrink-0 w-[280px] max-h-[calc(100vh-2.5rem-4em-1rem)] overflow-y-auto"}`}>
       <aside
-        className="relative w-full flex flex-col border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden"
+        className={`relative w-full flex flex-col overflow-hidden ${inDrawer ? "bg-transparent" : "border border-zinc-700 bg-zinc-900 shadow-xl"}`}
         aria-label="Build metadata"
       >
-        <PanelCorners />
-        <div className="flex items-center justify-between p-3 border-b border-zinc-700 shrink-0">
-          <h2 className="text-sm font-semibold text-zinc-200">Metadata</h2>
+        {!inDrawer && <PanelCorners />}
+        <div className={`flex items-center justify-between shrink-0 ${inDrawer ? "p-1.5" : "p-3 border-b border-zinc-700"}`}>
+          <h2 className={`font-semibold text-zinc-200 ${inDrawer ? "text-xs" : "text-sm"}`}>Metadata</h2>
         </div>
 
-        <div className="p-3 space-y-3">
+        <div className={`space-y-2 flex-1 min-h-0 flex flex-col overflow-hidden ${inDrawer ? "p-1.5" : "p-3 space-y-3"}`}>
           <EditableField
             value={metadata.author}
             placeholder="Author name"
             icon={<PersonIcon />}
             onSave={setMetadataAuthor}
+            compact={inDrawer}
           />
 
           <EditableField
@@ -289,6 +295,7 @@ export default function Metadata() {
             placeholder="Social link"
             icon={<LinkIcon />}
             onSave={setMetadataSocial}
+            compact={inDrawer}
           />
 
           <EditableField
@@ -296,9 +303,10 @@ export default function Metadata() {
             placeholder="Media link"
             icon={<MediaIcon />}
             onSave={setMetadataMedia}
+            compact={inDrawer}
           />
 
-          <div className="pt-1">
+          <div className={`pt-1 flex-1 min-h-0 flex flex-col ${inDrawer ? "min-h-0" : ""}`}>
             {commentaryEditing ? (
               <textarea
                 ref={textareaRef}
@@ -317,15 +325,15 @@ export default function Metadata() {
                   }
                 }}
                 placeholder="Write commentary here"
-                className="w-full min-h-24 bg-zinc-700 text-white text-sm border border-zinc-600 px-2 py-1.5 resize-none focus:outline-none focus:ring-1 focus:ring-accent"
+                className={`w-full bg-zinc-700 text-white border border-zinc-600 px-2 py-1.5 resize-none focus:outline-none focus:ring-1 focus:ring-accent ${inDrawer ? "min-h-12 text-xs flex-1" : "min-h-24 text-sm"}`}
               />
             ) : (
               <button
                 type="button"
                 onClick={handleStartCommentaryEditing}
-                className="w-full text-left hover:bg-zinc-800 px-1 py-1 -mx-1 transition-colors min-h-12 cursor-pointer"
+                className={`w-full text-left hover:bg-zinc-800 px-1 py-1 -mx-1 transition-colors cursor-pointer ${inDrawer ? "min-h-8" : "min-h-12"}`}
               >
-                <span className={`text-sm whitespace-pre-wrap wrap-break-word ${metadata.commentary ? "text-zinc-200" : "text-zinc-500 italic"}`}>
+                <span className={`whitespace-pre-wrap wrap-break-word ${inDrawer ? "text-xs" : "text-sm"} ${metadata.commentary ? "text-zinc-200" : "text-zinc-500 italic"}`}>
                   {metadata.commentary || "Write commentary here"}
                 </span>
               </button>
@@ -333,35 +341,35 @@ export default function Metadata() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between p-3 border-t border-b border-zinc-700 shrink-0">
-          <h2 className="text-sm font-semibold text-zinc-200">Settings</h2>
+        <div className={`flex items-center justify-between shrink-0 ${inDrawer ? "p-1.5 pt-2" : "p-3 border-t border-b border-zinc-700"}`}>
+          <h2 className={`font-semibold text-zinc-200 ${inDrawer ? "text-xs" : "text-sm"}`}>Settings</h2>
         </div>
 
-        <div className="p-3">
+        <div className={inDrawer ? "p-1.5" : "p-3"}>
         </div>
 
-        <VolumeControl />
-        <div className="p-3">
+        <VolumeControl inDrawer={inDrawer} />
+        <div className={inDrawer ? "p-1.5" : "p-3"}>
           <button
             type="button"
             onClick={() => setLightweightMode(!lightweightMode)}
             role="checkbox"
             aria-checked={lightweightMode}
             aria-label="Lightweight mode"
-            className={`flex items-center gap-2 w-full text-left px-2 py-1.5 -mx-1 rounded text-sm transition-colors cursor-pointer hover:bg-zinc-800 ${lightweightMode ? "bg-zinc-800 text-zinc-200" : "text-zinc-400"}`}
+            className={`flex items-center gap-2 w-full text-left px-2 py-1 -mx-1 rounded transition-colors cursor-pointer hover:bg-zinc-800 ${inDrawer ? "text-xs" : "text-sm"} ${lightweightMode ? "bg-zinc-800 text-zinc-200" : "text-zinc-400"}`}
           >
             <img
               src={lightweightMode ? getHudImagePath("settings/checkbox_true.webp") : getHudImagePath("settings/checkbox_false.webp")}
               alt=""
-              width={18}
-              height={18}
+              width={inDrawer ? 14 : 18}
+              height={inDrawer ? 14 : 18}
               className="shrink-0"
             />
             Disable animations
           </button>
         </div>
       </aside>
-      <div className="flex justify-center items-center pt-2 gap-1">
+      <div className={`flex justify-center items-center gap-1 shrink-0 ${inDrawer ? "pt-1 p-1.5" : "pt-2"}`}>
         <button
           type="button"
           onClick={clearPersistedDataAndReload}

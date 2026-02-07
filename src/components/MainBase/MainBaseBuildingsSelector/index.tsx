@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from "react"
 import { useMainStore, type FactionLabel } from "@/store"
 import { getBuildingIconPath } from "@/utils/assetPaths"
+import { useIsMobile } from "@/hooks/useMediaQuery"
 import BuildingAttributesTooltip from "../BuildingAttributesTooltip"
 import mainBuildingsData from "./main-buildings.json"
 
@@ -54,6 +55,7 @@ const MainBaseBuildingsSelector = ({
   selectedMainBaseIndex,
 }: MainBaseBuildingsSelectorProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const [hoverTooltip, setHoverTooltip] = useState<{
     building: MainBuilding
@@ -99,22 +101,34 @@ const MainBaseBuildingsSelector = ({
   }, [availableBuildings])
 
   // Memoize popup style
-  const popupStyle = useMemo<React.CSSProperties>(() => ({
-    position: 'fixed',
-    left: anchorPosition.x,
-    bottom: window.innerHeight - anchorPosition.y,
-  }), [anchorPosition.x, anchorPosition.y])
+  const popupStyle = useMemo<React.CSSProperties>(() => {
+    if (isMobile) {
+      return {
+        position: "fixed",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        maxWidth: "calc(100vw - 2rem)",
+        maxHeight: "calc(100vh - 4rem)",
+      }
+    }
+    return {
+      position: "fixed",
+      left: anchorPosition.x,
+      bottom: window.innerHeight - anchorPosition.y,
+    }
+  }, [anchorPosition.x, anchorPosition.y, isMobile])
 
   return (
     <>
       {/* Modal content */}
       <div
         ref={modalRef}
-        className="z-50 bg-zinc-900 border border-zinc-700 flex flex-col"
+        className={`z-50 bg-zinc-900 border border-zinc-700 flex flex-col ${isMobile ? "overflow-auto" : ""}`}
         style={popupStyle}
       >
         {/* Categories container */}
-        <div className="flex p-4 gap-4 shrink-0">
+        <div className={`flex shrink-0 ${isMobile ? "p-2 gap-2 flex-col" : "p-4 gap-4 flex-row"}`}>
           {CATEGORIES.map((category) => (
             <div key={category} className="flex flex-col shrink-0">
               {/* Buildings grid */}
@@ -125,7 +139,7 @@ const MainBaseBuildingsSelector = ({
                   return (
                     <div
                       key={building.name}
-                      className="w-12 h-12 shrink-0"
+                      className={isMobile ? "w-10 h-10 shrink-0" : "w-12 h-12 shrink-0"}
                       onMouseEnter={(e) => {
                         const rect = e.currentTarget.getBoundingClientRect()
                         setHoverTooltip({
@@ -153,7 +167,7 @@ const MainBaseBuildingsSelector = ({
                         <img
                           src={getBuildingIconPath(building.name)}
                           alt={building.name}
-                          className="w-10 h-10"
+                          className={isMobile ? "w-8 h-8" : "w-10 h-10"}
                         />
                       </button>
                     </div>

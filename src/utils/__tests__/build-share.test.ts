@@ -41,7 +41,7 @@ describe('Build Sharing URL Encoding/Decoding', () => {
       developmentsSummary: {
         economic: 1,
         military: 0,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       },
       selectedDevelopments: ['Dev_1'],
@@ -57,7 +57,7 @@ describe('Build Sharing URL Encoding/Decoding', () => {
   it('should encode complete build with all components', () => {
     const payload = createTestPayload()
     const encoded = encodeBuildPayload(payload)
-    
+
     expect(encoded).toBeTruthy()
     expect(typeof encoded).toBe('string')
     expect(encoded.length).toBeGreaterThan(0)
@@ -66,11 +66,11 @@ describe('Build Sharing URL Encoding/Decoding', () => {
   it('should decode shared build URL and verify state matches', () => {
     const originalPayload = createTestPayload()
     const encoded = encodeBuildPayload(originalPayload)
-    
+
     // Simulate URL parameter
     window.location.search = `?build=${encoded}`
     const decoded = decodeBuildPayload(window.location.search)
-    
+
     expect(decoded).not.toBeNull()
     expect(decoded!.f).toBe(originalPayload.f)
     expect(decoded!.state).toEqual(originalPayload.state)
@@ -107,7 +107,7 @@ describe('Build Sharing URL Encoding/Decoding', () => {
       developmentsSummary: {
         economic: 0,
         military: 0,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       },
       selectedDevelopments: [],
@@ -119,11 +119,11 @@ describe('Build Sharing URL Encoding/Decoding', () => {
       },
       // Missing: developmentsKnowledge, knowledgeBase, buildingDates
     }
-    
+
     const encoded = encodeBuildPayload(minimalPayload)
     window.location.search = `?build=${encoded}`
     const decoded = decodeBuildPayload(window.location.search)
-    
+
     expect(decoded).not.toBeNull()
     expect(decoded!.f).toBe('atreides')
     // Optional fields should be undefined or have defaults
@@ -134,13 +134,13 @@ describe('Build Sharing URL Encoding/Decoding', () => {
   it('should compress URL correctly using lz-string', () => {
     const payload = createTestPayload()
     payload.metadata.commentary = 'A'.repeat(1000) // Large payload
-    
+
     const encoded = encodeBuildPayload(payload)
     const jsonString = JSON.stringify(payload)
-    
+
     // Encoded should be shorter than raw JSON (compression working)
     expect(encoded.length).toBeLessThan(jsonString.length)
-    
+
     // Should still decode correctly
     window.location.search = `?build=${encoded}`
     const decoded = decodeBuildPayload(window.location.search)
@@ -172,7 +172,7 @@ describe('Build Sharing URL Encoding/Decoding', () => {
       developmentsSummary: {
         economic: 0,
         military: 0,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       },
       selectedDevelopments: [],
@@ -183,11 +183,11 @@ describe('Build Sharing URL Encoding/Decoding', () => {
         media: '',
       },
     }
-    
+
     const encoded = encodeBuildPayload(payload)
     window.location.search = `?build=${encoded}`
     const decoded = decodeBuildPayload(window.location.search)
-    
+
     expect(decoded).not.toBeNull()
     expect(decoded!.f).toBe('corrino')
     expect(decoded!.state2).toEqual(payload.state2)
@@ -200,12 +200,12 @@ describe('Build Sharing URL Encoding/Decoding', () => {
     window.location.search = '?build=invalid!!!'
     const decoded1 = decodeBuildPayload(window.location.search)
     expect(decoded1).toBeNull()
-    
+
     // Missing build parameter
     window.location.search = '?other=value'
     const decoded2 = decodeBuildPayload(window.location.search)
     expect(decoded2).toBeNull()
-    
+
     // Invalid JSON after decompression
     // This is harder to test directly, but the try-catch should handle it
     window.location.search = '?build=invalid'
@@ -217,7 +217,7 @@ describe('Build Sharing URL Encoding/Decoding', () => {
     const payload = createTestPayload()
     const encoded = encodeBuildPayload(payload)
     const url = getShareUrl(encoded)
-    
+
     expect(url).toContain('build=')
     expect(url).toContain(encoded)
     expect(url.startsWith('http://localhost:3000/spicy-techs/')).toBe(true)
@@ -244,7 +244,7 @@ describe('Build Sharing URL Encoding/Decoding', () => {
       developmentsSummary: {
         economic: 0,
         military: 0,
-        green: 0,
+        expansion: 0,
         statecraft: 0,
       },
       selectedDevelopments: [],
@@ -255,11 +255,11 @@ describe('Build Sharing URL Encoding/Decoding', () => {
         media: '',
       },
     }
-    
+
     const encoded = encodeBuildPayload(payload)
     window.location.search = `?build=${encoded}`
     const decoded = decodeBuildPayload(window.location.search)
-    
+
     expect(decoded).not.toBeNull()
     expect(decoded!.order).toEqual([])
     expect(decoded!.selectedDevelopments).toEqual([])
@@ -269,11 +269,11 @@ describe('Build Sharing URL Encoding/Decoding', () => {
   it('should preserve building dates if present', () => {
     const payload = createTestPayload()
     payload.buildingDates = { '0-0-0': 10, '0-0-1': 20 }
-    
+
     const encoded = encodeBuildPayload(payload)
     window.location.search = `?build=${encoded}`
     const decoded = decodeBuildPayload(window.location.search)
-    
+
     expect(decoded).not.toBeNull()
     expect(decoded!.buildingDates).toEqual(payload.buildingDates)
   })
@@ -282,11 +282,11 @@ describe('Build Sharing URL Encoding/Decoding', () => {
     const payload = createTestPayload()
     payload.developmentsKnowledge = { 'Dev_1': 15 }
     payload.knowledgeBase = 10
-    
+
     const encoded = encodeBuildPayload(payload)
     window.location.search = `?build=${encoded}`
     const decoded = decodeBuildPayload(window.location.search)
-    
+
     expect(decoded).not.toBeNull()
     expect(decoded!.developmentsKnowledge).toEqual(payload.developmentsKnowledge)
     expect(decoded!.knowledgeBase).toBe(10)

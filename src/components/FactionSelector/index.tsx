@@ -9,7 +9,11 @@ const ChevronDown = () => (
   </svg>
 )
 
-const FactionSelector = () => {
+interface FactionSelectorProps {
+  compact?: boolean
+}
+
+const FactionSelector = ({ compact = false }: FactionSelectorProps) => {
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const switchFaction = useMainStore((s) => s.switchFaction)
   const [open, setOpen] = useState(false)
@@ -42,7 +46,11 @@ const FactionSelector = () => {
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label="Select faction"
-        className="flex items-center gap-2 py-1.5 pl-10 pr-2 text-sm font-medium border border-zinc-600 bg-zinc-800 text-topbar-btn hover:bg-zinc-700 transition-colors cursor-pointer bg-no-repeat bg-size-[1.25rem_1.25rem] bg-position-[left_0.70rem_center] min-w-[140px] justify-between"
+        className={`flex items-center gap-2 border border-zinc-600 bg-zinc-800 text-topbar-btn hover:bg-zinc-700 transition-colors cursor-pointer bg-no-repeat justify-between ${
+          compact
+            ? "py-1 pl-7 pr-1.5 text-xs min-w-[85px] bg-[length:1rem_1rem] bg-[position:left_0.25rem_center]"
+            : "py-1.5 pl-10 pr-2 text-sm font-medium bg-size-[1.25rem_1.25rem] bg-position-[left_0.70rem_center] min-w-[140px]"
+        }`}
         style={{ backgroundImage: `url(${getFactionIconPath(selectedFaction)})` }}
       >
         <span className="capitalize">{selectedFaction}</span>

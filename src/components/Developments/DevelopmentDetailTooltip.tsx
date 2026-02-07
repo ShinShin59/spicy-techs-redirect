@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom"
+import { useLayoutEffect, useRef, useState } from "react"
 import TooltipWrapper from "@/components/shared/TooltipWrapper"
 import { TIME_ICON_PATH } from "@/utils/assetPaths"
 import type { KnowledgeModifierBreakdown } from "@/utils/knowledge"
@@ -6,7 +7,7 @@ import { getLandstraadWindowPhrase } from "./developmentsCostUtils"
 import MonthEstimation from "@/components/MonthEstimation"
 import AttributeLine from "@/utils/AttributeLine"
 
-export type DevelopmentDomain = "economic" | "military" | "statecraft" | "green"
+export type DevelopmentDomain = "economic" | "military" | "statecraft" | "expansion"
 
 export interface DevelopmentEntry {
   id: string
@@ -28,19 +29,33 @@ const DOMAIN_LABELS: Record<DevelopmentDomain, string> = {
   economic: "Economic development",
   military: "Military development",
   statecraft: "Statecraft development",
-  green: "Expansion development",
+  expansion: "Expansion development",
 }
 
 const domainColor: Record<DevelopmentDomain, string> = {
   economic: "text-amber-400",
   military: "text-red-400",
   statecraft: "text-cyan-400",
-  green: "text-emerald-400",
+  expansion: "text-emerald-400",
 }
 
 const CURSOR_OFFSET = 12
+const EDGE_BUFFER = 8
 
 const DEFAULT_KNOWLEDGE_PER_DAY = 5
+
+function clampToViewport(
+  left: number,
+  top: number,
+  width: number,
+  height: number
+): { left: number; top: number } {
+  const vw = window.innerWidth
+  const vh = window.innerHeight
+  const clampedLeft = Math.max(EDGE_BUFFER, Math.min(left, vw - width - EDGE_BUFFER))
+  const clampedTop = Math.max(EDGE_BUFFER, Math.min(top, vh - height - EDGE_BUFFER))
+  return { left: clampedLeft, top: clampedTop }
+}
 
 export interface DevelopmentDetailTooltipProps {
   development: DevelopmentEntry
@@ -67,6 +82,40 @@ interface TooltipContentProps {
   knowledgeBreakdown?: KnowledgeModifierBreakdown
   daysToCompleteThisDev?: number
   totalBuildDays?: number
+}
+
+function FollowCursorTooltip({
+  x,
+  y,
+  children,
+}: {
+  x: number
+  y: number
+  children: React.ReactNode
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+  const baseLeft = x + CURSOR_OFFSET
+  const baseTop = y + CURSOR_OFFSET
+
+  const [style, setStyle] = useState<React.CSSProperties>(() => ({
+    position: "fixed" as const,
+    left: baseLeft,
+    top: baseTop,
+  }))
+
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const { left, top } = clampToViewport(baseLeft, baseTop, rect.width, rect.height)
+    setStyle((s) => ({ ...s, left, top }))
+  }, [baseLeft, baseTop])
+
+  return (
+    <div ref={ref} className={tooltipContentClass} style={style}>
+      {children}
+    </div>
+  )
 }
 
 function TooltipContent({
@@ -169,16 +218,9 @@ export default function DevelopmentDetailTooltip({
   const costProps = { costKnowledge, knowledgeBreakdown, daysToCompleteThisDev, totalBuildDays }
   if (followCursor) {
     return createPortal(
-      <div
-        className={tooltipContentClass}
-        style={{
-          position: "fixed",
-          left: followCursor.x + CURSOR_OFFSET,
-          top: followCursor.y + CURSOR_OFFSET,
-        }}
-      >
+      <FollowCursorTooltip x={followCursor.x} y={followCursor.y}>
         <TooltipContent development={development} {...costProps} />
-      </div>,
+      </FollowCursorTooltip>,
       document.body
     )
   }

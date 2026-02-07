@@ -90,7 +90,7 @@ export function isImagePreloaded(src: string): boolean {
 
 /** Promise that resolves when ALL preloaded images are done (loaded or errored). */
 export function waitForPreload(): Promise<void> {
-  return Promise.all(preloadPromises).then(() => {})
+  return Promise.all(preloadPromises).then(() => { })
 }
 
 /**
@@ -105,7 +105,7 @@ export function getHudImagePath(fileName: string): string {
 const DEVELOPMENTS_SLOT_IMAGES: Record<keyof DevelopmentsSummary, string> = {
   economic: "slot_economic.webp",
   military: "slot_military.webp",
-  green: "slot_green.webp",
+  expansion: "slot_green.webp",
   statecraft: "slot_statecraft.webp",
 }
 

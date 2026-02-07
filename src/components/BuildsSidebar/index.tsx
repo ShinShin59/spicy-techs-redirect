@@ -196,7 +196,11 @@ const BuildRow = memo(function BuildRow({ build, isSelected, onLoad, onDuplicate
   )
 })
 
-const BuildsSidebar = () => {
+interface BuildsSidebarProps {
+  inDrawer?: boolean
+}
+
+const BuildsSidebar = ({ inDrawer = false }: BuildsSidebarProps) => {
   const savedBuilds = useMainStore((s) => s.savedBuilds)
   const currentBuildId = useMainStore((s) => s.currentBuildId)
   const loadBuild = useMainStore((s) => s.loadBuild)
@@ -223,17 +227,17 @@ const BuildsSidebar = () => {
   }
 
   return (
-    <div className="shrink-0 w-[280px] self-start flex flex-col min-h-0 max-h-[calc(100vh-2.5rem-4em-1rem)] overflow-y-auto">
+    <div className={`flex flex-col min-h-0 overflow-y-auto ${inDrawer ? "w-full shrink-0" : "shrink-0 w-[280px] self-start max-h-[calc(100vh-2.5rem-4em-1rem)]"}`}>
       <aside
-        className="relative w-full flex flex-col border border-zinc-700 bg-zinc-900 shadow-xl overflow-hidden"
+        className={`relative w-full flex flex-col overflow-hidden ${inDrawer ? "bg-transparent" : "border border-zinc-700 bg-zinc-900 shadow-xl"}`}
         aria-label="Build list"
       >
-        <PanelCorners />
-        <div className="flex items-center p-3 border-b border-zinc-700 shrink-0">
+        {!inDrawer && <PanelCorners />}
+        <div className={`flex items-center shrink-0 ${inDrawer ? "p-2" : "p-3 border-b border-zinc-700"}`}>
           <h2 className="text-sm font-semibold text-zinc-200">Builds</h2>
         </div>
 
-        <div className="p-3 space-y-2">
+        <div className={`space-y-2 ${inDrawer ? "p-2" : "p-3"}`}>
           {savedBuilds.length === 0 ? (
             <p className="text-sm text-zinc-500 py-4 text-center">No saved builds</p>
           ) : (

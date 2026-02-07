@@ -6,6 +6,7 @@ import {
   type CouncillorData,
 } from "./councillors-utils"
 import CouncillorTooltip from "./CouncillorTooltip"
+import { useIsMobile } from "@/hooks/useMediaQuery"
 
 interface AnchorPosition {
   x: number
@@ -27,6 +28,7 @@ const CouncillorsSelector = ({
   anchorPosition,
 }: CouncillorsSelectorProps) => {
   const modalRef = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
   const selectedFaction = useMainStore((s) => s.selectedFaction)
   const [hoverTooltip, setHoverTooltip] = useState<{
     councillor: CouncillorData
@@ -49,12 +51,24 @@ const CouncillorsSelector = ({
   )
 
   const popupStyle = useMemo<React.CSSProperties>(
-    () => ({
-      position: "fixed" as const,
-      left: anchorPosition.x,
-      bottom: window.innerHeight - anchorPosition.y,
-    }),
-    [anchorPosition.x, anchorPosition.y]
+    () => {
+      if (isMobile) {
+        return {
+          position: "fixed" as const,
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          maxWidth: "calc(100vw - 2rem)",
+          maxHeight: "calc(100vh - 4rem)",
+        }
+      }
+      return {
+        position: "fixed" as const,
+        left: anchorPosition.x,
+        bottom: window.innerHeight - anchorPosition.y,
+      }
+    },
+    [anchorPosition.x, anchorPosition.y, isMobile]
   )
 
   const handleClick = (councillor: CouncillorData) => {
@@ -70,17 +84,17 @@ const CouncillorsSelector = ({
     <>
       <div
         ref={modalRef}
-        className="z-50 bg-zinc-900 border border-zinc-700 flex flex-col"
+        className={`z-50 bg-zinc-900 border border-zinc-700 flex flex-col ${isMobile ? "overflow-auto" : ""}`}
         style={popupStyle}
       >
 
-        <div className="flex p-3 gap-2">
+        <div className={`flex p-3 gap-2 flex-wrap ${isMobile ? "justify-center" : ""}`}>
           {councillors.map((councillor) => {
             const isSelected = selectedIds.includes(councillor.id)
             return (
               <div
                 key={councillor.id}
-                className="w-16 h-16 shrink-0"
+                className={isMobile ? "w-12 h-12 shrink-0" : "w-16 h-16 shrink-0"}
                 onMouseEnter={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect()
                   setHoverTooltip({
@@ -110,7 +124,7 @@ const CouncillorsSelector = ({
                     alt={councillor.name}
                     loading="eager"
                     decoding="async"
-                    className="w-14 h-14 object-contain"
+                    className={isMobile ? "w-10 h-10 object-contain" : "w-14 h-14 object-contain"}
                   />
                 </button>
               </div>

@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from "react"
 import { useMainStore, type FactionLabel } from "@/store"
-import { getDevelopmentSpriteStyle, getDevelopmentPickerAssetPath } from "@/utils/assetPaths"
+import { getDevelopmentSpriteStyle, getDevelopmentPickerAssetPath, getHudImagePath } from "@/utils/assetPaths"
+import { useIsMobile, useIsPortrait } from "@/hooks/useMediaQuery"
 import { playCancelSlotSound, playMenuToggleSound } from "@/utils/sound"
 import DevelopmentDetailTooltip, {
   type DevelopmentEntry,
@@ -23,52 +24,70 @@ const CROSS_IMAGE = getDevelopmentPickerAssetPath("cross_section.webp")
 
 /** Single source of truth for development node scale (px). All layout dimensions are derived from this. */
 const DEV_SCALE = 56
+const DEV_SCALE_MOBILE = 36
+const DEV_SCALE_MIN = 24
 
-const DEV_LAYOUT = {
-  /** Node outer size – grid cells use these; nodes are explicitly sized to match. Width > scale so names fit. */
-  nodeWidth: Math.round(DEV_SCALE * 2.15),
-  nodeHeight: Math.round(DEV_SCALE * 1),
-  /** Frame (icon container) and icon inside it */
-  frameSize: Math.round(DEV_SCALE * 0.55),
-  iconInnerSize: Math.round(DEV_SCALE * 0.35),
-  /** Badges */
-  counterSize: Math.round(DEV_SCALE * 0.39),
-  flagSize: Math.round(DEV_SCALE * 0.39),
-  /** Spacing between nodes – grid gap */
-  gapX: Math.round(DEV_SCALE * 0.21),
-  gapY: Math.round(DEV_SCALE * 0.36),
-  /** Node padding and icon raise */
-  nodePaddingTop: Math.round(DEV_SCALE * 0.40),
-  nodePaddingX: Math.round(DEV_SCALE * 0.09),
-  nodePaddingBottom: Math.round(DEV_SCALE * 0.09),
-  iconRaise: Math.round(DEV_SCALE * 0.27),
-  /** Flag: nudge up so it sits a tad higher */
-  flagTopOffset: -5,
-} as const
+/** Quadrant padding for content size calculation */
+const QUADRANT_PADDING_X = 52
+const QUADRANT_PADDING_X_FILL = 28
+const QUADRANT_PADDING_Y_FILL = 24
 
-const DOMAIN_ORDER: DevelopmentDomain[] = ["economic", "military", "statecraft", "green"]
+function getDevLayout(scale: number) {
+  return {
+    nodeWidth: Math.round(scale * 2.15),
+    nodeHeight: Math.round(scale * 1),
+    frameSize: Math.round(scale * 0.55),
+    iconInnerSize: Math.round(scale * 0.35),
+    counterSize: Math.round(scale * 0.39),
+    flagSize: Math.round(scale * 0.39),
+    gapX: Math.round(scale * 0.21),
+    gapY: Math.round(scale * 0.36),
+    nodePaddingTop: Math.round(scale * 0.40),
+    nodePaddingX: Math.round(scale * 0.09),
+    nodePaddingBottom: Math.round(scale * 0.09),
+    iconRaise: Math.round(scale * 0.27),
+    flagTopOffset: -5,
+  } as const
+}
+
+const DOMAIN_ORDER: DevelopmentDomain[] = ["economic", "military", "statecraft", "expansion"]
+
+const DOMAIN_LABELS: Record<DevelopmentDomain, string> = {
+  economic: "economic",
+  military: "military",
+  statecraft: "statecraft",
+  expansion: "expansion",
+}
 
 /** Category color names for borders/backgrounds (match theme: economy, military, statecraft, expansion) */
 const DOMAIN_BORDER_CLASS: Record<DevelopmentDomain, string> = {
   economic: "border-economy",
   military: "border-military",
   statecraft: "border-statecraft",
-  green: "border-expansion",
+  expansion: "border-expansion",
+}
+
+/** Category text colors for titles */
+const DOMAIN_TEXT_CLASS: Record<DevelopmentDomain, string> = {
+  economic: "text-economy",
+  military: "text-military",
+  statecraft: "text-statecraft",
+  expansion: "text-expansion",
 }
 
 const DOMAIN_BG_SELECTED_CLASS: Record<DevelopmentDomain, string> = {
   economic: "bg-economy",
   military: "bg-military",
   statecraft: "bg-statecraft",
-  green: "bg-expansion",
+  expansion: "bg-expansion",
 }
 
-/** Frame filename prefix per domain (green → expansion). */
+/** Frame filename prefix per domain (expansion → expansion). */
 const FRAME_PREFIX: Record<DevelopmentDomain, string> = {
   economic: "economic",
   military: "military",
   statecraft: "statecraft",
-  green: "expansion",
+  expansion: "expansion",
 }
 
 /** Background image per quadrant (4 grid). */
@@ -76,7 +95,7 @@ const QUADRANT_BG_FILES: Record<DevelopmentDomain, string> = {
   economic: "bg__economic.webp",
   military: "bg__military.webp",
   statecraft: "bg__statecraft.webp",
-  green: "bg__expansion.webp",
+  expansion: "bg__expansion.webp",
 }
 
 const DEV_SELECTED_CIRCLE_IMAGE = getDevelopmentPickerAssetPath("selectedCircle.webp")
@@ -108,8 +127,8 @@ function getEffectiveRequires(d: DevelopmentEntry): string | null {
   return null
 }
 
-function computeSummary(ids: string[]): { economic: number; military: number; green: number; statecraft: number } {
-  const byDomain = { economic: 0, military: 0, green: 0, statecraft: 0 }
+function computeSummary(ids: string[]): { economic: number; military: number; expansion: number; statecraft: number } {
+  const byDomain = { economic: 0, military: 0, expansion: 0, statecraft: 0 }
   const idToDomain = new Map<string, DevelopmentDomain>()
   allDevelopments.forEach((d) => idToDomain.set(d.id, d.domain))
   ids.forEach((id) => {
@@ -136,6 +155,12 @@ interface DevelopmentsPickerProps {
 
 export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPickerProps) {
   const modalRef = useRef<HTMLDivElement>(null)
+  const sliderRef = useRef<HTMLDivElement>(null)
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([])
+  const isMobile = useIsMobile()
+  const isPortrait = useIsPortrait()
+  const isLandscape = isMobile && !isPortrait
+  const [activeDomainIndex, setActiveDomainIndex] = useState(0)
   const selectedDevelopments = useMainStore((s) => s.selectedDevelopments)
   const setSelectedDevelopments = useMainStore((s) => s.setSelectedDevelopments)
   const selectedFaction = useMainStore((s) => s.selectedFaction)
@@ -162,7 +187,7 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
       economic: [],
       military: [],
       statecraft: [],
-      green: [],
+      expansion: [],
     }
     filteredDevelopments.forEach((d) => {
       if (map[d.domain]) map[d.domain].push(d)
@@ -302,7 +327,7 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
     if (selectedDevelopments.length === 0) return
     playMenuToggleSound(false)
     selectedDevelopments.forEach((id) => clearDevelopmentKnowledge(id))
-    setSelectedDevelopments([], { economic: 0, military: 0, green: 0, statecraft: 0 })
+    setSelectedDevelopments([], { economic: 0, military: 0, expansion: 0, statecraft: 0 })
   }, [selectedDevelopments, setSelectedDevelopments, clearDevelopmentKnowledge])
 
   useEffect(() => {
@@ -325,6 +350,42 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [open, onClose])
 
+  const goPrev = useCallback(() => {
+    setActiveDomainIndex((i) => (i - 1 + 4) % 4)
+  }, [])
+  const goNext = useCallback(() => {
+    setActiveDomainIndex((i) => (i + 1) % 4)
+  }, [])
+
+  const isScrollingProgrammatically = useRef(false)
+
+  useEffect(() => {
+    if (!isMobile || !open || !sliderRef.current) return
+    const slide = slideRefs.current[activeDomainIndex]
+    if (slide) {
+      isScrollingProgrammatically.current = true
+      slide.scrollIntoView({ behavior: "auto", block: "nearest", inline: "center" })
+      const t = setTimeout(() => { isScrollingProgrammatically.current = false }, 50)
+      return () => clearTimeout(t)
+    }
+  }, [isMobile, open, activeDomainIndex])
+
+  useEffect(() => {
+    if (!isMobile || !sliderRef.current) return
+    const container = sliderRef.current
+    const handleScroll = () => {
+      if (isScrollingProgrammatically.current) return
+      const containerWidth = container.offsetWidth
+      const scrollLeft = container.scrollLeft
+      const index = Math.round(scrollLeft / containerWidth)
+      if (index >= 0 && index < 4) {
+        setActiveDomainIndex(index)
+      }
+    }
+    container.addEventListener("scroll", handleScroll, { passive: true })
+    return () => container.removeEventListener("scroll", handleScroll)
+  }, [isMobile])
+
   if (!open) return null
 
   const knowledgeContext: KnowledgeContext = {
@@ -341,13 +402,18 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
       <div className="fixed inset-0 z-40 bg-black/70" aria-hidden />
       <div
         ref={modalRef}
-        className="group/modal fixed left-1/2 top-1/2 z-50 flex max-h-[90vh] w-max max-w-[95vw] bg-zinc-950 -translate-x-1/2 -translate-y-1/2 flex-col overflow-hidden rounded border border-zinc-700 shadow-2xl p-6"
+        className={`group/modal fixed z-50 flex bg-zinc-950 flex-col overflow-hidden shadow-2xl ${isMobile
+          ? `inset-0 ${isLandscape ? "p-2" : "p-4"}`
+          : "left-1/2 top-1/2 max-h-[90vh] w-max max-w-[95vw] -translate-x-1/2 -translate-y-1/2 rounded border border-zinc-700 p-6"
+          }`}
       >
-        <img src={CROSS_IMAGE} alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-50 z-0 object-center" />
+        {!isMobile && (
+          <img src={CROSS_IMAGE} alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-50 z-0 object-center" />
+        )}
         <PanelCorners />
         <button
           type="button"
-          className={`${RESET_BUTTON_CLASS} z-20 opacity-0! transition-opacity group-hover/modal:opacity-75! hover:opacity-100!`}
+          className={`absolute top-2 right-2 w-4 h-4 flex items-center justify-center text-lg grayscale cursor-pointer scale-50 z-20 opacity-0! transition-opacity group-hover/modal:opacity-75! hover:opacity-100!`}
           onClick={(e) => {
             e.stopPropagation()
             handleResetAll()
@@ -357,81 +423,169 @@ export default function DevelopmentsPicker({ open, onClose }: DevelopmentsPicker
         >
           ⛔
         </button>
-        <div className="flex flex-1 flex-col gap-6 overflow-auto min-h-0 bg-zinc-950">
-          <div className="flex gap-6">
-            <Quadrant
-              domain="economic"
-              developments={byDomain.economic}
-              selectedSet={selectedSet}
-              selectedDevelopments={selectedDevelopments}
-              lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
-              cannotDeselectIds={cannotDeselectIds}
-              isAvailable={isAvailable}
-              getOrderNumber={getOrderNumber}
-              onSelect={handleSelect}
-              onDeselect={handleDeselect}
-              onResetDomain={() => handleResetDomain("economic")}
-              onHover={setHoverTooltip}
-              knowledgeContext={knowledgeContext}
-              setDevelopmentKnowledge={setDevelopmentKnowledge}
-              totalDaysOfOrder={totalDaysOfOrder}
-            />
-            <Quadrant
-              domain="military"
-              developments={byDomain.military}
-              selectedSet={selectedSet}
-              selectedDevelopments={selectedDevelopments}
-              lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
-              cannotDeselectIds={cannotDeselectIds}
-              isAvailable={isAvailable}
-              getOrderNumber={getOrderNumber}
-              onSelect={handleSelect}
-              onDeselect={handleDeselect}
-              onResetDomain={() => handleResetDomain("military")}
-              onHover={setHoverTooltip}
-              knowledgeContext={knowledgeContext}
-              setDevelopmentKnowledge={setDevelopmentKnowledge}
-              totalDaysOfOrder={totalDaysOfOrder}
-            />
-          </div>
-          <div className="flex gap-6">
-            <Quadrant
-              domain="statecraft"
-              developments={byDomain.statecraft}
-              selectedSet={selectedSet}
-              selectedDevelopments={selectedDevelopments}
-              lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
-              cannotDeselectIds={cannotDeselectIds}
-              isAvailable={isAvailable}
-              getOrderNumber={getOrderNumber}
-              onSelect={handleSelect}
-              onDeselect={handleDeselect}
-              onResetDomain={() => handleResetDomain("statecraft")}
-              onHover={setHoverTooltip}
-              knowledgeContext={knowledgeContext}
-              setDevelopmentKnowledge={setDevelopmentKnowledge}
-              totalDaysOfOrder={totalDaysOfOrder}
-            />
-            <Quadrant
-              domain="green"
-              developments={byDomain.green}
-              selectedSet={selectedSet}
-              selectedDevelopments={selectedDevelopments}
-              lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
-              cannotDeselectIds={cannotDeselectIds}
-              isAvailable={isAvailable}
-              getOrderNumber={getOrderNumber}
-              onSelect={handleSelect}
-              onDeselect={handleDeselect}
-              onResetDomain={() => handleResetDomain("green")}
-              onHover={setHoverTooltip}
-              knowledgeContext={knowledgeContext}
-              setDevelopmentKnowledge={setDevelopmentKnowledge}
-              totalDaysOfOrder={totalDaysOfOrder}
-            />
-          </div>
+        <div className={`flex flex-1 flex-col min-h-0 bg-zinc-950 ${isMobile ? (isLandscape ? "gap-1 overflow-visible" : "gap-2 overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden") : "gap-6 overflow-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"}`}>
+          {isMobile ? (
+            <>
+              <div className="flex items-center justify-between gap-2 shrink-0 w-full">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  className="shrink-0 p-1.5 rounded hover:bg-zinc-800 transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
+                  aria-label="Previous domain"
+                >
+                  <img src={getHudImagePath("settings/left.webp")} alt="" width={16} height={16} />
+                </button>
+                <span
+                  className={`font-medium text-sm capitalize min-w-[80px] text-center ${DOMAIN_TEXT_CLASS[DOMAIN_ORDER[activeDomainIndex]]}`}
+                >
+                  {DOMAIN_LABELS[DOMAIN_ORDER[activeDomainIndex]]}
+                </span>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={goNext}
+                    className="shrink-0 p-1.5 rounded hover:bg-zinc-800 transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
+                    aria-label="Next domain"
+                  >
+                    <img src={getHudImagePath("settings/right.webp")} alt="" width={16} height={16} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      onClose()
+                    }}
+                    className="shrink-0 p-1.5 rounded bg-transparent text-[#a67c00] hover:bg-black/20 transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
+                    aria-label="Close development picker"
+                    title="Close"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <path d="M18 6 6 18" />
+                      <path d="m6 6 12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                ref={sliderRef}
+                className={`flex overflow-x-auto snap-x snap-mandatory flex-1 min-h-0 [-webkit-overflow-scrolling:touch] [touch-action:pan-x] ${isLandscape ? "gap-2 -mx-1 px-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" : "gap-4 -mx-2 px-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden overscroll-contain"}`}
+              >
+                {DOMAIN_ORDER.map((domain, index) => (
+                  <div
+                    key={domain}
+                    ref={(el) => { slideRefs.current[index] = el }}
+                    className={`snap-center shrink-0 w-full min-w-full flex flex-col min-h-0 [-webkit-overflow-scrolling:touch] ${isLandscape ? "overflow-hidden [touch-action:pan-x]" : "overflow-auto [touch-action:pan-y] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden overscroll-contain"}`}
+                  >
+                    <Quadrant
+                      domain={domain}
+                      developments={byDomain[domain]}
+                      selectedSet={selectedSet}
+                      selectedDevelopments={selectedDevelopments}
+                      lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
+                      cannotDeselectIds={cannotDeselectIds}
+                      isAvailable={isAvailable}
+                      getOrderNumber={getOrderNumber}
+                      onSelect={handleSelect}
+                      onDeselect={handleDeselect}
+                      onResetDomain={() => handleResetDomain(domain)}
+                      onHover={setHoverTooltip}
+                      knowledgeContext={knowledgeContext}
+                      setDevelopmentKnowledge={setDevelopmentKnowledge}
+                      totalDaysOfOrder={totalDaysOfOrder}
+                      compact={isMobile}
+                      fillSpace={isMobile && !isPortrait}
+                    />
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="flex gap-6">
+                <Quadrant
+                  domain="economic"
+                  developments={byDomain.economic}
+                  selectedSet={selectedSet}
+                  selectedDevelopments={selectedDevelopments}
+                  lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
+                  cannotDeselectIds={cannotDeselectIds}
+                  isAvailable={isAvailable}
+                  getOrderNumber={getOrderNumber}
+                  onSelect={handleSelect}
+                  onDeselect={handleDeselect}
+                  onResetDomain={() => handleResetDomain("economic")}
+                  onHover={setHoverTooltip}
+                  knowledgeContext={knowledgeContext}
+                  setDevelopmentKnowledge={setDevelopmentKnowledge}
+                  totalDaysOfOrder={totalDaysOfOrder}
+                />
+                <Quadrant
+                  domain="military"
+                  developments={byDomain.military}
+                  selectedSet={selectedSet}
+                  selectedDevelopments={selectedDevelopments}
+                  lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
+                  cannotDeselectIds={cannotDeselectIds}
+                  isAvailable={isAvailable}
+                  getOrderNumber={getOrderNumber}
+                  onSelect={handleSelect}
+                  onDeselect={handleDeselect}
+                  onResetDomain={() => handleResetDomain("military")}
+                  onHover={setHoverTooltip}
+                  knowledgeContext={knowledgeContext}
+                  setDevelopmentKnowledge={setDevelopmentKnowledge}
+                  totalDaysOfOrder={totalDaysOfOrder}
+                />
+              </div>
+              <div className="flex gap-6">
+                <Quadrant
+                  domain="statecraft"
+                  developments={byDomain.statecraft}
+                  selectedSet={selectedSet}
+                  selectedDevelopments={selectedDevelopments}
+                  lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
+                  cannotDeselectIds={cannotDeselectIds}
+                  isAvailable={isAvailable}
+                  getOrderNumber={getOrderNumber}
+                  onSelect={handleSelect}
+                  onDeselect={handleDeselect}
+                  onResetDomain={() => handleResetDomain("statecraft")}
+                  onHover={setHoverTooltip}
+                  knowledgeContext={knowledgeContext}
+                  setDevelopmentKnowledge={setDevelopmentKnowledge}
+                  totalDaysOfOrder={totalDaysOfOrder}
+                />
+                <Quadrant
+                  domain="expansion"
+                  developments={byDomain.expansion}
+                  selectedSet={selectedSet}
+                  selectedDevelopments={selectedDevelopments}
+                  lastSelectedId={selectedDevelopments[selectedDevelopments.length - 1] ?? null}
+                  cannotDeselectIds={cannotDeselectIds}
+                  isAvailable={isAvailable}
+                  getOrderNumber={getOrderNumber}
+                  onSelect={handleSelect}
+                  onDeselect={handleDeselect}
+                  onResetDomain={() => handleResetDomain("expansion")}
+                  onHover={setHoverTooltip}
+                  knowledgeContext={knowledgeContext}
+                  setDevelopmentKnowledge={setDevelopmentKnowledge}
+                  totalDaysOfOrder={totalDaysOfOrder}
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
+      {open && isMobile && isPortrait && (
+        <div
+          className="fixed bottom-24 left-1/2 z-60 -translate-x-1/2 rounded- bg-zinc-800/95 px-4 py-2 text-sm text-white shadow-lg animate-toast-fade-in text-center"
+          role="status"
+          aria-live="polite"
+        >
+          Prefer landscape mode to view developments
+        </div>
+      )}
       {hoverTooltip && (() => {
         const dev = hoverTooltip.development
         const idx = selectedDevelopments.indexOf(dev.id)
@@ -519,6 +673,26 @@ interface QuadrantProps {
     idToDev: Map<string, DevWithTierAndDomain>,
     ctx: KnowledgeContext
   ) => number
+  /** Use smaller nodes on mobile to reduce overflow */
+  compact?: boolean
+  /** When true, fill available width and adapt node scale to container (mobile landscape) */
+  fillSpace?: boolean
+}
+
+/** Compute scale so grid fits in availableWidth and availableHeight. */
+function scaleFromAvailableSize(
+  availableWidth: number,
+  availableHeight: number,
+  cols: number,
+  rows: number
+): number {
+  if (cols <= 0 || rows <= 0) return DEV_SCALE_MOBILE
+  const widthDenom = cols * 2.15 + (cols - 1) * 0.21
+  const heightDenom = rows * 1 + (rows - 1) * 0.36
+  const scaleFromWidth = availableWidth / widthDenom
+  const scaleFromHeight = availableHeight / heightDenom
+  const scale = Math.min(scaleFromWidth, scaleFromHeight)
+  return Math.round(Math.max(DEV_SCALE_MIN, Math.min(DEV_SCALE, scale)))
 }
 
 function Quadrant({
@@ -537,7 +711,12 @@ function Quadrant({
   knowledgeContext,
   setDevelopmentKnowledge,
   totalDaysOfOrder,
+  compact = false,
+  fillSpace = false,
 }: QuadrantProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [adaptiveScale, setAdaptiveScale] = useState<number | null>(null)
+
   const maxX = useMemo(
     () => (developments.length ? Math.max(...developments.map((d) => d.gridX)) : 0),
     [developments]
@@ -548,9 +727,28 @@ function Quadrant({
   )
   const cols = maxX + 1
   const rows = maxY + 1
-  /** Grid content width so we don't stretch with w-full; lets quadrant padding create space on the right */
-  const gridContentWidth =
-    cols * DEV_LAYOUT.nodeWidth + (cols - 1) * DEV_LAYOUT.gapX
+
+  const effectiveScale =
+    fillSpace && adaptiveScale != null ? adaptiveScale : compact ? DEV_SCALE_MOBILE : DEV_SCALE
+  const layout = useMemo(() => getDevLayout(effectiveScale), [effectiveScale])
+  const gridContentWidth = cols * layout.nodeWidth + (cols - 1) * layout.gapX
+
+  useEffect(() => {
+    if (!fillSpace || !containerRef.current) return
+    const el = containerRef.current
+    const updateScale = () => {
+      const w = el.offsetWidth
+      const h = el.offsetHeight
+      const paddingX = fillSpace ? QUADRANT_PADDING_X_FILL : QUADRANT_PADDING_X
+      const availableW = Math.max(0, w - paddingX)
+      const availableH = fillSpace ? Math.max(0, h - QUADRANT_PADDING_Y_FILL) : Infinity
+      setAdaptiveScale(scaleFromAvailableSize(availableW, availableH, cols, rows))
+    }
+    updateScale()
+    const ro = new ResizeObserver(updateScale)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [fillSpace, cols, rows])
 
   const nodeState = (d: DevelopmentEntry): "locked" | "available" | "selected" => {
     if (selectedSet.has(d.id)) return "selected"
@@ -576,15 +774,11 @@ function Quadrant({
 
   const quadrantBg = getDevelopmentPickerAssetPath(QUADRANT_BG_FILES[domain])
 
-  const domainLabels: Record<DevelopmentDomain, string> = {
-    economic: "economic",
-    military: "military",
-    statecraft: "statecraft",
-    green: "green",
-  }
-
   return (
-    <div className="group/quadrant relative w-max min-w-0 min-h-[140px] overflow-auto bg-zinc-900/80 pl-5 pr-8 pt-5 pb-5 border border-transparent rounded-lg">
+    <div
+      ref={containerRef}
+      className={`group/quadrant relative min-h-[140px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden overscroll-contain [-webkit-overflow-scrolling:touch] bg-zinc-900/80 border border-transparent rounded-lg ${fillSpace ? "w-full min-w-0 flex-1 min-h-0 overflow-hidden pl-3 pr-4 pt-3 pb-3 flex flex-col justify-center" : "w-max min-w-0 overflow-auto pl-5 pr-8 pt-5 pb-5"}`}
+    >
       <button
         type="button"
         className={`${RESET_BUTTON_CLASS} z-20 opacity-0! transition-opacity group-hover/quadrant:opacity-75! hover:opacity-100!`}
@@ -592,8 +786,8 @@ function Quadrant({
           e.stopPropagation()
           onResetDomain()
         }}
-        aria-label={`Reset ${domainLabels[domain]} tree`}
-        title={`Reset ${domainLabels[domain]} tree`}
+        aria-label={`Reset ${DOMAIN_LABELS[domain]} tree`}
+        title={`Reset ${DOMAIN_LABELS[domain]} tree`}
       >
         ⛔
       </button>
@@ -604,12 +798,12 @@ function Quadrant({
         aria-hidden
       />
       <div
-        className="relative z-10 grid"
+        className={`relative z-10 grid ${fillSpace ? "mx-auto" : ""}`}
         style={{
           width: gridContentWidth,
-          gridTemplateColumns: `repeat(${cols}, ${DEV_LAYOUT.nodeWidth}px)`,
-          gridTemplateRows: `repeat(${rows}, ${DEV_LAYOUT.nodeHeight}px)`,
-          gap: `${DEV_LAYOUT.gapY}px ${DEV_LAYOUT.gapX}px`,
+          gridTemplateColumns: `repeat(${cols}, ${layout.nodeWidth}px)`,
+          gridTemplateRows: `repeat(${rows}, ${layout.nodeHeight}px)`,
+          gap: `${layout.gapY}px ${layout.gapX}px`,
         }}
       >
         {developments.map((d) => {
@@ -661,12 +855,12 @@ function Quadrant({
               style={{
                 gridColumn: d.gridX + 1,
                 gridRow: d.gridY + 1,
-                width: DEV_LAYOUT.nodeWidth,
-                height: DEV_LAYOUT.nodeHeight,
-                paddingTop: DEV_LAYOUT.nodePaddingTop,
-                paddingLeft: DEV_LAYOUT.nodePaddingX,
-                paddingRight: DEV_LAYOUT.nodePaddingX,
-                paddingBottom: DEV_LAYOUT.nodePaddingBottom,
+                width: layout.nodeWidth,
+                height: layout.nodeHeight,
+                paddingTop: layout.nodePaddingTop,
+                paddingLeft: layout.nodePaddingX,
+                paddingRight: layout.nodePaddingX,
+                paddingBottom: layout.nodePaddingBottom,
               }}
               onClick={(e) => {
                 if (e.button !== 0) return
@@ -715,9 +909,9 @@ function Quadrant({
                 <div
                   className="absolute left-[10%] z-10 bg-contain bg-center bg-no-repeat pointer-events-none"
                   style={{
-                    top: DEV_LAYOUT.flagTopOffset,
-                    width: DEV_LAYOUT.flagSize,
-                    height: DEV_LAYOUT.flagSize,
+                    top: layout.flagTopOffset,
+                    width: layout.flagSize,
+                    height: layout.flagSize,
                     backgroundImage: `url(${getDevelopmentPickerAssetPath(FACTION_FLAG_FILES[d.faction as FactionLabel])})`,
                   }}
                 />
@@ -727,9 +921,9 @@ function Quadrant({
                 className="absolute top-0 z-10 flex items-center justify-center bg-contain bg-center bg-no-repeat shrink-0 pointer-events-none"
                 style={{
                   left: "50%",
-                  width: DEV_LAYOUT.frameSize,
-                  height: DEV_LAYOUT.frameSize,
-                  transform: `translate(-50%, -${DEV_LAYOUT.iconRaise}px)`,
+                  width: layout.frameSize,
+                  height: layout.frameSize,
+                  transform: `translate(-50%, -${layout.iconRaise}px)`,
                   backgroundImage: `url(${frameImage})`,
                 }}
               >
@@ -741,7 +935,7 @@ function Quadrant({
                         ...spriteStyle,
                         width: d.gfx.size,
                         height: d.gfx.size,
-                        transform: `translate(-50%, -50%) scale(${DEV_LAYOUT.iconInnerSize / d.gfx.size})`,
+                        transform: `translate(-50%, -50%) scale(${layout.iconInnerSize / d.gfx.size})`,
                         transformOrigin: "center center",
                         position: "absolute",
                         left: "50%",
@@ -756,9 +950,9 @@ function Quadrant({
                 <div
                   className="absolute top-0 left-1/2 pointer-events-none rounded-full flex items-center justify-center"
                   style={{
-                    width: DEV_LAYOUT.frameSize * 1.8,
-                    height: DEV_LAYOUT.frameSize * 1.8,
-                    transform: `translate(-50%, -${DEV_LAYOUT.iconRaise}px)`,
+                    width: layout.frameSize * 1.8,
+                    height: layout.frameSize * 1.8,
+                    transform: `translate(-50%, -${layout.iconRaise}px)`,
                     zIndex: 0,
                   }}
                 >
@@ -776,9 +970,9 @@ function Quadrant({
                   className="absolute top-0 flex items-center justify-center bg-contain bg-center bg-no-repeat shrink-0 pointer-events-none z-10"
                   style={{
                     left: "50%",
-                    width: DEV_LAYOUT.frameSize,
-                    height: DEV_LAYOUT.frameSize,
-                    transform: `translate(-50%, -${DEV_LAYOUT.iconRaise}px)`,
+                    width: layout.frameSize,
+                    height: layout.frameSize,
+                    transform: `translate(-50%, -${layout.iconRaise}px)`,
                     backgroundImage: `url(${DEV_SELECTED_CIRCLE_IMAGE})`,
                   }}
                 />
@@ -819,7 +1013,7 @@ function Quadrant({
                 </div>
               )}
               <span
-                className={`text-center text-xs pb-1 w-4/5 leading-tight ${state === "selected" ? "text-white" : "text-zinc-200"}`}
+                className={`text-center pb-1 w-4/5 leading-tight line-clamp-2 overflow-hidden ${compact ? "text-[0.45rem]" : "text-xs"} ${state === "selected" ? "text-white" : "text-zinc-200"}`}
               >
                 {d.name}
               </span>

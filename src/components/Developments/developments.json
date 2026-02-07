@@ -359,7 +359,8 @@
     },
     "attributes": [
       "+1 [Missile Battery] limit",
-      "+1 militia armor"
+      "+1 militia armor",
+      "+30% [Missile Battery] power"
     ]
   },
   {
@@ -1600,10 +1601,9 @@
       "y": 1
     },
     "attributes": [
-      "+0.5 [Solari] production per existing neutral or [Fremen]",
-      "+50% Solari",
-      "+500 [Solari] when liberating a",
-      "Unlocks the [Trade Agreement] [Treaty]"
+      "Unlocks the [Trade Agreement] [Treaty]",
+      "+0.5 [Solari] production per existing neutral or [Fremen] village",
+      "+500 [Solari] when liberating a village"
     ]
   },
   {
@@ -1932,7 +1932,7 @@
     },
     "attributes": [
       "+15 [Plascrete] production",
-      "+99900% building life"
+      "Buildings have +1000 [Health]"
     ]
   },
   {

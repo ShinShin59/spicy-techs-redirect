@@ -423,13 +423,8 @@
       "y": 12
     },
     "attributes": [
-      "Unlocks the [Fusion Plant]",
-      "Unlocks the [Support Drone] unit",
-      "Unlocks the [Combat Probe] unit",
-      "Unlocks the [Mobile Turret] unit",
-      "Unlocks the [Artillery Drone] unit",
-      "Unlocks the [War Banner] unit",
-      "Unlocks the [Resonance Drone] unit"
+      "Unlocks the second gear slot in the Armory",
+      "Unlocks the [Support Drone] unit"
     ]
   },
   {
@@ -1435,8 +1430,9 @@
       "y": 4
     },
     "attributes": [
-      "+30% pillage gain",
-      "Unlocks the [Scavenging Drone] unit"
+      "Unlocks the second gear slot in the Armory",
+      "Unlocks the [Support Drone] unit",
+      "+30% resources from pillaging villages and sietches"
     ]
   },
   {
@@ -1796,8 +1792,9 @@
       "y": 7
     },
     "attributes": [
+      "Unlocks the [Support Drone] unit",
       "+10 [Water]",
-      "+20% Speed"
+      "Ground units gain +20% Speed in neutral territory"
     ]
   },
   {
@@ -2320,8 +2317,8 @@
       "y": 6
     },
     "attributes": [
-      "Unlocks the [War Banner] unit",
-      "+90% damage received m ratio by House Ecaz units in a large area around the [Ecaz Champion]"
+      "Unlocks the [Support Drone] unit",
+      "Ecazi units in a large area around the [Ecaz Champion] get +10% power"
     ]
   },
   {
